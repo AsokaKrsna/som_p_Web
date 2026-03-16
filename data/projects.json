@@ -1,0 +1,62 @@
+{
+    "ongoing": [
+        {
+            "title": "ISEA-III (Security Futuristic technologies)",
+            "role": "PI(Co-Led)",
+            "agency": "MeiTy",
+            "amount": "-",
+            "duration": "5 yrs"
+        },
+        {
+            "title": "Development of    an Intelligent Visual Query Response solution for Remote sensing",
+            "role": "Co-PI\u00a0\u00a0 with PI (Dr.\u00a0 Suman Kumar Maji)",
+            "agency": "SERB",
+            "amount": "26,67981",
+            "duration": "Commenced from 9th Jan 2023    (3Yrs)"
+        },
+        {
+            "title": "Collaborative    learning for Early detection of Fraud in Fintech Application",
+            "role": "PI",
+            "agency": "IIT Bhilai    Innovation Technology Foundation",
+            "amount": "14.94 Lakh",
+            "duration": "3Yrs (commenced from 01-04-2022)"
+        }
+    ],
+    "completed": [
+        {
+            "title": "AI-based Tools for Women and Child Safety",
+            "role": "Co-PI",
+            "agency": "Ministry of Home Affairs (MHA)",
+            "amount": "Rs. 284.688 Lacs",
+            "duration": "24 Months"
+        },
+        {
+            "title": "Privacy Preserving Smart Contract based Technique to Perform Secure Computation in Cloud Storage: Design and Analysis",
+            "role": "PI",
+            "agency": "SERB (Mathematical Research Impact Centric Support (MATRICS))",
+            "amount": "Rs. 6.6 Lacs (2.2 Lacs per year)",
+            "duration": "36 Months (Jan 2020)"
+        },
+        {
+            "title": "Development of Solution to Defend Against Collaborative Attacks in Peer-to-Peer Networks",
+            "role": "PI",
+            "agency": "DEITY",
+            "amount": "Rs. 35.4 Lacs",
+            "duration": "34 Months (Completed on July 2018)"
+        },
+        {
+            "title": "Development of a Secure Routing Framework for P2P Networks using Gossip-based Protocols",
+            "role": "Co-PI",
+            "agency": "DIT",
+            "amount": "Rs. 59.64 Lacs",
+            "duration": "28 months (Completed On Feb 2014)"
+        },
+        {
+            "title": "Development of Authentication and Key Management for Battle Field Communication Network",
+            "role": "PI",
+            "agency": "DRDO, CAIR, Bangalore",
+            "amount": "Rs. 9.6 Lacs",
+            "duration": "16 months (Completed on Jan 2013)"
+        }
+    ]
+}

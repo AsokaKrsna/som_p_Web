@@ -1,0 +1,888 @@
+{
+    "journals": [
+        {
+            "link": "https://link.springer.com/article/10.1007/s11227-025-07774-x",
+            "title": "FedShield: federated learning based robust online payment fraud detection",
+            "impact_factor": "(IF:2.7, H5: 83)",
+            "details": "Narendra Singh Lodhi and Somanath Tripathy , ,\n                                The Journal of Supercomputing, Volume 81, article number 1289, (2025). \n                                https://doi.org/10.1007/s11227-025-07774-x"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S0167404824005376",
+            "title": "SESIV: Secure and efficient smart contract based integrity verification of outsourced data",
+            "impact_factor": "(IF:3.7, H5: 69)",
+            "details": "Partha Sarathi Chakraborty and Somanath Tripathy , ,\n                                Journal of Information Security and Applications, Volume 93 , (2025), 104121. \n                                https://doi.org/10.1016/j.jisa.2025.104121"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S0167404824005376",
+            "title": "Unveiling the Veiled: An Early Stage Detection of Fileless Malware",
+            "impact_factor": "(IF:5.6, H5: 112)",
+            "details": "Narendra Singh  and Somanath Tripathy , ,\n                                Computers & Security, Volume 141,(2024), 103819. \n                                https://doi.org/10.1016/j.cose.2024.104231"
+        },
+        {
+            "link": "https://dl.acm.org/doi/full/10.1145/3687476",
+            "title": "Flexichain: Flexible Payment Channel Network to Defend Against Channel Exhaustion Attack",
+            "impact_factor": "(IF: 3.0, H5: 29)",
+            "details": "Susil Kumar Mohanty and Somanath Tripathy , ,\n                                ACM Transactions on Privacy and Security, Volume 27, Issue 4, Article No.: 30, Pages 1 - 26, (2024).\n                                https://doi.org/10.1109/JBHI.2024.3449756"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10666840",
+            "title": "CAGCL: Predicting Short- and Long-Term Breast Cancer Survival with Cross-Modal Attention and Graph Contrastive Learning",
+            "impact_factor": "(IF: 6.7, H5: 113)",
+            "details": "Susmita Palmal,Sriparna Saha, Nikhilanand Arya and Somanath Tripathy , ,\n                                IEEE Journal of Biomedical and Health Informatics,(2024).\n                                https://doi.org/10.1145/3687476"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/10601592",
+            "title": "Real-Time Monitoring of Illegal Logging Events Using Intelligent Acoustic Sensors Nodes",
+            "impact_factor": "(IF: 4.3, H5: 119)",
+            "details": "V. Singh, K. C. Ray and Somanath Tripathy , ,\n                                IEEE Sensors Journal,Volume: 24, Issue: 17,(2024).\n                                https://doi.org/10.1109/JSEN.2024.3419897"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S0167404824001202",
+            "title": "It's too late if exfiltrate: Early stage Android ransomware detection",
+            "impact_factor": "(IF:5.6, H5: 112)",
+            "details": "Narendra Singh  and Somanath Tripathy , ,\n                                Computers & Security, Volume 141,(2024), 103819. \n                                https://doi.org/10.1016/j.cose.2024.103819"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S2542660524000891",
+            "title": "Towards optimal edge resource utilization: Predictive analytics and reinforcement learning for task offloading",
+            "impact_factor": "(IF:5.9, H5: 89)",
+            "details": "Srikant Pradhan, Somanath Tripathy and Rakesh Matam, ,\n                                Internet of Things,Volume 26,101147,(2024),101147. \n                                https://doi.org/10.1016/j.iot.2024.101147"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S1568494624001534?dgcid=coauthor",
+            "title": "Integrative prognostic modeling for breast cancer: Unveiling optimal multimodal combinations using graph convolutional networks and calibrated random forest",
+            "impact_factor": "(IF:8.7, H5: 144)",
+            "details": "Susmita Palmal,Nikhilanand Arya,Sriparna Saha and Somanath Tripathy , ,\n                                Applied Soft omputing,Volume 154,(2024),111379.\n                                https://doi.org/10.1016/j.asoc.2024.111379"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10398506/authors#authors",
+            "title": "Sine: Similarity is not enough for mitigating Local Model Poisoning Attacks in Federated Learning",
+            "impact_factor": "(IF: 7.3, H5: 81)",
+            "details": "Harsh Kasyap and Somanath Tripathy , ,\n                                IEEE Transactions on Dependable and Secure Computing,(2024),1545-5971.\n                                https://doi.org/10.1109/TDSC.2024.3353317"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10413593",
+            "title": "TriMPA: Triggerless Targeted Model Poisoning Attack in DNN",
+            "impact_factor": "(IF:5, H5: 71)",
+            "details": "Debasmita Manna and Somanath Tripathy , ,\n                                IEEE Transactions on Computational Social Systems,(2024),2329-924X. \n                                https://doi.org/10.1109/TCSS.2023.3349269"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10350006",
+            "title": "An Efficient Method and Hardware System for Monitoring of Illegal Logging Events in Forest",
+            "impact_factor": "(IF: 4.4, H5: 77)",
+            "details": "V. Singh, K. C. Ray and Somanath Tripathy , ,\n                                IEEE Systems Journal,(2024),Volume: 18,1937-9234.\n                                https://doi.org/10.1109/JSYST.2023.3333677"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s10586-023-04190-9",
+            "title": "SEVCOD: Secure and Efficient Verifiable Computation on Outsourced Data",
+            "impact_factor": "(IF: 4.4, H5: 69)",
+            "details": "Partha Sarathi Chakraborty, Omkar Santosh Gavhane and Somanath Tripathy , ,\n                                Cluster Computing - The Journal of Networks, Software Tools and Applications (Springer),(2023).\n                                https://doi.org/10.1007/s10586-023-04190-9"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S0957417423027124",
+            "title": "Privacy-preserving and Byzantine-robust Federated Learning Framework using Permissioned Blockchain",
+            "impact_factor": "(IF: 8.5, H5: 148)",
+            "details": "Harsh Kasyap, Somanath Tripathy , ,\n                                Expert Systems with Applications,Volume 238, Part E, (2024), 122210, 1873-6793\n                                https://doi.org/10.1016/j.eswa.2023.122210"
+        },
+        {
+            "link": "https://www.nature.com/articles/s41598-023-40341-z",
+            "title": "Breast cancer survival prognosis using the graph convolutional network with Choquet fuzzy integral",
+            "impact_factor": "(IF: 4.6, H5:210)",
+            "details": "Susmita Palmal,Nikhilanand Arya,Sriparna Saha and Somanath Tripathy , ,\n                                Scientific Reports volume 13, Article number: 14757, (2023), 2045-2322 \n                                https://doi.org/10.1038/s41598-023-40341-z"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s10207-023-00753-4",
+            "title": "BASPED: Blockchain assisted Secure Searchable Public Key Encryption over Outsourced Data",
+            "impact_factor": "(IF: 3.2, H5: 31)",
+            "details": "Partha Sarathi Chakraborty, Somanath Tripathy , and Sanjeet Kumar Nayak , \n                                International Journal of Information Security, Springer, (2023), Volume 23,10.1007/s10207-023-00753-4, 1615-5270"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/abs/pii/S0957417423016949",
+            "title": "Beyond data poisoning in federated learning",
+            "impact_factor": "(IF: 8.5, H5: 148)",
+            "details": "Harsh Kasyap, Somanath Tripathy , , \n                                Expert Systems with Applications,volume: 235, (2023)\t\t\n                                https://doi.org/10.1016/j.eswa.2023.121192"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s00500-023-08431-2",
+            "title": "Multi-objective Optimization with Majority Voting Ensemble of Classifiers for Prediction of HIV-1 Protease Cleavage Site",
+            "impact_factor": "(IF: 4.1, H5: 83)",
+            "details": "Susmita Palmal, Sriparna Saha and Somanath Tripathy , ,\n                                Soft Computing, Volume 27, (2023).\n                                https://doi.org/10.1007/s00500-023-08431-2"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9997114",
+            "title": "An Efficient Blockchain assisted Reputation aware Decentralized Federated Learning Framework",
+            "impact_factor": "(IF: 4.75, H5: 53)",
+            "details": "Harsh Kasyap, Arpan Manna, and Somanath Tripathy , ,\n                                IEEE Transactions on Network and Service Management, (2022).\n                                https://doi.org/10.1109/TNSM.2022.3231283,1932-4537"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s10207-022-00629-z",
+            "title": "Restricting Data-Leakage  using Fine-Grained Access Control on OSN Objects",
+            "impact_factor": "(IF: 2.427)",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , ,\n                                International Journal of Information Security (Springer),(2022). \n                                https://doi.org/10.1007/s10207-022-00629-z"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9843920",
+            "title": "SIoVChain: Time-Lock Contract based Privacy Preserving Data Sharing in SIoV",
+            "impact_factor": "(IF: 9.551, H5: 115)",
+            "details": "Susil Kumar Mohanty, Somanath Tripathy , ,\n                                IEEE Transactions on Intelligent Transportation Systems,(2022). \n                                https://doi.org/10.1109/TITS.2022.3192566"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s41635-021-00120-6",
+            "title": "Design and Analysis of Reconfigurable Cryptographic Primitives: TRNG and PUF",
+            "impact_factor": "( H5: 20)",
+            "details": "Vikash Kumar Rai, Somanath Tripathy , Jimson Mathew, ,\n                                Journal of Hardware and Systems Security (Springer), (2021).\n                                https://doi.org/10.1007/s41635-021-00120-6,"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s10922-021-09620-w",
+            "title": "PassMon: A Technique for Password Generation and Strength Estimation",
+            "impact_factor": "(IF: 2.026, H5: 22)",
+            "details": "Sanjay Murmu, Harsh Kasyap, Somanath Tripathy , ,\n                                Journal of Network and Systems Management (Springer), (2021).\n                                Volume 30, article number 13, {2022}, \n                                https://doi.org/10.1007/s10922-021-09620-w"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/abs/pii/S2214212621001514",
+            "title": "SEPS: Efficient Public-key based Secure Search over Outsourced Data",
+            "impact_factor": "(IF: 2.3, H5: 31)",
+            "details": "Sanjeet Kumar Nayak, Somanath Tripathy , ,\n                                Journal of Information Security and Applications (Elsevier), Volume 61, (2021), 102932.     \n                                https://doi.org/10.1016/j.jisa.2021.102932"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s11227-021-03908-z",
+            "title": "CEMAR: A Fine Grained Access Control with Revocation Mechanism for Centralized    Multi-Authority Cloud Storage",
+            "impact_factor": "(IF: 2.474, H5: 45)",
+            "details": "K. Dhal, S. C. Rai, P. K. Pattnaik, Somanath    Tripathy , ,\n                                The Journal of Supercomputing (Springer), Volume 78, pages 987\u20131009, (2022).\n                                https://doi.org/10.1007/s11227-021-03908-z"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S0167404821001152",
+            "title": "n-HTLC: Neo Hashed Time-Lock Commitment to Defend Against Wormhole Attack in Payment Channel Networks",
+            "impact_factor": "(IF: 5.105, H5: 78)",
+            "details": "Susil Kumar Mohanty, Somanath Tripathy , ,\n                                Computers & Security (Elsevier), Volume 106, (2021), 102291.\n                                https://doi.org/10.1016/j.cose.2021.102291"
+        },
+        {
+            "link": "https://digital-library.theiet.org/content/journals/10.1049/iet-its.2020.0390",
+            "title": "FRAC: A Flexible Resource Allocation for Vehicular Cloud System",
+            "impact_factor": "(IF: 2.480, H5: 29)",
+            "details": "Srikanta Pradhan, Somanath Tripathy , ,\n                                IET Intelligent Transport Systems, Volume 14, Issue 14, (2021) .\n                                https://doi.org/10.1049/iet-its.2020.0390"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9298893",
+            "title": "'Effective Visibility Prediction on Online Social Network'",
+            "impact_factor": "(IF: 3.29, H5: 12)",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , , \n                                in IEEE Transactions on Computational Social Systems, Volume 8, Issue 2, pp. 355-364, (2021). \n                                https://doi.org/10.1109/TCSS.2020.3042713."
+        },
+        {
+            "link": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cds2.12042",
+            "title": "'MARPUF: Physical Unclonable Function with Improved Machine Learning Attack Resistance '",
+            "impact_factor": "(IF: 1.290)",
+            "details": "Somanath Tripathy , Vikash Kumar Rai, Jimson Mathew , \n                                IET Circuits, Devices & Systems,Volume15, Issue 5,(2021).\n                                https://doi.org/10.1049/cds2.12042"
+        },
+        {
+            "link": "https://dl.acm.org/doi/abs/10.1145/3426474",
+            "title": "'Privacy-Preserving Learning Framework for Healthcare System'",
+            "impact_factor": "(IF: 2.25, H5: 32)",
+            "details": "Harsh Kasyap, Somanath Tripathy , , \n                                ACM Transactions on Multimedia Computing, Communications, and Applications, Volume 17, Issue 2, pp 1\u201324,(2020). \n                                https://doi.org/10.1145/3426474"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s42486-020-00047-x",
+            "title": "'PJ-Sec: Secure Node Joining in Mobile P2P Networks'",
+            "impact_factor": "",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , , \n                                CCF Transactions on Pervasive Computing and Interaction (Springer), Volume 3, pp 13\u201324, (2021). \n                                https://doi.org/10.1007/s42486-020-00047-x ."
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s41635-020-00104-y",
+            "title": "'Correlation Power Analysis of KASUMI and Power Resilience Analysis of Some Equivalence Classes of KASUMI S-Boxes'",
+            "impact_factor": "",
+            "details": "Devansh Gupta, Somanath Tripathy ,    Bodhisatwa Mazumdar, , \n                                Journal of Hardware and Systems Security (Springer), Volume 4, pp 297\u2013313,(2020). \n                                https://doi.org/10.1007/s41635-020-00104-y ."
+        },
+        {
+            "link": "https://onlinelibrary.wiley.com/doi/10.1002/dac.4546",
+            "title": "Enhancing Quality of Experience using Peer-to-Peer Overlay on Device-to-Device Communications",
+            "impact_factor": "(IF: 1.319, H5: 32)",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy and R. K. Ghosh, , \n                                International Journal of Communication Systems (Wiley), Volume 33, Issue 15,(2020).  \n                                https://doi.org/10.1002/dac.4546"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s13278-020-00662-7",
+            "title": "AppMonitor: Restricting Information Leakage to Third-Party Applications",
+            "impact_factor": "(IF: 1.610, H5: 24)",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , , \n                                Social Network Analysis and Mining (Springer), Volume 10, Issue 49,(2020). \n                                https://doi.org/10.1007/s13278-020-00662-7"
+        },
+        {
+            "link": "https://ieeecs-media.computer.org/media/technical-activities/tcvlsi/newsletters/2020/ieee_vcal_vol_6_issue_1_feb_2020.pdf",
+            "title": "HTRNG: High throughput True Random Number Generator using Memristor",
+            "impact_factor": "",
+            "details": "Vikash Kumar Rai, Somanath Tripathy , Rajat Subhra Chakraborty, Jimson Mathew, , \n                                IEEE VLSI CIRCUITS AND SYSTEMS LETTER,Volume 6 \u2013 Issue 1,(2020)."
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s10207-019-00455-w",
+            "title": "SEDS: secure and efficient server-aided data deduplication scheme for cloud storage",
+            "impact_factor": "(IF: 1.822, H5: 25)",
+            "details": "Sanjeet Kumar Nayak, Somanath Tripathy , , \n                                International Journal of Information Security (Springer), Volume 19, Issue 2, pp 229-240,(2020). \n                                https://doi.org/10.1007/s10207-019-00455-w"
+        },
+        {
+            "link": "https://onlinelibrary.wiley.com/doi/full/10.1002/spy2.87",
+            "title": "Correlation Power Analysis and Effective Defense Approach on Light Encryption Device Block Cipher",
+            "impact_factor": "(IF: 1.9)",
+            "details": "Vikash Kumar Rai, Boreddy V. Reddy, Somanath Tripathy , Jimson Mathew Security and Privacy (Wiley), Volume 2, Issue 5,(2019).\n                                https://doi.org/10.1002/spy2.87"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/8692705",
+            "title": "Routing Table Poisoning Model for Peer-to-Peer (P2P) Botnets",
+            "impact_factor": "(IF: 4.098, H5: 89)",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , Ezhil Kalaimannan, Caroline John, and Anshika Srivastava, , \n                                IEEE Access, Volume 7, pp 67983 - 67995,(2019). \n                                https://doi.org/10.1109/ACCESS.2019.2906875"
+        },
+        {
+            "link": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/spy2.60",
+            "title": "CookieArmor: Safeguarding Against Cross-site Request Forgery and Session Hijacking",
+            "impact_factor": "(IF: 1.9)",
+            "details": "Ashutosh Kumar Sinha, Somanath Tripathy , , \n                                Security and Privacy (Wiley), Volume 2, Issue 2, (2019). \n                                https://doi.org/10.1002/spy2.60"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/8418399/",
+            "title": "SEMKC:Secure & Efficient Computation over Outsourced Data Encrypted under Multiple Keys",
+            "impact_factor": "(IF: 4.989, H5: 42)",
+            "details": "Sanjeet Kumar Nayak, Somanath Tripathy , , \n                                IEEE Transactions on Emerging Topics in Computing, Volume 9, Issue 1, pp 414-428,(2018). \n                                https://doi.org/10.1109/TETC.2018.2859051."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/8327915/",
+            "title": "SEPDP: Secure and Efficient Privacy Preserving Provable Data Possession in Cloud Storage",
+            "impact_factor": "(IF: 5.707, H5: 50)",
+            "details": "Sanjeet Kumar Nayak, Somanath Tripathy , , \n                                IEEE Transactions on Services Computing,(2018),1939-1374. \n                                https://doi.org/10.1109/TSC.2018.2820713."
+        },
+        {
+            "link": "https://www.tandfonline.com/doi/full/10.1080/02564602.2017.1407681",
+            "title": "Securing Multicast Group Communication in IoT-Enabled Systems",
+            "impact_factor": "(IF: 1.618, H5: 19)",
+            "details": "Subho Shankar Basu, Somanath Tripathy , , \n                                IETE Technical Review (Taylor & Francis),(2018),0256-4602. \n                                https://doi.org/10.1080/02564602.2017.1407681"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s13278-017-0425-6",
+            "title": "A Trust-based Collaborative Access Control Model with Policy Aggregation for Online Social Networks",
+            "impact_factor": "(IF: 1.61, H5: 25)",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , , \n                                Social Network Analysis and Mining (Springer), Volume 7,(2017). \n                                https://doi.org/10.1007/s13278-017-0425-6"
+        },
+        {
+            "link": "https://www.hindawi.com/journals/jcnc/2016/1563464/",
+            "title": "Secure Multicast Routing Algorithm for Wireless Mesh Networks",
+            "impact_factor": "(IF: 1.56, H5: 13)",
+            "details": "Rakesh Matam, Somanath Tripathy , ,  \n                                Journal of Computer Networks and Communications (Hindwai), Volume 2016, pp 1-11, (2016).\n                                https://doi.org/10.1155/2016/1563464"
+        },
+        {
+            "link": "https://pdfs.semanticscholar.org/16ed/684a5c2a3317ea9f04f15cfef7302dce916a.pdf",
+            "title": "eCK Secure Single Round ID-based Authenticated Key Exchange Protocols with Master Perfect Forward Secrecy",
+            "impact_factor": "(IF: 1.2)",
+            "details": "Tapas Pandit, Rana Barua, Somanath Tripathy , , \n                                Journal of Wireless Mobile Networks, Ubiquitous Computing, and Dependable Applications (Springer), Volume 5, pp 65-85, (2014).\n                                https://doi.org/10.22667/JOWUA.2014.12.31.065"
+        },
+        {
+            "link": "https://jwcn-eurasipjournals.springeropen.com/articles/10.1186/1687-1499-2013-180",
+            "title": "WRSR: Wormhole Resistant Secure Routing for Wireless Mesh Networks",
+            "impact_factor": "(IF: 1.592, H5: 35)",
+            "details": "Rakesh Matam, Somanath Tripathy , , \n                                EURASIP Journal on Wireless Communications and Networking (Springer), Volume 2013, (2013). \n                                https://doi.org/10.1186/1687-1499-2013-180"
+        },
+        {
+            "link": "https://link.springer.com/article/10.1007/s11276-013-0575-z",
+            "title": "Improved Heuristics for Multicast Routing in Wireless Mesh Networks",
+            "impact_factor": "(IF: 2.405, H5: 34)",
+            "details": "Rakesh Matam, Somanath Tripathy , , \n                                Wireless Networks (Springer), Volume 19, Issue 8, pp 1829-1837, (2013). \n                                https://doi.org/10.1007/s11276-013-0575-z"
+        },
+        {
+            "link": "http://ijns.jalaxy.com.tw/contents/ijns-v16-n3/ijns-2014-v16-n3-p182-192.pdf",
+            "title": "Provably Secure Routing Protocol for Wireless Mesh Networks",
+            "impact_factor": "(H5: 23)",
+            "details": "Rakesh Matam, Somanath Tripathy , , \n                                International Journal of Network Security, Volume 16, Issue 3, pp 168-178, (2014)."
+        },
+        {
+            "link": "http://www.inderscienceonline.com/doi/abs/10.1504/IJCNDS.2013.051822",
+            "title": "ESF: An Efficient Security Framework for Wireless Sensor Network",
+            "impact_factor": "(IF: 0.64, H5: 11)",
+            "details": "Somanath Tripathy , ,  \n                                International Journal of Communication Networks and Distributed Systems (Inderscience), Volume 10, Issue 2, pp 176-194, (2013). \n                                https://doi.org/10.1504/IJCNDS.2013.051822"
+        },
+        {
+            "link": "http://www.inderscienceonline.com/doi/abs/10.1504/IJCNDS.2009.026875",
+            "title": "Cellular Automata-based Authentication for Low-cost RFID Systems",
+            "impact_factor": "(IF: 0.64, H5: 11)",
+            "details": "Somanath Tripathy and Sukumar Nandi, ,  \n                                International Journal of Communication Networks and Distributed Systems (Inderscience), Volume 3, Issue 3, pp 199-216, (2009). \n                                https://doi.org/10.1504/IJCNDS.2009.026875"
+        },
+        {
+            "link": "http://ijns.jalaxy.com.tw/contents/ijns-v8-n3/ijns-2009-v8-n3-p243-252.pdf",
+            "title": "LCASE: Lightweight Cellular Automatabased Symmetric-key Encryption",
+            "impact_factor": "(H5: 23)",
+            "details": "Somanath Tripathy and Sukumar Nandi, ,\n                                International Journal of Network Security, Volume 8, Issue 3, pp 243-252, (2009)."
+        },
+        {
+            "link": "http://www.sciencedirect.com/science/article/pii/S0140366407004355",
+            "title": "Defense Against Outside attacks in Wireless Sensor Networks'",
+            "impact_factor": "(IF: 2.766, H5: 49)",
+            "details": "Somanath Tripathy and Sukumar Nandi, , \n                                Computer Communications journal (Elsevier), Volume 31, Issue 4, pp 818-826, (2008).\n                                https://doi.org/10.1016/j.comcom.2007.10.025"
+        },
+        {
+            "link": "http://www.inderscienceonline.com/doi/abs/10.1504/IJSN.2008.020094",
+            "title": "Secure User-identification and Key Distribution Scheme Preserving Anonymity",
+            "impact_factor": "(H5: 9)",
+            "details": "Somanath Tripathy and Sukumar Nandi, , \n                                International Journal of Security Network (Inderscience), Volume 3, Issue 3, pp 201-205, (2008). \n                                https://doi.org/10.1504/IJSN.2008.020094"
+        }
+    ],
+    "conferences": [
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-032-13714-2_5",
+            "title": "NEXUS: Neuron Activation Scores Exploits for Unveiling Sensitive Attributes",
+            "impact_factor": "",
+            "details": "Debasmita Manna and Somanath Tripathy , ,\n                                    21st International Conference on Information Systems Security (ICISS 2025) , 16-20 December, 2025, IIT Indorre, India."
+        },
+        {
+            "link": "https://doi.org/10.1007/978-3-032-10759-6_14",
+            "title": "Credit Card Fraud Detection Using Dynamic Attention and Multi-View Graph Learning",
+            "impact_factor": "",
+            "details": "Shivam Kushwaha , Ankur Jain and Somanath Tripathy , ,\n                                    The 9th International Symposium on Cyber Security, Cryptology, and Machine Learning, December 4-5, 2025"
+        },
+        {
+            "link": "https://dl.acm.org/doi/full/10.1145/3733799.3762983",
+            "title": "EthAegis: Featured graph based Fraud Detection in Ethereum Transactions",
+            "impact_factor": "",
+            "details": "Ankur Jain and Somanath Tripathy , ,\n                                    18th ACM Workshop on Artificial Intelligence and Security, October 17th, 2025 - Taipei, Taiwan."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-031-80020-7_24",
+            "title": "Patch based backdoor attack on Deep Neural Networks",
+            "impact_factor": "",
+            "details": "Debasmita Manna and Somanath Tripathy , ,\n                                    20th International Conference on Information Systems Security , 16-20 December 2024, LNMIIT, Jaipur, India."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10874326",
+            "title": "Patch-based Adversarial Attack against DNNs",
+            "impact_factor": "",
+            "details": "Nemichand Rinwa, Harsh Kasyap and Somanath Tripathy , ,\n                                    BuildSEC'24 Building a Secure & Empowered Cyberspace, 19-20 December 2024, IIIT Delhi, India."
+        },
+        {
+            "link": "https://doi.org/10.1007/978-981-96-3531-3_18",
+            "title": "SPVPC: Smart Contract based Publicly Verifiable Polynomial Computations",
+            "impact_factor": "(H5:21, Core Ranking: B)",
+            "details": "Partha Sarathi Chakraborty and Somanath Tripathy , ,\n                                    18th International Conference on Network and System Security (NSS 2024), 20-22 November 2024, Zayed University, Abu Dhabi, UAE."
+        },
+        {
+            "link": "https://doi.org/10.1007/978-981-96-3774-4_8",
+            "title": "SmartAudit: Smart Contract Vulnerability Detection using Transfer learning",
+            "impact_factor": "",
+            "details": "Ankur Jain and Somanath Tripathy , ,\n                                    10th International Symposium on Security and Privacy in Social Networks and Big Data (SocialSec 2024), 20-22 November 2024, Zayed University, Abu Dhabi, UAE."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10450095",
+            "title": "Delivery Service Collaboration Using Blockchain Architecture",
+            "impact_factor": "(H5:10, Core Ranking: B)",
+            "details": "Ajay Chandra Korlapati, Sanjeet Kumar Nayak, Partha Sarathi Chakraborty and Somanath Tripathy , ,\n                                    2023 International Conference on Computational Intelligence, Networks and Security (ICCINS), 22-23 Dec. 2023, DTU M\u00f8decenter, Denmark."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-981-99-8141-0_36",
+            "title": "Integrating Multi-view Feature Extraction and Fuzzy Rank-Based Ensemble for Accurate HIV-1 Protease Cleavage Site Prediction",
+            "impact_factor": "(H5:27, Core Ranking: A)",
+            "details": "Susmita Palmal, Sriparna Saha, and Somanath Tripathy , ,\n                                    The 30th International Conference, ICONIP 2023, November 20\u201323, 2023, Changsha, China."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/10538739",
+            "title": "LPA: A Lightweight PUF-based Authentication Protocol for IoT System",
+            "impact_factor": "(H5:31, Core Ranking: B)",
+            "details": "Vikash Kumar Rai, Somanath Tripathy and Jimson Mathew, ,\n                                    The 22nd International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom), November 1-3, 2023, Exeter, UK."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-981-99-7032-2_35",
+            "title": "SIOCEN: Secure Integrity Verification of Outsourced Data in Cloud Storage using Blockchain",
+            "impact_factor": "",
+            "details": "Ajay Chandra Korlapati, Sanjeet Kumar Nayak, Partha Sarathi Chakraborty and Somanath Tripathy , ,\n                                    The 18th International Conference on Information Security Practice and Experience (ISPEC 2023), 24-25 August 2023, Mylavaram, India."
+        },
+        {
+            "link": "https://fc23.ifca.ai/wtsc/WTSC23_4.pdf",
+            "title": "FlexiPCN: Flexible Payment Channel Network",
+            "impact_factor": "(H5:50, Core Ranking: A)",
+            "details": "Susil Kumar Mohanty and Somanath Tripathy , ,\n                                    The 27th International Conference on Financial Cryptography and Data Security  FC 2023 International Workshops: Voting, CoDecFin, DeFi, WTSC, May 5, 2023, Bol, Bra\u010d, Croatia."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-031-49099-6_10",
+            "title": "MDLDroid: Multimodal Deep Learning based Android Malware Detection",
+            "impact_factor": "",
+            "details": "Narendra Singh, Somanath Tripathy , ,\n                                    19th International Conference on Information Systems Security (ICISS), 2023,NIT Raipur, India."
+        },
+        {
+            "link": "#",
+            "title": "HDFL: Private and Robust Federated Learning using Hyperdimensional Computing",
+            "impact_factor": "(H5:35, Core Ranking: A)",
+            "details": "Harsh Kasyap, Somanath Tripathy , and  Mauro Conti., ,\n                                    22nd IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom-2023), Exeter, UK."
+        },
+        {
+            "link": "https://www.springerprofessional.de/en/a-multi-modal-graph-convolutional-network-for-predicting-human-b/25245876",
+            "title": "A Multi-modal Graph Convolutional Network for Predicting Human Breast Cancer Prognosis",
+            "impact_factor": "(H5:27, Core Ranking: A)",
+            "details": "Susmita Palmal, Sriparna Saha, Somanath Tripathy , ,\n                                    29th International Conference on Neural Information Processing (ICONIP), pp 187-198, IIT Indore, India."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9892182",
+            "title": "HIV-1 Protease Cleavage Site Prediction using Stacked Autoencoder with Ensemble of Classifiers",
+            "impact_factor": "",
+            "details": "Susmita Palmal, Sriparna Saha, Somanath Tripathy , ,\n                                International Joint Conference on Neural Networks (IJCNN), 1-8, 2022, Padova, Italy."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-031-23690-7_8",
+            "title": "MILSA: Model Interpretation based Label Sniffing Attack in Federated Learning",
+            "impact_factor": "",
+            "details": "Debasmita Manna, Harsh Kasyap, Somanath Tripathy , ,\n                                18th International Conference on Information Systems Security (ICISS), 2022, pp 139\u2013154, IIT Tirupati, India."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-031-23690-7_4",
+            "title": "SHIELD: A Multimodal Deep Learning Framework For Android Malware Detection",
+            "impact_factor": "",
+            "details": "Narendra Singh, Somanath Tripathy , Bruhadeshwar Bezawada, ,\n                                18th International Conference on Information Systems Security (ICISS), 2022, pp. 64\u201383, IIT Tirupati, India."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/10001610",
+            "title": "Delay Aware Fault-Tolerant Concurrent Data Collection Trees in Shared IIoT Applications",
+            "impact_factor": "(H5: 63, Core Ranking: B)",
+            "details": "Arvind Kumar, Rakesh Matam, Srinibas Swain, Somanath Tripathy , Mithun Mukherjee, Jaime Lloret, ,\n                                IEEE Global Communications Conference (IEEE GLOBECOM), 2022, Rio de Janeiro, Brazil."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/10001443",
+            "title": "MuSigRDT: MultiSig Contract based Reliable Data Transmission in Social Internet of Vehicle",
+            "impact_factor": "(H5: 63, Core Ranking: B)",
+            "details": "Badavath Shravan Naik, Somanath Tripathy , Susil Kumar Mohanty, ,\n                                IEEE Global Communications Conference (IEEE GLOBECOM), 2022, Rio de Janeiro, Brazil."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9935975",
+            "title": "BASDB: Blockchain assisted Secure Outsourced Database Search",
+            "impact_factor": "",
+            "details": "Partha Sarathi Chakraborty, Puspesh Kumar, Mangesh Shivaji Chandrawanshi, Somanath Tripathy , ,\n                                IEEE International Conference on Blockchain and Distributed Systems Security (ICBDS), 2022, Pune, India."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9881812",
+            "title": "BSMFS: Blockchain Assisted Secure Multi-Keyword Fuzzy Search Over Encrypted Data",
+            "impact_factor": "(H5: 23)",
+            "details": "Partha Sarathi Chakraborty, Mangesh Shivaji Chandrawanshi, Puspesh Kumar, Somanath Tripathy , ,\n                                5th IEEE International Conference on Blockchain, Finland (2022)."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9751167",
+            "title": "Hidden Vulnerabilities in Cosine Similarity based Poisoning Defense",
+            "impact_factor": "(H5: 21)",
+            "details": "Harsh Kasyap, Somanath Tripathy , ,\n                                56th Annual Conference on Information Sciences and Systems (CISS 2022),\n                                Princeton University, USA, March 9-11, 2022."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-031-17510-7_2",
+            "title": "ADAM: Automatic Detection of Android Malware",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Narendra Singh, Divyanshu N Singh, ,\n                                14th International Conference on Security for Information Technology and Communications (SECITC 2021),\n                                Romania, November 25-26, 2021."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-86890-1_3",
+            "title": "Moat: Model Agnostic Defense against Targeted Poisoning Attacks in Federated Learning",
+            "impact_factor": "(H5: 11, Core Ranking: B)",
+            "details": "Arpan Manna, Harsh Kasyap, Somanath Tripathy , ,\n                                23rd International Conference on Information and Communications Security (ICICS 2021),\n                                Chongqing, China, Sept 17-19, 2021."
+        },
+        {
+            "link": "https://dl.acm.org/doi/abs/10.1145/3457337.3457847",
+            "title": "Beyond Uber and Lyft: A Decentralized Cab Consortium over Blockchains",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Mayank Agarwal, Sandip Chakhraborty, ,\n                                3rd ACM International Symposium on Blockchain and Secure Critical Infrastructure (ACM BSCI 2021),\n                                Hong Kong, China, June 7-11, 2021."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007%2F978-3-030-75078-7_41",
+            "title": "Multiple RPL Objective Functions for Heterogenous IoT Networks",
+            "impact_factor": "(H5: 26, Core Ranking: B)",
+            "details": "Bishmita Hazarika, Rakesh Matam, Somanath Tripathy , ,\n                                35th International Conference on Advanced Information Networking and Applications (AINA-2021)\n                                Ryerson University, Toronto, Canada, May 12-14, 2021."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/9424347/",
+            "title": "TRGP: A Low-Cost Re-Configurable TRNG-PUF Architecture for IoT",
+            "impact_factor": "(H5: 16)",
+            "details": "Vikash Kumar Rai, Somanath Tripathy , Jimson Mathew ,\n                                22nd International Symposium on Quality Electronic Design (ISQED'21)\n                                California, USA, April 7-9, 2021."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-65621-8_9",
+            "title": "'DNet: An Efficient Privacy-preserving Distributed Learning Framework for Healthcare Systems'",
+            "impact_factor": "(Core Ranking: C )",
+            "details": "Parth Parag Kulkarni, Harsh Kasyap, Somanath Tripathy , , \n                                In: Goswami D., Hoang T.A. (eds) Distributed Computing and Internet Technology. (ICDCIT 2021), Bhubaneswar, India, Jan 7-10, 2021. \n                                Lecture Notes in Computer Science, vol 12582. Springer, Cham. https://doi.org/10.1007/978-3-030-65621-8_9"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/9322509",
+            "title": "'A Secure Task-Offloading Framework for Cooperative Fog Computing Environment'",
+            "impact_factor": "(Core Ranking: B, H5: 57)",
+            "details": "Rishu Roshan, Rakesh Matam, Mithun Mukherjee, Jaime Lloret, Somanath Tripathy , , \n                                IEEE Conference and Exhibition on Global Telecommunications (GLOBECOM), Taipei, \n                                Taiwan, Dec 7-11, 2020, pp. 1-6, doi: 10.1109/GLOBECOM42002.2020.9322509."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-65965-3_13",
+            "title": "Collaborative Learning Based Effective Malware Detection System",
+            "impact_factor": "",
+            "details": "Narendra Singh, Harsh Kasyap, Somanath Tripathy , , \n                                MLCS - International Workshops of ECML PKDD 2020, Ghent, Belgium, In: Koprinska I. et al. (eds) ECML PKDD 2020 Workshops. \n                                ECML PKDD Septempber 14, 2020. Communications in Computer and Information Science, vol 1323. \n                                Springer, Cham. https://doi.org/10.1007/978-3-030-65965-3_13"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/9079338",
+            "title": "2SPUF: Machine Learning Attack Resistant SRAM PUF",
+            "impact_factor": "",
+            "details": "Vikash Kumar Rai, Somanath Tripathy , and Jimson Mathew, , \n                                Third ISEA Conference on Security and Privacy (ISEA-ISAP), Guwahati, India, February 27 - March 1, 2020, pp. 149-154, \n                                doi: 10.1109/ISEA-ISAP49340.2020.235013."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-54455-3_34",
+            "title": "MAPPCN: Multi-hop, Anonymous and Privacy-Preserving Payment Channel Network",
+            "impact_factor": "",
+            "details": "Somanath Tripathy and Susil Kumar Mohanty, ,\n                                International Workshops on Trusted Smart Contracts (WTSC), In Association with International Conference on \n                                Financial Cryptography and Data Security (FC 2020), Kota Kinabalu, Malaysia, February 14, 2020, Springer, \n                                Cham. https://doi.org/10.1007/978-3-030-54455-3_34"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8971478&isnumber=8971471",
+            "title": "KeySED:An Efficient Keyword based Search over Encrypted Data in Cloud Environment",
+            "impact_factor": "",
+            "details": "Kasturi Dhal, Satyananda Champati Rai, Prasant Kumar Pattnaik, Somanath Tripathy , , \n                                International Conference on Data Science and Engineering (ICDSE), Patna, India, Sep 27, 2019, pp. 133-138.\n                                DOI: 10.1109/ICDSE47409.2019.8971478"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/9002458",
+            "title": "Blind Detection and Classification Algorithm for Smart Audio Monitoring System",
+            "impact_factor": "",
+            "details": "Vivek Singh, Kailash Chandra Ray, and Somanath Tripathy , ,\n                                IEEE International Symposium on Smart Electronic Systems (iSES) (Formerly iNiS), Rourkela, India, Dec 16, 2019, pp. 133-138, \n                                doi: 10.1109/iSES47678.2019.00038."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/8929510",
+            "title": "An Intrusion Detection System Using Unsupervised Feature Selection",
+            "impact_factor": "",
+            "details": "Chanchal Suman, Somanath Tripathy and Sriparna Saha, , \n                                IEEE Region 10 Conference (TENCON), Kochi, India, October 17-20, 2019, pp. 19-24, \n                                doi: 10.1109/TENCON.2019.8929510."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/8971302",
+            "title": "SDNGuard: An Extension in Software Defined Network to Defend DoS Attack",
+            "impact_factor": "",
+            "details": "Jeevan Surya Maddu, Somanath Tripathy , and Sanjeet Kumar Nayak , IEEE Region 10 Symposium (TENSYMP), Kolkata, India, 9 June 2019, pp. 44-49, \n                                doi: 10.1109/TENSYMP46218.2019.8971302."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-981-13-7561-3_1",
+            "title": "Secure Opportunistic Data Exchange using Smart Devices in 5G/LTE-A networks",
+            "impact_factor": "",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , ,  \n                                Security and Privacy. ISEA-ISAP 2019. Communications in Computer and Information Science, Singapore January 9-11, 2019, vol 939. \n                                Springer https://doi.org/10.1007/978-981-13-7561-3_1."
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/8710078",
+            "title": "Blockchain based Security Framework for P2P Filesharing system",
+            "impact_factor": "(H5: 13)",
+            "details": "Srikanta Pradhan, Somanath Tripathy , Sukumar Nandi, , \n                                IEEE International Conference on Advanced Networks and Telecommunicaiton Systems (ANTS18), Indore, India, December 16-19, 2018.\n                                DOI: 10.1109/ANTS.2018.8710078"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-05072-6_9",
+            "title": "Correlation Power Analysis on KASUMI: Attack and Countermeasure",
+            "impact_factor": "",
+            "details": "Devansh Gupta, Somanath Tripathy , Bodhisatwa Mazumdar, , \n                                International Conference on Security, Privacy, and Applied Cryptography Engineering, SPACE 2018, Kanpur, India, December 15-19, 2018.\n                                https://doi.org/10.1007/978-3-030-05072-6_9"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/abstract/document/8554671",
+            "title": "Epidemic model based visibility estimation in Online Social Netowrks",
+            "impact_factor": "(H5: 24)",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , ,\n                                International Conference on Advances in Computing, Communication and Informatics (ICACCI18), Bangalore, India, September 19-22, 2018.\n                                DOI: 10.1109/ICACCI.2018.8554671"
+        },
+        {
+            "link": "https://ieeexplore.ieee.org/document/8455933",
+            "title": "eBot: Approach towards modeling an advanced P2P Botnet",
+            "impact_factor": "(Core Ranking: A, H5: 24)",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , \n                                Ezhil Kalaimannan and Caroline John, , \n                                IEEE International Conference on Trust, Security and Privacy in Computing and Communications (IEEE TrustCom-18), New York, USA, July 31 - August 3, 2018.\n                                DOI: 10.1109/TrustCom/BigDataSE.2018.00065"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-72344-0_18",
+            "title": "GMP2P: Mobile P2P over GSM for efficient file sharing\"",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy and R. K. Ghosh, , \n                            International Conference on Distributed Computing and Internet Technology(ICDCIT'18), Bhubaneswar, India, January 11 - 13, 2018\n                            https://doi.org/10.1007/978-3-319-72344-0_18"
+        },
+        {
+            "link": "https://dl.acm.org/citation.cfm?id=3154273.3154329",
+            "title": "VChord: An efficient fille sharing on LTE/GSM Network",
+            "impact_factor": "(Core Ranking: B, H5: 19)",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy and R. K. Ghosh, , \n                                International Conference on Distributed Computing and Networking, (ICDCN'18) Varanasi, India, January 4 - 7, 2018 \n                                https://doi.org/10.1145/3154273.3154329"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-72598-7_4",
+            "title": "SEMFS: Secure & Efficient Multi-keyword Fuzzy Search for Cloud Storage",
+            "impact_factor": "(Core Ranking: B, H5: 11)",
+            "details": "Sanjeet Kumar Nayak and Somanath Tripathy , , \n                                International Conference on Information System Security (ICISS'17), Mumbai, India, December 16 - 20, 2017 \n                                https://doi.org/10.1007/978-3-319-72598-7_4"
+        },
+        {
+            "link": "https://www.sciencedirect.com/science/article/pii/S1877050917328387",
+            "title": "Memristor based Random Number Generator: Architectures and Evaluation",
+            "impact_factor": "",
+            "details": "Vikash Kumar Rai, Somanath Tripathy and Jimson Mathew, ,\n                                International Conference on Smart Computing & Communications 2017 (ICSCC 2017), Kurukshetra, India, December 7 - 8, 2017\n                                https://doi.org/10.1016/j.procs.2017.12.074"
+        },
+        {
+            "link": "https://dl.acm.org/citation.cfm?id=3136865",
+            "title": "CAP: Collaborative Attack on Pastry",
+            "impact_factor": "",
+            "details": "Srikata Pradhan and Somanath Tripathy , , \n                                International Conference on Security Of Information And Networks, (SIN'17), Jaipur, India, October 13 - 15, 2017\n                                https://doi.org/10.1145/3136825.3136865"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-64701-2_7",
+            "title": "CookiesWall: Preventing Session Hijacking Attacks Using Client Side Proxy",
+            "impact_factor": "(Core Ranking: B, H5: 10)",
+            "details": "Somanath Tripathy and Praveen Kumar, International Network and System Security(NSS 2017), Helsinki, Finland, August 21 - 23, 2017 \n                                Springer, Cham. https://doi.org/10.1007/978-3-319-64701-2_7"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/7848420/",
+            "title": "Design and Evaluationof an IoT Enabled SecureMulti-service Ambulance Tracking System",
+            "impact_factor": "",
+            "details": "Sarbpreet, Somanath Tripathy and Jimson Mathew, IEEE Region 10 International Conference (TENCON), Singapore 22 - 25 November 2016,\n                                DOI: 10.1109/TENCON.2016.7848420"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/7847032/",
+            "title": "Privacy Preserving Provable Data Possession for Cloud based Electronic Health Record System",
+            "impact_factor": "(Core Ranking: A, H5: 24)",
+            "details": "Sanjeet Kumar Nayak and Somanath Tripathy , In Proceedings of 15th IEEE International Conference on Trust, Security and Privacy in Computing and Communications (IEEE TrustCom-16), Pages: 860-867, Tianjin, China, 2016 \n                            DOI: 10.1109/TrustCom.2016.0149"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/7544803/",
+            "title": "Collaborative Access Control Model for Online Social Networks",
+            "impact_factor": "",
+            "details": "Nemi Chandra Rathore, Somanth Tripathy , IEEE International Advance Computing Conference(IACC), Bhimavaram, India, page: 19-24, 27-28 Feb. 2016.\n                            DOI: 10.1109/IACC.2016.14"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/7561148/",
+            "title": "Denial of Service attack on Low Rate Wireless Personal Area Networks",
+            "impact_factor": "(H5: 15)",
+            "details": "R. Matam, Somanath Tripathy , National Conference on Communications (NCC), Guwahati, India, 2016 \n                            DOI: 10.1109/NCC.2016.7561148"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-28034-9_19",
+            "title": "Collaborative Access Control Mechanism for Online Social Networks",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "N.C. Rathore,  Prashant Shaw and Somanath Tripathy , ,  \n                            International Conference on Distributed Computing and Internet Technology(ICDCIT), Bhubaneswar, India, 25 December 2015\n                            Cham. https://doi.org/10.1007/978-3-319-28034-9_19"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7166245",
+            "title": "Design challenges and Security issues in the Internet of Things",
+            "impact_factor": "",
+            "details": "Subho Shankar Basu, Somanath Tripathy and Atanu Roy Chowdhury, , \n                            IEEE Region 10 Symposium, Ahmedabad, India, 13th May - 15th May 2015,\n                            DOI: 10.1109/TENSYMP.2015.25"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-14977-6_28",
+            "title": "S-Gossip:  Security enhanced Gossip Protocol for Unstructured P2P Networks",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "S.K. Teterave, Somanath Tripathy and S. Peri, , \n                            International Conference on Distributed Computing and Internet Technology(ICDCIT), Bhubaneswar, India, 5-8 February 2015.\n                            Cham. https://doi.org/10.1007/978-3-319-14977-6_28"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-14977-6_46",
+            "title": "Predicting User Visibility in Online Social Network using Local Connectivity Properties",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "N. C. Rathor, Somanath Tripathy and J. Chandra, International Conference on Distributed Computing and Internet Technology(ICDCIT),  Bhubaneswar, India,  5-8 February 2015.\n                            Springer, Cham. https://doi.org/10.1007/978-3-319-14977-6_46"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/7033317/",
+            "title": "TabSol:An efficient framework to defend Tabnabbing",
+            "impact_factor": "",
+            "details": "Amandeep Singh and Somanath Tripathy , International Conference on Information Technology (ICIT), Bhubaneswar, India, 22-24 Dec. 2014\n                            DOI: 10.1109/ICIT.2014.56"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-319-11698-3_33",
+            "title": "eCK Secure Single Round ID-based Authenticated Key Exchange Protocols with Master Perfect forward Secrecy",
+            "impact_factor": "(Core Ranking: B)",
+            "details": "Tapas Pandit, Rana Barua, and Somanath Tripathy , International Conference on Network and System Security (NSS2015), New York, USA, 3-5 November 2015 \n                            Springer, Cham. https://doi.org/10.1007/978-3-319-11698-3_33"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/6968300/",
+            "title": "Provably Secure Peer-Link Establishment Protocol for Wireless Mesh Networks",
+            "impact_factor": "",
+            "details": "R. Matam, Somanath Tripathy , B. Swathi, International Conference on Advances in Computing, Communications and Informatics (ICACCI), Delhi, India, 24-27 Sept. 2014\n                            DOI: 10.1109/ICACCI.2014.6968300"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/6680825/",
+            "title": "AFC: An Effective Metric for Reliable Routing in Wireless Mesh Networks",
+            "impact_factor": "(Core Ranking: A, H5: 24)",
+            "details": "R. Matam and Somanath Tripathy , , \n                            IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom), Melbourne, Australia, 2013. \n                            DOI: 10.1109/TrustCom.2013.13"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-642-35130-3_13",
+            "title": "Defence against Wormhole Attacks in Wireless Mesh Networks",
+            "impact_factor": "(Core Ranking: B)",
+            "details": "Rakesh Matam, Somanath Tripathy , , \n                            International Conference on Information Systems Security (ICISS-2012), Guwahati, India, 15-19 December 2012.\n                            https://doi.org/10.1007/978-3-642-35130-3_13"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-642-34135-9_7",
+            "title": "WAKE: Authentication and Key Establishment for Wireless Mesh Network",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Debasish Sahoo, , \n                            International Conference on Security in Computer Networks and Distributed Systems(SNDS 2012), Trivandrum, India, 11-12 October 2012 \n                            https://doi.org/10.1007/978-3-642-34135-9_7"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-642-31513-8_60",
+            "title": "Reliability Enhanced Routing Protocol for Wireless Mesh Networks",
+            "impact_factor": "",
+            "details": "Rakesh Matam & Somanath Tripathy , ,\n                            In Proc. of Springer LNCS, 4th International Conference on wireless and mobile networks(WiMoN), Chennai, India 2012.\n                            https://doi.org/10.1007/978-3-642-31513-8_60"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-642-31513-8_19",
+            "title": "Secure Peer-Link Establishment in Wireless Mesh Networks",
+            "impact_factor": "",
+            "details": "Bhumireddy Swathi, Somanath Tripathy & Rakesh Matam, , \n                            In proc. of Springer LNCS, 5th International Conference on network security and its applications (CNSA), Chennai, India July 13-15, 2012.\n                            https://doi.org/10.1007/978-3-642-31513-8_19"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-642-31513-8_80",
+            "title": "SEPastry: Security Enhanced Pastry",
+            "impact_factor": "",
+            "details": "Madhumita Mishra, Somanath Tripathy & Sathya Peri, In proc. of Springer LNCS, 2nd International Workshop on Peer to Peer Networks and Trust Management, (P2PTM), Chennai,India July 13-15, 2012.\n                            https://doi.org/10.1007/978-3-642-31513-8_80"
+        },
+        {
+            "link": "http://dl.acm.org/citation.cfm?id=2185307",
+            "title": "FRI-Attack: Fraduelent Routing Information Attack on Wireless Mesh Network",
+            "impact_factor": "",
+            "details": "Rakesh. Matam and Somanath Tripathy , , \n                            Intl. conference on wireless Technology for Humanitarian Relief (ACWR 2011), India, December 2011 \n                            https://doi.org/10.1145/2185216.2185307"
+        },
+        {
+            "link": "http://dl.acm.org/citation.cfm?id=1947950",
+            "title": "THWMP - Trust based secure routing for wireless mesh networks",
+            "impact_factor": "",
+            "details": "Rakesh Matam & Somanath Tripathy , , \n                            In ACM proc. of International conference on communication computing and security-2011, NIT Rourkela, Rourkela India February 2011.\n                            https://doi.org/10.1145/1947940.1947950"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/5578472/",
+            "title": "Tin-Key: Effective Key-Establishment for Wireless Sensor Networks",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , IEEE International Symposium on Trust Privacy and Security for emergent applications (TSP2010), Bradford, UK, 29 June-1 July 2010.\n                            DOI: 10.1109/CIT.2010.170"
+        },
+        {
+            "link": "http://dl.acm.org/citation.cfm?id=1626236",
+            "title": "Effective Pair-wise Key Establishment Scheme for Wireless Sensor Networks",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , ,  \n                            in proc. Of International Conference on Security of Information and Networks (SIN 2009), ACM Publisher, October 2009.\n                            https://doi.org/10.1145/1626195.1626236"
+        },
+        {
+            "impact_factor": "",
+            "details": "Rahul Choudhari and Somanath Tripathy : \n                            SCTP-Sec: Secure Transmission Control Protocol,  \n                            3rd Hackers' Workshop on Computer and Internet Security, Hackin-2009, pp 44-49, IIT Kanpur, March 17-19, 2009."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-540-77115-9_13",
+            "title": "LISA: LIghtweight Security Algorithm for Wireless Sensor Networks",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "Somanath Tripathy , , \n                            International Conference on Distributed Computing and Internet Technology(ICDCIT 2007), Bangalore India, 17-20 December 2007.\n                            https://doi.org/10.1007/978-3-540-77115-9_13"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/4418280/",
+            "title": "OSASMAC: Opportunistic Secure Adaptive Sensor MAC Protocol",
+            "impact_factor": "",
+            "details": "V.Chennakesavulu, Sukumar Nandi, Somanath Tripathy , , \n                            International Conference on Information Technology (ICIT), Rourkela, India  17-20 Dec. 2007\n                            DOI: 10.1109/ICIT.2007.36"
+        },
+        {
+            "impact_factor": "",
+            "details": "Somanath Tripathy , \n                            Sukumar Nandi and Abhijit Mitra, 'A Secured Response Algorithm with Query Authentication for Wireless Sensor Networks,\n                            5th Asian International Mobile Computing Conference, AMOC-2007, Tata Mcgrawhill Publication, pp.220-225, 2007, India."
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/4268024/",
+            "title": "Securing Wireless Sensor Networks Against Spurious Injections",
+            "impact_factor": "",
+            "details": "Atanu Roy Chowdhury, Somanath Tripathy and Sukumar Nandi, , \n                            International Conference on Communication Systems Software and Middleware (COMSWARE), Bangalore, India 7-12 Jan. 2007,\n                            DOI: 10.1109/COMSWA.2007.382600"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/4273189/",
+            "title": "CARMA: Cellular Automata-based Remote Mutual Authentication",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Sukumar Nandi and Atanu Roy Chowdhury, International Conference on Information Technology (ICIT), Bhubaneswar, India 18-21 Dec. 2006,\n                            DOI: 10.1109/ICIT.2006.35"
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/11951957_30",
+            "title": "Efficient Remote User Authentication and Key Establishment for Multi-Server Environment",
+            "impact_factor": "(Core Ranking: C)",
+            "details": "Somanath Tripathy and Sukumar Nandi, ,\n                            International Conference on Distributed Computing and Internet Technology(ICDCIT 2006), Bhubaneswar, India 20-23 December 2006,\n                            https://doi.org/10.1007/11951957_30"
+        },
+        {
+            "impact_factor": "",
+            "details": "Somanath Tripathy and Sukumar Nandi, \n                            Security Enhanced used Identification and Distribution Scheme preserving Anonymity,\n                            in Proc. of Intl. Conf. on Emerging Applications of IT (EAIT 2006), Elsevier, pp.201-204, 2006, (India)."
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/4086267/",
+            "title": "RPAKE: RCA based Password Authenticated Key-Exchange scheme",
+            "impact_factor": "",
+            "details": "Somanath Tripathy and Sukumar Nandi, , \n                            IEEE India Conference (INDICON), New Delhi, India 15-17 Sept. 2006,\n                            DOI: 10.1109/INDCON.2006.302796"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/4053517/",
+            "title": "Robust Mutual Authentication for low cost RFID systems",
+            "impact_factor": "(H5: 21)",
+            "details": "Somanath Tripathy and Sukumar Nandi, ,\n                            IEEE International Conference on Industrial Informatics (INDIN), Singapore, 16-18 Aug. 2006.\n                            DOI: 10.1109/INDIN.2006.275705"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/5755946/",
+            "title": "Cryptosystem for Low power devices",
+            "impact_factor": "",
+            "details": "Somanath Tripathy and Sukumar Nandi: ,\n                            4th International Symposium on Turbo Codes & Related Topics; 6th International ITG-Conference on Source and Channel Coding, \n                            Munich, Germany  3-7 April 2006, ISBN:978-3-8007-2947-0"
+        },
+        {
+            "link": "http://ieeexplore.ieee.org/document/1665158/",
+            "title": "CARA: Cellular Automata based Remote user authentication",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Atanu Roy Chowdhury and Sukumar Nandi: ,\n                            International Conference on Communication Systems Software and Middleware (COMSWARE), New Delhi, India 8-12 Jan. 2006,\n                            DOI: 10.1109/COMSWA.2006.1665158"
+        },
+        {
+            "impact_factor": "",
+            "details": "Somanath Tripathy and Sukumar Nandi,\n                            CASE: Cellular Automata based Symmetric Encryption,  \n                            Third International Conference on Innovative Applications of Information Technology for Developing World, AACC 2005, 2005, (Nepal). \n                            https://doi.org/10.1142/9781860948534_0020"
+        },
+        {
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Sukumar Nandi,\n                            Broadcast on Demand: A heuristic for real-time multiple data broadcast strategy in mobile environments,\n                            Asia Pacific Conference on Parallel and Distributed Computing Technologies (ObComAPC-2004), (India)"
+        }
+    ],
+    "preprints": [
+        {
+            "link": "https://arxiv.org/pdf/2510.12143",
+            "title": "'Fairness-Constrained Optimization Attack in Federated Learning'",
+            "impact_factor": "",
+            "details": "Harsh Kasyap, Minghong Fang, Zhuqing Liu, Carsten Maple and Somanath Tripathy , , \n                                arXiv preprint arXiv:2510.12143v1, 2025."
+        },
+        {
+            "link": "https://arxiv.org/abs/1905.06562",
+            "title": "'Building an Effective Intrusion Detection System using Unsupervised Feature Selection in Multi-objective Optimization Framework'",
+            "impact_factor": "",
+            "details": "Chanchal Suman, Somanath Tripathy , and Sriparna Saha, , \n                                arXiv preprint arXiv:1905.06562, 2019."
+        },
+        {
+            "link": "https://arxiv.org/abs/1905.06403",
+            "title": "'InfoRest: Restricting Privacy Leakage to Online Social Network App'",
+            "impact_factor": "",
+            "details": "Nemi Chandra Rathore, Somanath Tripathy , , \n                                arXiv preprint arXiv:1905.06403, 2019."
+        },
+        {
+            "link": "https://arxiv.org/abs/1905.05388",
+            "title": "'Robust Node ID Assignment for Mobile P2P Networks'",
+            "impact_factor": "",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , , \n                                arXiv preprint arXiv:1905.05388, 2019."
+        },
+        {
+            "link": "https://arxiv.org/abs/1905.02381",
+            "title": "'Enhancing Quality of Experience using DHT Overlay on Device-to-Device Communications in LTE-A Networks'",
+            "impact_factor": "",
+            "details": "Sumit Kumar Tetarave, Somanath Tripathy , and R K Ghosh, , \n                                arXiv preprint arXiv:1905.02381, 2019."
+        }
+    ],
+    "books": [
+        {
+            "link": "https://books.google.com/books?hl=en&lr=&id=a4iaEQAAQBAJ&oi=fnd&pg=PA8&dq=info:Zy1DuycI9eQJ:scholar.google.com&ots=VRvGNFgxNJ&sig=ltuMavqagW1COYgQRq26umFzVDc",
+            "title": "\"Federated Learning: Security and Privacy\"",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Harsh Kasyap, Minghong Fang ,\n                            CRC Press, 2025 ."
+        },
+        {
+            "link": "https://digital-library.theiet.org/content/books/pc/pbpc027e",
+            "title": "\"Task offloading using fog analytics\"",
+            "impact_factor": "",
+            "details": "Rakesh Matam Somanath Tripathy , ,\n                            Managing Internet of Things Applications across Edge and Cloud Data Centres, IET Digital Library, 2024 ."
+        },
+        {
+            "link": "https://link.springer.com/book/10.1007/978-3-030-92571-0",
+            "title": "\"17th International Conference on Information Systems Security\"",
+            "impact_factor": "",
+            "details": "Somanath Tripathy , Rudrapatna K. Shyamasundar, and Rajiv Ranjan, , Springer, ICISS 2021, Patna, India, December 16\u201320, 2021."
+        },
+        {
+            "link": "https://www.riverpublishers.com/book_details.php?book_id=765",
+            "title": "\"Applications of Machine Learning in Big-Data Analytics and Cloud Computing\"",
+            "impact_factor": "",
+            "details": "Subhendu Kumar Pani, Somanath Tripathy , George Jandieri, Sumit Kundu, and Talal Ashraf Butt, , River Publishers Series in Computing and Information Science and Technology, River Publishers, 2021."
+        },
+        {
+            "link": "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003127598-2-2/multi-bit-true-random-number-generator-iot-devices-using-memristor-rai-tripathy-mathew",
+            "title": "\"Multi-bit True Random Number Generator for IoT Devices using Memristor\"",
+            "impact_factor": "",
+            "details": "Vikash Kumar Rai, Somanath Tripathy , and Jimson Mathew, , Security of Internet of Things Nodes, Chapman and Hall/CRC, 2021."
+        },
+        {
+            "link": "",
+            "title": "",
+            "impact_factor": "",
+            "details": "S. Dehuri and S. Tripathy , \"An Extended Bayesian/HAPSO Intelligent Method in Intrusion Detection System \". \n                            In S. Dehuri and S.-B. Cho (Eds.) Knowledge Mining Using Intelligent Agents, Imperial College Press, pp. 133-160, 2010."
+        },
+        {
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-02807-7_3",
+            "title": "\"Secure Multicast Communication Techniques for IoT\"",
+            "impact_factor": "",
+            "details": "Subho Shankar Basu, Somanath Tripathy , , Security and Fault Tolerance in Internet of Things. Page Springer, Cham, 2019. \n                            DOI: 10.1007/978-3-030-02807-7_3"
+        }
+    ]
+}

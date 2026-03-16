@@ -1,0 +1,248 @@
+{
+    "phd": [
+        {
+            "image": "pics/debasmita.jpg",
+            "name": "Debasmita Manna",
+            "affiliation": "Email:  debasmita_2121cs18 [at] iitp.ac.in",
+            "research_area": "Area of Research: Secure Machine learning"
+        },
+        {
+            "image": "pics/ankur.png",
+            "name": "Ankur Jain",
+            "affiliation": "Email:  ankur_2221cs19 [at] iitp.ac.in",
+            "research_area": "Area of Research: Blockchain Security"
+        },
+        {
+            "image": "pics/sanaya.jpg",
+            "name": "Sanaya Malik",
+            "affiliation": "Email:  sanaya_2422cs21 [at] iitp.ac.in",
+            "research_area": "Area of Research: Cyber Security"
+        }
+    ],
+    "past_phd": [
+        {
+            "image": "pics/Rakesh.jpg",
+            "name": "Dr. Rakesh Matam",
+            "affiliation": "Current Affiliation: Associate Professor, IIIT Guwahati.",
+            "research_area": "Thesis Title: Secure Routing Techniques For Wireless Mesh Networks",
+            "email": "rakesh [at] iiitg.ac.in"
+        },
+        {
+            "image": "pics/Sanjeet.png",
+            "name": "Dr. Sanjeet Kumar Nayak",
+            "affiliation": "Current Affiliation: Assistant Professor, IIITDM Kancheepuram.",
+            "research_area": "Thesis Title: Design and Analysis of Techniques for Secure Cloud Storage Services",
+            "email": "sanjeetn [at] iiitdm.ac.in"
+        },
+        {
+            "image": "pics/Sumit.png",
+            "name": "Dr. Sumit Kumar Tetarave",
+            "affiliation": "Current Affiliation: Assistant Professor II, Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar.",
+            "research_area": "Thesis Title: Techniques for Efficeint and Secure File-Sharing in Peer to Peer Mobile Networks",
+            "email": "sumitkumar.fca [at] kiit.ac.in"
+        },
+        {
+            "image": "pics/nemi.jpg",
+            "name": "Dr. Nemi Chand Rathore",
+            "affiliation": "Current Affiliation: Associate Professor, Central University of South Bihar (Gaya).",
+            "research_area": "Thesis Title: Some Techniques To Restrict Sensitive Data Leakage From Online Social Network",
+            "email": "nemichandra [at] cub.ac.in"
+        },
+        {
+            "image": "pics/Vikash.png",
+            "name": "Dr. Vikash Kumar Rai",
+            "affiliation": "( Joint supervision of Prof. Jimson Mathew )",
+            "research_area": "",
+            "raw_details": "Current Affiliation: Assistant Professor, National Forensic Sciences University (NFSU), Ponda, Goa. | (2021)"
+        },
+        {
+            "image": "pics/harsh.jpg",
+            "name": "Dr. Harsh Kasyap",
+            "affiliation": "Current Affiliation:  Assistant Professor, Indian Institute of Technology (BHU), Varanasi, Uttar Pradesh, India.",
+            "research_area": "Thesis Title: Security and Privacy Preserving Techniques For Federated Learning",
+            "email": "hkasyap.cse [at] iitbhu.ac.in"
+        },
+        {
+            "image": "pics/sushil.jpg",
+            "name": "Dr. Susil Kumar Mohanty",
+            "affiliation": "Current Affiliation: Assistant Professor, Indian Institute of Technology Jodhpur, Jodhpur, Rajasthan, India.",
+            "research_area": "Thesis Title: Design and Analysis of Secure Off-Chain Transactions for Blockchain-based Payment Channel Networks",
+            "email": "susilmohanty [at] iitj.ac.in"
+        },
+        {
+            "image": "pics/srikant.png",
+            "name": "Dr. Srikanta Kumar Pradhan",
+            "affiliation": "Current Affiliation: Assistant Professor, Department of Computer Science, S.R.M University Andhra Pradesh",
+            "research_area": "Thesis Title: Optimal Task Offloading and Secure Data Dissemination in Vehicular Cloud Computing",
+            "email": ""
+        },
+        {
+            "image": "pics/partha.jpg",
+            "name": "Dr. Partha Sarathi Chakraborty",
+            "affiliation": "Current Affiliation: Assistant Professor (Selection Grade), Amity Institute of Information Technology, Amity University Uttar Pradesh, Noida",
+            "research_area": "Thesis Title: Designing Security Techniques for Outsourced Data in Cloud Storage Services",
+            "email": "parthasarathi.iitp[at]gmail.com"
+        },
+        {
+            "image": "pics/susmita.jpg",
+            "name": "Dr. Susmita Palmal",
+            "affiliation": "(Joint supervision of Dr. Sriparna Saha )",
+            "research_area": "",
+            "raw_details": "Current Affiliation: Assistant Professor, Department of Computer Science, Birla Institute of Technology, Mesra, Ramgarh, Jharkhand. | (2024)"
+        },
+        {
+            "image": "pics/vivek.png",
+            "name": "Dr. Vivek Singh",
+            "affiliation": "(Joint supervision of Dr. Kailash Chandra Ray)",
+            "research_area": "",
+            "raw_details": "Current Affiliation: | (2024)"
+        },
+        {
+            "image": "pics/Narendra.jpg",
+            "name": "Dr. Narendra Singh Lodhi",
+            "affiliation": "Current Affiliation: Assistant Professor, Department of Computer Science, S.R.M University Andhra Pradesh",
+            "research_area": "Thesis Title: AI-Driven Techniques for Early-Stage Malware Detection Using Static and Dynamic Analysis",
+            "email": "narendra.s [at] srmap.edu.in"
+        }
+    ],
+    "past_mtech": [
+        {
+            "initials": "MK",
+            "name": "Megha Kumari",
+            "affiliation": "Completed M.Tech in 2025",
+            "research_area": "Thesis: Trojan Detection"
+        },
+        {
+            "initials": "S",
+            "name": "Shivam",
+            "affiliation": "Completed M.Tech in 2025",
+            "research_area": "Thesis: Credit Card Fraud Detection"
+        },
+        {
+            "initials": "SK",
+            "name": "Shubham Kumar",
+            "affiliation": "Completed M.Tech in 2024",
+            "research_area": "Thesis: Evasion attack against fraud detection\u00a0system"
+        },
+        {
+            "initials": "NR",
+            "name": "Nemichand Rinwa",
+            "affiliation": "Completed M.Tech in 2024",
+            "research_area": "Thesis: Adversarial attack against deep neural\u00a0networks"
+        },
+        {
+            "initials": "OG",
+            "name": "Omkar Santosh Gavhane",
+            "affiliation": "Completed M.Tech in 2023",
+            "research_area": "Thesis: Privacy Preserving of Outsourcing Data in Cloud"
+        },
+        {
+            "initials": "AA",
+            "name": "Ashutosh Abhishek",
+            "affiliation": "Completed M.Tech in 2023",
+            "research_area": "Thesis: Honeypot on Linux based IoT systems"
+        },
+        {
+            "initials": "AP",
+            "name": "Amar Pandey",
+            "affiliation": "Completed M.Tech in 2022",
+            "research_area": "Thesis: Malware Detection using Machine Learning Technique"
+        },
+        {
+            "initials": "BN",
+            "name": "B.Shravan Naik",
+            "affiliation": "Completed M.Tech in 2022",
+            "research_area": "Thesis: Blockchain based Reliable Data Transfer for Intelligent Transport System"
+        },
+        {
+            "initials": "DT",
+            "name": "Dhamendra Tiwari",
+            "affiliation": "Completed M.Tech in 2022",
+            "research_area": "Thesis: Defending Poisoning Attack In Federated Learning"
+        },
+        {
+            "initials": "TC",
+            "name": "Tama Ray Chowdhury",
+            "affiliation": "Completed M.Tech in 2022",
+            "research_area": "Thesis: Reverse Dialouge Generator for Chatbots"
+        },
+        {
+            "initials": "AM",
+            "name": "Arpan Mana",
+            "affiliation": "Completed M.Tech in 2021",
+            "research_area": "Thesis: Defending Poisoning Attack In Federated Learning"
+        },
+        {
+            "initials": "RM",
+            "name": "Ranu Maurya",
+            "affiliation": "Completed M.Tech in 2021",
+            "research_area": "Thesis: Development of a chatbot followed by Automated functional  validation and Manual security Validation of chat bot"
+        },
+        {
+            "initials": "NL",
+            "name": "Narendra Singh Lodhi",
+            "affiliation": "Completed M.Tech in 2020",
+            "research_area": "Thesis: Collaborative Learning Based Effective Malware Detection System"
+        },
+        {
+            "initials": "SM",
+            "name": "Sanjay Murmu",
+            "affiliation": "Completed M.Tech in 2020",
+            "research_area": "Thesis: Password Generation, Guessing, Modelling and Strength Estimation"
+        },
+        {
+            "initials": "SY",
+            "name": "Sunny Yadav",
+            "affiliation": "Completed M.Tech in 2019",
+            "research_area": "Thesis: Study of Zero day attack detection using one class classifiers"
+        },
+        {
+            "initials": "CS",
+            "name": "Chanchal Suman",
+            "affiliation": "Completed M.Tech in 2018",
+            "research_area": "Thesis: Effective Unsupervised feature selection algortihm for Intrusion Detection system (Jointly Supervison of Dr. Sriparna Saha)"
+        },
+        {
+            "initials": "AS",
+            "name": "A.K. Sinha",
+            "affiliation": "Completed M.Tech in 2017",
+            "research_area": "Thesis: Efficient Client side proxy for preventing session hijacking and cross site request forgery"
+        },
+        {
+            "initials": "A",
+            "name": "Aparna.C",
+            "affiliation": "Completed M.Tech in 2017",
+            "research_area": "Thesis: Malware Detection Using Machine Learning"
+        },
+        {
+            "initials": "PK",
+            "name": "Praveen Kumar",
+            "affiliation": "Completed M.Tech in 2017",
+            "research_area": "Thesis: Preventing Session Hijacking and Cross Side Request Forgery using client side Proxy"
+        },
+        {
+            "initials": "BJ",
+            "name": "Basant Kumar Jha",
+            "affiliation": "Completed M.Tech in 2016",
+            "research_area": "Thesis: Privacy Preserving Technique for Smart Metering System"
+        },
+        {
+            "initials": "DC",
+            "name": "Debapriya Chakraborty",
+            "affiliation": "Completed M.Tech in 2015",
+            "research_area": "Thesis: Some Results in Quantum Information Theory"
+        },
+        {
+            "initials": "KS",
+            "name": "Karunakar Saroj",
+            "affiliation": "Completed M.Tech in 2015",
+            "research_area": "Thesis: Designing of Variable Length Block Cipher"
+        },
+        {
+            "initials": "SB",
+            "name": "Subho Shankar Basu",
+            "affiliation": "Completed M.Tech in 2015",
+            "research_area": "Thesis: Secure Multicast Data transmission Technique For Internet of Things"
+        }
+    ]
+}
