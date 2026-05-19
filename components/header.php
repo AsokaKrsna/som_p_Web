@@ -17,7 +17,37 @@ $page_title = isset($page_title) ? $page_title : "Dr. Somanath Tripathy | Academ
     <!-- Minimal Full Screen Navbar (Injected via PHP) -->
     <header class="custom-navbar" id="mainNav">
         <a class="navbar-brand-modern" href="index.php">Dr. Somanath Tripathy</a>
-        <div class="menu-toggle" id="mobile-menu">
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav d-none d-lg-flex">
+            <div class="nav-item">
+                <a href="index.php" class="nav-link">Home / Bio</a>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Research</a>
+                <div class="dropdown-menu glass-dropdown">
+                    <a href="research_group.php" class="dropdown-item">Research Group</a>
+                    <a href="publications.php" class="dropdown-item">Publications</a>
+                    <a href="patents.php" class="dropdown-item">Patents</a>
+                    <a href="projects.php" class="dropdown-item">Projects</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Academia</a>
+                <div class="dropdown-menu glass-dropdown">
+                    <a href="teaching.php" class="dropdown-item">Teaching</a>
+                    <a href="seminar.php" class="dropdown-item">Seminars / Talks</a>
+                    <a href="memberships.php" class="dropdown-item">Memberships</a>
+                    <a href="editorship.php" class="dropdown-item">Editorship</a>
+                    <a href="awards.php" class="dropdown-item">Awards</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://www.iitp.ac.in/" target="_blank" class="nav-link">IITP Home</a>
+            </div>
+        </nav>
+
+        <div class="menu-toggle d-lg-none" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>

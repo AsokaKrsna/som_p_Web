@@ -18,12 +18,18 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const currentPath = window.location.pathname.split('/').pop() || 'index.php';
-            const navLinks = document.querySelectorAll('.glass-overlay .nav-link-large');
+            const navLinks = document.querySelectorAll('.glass-overlay .nav-link-large, .desktop-nav .nav-link, .desktop-nav .dropdown-item');
             
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href === currentPath) {
                     link.classList.add('active');
+                    // If it's a dropdown item, also highlight the parent dropdown toggle
+                    const parentDropdown = link.closest('.dropdown');
+                    if (parentDropdown) {
+                        const toggle = parentDropdown.querySelector('.dropdown-toggle');
+                        if (toggle) toggle.classList.add('active');
+                    }
                 } else {
                     link.classList.remove('active');
                 }

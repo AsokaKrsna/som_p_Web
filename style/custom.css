@@ -105,27 +105,41 @@ body.no-scroll {
 
 .custom-navbar {
   position: fixed;
-  top: 0; left: 0; width: 100%;
-  padding: 1rem 5%;
+  top: 1.5rem; 
+  left: 5%; 
+  width: 90%;
+  padding: 0.8rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  transition: all 0.4s ease;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* True Glassmorphism Styling */
+  background: rgba(255, 255, 255, 0.15); /* Highly transparent */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.8); /* Rim light on top/left edges */
+  border-left-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.08), /* Deep soft shadow for lift */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15); /* Subtle inner glow */
 }
 
 .custom-navbar.scrolled {
-  background: rgba(255, 255, 255, 0.65); /* Frosted Pearl translucent glass */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 1rem 5%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6); 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  top: 1rem;
+  background: rgba(255, 255, 255, 0.35); /* Slightly less transparent when scrolled */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top-color: rgba(255, 255, 255, 0.9);
+  border-left-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 12px 40px 0 rgba(31, 38, 135, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 2rem;
 }
 
 .navbar-brand-modern {
@@ -138,6 +152,140 @@ body.no-scroll {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* --- Desktop Horizontal Navigation --- */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 2rem;
+}
+
+.desktop-nav .nav-item {
+  position: relative;
+}
+
+.desktop-nav .nav-link {
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Stylish Hover Highlight (Frosted Pill & Glow) */
+.desktop-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8, 145, 178, 0.08); /* Soft Cyan Pill */
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.desktop-nav .nav-link:hover,
+.desktop-nav .nav-link:focus,
+.desktop-nav .nav-link.active {
+  color: var(--accent-cyan);
+}
+
+.desktop-nav .nav-link:hover::before,
+.desktop-nav .nav-link:focus::before,
+.desktop-nav .nav-link.active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dropdown Caret Styling */
+.desktop-nav .dropdown-toggle::after {
+  vertical-align: middle;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+  transition: transform 0.3s ease;
+}
+
+.desktop-nav .dropdown:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* Glassmorphism Dropdown Menu */
+.glass-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 0.8rem 0;
+  min-width: 220px;
+  margin-top: 1rem; /* Gap for hover intent */
+  
+  /* Initial state for fade-in animation */
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Invisible bridge so you don't lose hover when moving to dropdown */
+.desktop-nav .dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.desktop-nav .dropdown:hover .glass-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.glass-dropdown .dropdown-item {
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.2s ease;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dropdown item hover underline animation */
+.glass-dropdown .dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 1.5rem; right: 100%;
+  height: 2px;
+  background: var(--accent-cyan);
+  transition: right 0.3s ease;
+}
+
+.glass-dropdown .dropdown-item:hover,
+.glass-dropdown .dropdown-item.active {
+  color: var(--text-main);
+  background: rgba(8, 145, 178, 0.04);
+  transform: translateX(5px);
+}
+
+.glass-dropdown .dropdown-item:hover::after,
+.glass-dropdown .dropdown-item.active::after {
+  right: 1.5rem;
 }
 
 /* Minimal Hamburger Icon */
@@ -197,6 +345,12 @@ body.no-scroll {
 .glass-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+@media (min-width: 992px) {
+  .glass-overlay {
+    display: none !important;
+  }
 }
 
 .overlay-content-wrapper {
