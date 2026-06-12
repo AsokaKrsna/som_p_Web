@@ -22,9 +22,14 @@
             
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === currentPath) {
+                // Skip anchor-only links (handled by scroll in navbar.js)
+                if (href && href.startsWith('#')) return;
+                
+                // Strip anchors for comparison: compare.php#section -> compare.php
+                const linkPath = href ? href.split('#')[0] : '';
+                
+                if (linkPath === currentPath || (currentPath === 'index.php' && (linkPath === 'index.php' || linkPath === '' || linkPath === '#'))) {
                     link.classList.add('active');
-                    // If it's a dropdown item, also highlight the parent dropdown toggle
                     const parentDropdown = link.closest('.dropdown');
                     if (parentDropdown) {
                         const toggle = parentDropdown.querySelector('.dropdown-toggle');

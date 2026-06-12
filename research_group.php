@@ -1,5 +1,9 @@
 <?php
+session_start();
+$isAdmin = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+
 $page_title = "Research Group | Dr. Somanath Tripathy";
+$hideSideNav = true;
 include 'components/header.php';
 
 $json_data = file_get_contents('data/research_group.json');
@@ -44,7 +48,11 @@ function renderMemberRow($member) {
 }
 ?>
 
-<section class="bio-section pt-4">
+<section id="research-group" class="bio-section pt-4">
+    <?php if ($isAdmin): ?>
+    <button class="inline-edit-btn" onclick="openInlineEditor('research_group.json', 'research-group')" title="Edit research group"><i class="fa fa-pencil"></i></button>
+    <?php endif; ?>
+
     <div class="container">
         <h2 class="section-title">Research Group</h2>
         <hr>
@@ -116,5 +124,12 @@ function renderMemberRow($member) {
         </div>
     </div>
 </section>
+
+<?php if ($isAdmin): ?>
+<script>
+window.__isAdmin = true;
+</script>
+<script src="components/inline-edit.js"></script>
+<?php endif; ?>
 
 <?php include 'components/footer.php'; ?>
