@@ -5,11 +5,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
+// Ensure CSRF token exists
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 // Helper to safely load JSON Count
 function getCount($file) {
     $path = "../data/" . $file;
     if (file_exists($path)) {
-        $data = json_decode(file_get_contents($path), true);
+        $data = json_decode(@file_get_contents($path), true);
         if (is_array($data)) return count($data);
     }
     return 0;
@@ -25,226 +30,21 @@ function getCount($file) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../style/custom.css" rel="stylesheet"/>
-    <style>
-        body { background-color: var(--bg-color); color: var(--text-main); }
-        .admin-header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            padding: 0.8rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        body.dark-mode .admin-header {
-            background: rgba(10, 14, 26, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .admin-header h4 {
-            margin: 0;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--text-main), var(--accent-cyan));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .admin-header .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .admin-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            height: 100%;
-            box-shadow: var(--glass-shadow);
-        }
-        .admin-card h5 {
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .admin-card h6 {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-        .admin-card p.text-muted {
-            color: var(--text-muted) !important;
-        }
-        .logout-btn {
-            color: #ef4444;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-        .logout-btn:hover {
-            background: rgba(239, 68, 68, 0.08);
-            border-color: rgba(239, 68, 68, 0.2);
-            color: #dc2626;
-        }
-        .admin-card .btn-outline-primary {
-            text-align: left;
-            border: 1px solid rgba(8, 145, 178, 0.2);
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            padding: 0.6rem 1rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        body.dark-mode .admin-card .btn-outline-primary {
-            background: rgba(10, 14, 26, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #e2e8f0;
-        }
-        .admin-card .btn-outline-primary:hover {
-            background: var(--accent-cyan);
-            border-color: var(--accent-cyan);
-            color: #fff;
-            transform: translateX(5px);
-        }
-        .admin-card .btn-outline-secondary {
-            text-align: left;
-            border: 1px solid rgba(71, 85, 105, 0.15);
-            color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 0.6rem 1rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        body.dark-mode .admin-card .btn-outline-secondary {
-            background: rgba(10, 14, 26, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            color: #94a3b8;
-        }
-        .admin-card .btn-outline-secondary:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-            color: #fff;
-            transform: translateX(5px);
-        }
-        .admin-card .form-control,
-        .admin-card .form-select {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            color: var(--text-main);
-        }
-        body.dark-mode .admin-card .form-control,
-        body.dark-mode .admin-card .form-select {
-            background: rgba(10, 14, 26, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .admin-card .form-control:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
-        }
-        .admin-card .border-end {
-            border-color: rgba(255, 255, 255, 0.1) !important;
-        }
-        body.dark-mode .admin-card .border-end {
-            border-color: rgba(255, 255, 255, 0.04) !important;
-        }
-        .admin-card .btn-dark {
-            background: var(--text-main);
-            border: none;
-            border-radius: 8px;
-            padding: 0.4rem 1.2rem;
-            font-weight: 500;
-        }
-        body.dark-mode .admin-card .btn-dark {
-            background: #334155;
-        }
-        .admin-card .btn-dark:hover {
-            background: var(--accent-cyan);
-        }
-        .page-title {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        .dark-mode-toggle-admin {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .dark-mode-toggle-admin:hover {
-            color: var(--accent-cyan);
-            background: rgba(8, 145, 178, 0.06);
-            transform: scale(1.1);
-        }
-        .dashboard-content {
-            padding-top: 5rem;
-        }
-        .alert {
-            border-radius: 10px;
-            border: none;
-        }
-        .alert-success {
-            background: rgba(34, 197, 94, 0.1);
-            color: #16a34a;
-        }
-        body.dark-mode .alert-success {
-            background: rgba(34, 197, 94, 0.08);
-            color: #4ade80;
-        }
-        .alert-danger {
-            background: rgba(239, 68, 68, 0.1);
-            color: #dc2626;
-        }
-        body.dark-mode .alert-danger {
-            background: rgba(239, 68, 68, 0.08);
-            color: #f87171;
-        }
-        hr {
-            display: block;
-            border: none;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.06);
-            margin: 1rem 0;
-            opacity: 0.5;
-        }
-        body.dark-mode hr {
-            background: rgba(255, 255, 255, 0.03);
-        }
-    </style>
+    <link href="admin.css" rel="stylesheet"/>
 </head>
-<body>
-    <header class="admin-header">
-        <h4>Tripathy Portfolio CMS</h4>
-        <div class="header-actions">
-            <button class="dark-mode-toggle-admin" id="adminDarkModeToggle" aria-label="Toggle dark mode">
-                <i class="fa fa-moon-o" id="adminDarkModeIcon"></i>
-            </button>
-            <a href="logout.php" class="logout-btn"><i class="fa fa-sign-out"></i> Logout</a>
-        </div>
-    </header>
+<body class="admin-page">
+    <!-- Floating Action Bar -->
+    <div class="floating-action-bar">
+        <a href="../index.php" class="floating-btn" target="_blank" title="View Site">
+            <i class="fa fa-external-link"></i> <span class="d-none d-md-inline">View Site</span>
+        </a>
+        <button class="floating-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+            <i class="fa fa-moon-o" id="darkModeIcon"></i>
+        </button>
+        <a href="logout.php" class="floating-btn" style="color: #ef4444;" title="Logout">
+            <i class="fa fa-sign-out"></i> <span class="d-none d-md-inline">Logout</span>
+        </a>
+    </div>
 
     <div class="container dashboard-content mt-4">
         <h2 class="section-title">Dashboard</h2>
@@ -287,6 +87,7 @@ function getCount($file) {
             <p class="text-muted small">Upload PDFs, images, or avatars to link in your JSON data (e.g. <code>events/filename.pdf</code>).</p>
             <hr>
             <form action="upload_file.php" method="POST" enctype="multipart/form-data" class="row align-items-end g-2">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                 <div class="col-md-5">
                     <label class="small fw-bold mb-1" style="color: var(--text-muted);">Select File</label>
                     <input type="file" name="upload_file" class="form-control form-control-sm" required>
@@ -306,6 +107,7 @@ function getCount($file) {
                 if (isset($_GET['upload'])) {
                     if ($_GET['upload'] == 'success') echo "<div class='text-success small mt-2 w-100'><i class='fa fa-check-circle'></i> File uploaded successfully!</div>";
                     if ($_GET['upload'] == 'error') echo "<div class='text-danger small mt-2 w-100'><i class='fa fa-exclamation-circle'></i> Upload failed. Check permissions.</div>";
+                    if ($_GET['upload'] == 'too_large') echo "<div class='text-danger small mt-2 w-100'><i class='fa fa-exclamation-circle'></i> File too large (max 10 MB).</div>";
                 }
                 ?>
             </form>
@@ -321,6 +123,7 @@ function getCount($file) {
                         <div class="col-md-6">
                             <h6>Change Password</h6>
                             <form action="update_password.php" method="POST">
+                                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                                 <div class="mb-2">
                                     <label class="small fw-bold" style="color: var(--text-muted);">Current Password</label>
                                     <input type="password" name="current_password" class="form-control form-control-sm" required>
@@ -352,21 +155,6 @@ function getCount($file) {
         </div>
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.getElementById('adminDarkModeToggle');
-        const icon = document.getElementById('adminDarkModeIcon');
-        if (toggle && icon) {
-            if (document.body.classList.contains('dark-mode')) {
-                icon.className = 'fa fa-sun-o';
-            }
-            toggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                icon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
-            });
-        }
-    });
-    </script>
+    <script src="admin-common.js"></script>
 </body>
 </html>

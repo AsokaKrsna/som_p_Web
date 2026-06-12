@@ -8,6 +8,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // CSRF validation
+    $token = $_POST['csrf_token'] ?? '';
+    if (empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $token)) {
+        header("Location: dashboard.php?pass_update=error");
+        exit;
+    }
+
     $current_pass = $_POST['current_password'] ?? '';
     $new_pass = $_POST['new_password'] ?? '';
 

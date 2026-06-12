@@ -1,23 +1,60 @@
 <?php
 session_start();
+ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_samesite', 'Strict');
 
 // Load Configuration
 require_once 'config.php';
 
 $error = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+// Basic rate limiting (session-based, no external dependencies)
+if (!isset($_SESSION['login_attempts'])) {
+    $_SESSION['login_attempts'] = 0;
+    $_SESSION['login_lockout'] = 0;
+}
 
-    if ($username === $ADMIN_USER && password_verify($password, $ADMIN_HASH)) {
-        $_SESSION['loggedin'] = true;
-        header("Location: dashboard.php");
-        exit;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check lockout
+    if ($_SESSION['login_attempts'] >= 5 && time() < $_SESSION['login_lockout']) {
+        $remaining = ceil(($_SESSION['login_lockout'] - time()) / 60);
+        $error = "Too many failed attempts. Try again in {$remaining} minute(s).";
     } else {
-        $error = "Invalid credentials.";
+        // Reset if lockout period has passed
+        if (time() >= $_SESSION['login_lockout']) {
+            $_SESSION['login_attempts'] = 0;
+        }
+
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        // CSRF validation
+        $token = $_POST['csrf_token'] ?? '';
+        if (!isset($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $token)) {
+            $error = "Invalid request. Please try again.";
+        } elseif ($username === $ADMIN_USER && password_verify($password, $ADMIN_HASH)) {
+            // Success — regenerate session ID to prevent fixation
+            session_regenerate_id(true);
+            $_SESSION['loggedin'] = true;
+            $_SESSION['login_attempts'] = 0;
+
+            // Generate CSRF token for authenticated actions
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+            header("Location: dashboard.php");
+            exit;
+        } else {
+            $_SESSION['login_attempts']++;
+            if ($_SESSION['login_attempts'] >= 5) {
+                $_SESSION['login_lockout'] = time() + 900; // 15 minute lockout
+            }
+            $error = "Invalid credentials.";
+        }
     }
 }
+
+// Generate CSRF token for the form
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 ?>
 
 <!DOCTYPE html>
@@ -29,89 +66,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../style/custom.css" rel="stylesheet"/>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: var(--bg-color);
-            overflow: hidden;
-        }
-        .login-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow), var(--glass-glow);
-            border-radius: 20px;
-            padding: 3rem;
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-            z-index: 2;
-        }
-        .login-card h3 {
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--text-main), var(--accent-cyan));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
-        }
-        .login-card label {
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-        .login-card .form-control {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            padding: 0.65rem 1rem;
-            color: var(--text-main);
-        }
-        .login-card .form-control:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
-        }
-        body.dark-mode .login-card .form-control {
-            background: rgba(10, 14, 26, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .dark-mode-toggle-login {
-            position: fixed;
-            top: 1.5rem;
-            right: 2rem;
-            z-index: 100;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            background: var(--glass-bg);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-        }
-        .dark-mode-toggle-login:hover {
-            color: var(--accent-cyan);
-            transform: scale(1.1);
-        }
-    </style>
+    <link href="admin.css" rel="stylesheet"/>
 </head>
-<body>
-    <!-- Dark mode toggle -->
-    <button class="dark-mode-toggle-login" id="adminDarkModeToggle" aria-label="Toggle dark mode">
-        <i class="fa fa-moon-o" id="adminDarkModeIcon"></i>
-    </button>
+<body class="admin-page admin-login">
+    <!-- Floating Action Bar -->
+    <div class="floating-action-bar">
+        <a href="../index.php" class="floating-btn">
+            <i class="fa fa-home"></i> <span>Back to Portfolio</span>
+        </a>
+        <button class="floating-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+            <i class="fa fa-moon-o" id="darkModeIcon"></i>
+        </button>
+    </div>
 
     <div class="login-card">
         <h3 class="text-center">Admin Access</h3>
@@ -125,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endif; ?>
 
         <form method="POST" action="">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <div class="mb-3">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" required>
@@ -135,27 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn btn-custom w-100">Login</button>
         </form>
-
-        <div class="text-center mt-4">
-            <a href="../index.php" class="small" style="color: var(--text-muted);">← Back to Portfolio</a>
-        </div>
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.getElementById('adminDarkModeToggle');
-        const icon = document.getElementById('adminDarkModeIcon');
-        if (toggle && icon) {
-            if (document.body.classList.contains('dark-mode')) {
-                icon.className = 'fa fa-sun-o';
-            }
-            toggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                icon.className = isDark ? 'fa fa-sun-o' : 'fa fa-moon-o';
-            });
-        }
-    });
-    </script>
+    <script src="admin-common.js"></script>
 </body>
 </html>

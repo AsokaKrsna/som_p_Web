@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Mark sections above current as "visited"
             if (current) {
-                const order = ['home','bio','publications','patents','projects','teaching','seminars','memberships','editorship','awards'];
+                const order = ['home','bio','patents','projects','teaching','seminars','memberships','editorship','publications','awards'];
                 const currentIdx = order.indexOf(current);
                 const itemIdx = order.indexOf(sectionId);
                 if (itemIdx < currentIdx) {
@@ -135,34 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // ──────────────────────────────────────────────
     function updateTimelineFill() {
         if (!timelineFill) return;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (docHeight <= 0) {
-            timelineFill.style.height = '0%';
-            return;
-        }
-        const progress = Math.min((window.scrollY / docHeight) * 100, 100);
-        timelineFill.style.height = progress + '%';
-    }
-
-    // ──────────────────────────────────────────────
-    // Right indicator – update active dot & label
-    // ──────────────────────────────────────────────
-    function updateIndicator(current) {
-        if (!indicatorDots.length) return;
-
-        indicatorDots.forEach(dot => {
-            const target = dot.getAttribute('data-target');
-            if (target === current) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
+        const activeItem = document.querySelector('.nav-side-item.active');
+        if (activeItem) {
+            const currentSectionId = activeItem.getAttribute('data-section');
+            const currentSection = document.getElementById(currentSectionId);
+            
+            let sectionProgress = 0;
+            if (currentSection) {
+                const rect = currentSection.getBoundingClientRect();
+                const navHeight = navbar ? navbar.offsetHeight : 80;
+                const scrolledWithin = (navHeight + 150) - rect.top;
+                const sectionHeight = rect.height || currentSection.offsetHeight;
+                sectionProgress = Math.max(0, Math.min(1, scrolledWithin / sectionHeight));
             }
-        });
 
-        if (indicatorLabel && current && sectionNames[current]) {
-            indicatorLabel.textContent = sectionNames[current];
+            let nextItem = activeItem.nextElementSibling;
+            
+            const activeTop = activeItem.offsetTop + 12; // approximate center of dot
+            let nextTop = activeTop;
+            if (nextItem) {
+                nextTop = nextItem.offsetTop + 12;
+            } else {
+                nextTop = document.querySelector('.nav-side-items').offsetHeight; // end of track
+            }
+            
+            const fillHeight = activeTop + (nextTop - activeTop) * sectionProgress;
+            timelineFill.style.height = fillHeight + 'px';
+        } else {
+            timelineFill.style.height = '0px';
         }
     }
+
+
 
     // ──────────────────────────────────────────────
     // Helper: close tablet side nav
@@ -176,34 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ──────────────────────────────────────────────
-    // Click indicator dot → scroll to section
-    // ──────────────────────────────────────────────
-    indicatorDots.forEach(dot => {
-        const scrollToTarget = () => {
-            const targetId = dot.getAttribute('data-target');
-            const target = document.getElementById(targetId);
-            if (target) {
-                const navHeight = navbar ? navbar.offsetHeight : 80;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                history.pushState(null, null, '#' + targetId);
-            }
-        };
 
-        dot.addEventListener('click', scrollToTarget);
-
-        // Keyboard support
-        dot.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                scrollToTarget();
-            }
-        });
-    });
 
     // ──────────────────────────────────────────────
     // Smooth scroll for anchor links (side nav & any # links)
@@ -331,6 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
         darkModeTimeout = setTimeout(() => {
             document.body.classList.remove('dark-mode-transitioning');
         }, 500);
+
+        // Persist preference
+        localStorage.setItem('darkMode', enabled ? 'true' : 'false');
     }
 
     function toggleDarkMode() {
@@ -345,6 +325,12 @@ document.addEventListener("DOMContentLoaded", () => {
         overlayDarkModeToggle.addEventListener('click', toggleDarkMode);
     }
 
+    // Restore saved dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        setDarkMode(true);
+    }
+
     // ──────────────────────────────────────────────
     // Unified scroll update
     // ──────────────────────────────────────────────
@@ -354,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleBackToTop();
         updateSideNav(current);
         updateTimelineFill();
-        updateIndicator(current);
+
     }
 
     window.addEventListener('scroll', onScroll);

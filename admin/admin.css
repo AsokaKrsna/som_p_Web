@@ -1,0 +1,489 @@
+/*
+  Tripathy Portfolio CMS — Admin Styles
+  Consolidated from inline <style> blocks in admin pages.
+  Loaded by: index.php, dashboard.php, raw_editor.php
+*/
+
+/* ========================================================================= */
+/* SHARED ADMIN BASE                                                          */
+/* ========================================================================= */
+
+body.admin-page {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+/* ── Alert overrides ── */
+.admin-page .alert {
+  border-radius: 10px;
+  border: none;
+}
+
+.admin-page .alert-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+body.dark-mode.admin-page .alert-success {
+  background: rgba(34, 197, 94, 0.08);
+  color: #4ade80;
+}
+
+.admin-page .alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+body.dark-mode.admin-page .alert-danger {
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+}
+
+.admin-page .alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+body.dark-mode.admin-page .alert-warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: #fbbf24;
+}
+
+/* ── Form controls ── */
+.admin-page .form-control,
+.admin-page .form-select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color: var(--text-main);
+}
+
+body.dark-mode.admin-page .form-control,
+body.dark-mode.admin-page .form-select {
+  background: rgba(10, 14, 26, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-page .form-control:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+}
+
+/* ── Horizontal rules ── */
+.admin-page hr {
+  display: block;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+body.dark-mode.admin-page hr {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* ========================================================================= */
+/* LOGIN PAGE                                                                 */
+/* ========================================================================= */
+
+body.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.login-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-glow);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-card h3 {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-main), var(--accent-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.login-card label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+
+/* ========================================================================= */
+/* DASHBOARD PAGE                                                             */
+/* ========================================================================= */
+
+.admin-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  height: 100%;
+  box-shadow: var(--glass-shadow);
+}
+
+.admin-card h5 {
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-card h6 {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.admin-card p.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.logout-btn {
+  color: #ef4444;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+.admin-card .btn-outline-primary {
+  text-align: left;
+  border: 1px solid rgba(8, 145, 178, 0.2);
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+body.dark-mode .admin-card .btn-outline-primary {
+  background: rgba(10, 14, 26, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+}
+
+.admin-card .btn-outline-primary:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.admin-card .btn-outline-secondary {
+  text-align: left;
+  border: 1px solid rgba(71, 85, 105, 0.15);
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+body.dark-mode .admin-card .btn-outline-secondary {
+  background: rgba(10, 14, 26, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+}
+
+.admin-card .btn-outline-secondary:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.admin-card .border-end {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .admin-card .border-end {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.admin-card .btn-dark {
+  background: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 500;
+}
+
+body.dark-mode .admin-card .btn-dark {
+  background: #334155;
+}
+
+.admin-card .btn-dark:hover {
+  background: var(--accent-cyan);
+}
+
+.page-title {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-content {
+  padding-top: 2rem;
+}
+
+
+/* ========================================================================= */
+/* RAW EDITOR PAGE                                                            */
+/* ========================================================================= */
+
+/* ── Preview Modal ── */
+.preview-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10000; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 2rem;
+}
+
+.preview-overlay.active { opacity: 1; visibility: visible; }
+
+.preview-modal {
+  width: 100%; max-width: 900px; max-height: 85vh; display: flex; flex-direction: column;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border); border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  transform: translateY(30px) scale(0.95); transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.preview-overlay.active .preview-modal { transform: translateY(0) scale(1); }
+
+.preview-modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.preview-modal-header h5 { margin: 0; font-weight: 700; color: var(--text-main); }
+
+.preview-modal-close {
+  background: none; border: 1px solid rgba(71,85,105,0.15); cursor: pointer;
+  border-radius: 8px; padding: 0.35rem 0.85rem; color: var(--text-muted); font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.preview-modal-close:hover {
+  background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); color: #ef4444;
+}
+
+.preview-modal-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+
+.preview-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.preview-card {
+  background: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px; padding: 1rem;
+}
+
+body.dark-mode .preview-card {
+  background: rgba(10,14,26,0.2); border: 1px solid rgba(255,255,255,0.04);
+}
+
+.preview-card-header {
+  font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.9rem;
+}
+
+body.dark-mode .preview-card-header { border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+.preview-field { display: flex; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.88rem; }
+
+.preview-label {
+  font-weight: 600; color: var(--text-muted); min-width: 100px; flex-shrink: 0;
+}
+
+.preview-value { color: var(--text-main); word-break: break-word; }
+
+.preview-link { color: var(--accent-cyan); }
+.preview-link:hover { color: var(--accent-blue); text-decoration: underline; }
+
+/* ── Editor layout ── */
+.editor-container {
+  max-width: 1400px;
+  margin: 2rem auto 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+}
+
+#aceEditor {
+  width: 100%;
+  height: 70vh;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+}
+
+.form-pane {
+  height: 70vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.form-label {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.form-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+body.dark-mode .form-card {
+  background: rgba(10, 14, 26, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.form-card:hover {
+  border-color: rgba(8, 145, 178, 0.2);
+}
+
+.drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  padding: 5px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.sortable-ghost {
+  opacity: 0.4;
+  background: var(--accent-cyan) !important;
+}
+
+.editor-container .btn-custom {
+  border-radius: 10px;
+  padding: 0.65rem 2rem;
+  font-weight: 600;
+}
+
+.editor-container .card-header {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+body.dark-mode .editor-container .card-header {
+  background: rgba(10, 14, 26, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.editor-container .card-header h5 {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.editor-container .card {
+  background: transparent !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+body.dark-mode .editor-container .card {
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.form-card .form-control {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  color: var(--text-main);
+}
+
+body.dark-mode .form-card .form-control {
+  background: rgba(10, 14, 26, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.form-card .form-control:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+}
+
+/* Editor page button overrides */
+.editor-container .btn-outline-secondary {
+  border: 1px solid rgba(71, 85, 105, 0.15);
+  color: var(--text-muted);
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.editor-container .btn-outline-secondary:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+
+.btn-preview {
+  background: rgba(37, 99, 235, 0.06) !important;
+  border: 1px solid var(--accent-blue) !important;
+  color: var(--accent-blue) !important;
+}
+
+.btn-preview:hover {
+  background: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-preview {
+  background: rgba(96, 165, 250, 0.08) !important;
+  border: 1px solid var(--accent-blue) !important;
+  color: var(--accent-blue) !important;
+}
+
+body.dark-mode .btn-preview:hover {
+  background: var(--accent-blue) !important;
+  color: #080c18 !important;
+}
