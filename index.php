@@ -80,7 +80,7 @@ $awards = loadJsonData('awards.json');
 
         <div class="hero-visuals">
             <div class="glass-avatar-wrapper">
-                <img src="images/som.jpg" alt="Dr. Somanath Tripathy" class="profile-img-3d">
+                <img src="images/som_n.png" alt="Dr. Somanath Tripathy" class="profile-img-3d">
             </div>
         </div>
     </div>
