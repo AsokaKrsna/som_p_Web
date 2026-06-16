@@ -51,7 +51,7 @@ $awards = loadJsonData('awards.json');
 
     <div class="container hero-container">
         <div class="hero-content">
-            <h1 class="hero-title">Dr. Somanath<br>Tripathy</h1>
+            <h1 class="hero-title">Dr. Somanath Tripathy</h1>
             <h2 class="hero-subtitle">Professor</h2>
             
             <div class="hero-details">
