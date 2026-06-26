@@ -176,24 +176,46 @@ function renderForm() {
                        </button>
                    </div>`;
                 
+                let boolFields = [];
                 for (const [key, value] of Object.entries(item)) {
+                    if (typeof value === 'boolean') {
+                        boolFields.push({key, value});
+                        continue;
+                    }
+                    
                     const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
                     const isLongText = key === 'details' || key === 'description' || (typeof value === 'string' && value.length > 60);
                     
-                    cardHtml += `<div class="mb-3"><label class="form-label small">${label}</label>`;
+                    cardHtml += `<div class="mb-3"><label class="form-label small fw-bold text-secondary">${label}</label>`;
                     
-                    if (typeof value === 'boolean') {
-                        cardHtml += `
-                        <select class="form-select form-select-sm" onchange="updateItem('${category}', ${index}, '${key}', this.value === 'true')">
-                            <option value="true" ${value ? 'selected' : ''}>Yes</option>
-                            <option value="false" ${!value ? 'selected' : ''}>No</option>
-                        </select>`;
-                    } else if (isLongText) {
+                    if (isLongText) {
                         cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '${key}', this.value)">${escapeHtml(value)}</textarea>`;
                     } else {
                         cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(value)}" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;
                     }
                     cardHtml += `</div>`;
+                }
+
+                if (boolFields.length > 0) {
+                    cardHtml += `<div class="mb-2 p-2 rounded d-flex align-items-center gap-3" style="background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.05);">
+                        <label class="form-label small fw-bold text-secondary mb-0">Show at:</label>
+                        <div class="d-flex gap-3">`;
+                    boolFields.forEach(bf => {
+                        const rawLabel = bf.key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        const displayLabel = rawLabel.replace(/^Show /i, ''); 
+                        const id = `chk_${category}_${index}_${bf.key}`;
+                        
+                        cardHtml += `
+                            <div class="form-check mb-0">
+                                <input class="form-check-input" type="checkbox" id="${id}" 
+                                    ${bf.value ? 'checked' : ''} 
+                                    onchange="updateItem('${category}', ${index}, '${bf.key}', this.checked)">
+                                <label class="form-check-label small user-select-none pt-1" for="${id}" style="cursor: pointer;">
+                                    ${displayLabel}
+                                </label>
+                            </div>`;
+                    });
+                    cardHtml += `</div></div>`;
                 }
                 card.innerHTML = cardHtml;
                 listContainer.appendChild(card);
