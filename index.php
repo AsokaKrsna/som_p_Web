@@ -45,14 +45,27 @@ function renderPublicationTable($items) {
     $counter = count($items);
     foreach ($items as $pub): ?>
     <tr><td>
-        <p><strong><?= $counter-- ?>.</strong> <?= htmlspecialchars($pub['details'] ?? '') ?>
+        <p><strong><?= $counter-- ?>.</strong> 
+            <?php if(!empty($pub['author'])): ?>
+                <?= htmlspecialchars($pub['author']) ?>, 
+            <?php endif; ?>
+            
             <?php if(!empty($pub['link'])): ?>
                 <a href="<?= htmlspecialchars($pub['link']) ?>" target="_blank" rel="noopener noreferrer">
                     <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
-                </a>,
+                </a>
             <?php else: ?>
-                <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>,
+                <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
             <?php endif; ?>
+            
+            <?php if(!empty($pub['published_at'])): ?>
+                , <?= htmlspecialchars($pub['published_at']) ?>
+            <?php endif; ?>
+            
+            <?php if(!empty($pub['doi'])): ?>
+                , <a href="<?= htmlspecialchars(str_replace('https://doi.org/', 'https://doi.org/', $pub['doi'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($pub['doi']) ?></a>
+            <?php endif; ?>
+            
             <?php if(!empty($pub['impact_factor'])): ?>
                 <br><span class="impact-factor-badge"><?= htmlspecialchars($pub['impact_factor']) ?></span>
             <?php endif; ?>

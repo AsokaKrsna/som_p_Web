@@ -342,7 +342,7 @@ window.addItem = function(category) {
             }
         });
     } else {
-        template = {"title": "", "details": "", "show_personal": true, "show_lab": true};
+        template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
     }
     targetArray.unshift(template);
     updateAce();
