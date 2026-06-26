@@ -20,9 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $remaining = ceil(($_SESSION['login_lockout'] - time()) / 60);
         $error = "Too many failed attempts. Try again in {$remaining} minute(s).";
     } else {
-        // Reset if lockout period has passed
-        if (time() >= $_SESSION['login_lockout']) {
+        // Reset if lockout period has passed and a lockout was actually active
+        if ($_SESSION['login_lockout'] > 0 && time() >= $_SESSION['login_lockout']) {
             $_SESSION['login_attempts'] = 0;
+            $_SESSION['login_lockout'] = 0;
         }
 
         $username = $_POST['username'] ?? '';
