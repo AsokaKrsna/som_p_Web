@@ -1,10 +1,16 @@
 [
     {
-        "title": "",
-        "details": "Somanath Tripathy, \n\t\t'Service Provider System for Authenticating a User and a Method There Of',Indian Patent Filed 2023, App No: 202331049299, Patent No.: 568228"
+        "authors": "Somanath Tripathy",
+        "title": "Service Provider System for Authenticating a User and a Method There Of",
+        "filed_year": "2023",
+        "application_no": "202331049299",
+        "patent_no": "568228"
     },
     {
-        "title": "",
-        "details": "Vikash Kumar Rai, Somanath Tripathy and Jimson Mathew, \n\t\t'A hybrid multi bit random number generator',Indian Patent Filed 2023, App No: 201831007599, Patent No.: 476005"
+        "authors": "Vikash Kumar Rai, Somanath Tripathy and Jimson Mathew",
+        "title": "A hybrid multi bit random number generator",
+        "filed_year": "2023",
+        "application_no": "201831007599",
+        "patent_no": "476005"
     }
 ]

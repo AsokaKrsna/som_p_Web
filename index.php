@@ -160,8 +160,11 @@ $awards = loadJsonData('awards.json');
             ?>
             <tr><td>
                 <p><strong><?= $counter-- ?>.</strong> 
-                    <strong><?= htmlspecialchars($patent['title'] ?? '') ?></strong>, 
-                    <?= htmlspecialchars($patent['details'] ?? '') ?>
+                    <?= htmlspecialchars($patent['authors'] ?? '') ?>,
+                    <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>, 
+                    Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>, 
+                    App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>, 
+                    Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
                 </p>
             </td></tr>
             <?php endforeach; ?>
