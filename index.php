@@ -267,9 +267,19 @@ $awards = loadJsonData('awards.json');
             <?php foreach ($events as $e): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <?php if (!empty($e['link'])): ?>
-                        <a href="<?= htmlspecialchars($e['link']) ?>" target="_blank" class="active-entry-link"><?= htmlspecialchars($e['title'] ?? '') ?></a>
+                        <a href="<?= htmlspecialchars($e['link']) ?>" target="_blank" class="active-entry-link">
+                            <strong><?= htmlspecialchars($e['title'] ?? '') ?></strong>
+                        </a>
                     <?php else: ?>
-                        <span class="entry-text"><?= htmlspecialchars($e['title'] ?? '') ?></span>
+                        <strong class="entry-text"><?= htmlspecialchars($e['title'] ?? '') ?></strong>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($e['location'])): ?>
+                        at <?= htmlspecialchars($e['location']) ?>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($e['date'])): ?>
+                        <span class="text-muted">(<?= htmlspecialchars($e['date']) ?>)</span>
                     <?php endif; ?>
                 </li>
             <?php endforeach; ?>
