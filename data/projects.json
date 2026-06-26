@@ -5,21 +5,27 @@
             "role": "PI(Co-Led)",
             "agency": "MeiTy",
             "amount": "-",
-            "duration": "5 yrs"
+            "duration": "5 yrs",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Development of    an Intelligent Visual Query Response solution for Remote sensing",
             "role": "Co-PI\u00a0\u00a0 with PI (Dr.\u00a0 Suman Kumar Maji)",
             "agency": "SERB",
             "amount": "26,67981",
-            "duration": "Commenced from 9th Jan 2023    (3Yrs)"
+            "duration": "Commenced from 9th Jan 2023    (3Yrs)",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Collaborative    learning for Early detection of Fraud in Fintech Application",
             "role": "PI",
             "agency": "IIT Bhilai    Innovation Technology Foundation",
             "amount": "14.94 Lakh",
-            "duration": "3Yrs (commenced from 01-04-2022)"
+            "duration": "3Yrs (commenced from 01-04-2022)",
+            "show_personal": true,
+            "show_lab": true
         }
     ],
     "completed": [
@@ -28,35 +34,45 @@
             "role": "Co-PI",
             "agency": "Ministry of Home Affairs (MHA)",
             "amount": "Rs. 284.688 Lacs",
-            "duration": "24 Months"
+            "duration": "24 Months",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Privacy Preserving Smart Contract based Technique to Perform Secure Computation in Cloud Storage: Design and Analysis",
             "role": "PI",
             "agency": "SERB (Mathematical Research Impact Centric Support (MATRICS))",
             "amount": "Rs. 6.6 Lacs (2.2 Lacs per year)",
-            "duration": "36 Months (Jan 2020)"
+            "duration": "36 Months (Jan 2020)",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Development of Solution to Defend Against Collaborative Attacks in Peer-to-Peer Networks",
             "role": "PI",
             "agency": "DEITY",
             "amount": "Rs. 35.4 Lacs",
-            "duration": "34 Months (Completed on July 2018)"
+            "duration": "34 Months (Completed on July 2018)",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Development of a Secure Routing Framework for P2P Networks using Gossip-based Protocols",
             "role": "Co-PI",
             "agency": "DIT",
             "amount": "Rs. 59.64 Lacs",
-            "duration": "28 months (Completed On Feb 2014)"
+            "duration": "28 months (Completed On Feb 2014)",
+            "show_personal": true,
+            "show_lab": true
         },
         {
             "title": "Development of Authentication and Key Management for Battle Field Communication Network",
             "role": "PI",
             "agency": "DRDO, CAIR, Bangalore",
             "amount": "Rs. 9.6 Lacs",
-            "duration": "16 months (Completed on Jan 2013)"
+            "duration": "16 months (Completed on Jan 2013)",
+            "show_personal": true,
+            "show_lab": true
         }
     ]
 }

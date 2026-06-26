@@ -103,13 +103,13 @@ $page_description = isset($page_description) ? $page_description : "Academic por
 
     <!-- Floating Action Bar (replaces top navbar) -->
     <div class="floating-action-bar" id="mainNav">
-        <?php if (basename($_SERVER['PHP_SELF']) === 'research_group.php'): ?>
+        <?php if (basename($_SERVER['PHP_SELF']) === 'cybersecurity-lab.php'): ?>
         <a href="index.php" class="floating-btn d-none d-lg-flex">
             <i class="fa fa-home"></i> <span>Home / Bio</span>
         </a>
         <?php else: ?>
-        <a href="research_group.php" class="floating-btn d-none d-lg-flex">
-            <i class="fa fa-users"></i> <span>Research Group</span>
+        <a href="cybersecurity-lab.php" class="floating-btn d-none d-lg-flex">
+            <i class="fa fa-users"></i> <span>Cybersecurity Lab</span>
         </a>
         <?php endif; ?>
         <a href="https://www.iitp.ac.in/" target="_blank" class="floating-btn d-none d-lg-flex">
@@ -143,10 +143,10 @@ $page_description = isset($page_description) ? $page_description : "Academic por
             </div>
             <div class="nav-column">
                 <span class="nav-label">Links</span>
-                <?php if (basename($_SERVER['PHP_SELF']) === 'research_group.php'): ?>
+                <?php if (basename($_SERVER['PHP_SELF']) === 'cybersecurity-lab.php'): ?>
                 <a class="nav-link-large" href="index.php">Home / Bio</a>
                 <?php else: ?>
-                <a class="nav-link-large" href="research_group.php">Research Group</a>
+                <a class="nav-link-large" href="cybersecurity-lab.php">Cybersecurity Lab</a>
                 <?php endif; ?>
                 <a class="nav-link-large" href="https://www.iitp.ac.in/" target="_blank">IITP Home</a>
                 <button class="overlay-dark-mode-toggle" id="overlayDarkModeToggle">

@@ -19,6 +19,13 @@
             "research_area": "Area of Research: Cyber Security"
         }
     ],
+    "mtech": [
+        {
+            "name": "Mock MTech Student",
+            "affiliation": "Email: mock_mtech@iitp.ac.in",
+            "research_area": "Area of Research: Mock Research Area"
+        }
+    ],
     "past_phd": [
         {
             "image": "pics/Rakesh.jpg",

@@ -4,13 +4,40 @@ $page_title = "Dr. Somanath Tripathy | Academic Portfolio";
 include 'components/header.php';
 
 // Safely load JSON data with fallback
-function loadJsonData($file) {
+function loadJsonData($file, $visibilityKey = null) {
     $path = 'data/' . $file;
     if (!file_exists($path)) return [];
     $content = @file_get_contents($path);
     if ($content === false) return [];
     $data = json_decode($content, true);
-    return (json_last_error() === JSON_ERROR_NONE && is_array($data)) ? $data : [];
+    $data = (json_last_error() === JSON_ERROR_NONE && is_array($data)) ? $data : [];
+
+    if ($visibilityKey) {
+        $isDictOfArrays = false;
+        foreach ($data as $key => $val) {
+            if (is_array($val) && !is_numeric($key)) {
+                $isDictOfArrays = true;
+                break;
+            }
+        }
+
+        if ($isDictOfArrays) {
+            foreach ($data as $cat => &$items) {
+                if (is_array($items)) {
+                    $items = array_filter($items, function($item) use ($visibilityKey) {
+                        return !isset($item[$visibilityKey]) || $item[$visibilityKey] === true || $item[$visibilityKey] === "true";
+                    });
+                    $items = array_values($items); // re-index
+                }
+            }
+        } else {
+            $data = array_filter($data, function($item) use ($visibilityKey) {
+                return !isset($item[$visibilityKey]) || $item[$visibilityKey] === true || $item[$visibilityKey] === "true";
+            });
+            $data = array_values($data); // re-index
+        }
+    }
+    return $data;
 }
 
 // Reusable publication table renderer (eliminates 4x duplication)
@@ -34,9 +61,9 @@ function renderPublicationTable($items) {
     <?php endforeach;
 }
 
-$publications = loadJsonData('publications.json');
+$publications = loadJsonData('publications.json', 'show_personal');
 $patents = loadJsonData('patents.json');
-$projects = loadJsonData('projects.json');
+$projects = loadJsonData('projects.json', 'show_personal');
 $courses = loadJsonData('teaching.json');
 $events = loadJsonData('seminars.json');
 $memberships = loadJsonData('memberships.json');

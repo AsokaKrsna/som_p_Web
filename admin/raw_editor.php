@@ -328,9 +328,15 @@ window.addItem = function(category) {
     let targetArray = isArrayRoot ? currentData : currentData[category];
     
     if (targetArray.length > 0) {
-        Object.keys(targetArray[0]).forEach(k => template[k] = "");
+        Object.entries(targetArray[0]).forEach(([k, v]) => {
+            if (typeof v === 'boolean') {
+                template[k] = true;
+            } else {
+                template[k] = "";
+            }
+        });
     } else {
-        template = {"title": "", "details": ""};
+        template = {"title": "", "details": "", "show_personal": true, "show_lab": true};
     }
     targetArray.unshift(template);
     updateAce();
