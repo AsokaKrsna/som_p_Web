@@ -406,16 +406,26 @@ window.toggleFullscreenAce = function() {
         btn.innerHTML = '<i class="fa fa-expand"></i> Fullscreen';
         btn.style.position = '';
         btn.style.top = '';
+        btn.style.bottom = '';
         btn.style.right = '';
+        btn.style.left = '';
         btn.style.zIndex = '';
+        btn.style.transform = '';
+        btn.style.boxShadow = '';
+        btn.classList.replace('btn-danger', 'btn-outline-secondary');
         document.body.classList.remove('no-scroll');
     } else {
         aceDiv.classList.add('ace-fullscreen');
         btn.innerHTML = '<i class="fa fa-compress"></i> Exit Fullscreen';
         btn.style.position = 'fixed';
-        btn.style.top = '10px';
-        btn.style.right = '20px';
+        btn.style.bottom = '30px';
+        btn.style.right = '30px';
+        btn.style.top = 'auto';
+        btn.style.left = 'auto';
+        btn.style.transform = 'none';
         btn.style.zIndex = '10001';
+        btn.classList.replace('btn-outline-secondary', 'btn-danger');
+        btn.style.boxShadow = '0 4px 12px rgba(0,0,0,0.5)';
         document.body.classList.add('no-scroll');
     }
     editor.resize();
