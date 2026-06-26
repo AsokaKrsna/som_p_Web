@@ -166,19 +166,27 @@ function renderForm() {
         for (const [category, items] of Object.entries(iterableData)) {
             const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
             
+            const isArray = Array.isArray(items);
+            const isObject = !isArray && typeof items === 'object' && items !== null;
+            
+            if (!isArray && !isObject) continue;
+            
             const section = document.createElement('div');
             section.className = 'card bg-transparent border-secondary mb-4';
             section.id = `section-${category}`;
-            section.innerHTML = `
-                <div class="card-header d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.03);">
-                    <h5 class="m-0 text-primary">${categoryTitle}</h5>
-                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="addItem('${category}')">+ Add New Entry</button>
-                </div>
-                <div class="card-body p-2 sortable-list" data-category="${category}"></div>`;
+            
+            let headerHtml = `<div class="card-header d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.03);">
+                <h5 class="m-0 text-primary">${categoryTitle}</h5>`;
+            if (isArray) {
+                headerHtml += `<button type="button" class="btn btn-sm btn-outline-primary" onclick="addItem('${category}')">+ Add New Entry</button>`;
+            }
+            headerHtml += `</div>`;
+            
+            section.innerHTML = headerHtml + `<div class="card-body p-2 sortable-list" data-category="${category}"></div>`;
             
             const listContainer = section.querySelector('.sortable-list');
             
-            items.forEach((item, index) => {
+            const renderCard = (item, index, canDelete) => {
                 const card = document.createElement('div');
                 card.className = 'form-card';
                 card.setAttribute('data-index', index);
@@ -186,12 +194,13 @@ function renderForm() {
                 let cardHtml = `
                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
                        <div class="d-flex align-items-center">
-                           <span class="drag-handle mr-2"><i class="fas fa-grip-vertical"></i></span>
-                           <strong>Entry #${index + 1}</strong>
+                           ${isArray ? '<span class="drag-handle mr-2"><i class="fas fa-grip-vertical"></i></span>' : ''}
+                           <strong>${isArray ? `Entry #${index + 1}` : 'Configuration'}</strong>
                        </div>
+                       ${canDelete ? `
                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteItem('${category}', ${index})">
                            <i class="fa fa-trash"></i> Delete
-                       </button>
+                       </button>` : ''}
                    </div>`;
                 
                 let boolFields = [];
@@ -237,28 +246,34 @@ function renderForm() {
                 }
                 card.innerHTML = cardHtml;
                 listContainer.appendChild(card);
-            });
+            };
+
+            if (isArray) {
+                items.forEach((item, index) => renderCard(item, index, true));
+                
+                // Initialize Sortable for this array category
+                new Sortable(listContainer, {
+                    handle: '.drag-handle',
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    onEnd: function (evt) {
+                        const cat = evt.from.getAttribute('data-category');
+                        const oldIndex = evt.oldIndex;
+                        const newIndex = evt.newIndex;
+                        
+                        const targetArray = isArrayRoot ? currentData : currentData[cat];
+                        const item = targetArray.splice(oldIndex, 1)[0];
+                        targetArray.splice(newIndex, 0, item);
+                        
+                        editor.setValue(JSON.stringify(currentData, null, 4), -1);
+                        renderForm();
+                    }
+                });
+            } else {
+                renderCard(items, -1, false);
+            }
             
             visualEditor.appendChild(section);
-
-            // Initialize Sortable for this category
-            new Sortable(listContainer, {
-                handle: '.drag-handle',
-                animation: 150,
-                ghostClass: 'sortable-ghost',
-                onEnd: function (evt) {
-                    const cat = evt.from.getAttribute('data-category');
-                    const oldIndex = evt.oldIndex;
-                    const newIndex = evt.newIndex;
-                    
-                    const targetArray = isArrayRoot ? currentData : currentData[cat];
-                    const item = targetArray.splice(oldIndex, 1)[0];
-                    targetArray.splice(newIndex, 0, item);
-                    
-                    editor.setValue(JSON.stringify(currentData, null, 4), -1);
-                    renderForm();
-                }
-            });
         }
     } catch (e) {
         visualEditor.innerHTML = `<div class="alert alert-warning border border-warning"><strong>JSON Syntax Error:</strong> Visual form disabled. Please fix the raw JSON schema first.</div>`;
@@ -274,7 +289,11 @@ window.updateItem = function(category, index, key, newValue) {
     if (isArrayRoot) {
         currentData[index][key] = newValue;
     } else {
-        currentData[category][index][key] = newValue;
+        if (index === -1) {
+            currentData[category][key] = newValue;
+        } else {
+            currentData[category][index][key] = newValue;
+        }
     }
     updateAce();
 };
