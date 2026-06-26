@@ -191,7 +191,7 @@ $awards = loadJsonData('awards.json');
                         <tr>
                             <th>Title</th>
                             <th>Role</th>
-                            <th>Agency</th>
+                            <th>Funding Agency</th>
                             <th>Amount</th>
                             <th>Duration</th>
                         </tr>
@@ -199,7 +199,7 @@ $awards = loadJsonData('awards.json');
                         <tr>
                             <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
                             <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                            <td><strong><?= htmlspecialchars($proj['agency'] ?? '') ?></strong></td>
+                            <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
                             <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
                             <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
                         </tr>
@@ -214,7 +214,7 @@ $awards = loadJsonData('awards.json');
                         <tr>
                             <th>Title</th>
                             <th>Role</th>
-                            <th>Agency</th>
+                            <th>Funding Agency</th>
                             <th>Amount</th>
                             <th>Duration</th>
                         </tr>
@@ -222,7 +222,7 @@ $awards = loadJsonData('awards.json');
                         <tr>
                             <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
                             <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                            <td><strong><?= htmlspecialchars($proj['agency'] ?? '') ?></strong></td>
+                            <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
                             <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
                             <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
                         </tr>
