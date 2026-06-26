@@ -2620,7 +2620,7 @@ body.dark-mode .announcement-bar-marquee {
 
 .sponsor-logo-box {
   display: inline-flex; align-items: center; justify-content: center;
-  height: 60px;
+  height: 80px;
   transition: transform 0.4s ease, opacity 0.4s ease;
   cursor: pointer;
   opacity: 0.6;
