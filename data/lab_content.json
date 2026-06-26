@@ -71,20 +71,20 @@
     ],
     "funding_sponsors": [
         {
-            "name": "SERB",
-            "logo": ""
+            "name": "Google",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
         },
         {
-            "name": "DST",
-            "logo": ""
+            "name": "Microsoft",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
         },
         {
-            "name": "MeitY",
-            "logo": ""
+            "name": "Amazon",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
         },
         {
-            "name": "Industry Partner",
-            "logo": ""
+            "name": "Intel",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg"
         }
     ],
     "gallery": [
