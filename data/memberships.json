@@ -1,11 +1,14 @@
 [
     {
-        "membership": "Life member, CRSI [Cryptology Research Society of India]"
+        "role": "Life member",
+        "organization": "CRSI [Cryptology Research Society of India]"
     },
     {
-        "membership": "Senior Member, IEEE"
+        "role": "Senior Member",
+        "organization": "IEEE"
     },
     {
-        "membership": "Senior Member, International Association of Computer Science and Information Technology [IACSIT]"
+        "role": "Senior Member",
+        "organization": "International Association of Computer Science and Information Technology [IACSIT]"
     }
 ]

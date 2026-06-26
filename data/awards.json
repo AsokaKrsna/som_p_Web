@@ -1,8 +1,12 @@
 [
     {
-        "award": "IEEE Student scholarship at INDIN 2006, Singapore"
+        "title": "IEEE Student scholarship",
+        "event": "INDIN 2006",
+        "location": "Singapore"
     },
     {
-        "award": "Best paper award OBCOMAPC-2004 Asia pacific conference held at VIT, Vellore"
+        "title": "Best paper award",
+        "event": "OBCOMAPC-2004 Asia pacific conference",
+        "location": "VIT, Vellore"
     }
 ]

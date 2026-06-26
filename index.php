@@ -296,7 +296,7 @@ $awards = loadJsonData('awards.json');
         <ul class="pub-list ps-4">
             <?php foreach ($memberships as $m): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <span class="entry-text"><?= htmlspecialchars($m['membership'] ?? '') ?></span>
+                    <span class="entry-text"><strong><?= htmlspecialchars($m['role'] ?? '') ?></strong>, <?= htmlspecialchars($m['organization'] ?? '') ?></span>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -380,7 +380,13 @@ $awards = loadJsonData('awards.json');
         <ul class="pub-list ps-4">
             <?php foreach ($awards as $a): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <span class="entry-text"><?= htmlspecialchars($a['award'] ?? '') ?></span>
+                    <span class="entry-text">
+                        <strong><?= htmlspecialchars($a['title'] ?? '') ?></strong>, 
+                        <?= htmlspecialchars($a['event'] ?? '') ?> 
+                        <?php if (!empty($a['location'])): ?>
+                            <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
+                        <?php endif; ?>
+                    </span>
                 </li>
             <?php endforeach; ?>
         </ul>
