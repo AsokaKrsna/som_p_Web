@@ -26,15 +26,17 @@ Periodically check the `/data` directory. Each `.json` file stores a specific se
 
 | File | Structure | Notes |
 |---|---|---|
-| `publications.json` | Object → `journals`, `conferences`, `preprints`, `books` | Each is an array of entries |
-| `projects.json` | Object → `ongoing`, `completed` | Table-rendered with columns |
-| `research_group.json` | Object → `phd`, `mtech`, `interns` | Card layout with avatars |
-| `patents.json` | Flat array | Simple numbered list |
-| `teaching.json` | Flat array | Supports optional `link` field |
-| `seminars.json` | Flat array | Supports optional `link` field |
-| `memberships.json` | Flat array | Single `membership` field |
+| `publications.json` | Object → `journals`, `conferences`, `preprints`, `books` | Fields: `title`, `author`, `link`, `published_at`, `doi`, `impact_factor` |
+| `projects.json` | Object → `ongoing`, `completed` | Fields: `title`, `role`, `funding_agency`, `duration`, `amount` |
+| `research_group.json` | Object → `phd`, `mtech`, `interns`, `past_phd`, `past_mtech` | Card layout. Fields: `name`, `email`, `research_area`, `image`, etc. |
+| `patents.json` | Flat array | Fields: `title`, `authors`, `filed_year`, `application_no`, `patent_no` |
+| `teaching.json` | Flat array | Fields: `course`, `link` |
+| `seminars.json` | Flat array | Fields: `title`, `location`, `date`, `link` |
+| `memberships.json` | Flat array | Fields: `role`, `organization` |
 | `editorships.json` | Flat array | Fields: `role`, `journal`, `duration` |
-| `awards.json` | Flat array | Single `award` field |
+| `awards.json` | Flat array | Fields: `title`, `event`, `location` |
+| `lab_content.json` | Configuration Object | General text/config data for cybersecurity-lab.php |
+| `announcements.json` | Flat array | Marquee fields: `text`, `link`, `badge` |
 
 ### 3. Dark Mode
 
