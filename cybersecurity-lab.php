@@ -563,17 +563,25 @@ if (is_array($projects)) {
 </section>
 
 <!-- Resources Section (Mock) -->
-<section class="bio-section pt-5 pb-4" style="background: var(--bg-alt);">
-    <div class="container">
+<section class="bio-section pt-5 pb-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
+    <!-- Decorative background elements -->
+    <div style="position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; background: rgba(8,145,178,0.05); filter: blur(100px); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -150px; right: -100px; width: 400px; height: 400px; background: rgba(59,130,246,0.05); filter: blur(100px); border-radius: 50%;"></div>
+    
+    <div class="container position-relative z-1">
         <h3 class="section-title text-center mb-5">Open Resources & Datasets</h3>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-5 justify-content-center">
             <?php foreach($openResources as $res): ?>
             <div class="col-md-5">
-                <div class="premium-card p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center">
-                    <i class="fa <?= htmlspecialchars($res['icon'] ?? 'fa-database') ?> fa-3x mb-3" style="color: #0891b2;"></i>
-                    <h5 class="fw-bold" style="color: var(--text-color);"><?= htmlspecialchars($res['title'] ?? '') ?></h5>
-                    <p class="text-muted small mb-3"><?= htmlspecialchars($res['description'] ?? '') ?></p>
-                    <a href="<?= htmlspecialchars($res['link_url'] ?? '#') ?>" class="btn btn-outline-info btn-sm rounded-pill mt-auto fw-bold" style="border-width: 2px;"><?= htmlspecialchars($res['link_text'] ?? 'Learn More') ?></a>
+                <div class="resource-card p-5 h-100 text-center d-flex flex-column align-items-center justify-content-center position-relative">
+                    <div class="resource-icon-wrap mb-4">
+                        <i class="fa <?= htmlspecialchars($res['icon'] ?? 'fa-database') ?> fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3" style="color: var(--text-color);"><?= htmlspecialchars($res['title'] ?? '') ?></h4>
+                    <p class="text-muted mb-4 fs-6"><?= htmlspecialchars($res['description'] ?? '') ?></p>
+                    <a href="<?= htmlspecialchars($res['link_url'] ?? '#') ?>" class="btn resource-btn mt-auto rounded-pill px-4 py-2 fw-bold">
+                        <?= htmlspecialchars($res['link_text'] ?? 'Learn More') ?> <i class="fa fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -581,17 +589,34 @@ if (is_array($projects)) {
     </div>
 </section>
 
-<!-- Funding & Sponsors Section (Mock) -->
+<!-- Funding & Sponsors Section -->
 <section class="bio-section pt-5 pb-5">
     <div class="container text-center">
         <h3 class="section-title mb-5">Funding & Collaborators</h3>
-        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 opacity-75">
-            <!-- Placeholders for sponsor logos -->
-            <?php foreach($fundingSponsors as $sponsor): ?>
-            <div class="p-3 border rounded bg-white text-dark shadow-sm d-flex align-items-center justify-content-center fw-bold fs-5" style="width: 160px; height: 80px; text-align: center;">
-                <?= htmlspecialchars($sponsor['name'] ?? '') ?>
+        <div class="sponsor-marquee-container">
+            <!-- Duplicated content for seamless scrolling -->
+            <div class="sponsor-marquee-content">
+                <?php foreach($fundingSponsors as $sponsor): ?>
+                <div class="sponsor-logo-box" title="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
+                    <?php if(!empty($sponsor['logo'])): ?>
+                        <img src="<?= htmlspecialchars($sponsor['logo']) ?>" alt="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
+                    <?php else: ?>
+                        <span class="fw-bold text-muted"><?= htmlspecialchars($sponsor['name'] ?? '') ?></span>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+                
+                <!-- Duplicate array for infinite scroll effect -->
+                <?php foreach($fundingSponsors as $sponsor): ?>
+                <div class="sponsor-logo-box" title="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
+                    <?php if(!empty($sponsor['logo'])): ?>
+                        <img src="<?= htmlspecialchars($sponsor['logo']) ?>" alt="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
+                    <?php else: ?>
+                        <span class="fw-bold text-muted"><?= htmlspecialchars($sponsor['name'] ?? '') ?></span>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </section>
