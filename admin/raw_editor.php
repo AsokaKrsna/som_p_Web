@@ -98,11 +98,13 @@ $current_content = file_get_contents($path);
             <div class="col-lg-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="m-0">Raw JSON Data (Ace Editor)</h5>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFullscreenAce()" id="fullscreenBtn" title="Toggle Fullscreen">
+                </div>
+                <div style="position: relative;">
+                    <div id="aceEditor"><?= htmlspecialchars($current_content) ?></div>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFullscreenAce()" id="fullscreenBtn" title="Toggle Fullscreen" style="position: absolute; bottom: 15px; right: 30px; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
                         <i class="fa fa-expand"></i> Fullscreen
                     </button>
                 </div>
-                <div id="aceEditor"><?= htmlspecialchars($current_content) ?></div>
                 <input type="hidden" name="json_content" id="jsonTarget">
                 <div class="d-flex gap-2 mt-3">
                     <button type="submit" class="btn btn-custom flex-fill shadow-lg"><i class="fa fa-check"></i> Save</button>
@@ -404,14 +406,14 @@ window.toggleFullscreenAce = function() {
     if (aceDiv.classList.contains('ace-fullscreen')) {
         aceDiv.classList.remove('ace-fullscreen');
         btn.innerHTML = '<i class="fa fa-expand"></i> Fullscreen';
-        btn.style.position = '';
-        btn.style.top = '';
-        btn.style.bottom = '';
-        btn.style.right = '';
-        btn.style.left = '';
-        btn.style.zIndex = '';
-        btn.style.transform = '';
-        btn.style.boxShadow = '';
+        btn.style.position = 'absolute';
+        btn.style.bottom = '15px';
+        btn.style.right = '30px';
+        btn.style.top = 'auto';
+        btn.style.left = 'auto';
+        btn.style.zIndex = '100';
+        btn.style.transform = 'none';
+        btn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
         btn.classList.replace('btn-danger', 'btn-outline-secondary');
         document.body.classList.remove('no-scroll');
     } else {
