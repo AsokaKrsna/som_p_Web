@@ -1,0 +1,100 @@
+{
+    "hero": [
+        {
+            "title": "Cybersecurity Lab",
+            "subtitle": "Indian Institute of Technology Patna",
+            "location": "Room no - 302, Academic Block - 2",
+            "tagline": "Pioneering research in Malware Detection, Secure Machine Learning, Blockchain, and Lightweight Cryptography."
+        }
+    ],
+    "about": [
+        {
+            "description": "Welcome to the Cybersecurity Research Lab at IIT Patna. Our mission is to advance the state-of-the-art in security through rigorous academic research and practical innovation. We explore the intersection of artificial intelligence and cybersecurity, developing robust defenses against next-generation threats."
+        }
+    ],
+    "research_areas": [
+        {
+            "icon": "fa-bug",
+            "title": "Malware Analysis",
+            "description": "Behavioral analysis and AI-driven detection."
+        },
+        {
+            "icon": "fa-link",
+            "title": "Blockchain",
+            "description": "Smart contract security and consensus protocols."
+        },
+        {
+            "icon": "fa-lock",
+            "title": "Cryptography",
+            "description": "Lightweight crypto for IoT and edge devices."
+        },
+        {
+            "icon": "fa-shield",
+            "title": "Network Sec",
+            "description": "Intrusion detection and traffic classification."
+        }
+    ],
+    "join_us": [
+        {
+            "heading": "Join Our Group",
+            "description": "We are always looking for motivated Ph.D., M.Tech, and B.Tech students. If you are passionate about cybersecurity and want to work on cutting-edge research, we'd love to hear from you.",
+            "note": "Note: We usually take interns during summer or winter breaks, but everyone is encouraged to reach out anytime.",
+            "form_link": "https://forms.gle/placeholder",
+            "email": "som@iitp.ac.in"
+        }
+    ],
+    "head_of_research": [
+        {
+            "name": "Dr. Somnath Tripathy",
+            "designation": "Professor & Lab Director",
+            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Lightweight Cryptography, Network Security, and applied Machine Learning for cyber defense.",
+            "scholar_link": "https://scholar.google.com",
+            "dblp_link": "https://dblp.org",
+            "website_link": "index.php"
+        }
+    ],
+    "open_resources": [
+        {
+            "title": "IoT Malware Dataset 2025",
+            "icon": "fa-database",
+            "description": "A comprehensive dataset of zero-day IoT malware samples with static and dynamic feature sets.",
+            "link_text": "Download Dataset",
+            "link_url": "#"
+        },
+        {
+            "title": "LightCrypto Framework",
+            "icon": "fa-code",
+            "description": "Open-source C library for implementing lightweight cryptographic primitives on edge devices.",
+            "link_text": "View on GitHub",
+            "link_url": "#"
+        }
+    ],
+    "funding_sponsors": [
+        {
+            "name": "SERB"
+        },
+        {
+            "name": "DST"
+        },
+        {
+            "name": "MeitY"
+        },
+        {
+            "name": "Industry Partner"
+        }
+    ],
+    "gallery": [
+        {
+            "image": "https://via.placeholder.com/600x400/0891b2/ffffff?text=Lab+Outing",
+            "alt": "Lab Outing"
+        },
+        {
+            "image": "https://via.placeholder.com/600x400/0e7490/ffffff?text=Conference",
+            "alt": "Conference"
+        },
+        {
+            "image": "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Group+Meeting",
+            "alt": "Group Meeting"
+        }
+    ]
+}

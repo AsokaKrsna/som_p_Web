@@ -44,6 +44,17 @@ $members = loadJsonData('research_group.json');
 $projects = loadJsonData('projects.json', 'show_lab');
 $publications = loadJsonData('publications.json', 'show_lab');
 $announcements = loadJsonData('announcements.json');
+$labContent = loadJsonData('lab_content.json');
+
+// Extract lab content blocks for easy use
+$heroContent = $labContent['hero'][0] ?? [];
+$aboutContent = $labContent['about'][0] ?? [];
+$joinUsContent = $labContent['join_us'][0] ?? [];
+$headContent = $labContent['head_of_research'][0] ?? [];
+$researchAreas = $labContent['research_areas'] ?? [];
+$openResources = $labContent['open_resources'] ?? [];
+$fundingSponsors = $labContent['funding_sponsors'] ?? [];
+$gallery = $labContent['gallery'] ?? [];
 
 // Reversing arrays for reverse chronological order
 $members['phd'] = array_reverse($members['phd'] ?? []);
@@ -176,10 +187,12 @@ if (is_array($projects)) {
             <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img">
         </div>
 
-        <h1 class="lab-hero-title">Cybersecurity Lab</h1>
-        <h2 class="lab-hero-subtitle">Indian Institute of Technology Patna</h2>
-        <p class="lab-hero-location"><i class="fa fa-map-marker" style="margin-right: 6px;"></i>Room no - 302, Academic Block - 2</p>
-        <p class="lab-hero-tagline">Pioneering research in Malware Detection, Secure Machine Learning, Blockchain, and Lightweight Cryptography.</p>
+        <h1 class="lab-hero-title"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
+        <h2 class="lab-hero-subtitle"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
+        <?php if (!empty($heroContent['location'])): ?>
+            <p class="lab-hero-location"><i class="fa fa-map-marker" style="margin-right: 6px;"></i><?= htmlspecialchars($heroContent['location']) ?></p>
+        <?php endif; ?>
+        <p class="lab-hero-tagline"><?= htmlspecialchars($heroContent['tagline'] ?? '') ?></p>
 
         <!-- Stats Row -->
         <div class="lab-stats-row">
@@ -242,38 +255,19 @@ if (is_array($projects)) {
                 <div class="about-lab-content h-100 pe-lg-4">
                     <h3 class="section-title text-start mb-4">About the Lab</h3>
                     <p class="about-lab-text">
-                        The Cybersecurity Lab at IIT Patna focuses on tackling modern security challenges in connected systems and artificial intelligence. Under the direction of Dr. Somanath Tripathy, our research spans theoretical foundations and practical applications in several core domains.
+                        <?= htmlspecialchars($aboutContent['description'] ?? '') ?>
                     </p>
                     <!-- Research Area Mini Cards -->
                     <div class="research-area-grid mt-4 pt-2">
+                        <?php foreach($researchAreas as $area): ?>
                         <div class="research-area-card premium-card">
-                            <div class="research-area-icon"><i class="fa fa-bug"></i></div>
+                            <div class="research-area-icon"><i class="fa <?= htmlspecialchars($area['icon'] ?? 'fa-circle') ?>"></i></div>
                             <div class="research-area-info">
-                                <h6>Malware Detection</h6>
-                                <p>AI-driven static & dynamic analysis</p>
+                                <h6><?= htmlspecialchars($area['title'] ?? '') ?></h6>
+                                <p><?= htmlspecialchars($area['description'] ?? '') ?></p>
                             </div>
                         </div>
-                        <div class="research-area-card premium-card">
-                            <div class="research-area-icon"><i class="fa fa-shield"></i></div>
-                            <div class="research-area-info">
-                                <h6>Secure Machine Learning</h6>
-                                <p>Adversarial robustness & privacy</p>
-                            </div>
-                        </div>
-                        <div class="research-area-card premium-card">
-                            <div class="research-area-icon"><i class="fa fa-link"></i></div>
-                            <div class="research-area-info">
-                                <h6>Blockchain Technology</h6>
-                                <p>Payment channels & smart contracts</p>
-                            </div>
-                        </div>
-                        <div class="research-area-card premium-card">
-                            <div class="research-area-icon"><i class="fa fa-lock"></i></div>
-                            <div class="research-area-info">
-                                <h6>Lightweight Cryptography</h6>
-                                <p>IoT-optimized ciphers & protocols</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -282,20 +276,26 @@ if (is_array($projects)) {
                     <div class="join-us-icon-wrapper mb-3">
                         <i class="fa fa-users"></i>
                     </div>
-                    <h3 class="mb-3 text-white" style="font-weight: 700;">Join Our Group</h3>
+                    <h3 class="mb-3 text-white" style="font-weight: 700;"><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
                     <p class="text-white-50 mb-3" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85) !important;">
-                        We are always looking for motivated Ph.D., M.Tech, and B.Tech students. If you are passionate about cybersecurity and want to work on cutting-edge research, we'd love to hear from you.
+                        <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
                     </p>
+                    <?php if (!empty($joinUsContent['note'])): ?>
                     <p class="text-white-50 mb-4" style="font-size: 0.90rem; line-height: 1.5; color: rgba(255,255,255,0.7) !important;">
-                        <em>Note: We usually take interns during summer or winter breaks, but everyone is encouraged to reach out anytime.</em>
+                        <em><?= htmlspecialchars($joinUsContent['note']) ?></em>
                     </p>
+                    <?php endif; ?>
                     <div class="d-flex flex-column gap-3 mt-auto">
-                        <a href="https://forms.gle/placeholder" target="_blank" class="btn btn-light btn-lg text-primary fw-bold" style="border-radius: 8px; color: #0e7490 !important;">
+                        <?php if (!empty($joinUsContent['form_link'])): ?>
+                        <a href="<?= htmlspecialchars($joinUsContent['form_link']) ?>" target="_blank" class="btn btn-light btn-lg text-primary fw-bold" style="border-radius: 8px; color: #0e7490 !important;">
                             <i class="fa fa-file-text-o me-2"></i> Application Form
                         </a>
-                        <a href="mailto:som@iitp.ac.in" class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 8px;">
+                        <?php endif; ?>
+                        <?php if (!empty($joinUsContent['email'])): ?>
+                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 8px;">
                             <i class="fa fa-envelope-o me-2"></i> Email Us
                         </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -310,11 +310,19 @@ if (is_array($projects)) {
         <div class="row justify-content-center mt-4">
             <div class="col-md-8 col-lg-6">
                 <div class="student-card" style="flex-direction: row; align-items: center; text-align: left; padding: 2rem;">
-                    <img class="avatar mb-0 me-4" src="pics/som-pic.png" alt="Dr. Somanath Tripathy" style="width: 120px; height: 120px;">
+                    <img class="avatar mb-0 me-4" src="pics/som-pic.png" alt="<?= htmlspecialchars($headContent['name'] ?? '') ?>" style="width: 120px; height: 120px;">
                     <div>
-                        <h4 class="mb-1" style="font-weight: 800; color: var(--text-main);">Dr. Somanath Tripathy</h4>
-                        <p class="mb-2" style="color: var(--text-muted);">Professor, Department of Computer Science and Engineering, IIT Patna</p>
-                        <p class="email m-0"><i class="fa fa-envelope-o"></i> som[at]iitp.ac.in</p>
+                        <h4 class="mb-1" style="font-weight: 800; color: var(--text-main);"><?= htmlspecialchars($headContent['name'] ?? '') ?></h4>
+                        <p class="mb-2" style="color: var(--text-muted);"><?= htmlspecialchars($headContent['designation'] ?? '') ?></p>
+                        <p class="mb-2 small" style="color: var(--text-muted);"><?= htmlspecialchars($headContent['bio'] ?? '') ?></p>
+                        <p class="email m-0">
+                            <?php if (!empty($headContent['scholar_link'])): ?>
+                            <a href="<?= htmlspecialchars($headContent['scholar_link']) ?>" target="_blank" class="me-3" style="text-decoration: none;"><i class="fa fa-graduation-cap"></i> Scholar</a>
+                            <?php endif; ?>
+                            <?php if (!empty($headContent['website_link'])): ?>
+                            <a href="<?= htmlspecialchars($headContent['website_link']) ?>" class="me-3" style="text-decoration: none;"><i class="fa fa-globe"></i> Website</a>
+                            <?php endif; ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -537,6 +545,54 @@ if (is_array($projects)) {
                     <?php endif; ?>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resources Section (Mock) -->
+<section class="bio-section pt-5 pb-4" style="background: var(--bg-alt);">
+    <div class="container">
+        <h3 class="section-title text-center mb-5">Open Resources & Datasets</h3>
+        <div class="row g-4 justify-content-center">
+            <?php foreach($openResources as $res): ?>
+            <div class="col-md-5">
+                <div class="premium-card p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center">
+                    <i class="fa <?= htmlspecialchars($res['icon'] ?? 'fa-database') ?> fa-3x mb-3" style="color: #0891b2;"></i>
+                    <h5 class="fw-bold" style="color: var(--text-color);"><?= htmlspecialchars($res['title'] ?? '') ?></h5>
+                    <p class="text-muted small mb-3"><?= htmlspecialchars($res['description'] ?? '') ?></p>
+                    <a href="<?= htmlspecialchars($res['link_url'] ?? '#') ?>" class="btn btn-outline-info btn-sm rounded-pill mt-auto fw-bold" style="border-width: 2px;"><?= htmlspecialchars($res['link_text'] ?? 'Learn More') ?></a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Funding & Sponsors Section (Mock) -->
+<section class="bio-section pt-5 pb-5">
+    <div class="container text-center">
+        <h3 class="section-title mb-5">Funding & Collaborators</h3>
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 opacity-75">
+            <!-- Placeholders for sponsor logos -->
+            <?php foreach($fundingSponsors as $sponsor): ?>
+            <div class="p-3 border rounded bg-white text-dark shadow-sm d-flex align-items-center justify-content-center fw-bold fs-5" style="width: 160px; height: 80px; text-align: center;">
+                <?= htmlspecialchars($sponsor['name'] ?? '') ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Lab Gallery Section (Mock) -->
+<section class="bio-section pt-4 pb-5" style="background: var(--bg-alt);">
+    <div class="container">
+        <h3 class="section-title text-center mb-4">Life at the Lab</h3>
+        <div class="row g-4">
+            <?php foreach($gallery as $img): ?>
+            <div class="col-md-4">
+                <img src="<?= htmlspecialchars($img['image'] ?? '') ?>" class="img-fluid rounded shadow-sm" alt="<?= htmlspecialchars($img['alt'] ?? '') ?>" style="object-fit: cover; width: 100%; height: 220px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

@@ -182,7 +182,13 @@ function renderForm() {
                     
                     cardHtml += `<div class="mb-3"><label class="form-label small">${label}</label>`;
                     
-                    if (isLongText) {
+                    if (typeof value === 'boolean') {
+                        cardHtml += `
+                        <select class="form-select form-select-sm" onchange="updateItem('${category}', ${index}, '${key}', this.value === 'true')">
+                            <option value="true" ${value ? 'selected' : ''}>Yes</option>
+                            <option value="false" ${!value ? 'selected' : ''}>No</option>
+                        </select>`;
+                    } else if (isLongText) {
                         cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '${key}', this.value)">${escapeHtml(value)}</textarea>`;
                     } else {
                         cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(value)}" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;

@@ -57,6 +57,8 @@ function getCount($file) {
                     <h5><i class="fa fa-database" style="color: var(--accent-cyan);"></i> Primary Datasets</h5>
                     <hr>
                     <div class="d-grid gap-2">
+                        <a href="raw_editor.php?file=lab_content.json" class="btn btn-outline-primary text-start"><i class="fa fa-desktop"></i> Lab Page Content (<?= getCount('lab_content.json') ?> Sections)</a>
+                        <a href="raw_editor.php?file=announcements.json" class="btn btn-outline-primary text-start"><i class="fa fa-bullhorn"></i> Announcements (<?= getCount('announcements.json') ?>)</a>
                         <a href="raw_editor.php?file=publications.json" class="btn btn-outline-primary text-start"><i class="fa fa-book"></i> Publications (<?= getCount('publications.json') ?>)</a>
                         <a href="raw_editor.php?file=projects.json" class="btn btn-outline-primary text-start"><i class="fa fa-flask"></i> Projects (<?= getCount('projects.json') ?>)</a>
                         <a href="raw_editor.php?file=research_group.json" class="btn btn-outline-primary text-start"><i class="fa fa-users"></i> Research Group (<?= getCount('research_group.json') ?>)</a>

@@ -17,7 +17,9 @@ Content is stored as standard JSON in the `/data` directory.
 |---|---|---|
 | `publications.json` | Object with arrays | `journals`, `conferences`, `preprints`, `books` |
 | `projects.json` | Object with arrays | `ongoing`, `completed` |
-| `research_group.json` | Object with arrays | `phd`, `mtech`, `interns` |
+| `research_group.json` | Object with arrays | `phd`, `mtech`, `interns`, `past_phd`, `past_mtech` |
+| `lab_content.json` | Object with arrays | `hero`, `about`, `research_areas`, `join_us`, `open_resources`, `gallery` |
+| `announcements.json`| Flat array | Scrolling marquee items |
 | All others | Flat arrays | Single list of items |
 
 ### 2. Rendering Layer (PHP 7.4+ Templating)
@@ -53,7 +55,7 @@ Admin files are centralized in `/admin`:
 | `config.php` | Admin username and bcrypt password hash |
 | `index.php` | Login page with CSRF, rate limiting, session hardening |
 | `dashboard.php` | Dashboard with data links, file upload, password change |
-| `raw_editor.php` | Dual-pane editor (Visual Form + Ace JSON), preview modal |
+| `raw_editor.php` | Dual-pane editor (Visual Form + Ace JSON), preview modal, boolean dropdown support |
 | `ajax_save.php` | AJAX POST endpoint for JSON saves (CSRF validated) |
 | `ajax_fetch.php` | AJAX GET endpoint for JSON reads (session gated) |
 | `upload_file.php` | File upload (CSRF, MIME check, size limit) |
