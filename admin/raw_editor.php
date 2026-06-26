@@ -96,12 +96,18 @@ $current_content = file_get_contents($path);
 
             <!-- Right Pane: Raw JSON -->
             <div class="col-lg-5">
-                <h5 class="mb-3">Raw JSON Data (Ace Editor)</h5>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="m-0">Raw JSON Data (Ace Editor)</h5>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFullscreenAce()" id="fullscreenBtn" title="Toggle Fullscreen">
+                        <i class="fa fa-expand"></i> Fullscreen
+                    </button>
+                </div>
                 <div id="aceEditor"><?= htmlspecialchars($current_content) ?></div>
                 <input type="hidden" name="json_content" id="jsonTarget">
                 <div class="d-flex gap-2 mt-3">
-                    <button type="submit" class="btn btn-custom flex-fill shadow-lg"><i class="fa fa-check"></i> Save Changes</button>
+                    <button type="submit" class="btn btn-custom flex-fill shadow-lg"><i class="fa fa-check"></i> Save</button>
                     <button type="button" class="btn btn-custom btn-preview flex-fill shadow-lg" id="previewBtn" onclick="openPreviewModal()"><i class="fa fa-eye"></i> Preview</button>
+                    <a href="dashboard.php" class="btn btn-outline-danger flex-fill shadow-lg d-flex align-items-center justify-content-center" style="border-radius: 10px;"><i class="fa fa-times"></i> Exit</a>
                 </div>
             </div>
         </div>
@@ -146,11 +152,21 @@ function renderForm() {
         
         let iterableData = isArrayRoot ? { "items": currentData } : currentData;
         
+        // Build Section Navigation
+        let navHtml = '<div class="d-flex gap-2 mb-3 py-2 overflow-auto" style="white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 10; background: var(--glass-bg); backdrop-filter: blur(10px);">';
+        for (const category of Object.keys(iterableData)) {
+            const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
+            navHtml += `<a href="#section-${category}" class="badge bg-secondary text-decoration-none p-2 fs-6 text-light opacity-75 hover-opacity-100">${categoryTitle}</a>`;
+        }
+        navHtml += '</div>';
+        visualEditor.innerHTML = navHtml;
+        
         for (const [category, items] of Object.entries(iterableData)) {
             const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
             
             const section = document.createElement('div');
             section.className = 'card bg-transparent border-secondary mb-4';
+            section.id = `section-${category}`;
             section.innerHTML = `
                 <div class="card-header d-flex justify-content-between align-items-center" style="background: rgba(0,0,0,0.03);">
                     <h5 class="m-0 text-primary">${categoryTitle}</h5>
@@ -382,7 +398,44 @@ editor.getSession().on('change', () => {
 
 // Init
 renderForm();
+window.toggleFullscreenAce = function() {
+    const aceDiv = document.getElementById('aceEditor');
+    const btn = document.getElementById('fullscreenBtn');
+    if (aceDiv.classList.contains('ace-fullscreen')) {
+        aceDiv.classList.remove('ace-fullscreen');
+        btn.innerHTML = '<i class="fa fa-expand"></i> Fullscreen';
+        document.body.classList.remove('no-scroll');
+    } else {
+        aceDiv.classList.add('ace-fullscreen');
+        btn.innerHTML = '<i class="fa fa-compress"></i> Exit Fullscreen';
+        btn.style.position = 'fixed';
+        btn.style.top = '10px';
+        btn.style.right = '20px';
+        btn.style.zIndex = '10001';
+        document.body.classList.add('no-scroll');
+    }
+    editor.resize();
+};
 </script>
+
+    <style>
+        .ace-fullscreen {
+            position: fixed !important;
+            top: 0; right: 0; bottom: 0; left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 10000;
+        }
+        .ace-fullscreen + input + div #fullscreenBtn {
+            position: fixed;
+            top: 15px;
+            right: 25px;
+            z-index: 10001;
+            background: var(--glass-bg);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+    </style>
 
     <!-- Preview Modal Overlay -->
     <div class="preview-overlay" id="previewModal">
