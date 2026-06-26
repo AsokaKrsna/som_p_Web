@@ -404,6 +404,10 @@ window.toggleFullscreenAce = function() {
     if (aceDiv.classList.contains('ace-fullscreen')) {
         aceDiv.classList.remove('ace-fullscreen');
         btn.innerHTML = '<i class="fa fa-expand"></i> Fullscreen';
+        btn.style.position = '';
+        btn.style.top = '';
+        btn.style.right = '';
+        btn.style.zIndex = '';
         document.body.classList.remove('no-scroll');
     } else {
         aceDiv.classList.add('ace-fullscreen');
@@ -416,6 +420,15 @@ window.toggleFullscreenAce = function() {
     }
     editor.resize();
 };
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+        const aceDiv = document.getElementById('aceEditor');
+        if (aceDiv && aceDiv.classList.contains('ace-fullscreen')) {
+            toggleFullscreenAce();
+        }
+    }
+});
 </script>
 
     <style>
@@ -425,15 +438,6 @@ window.toggleFullscreenAce = function() {
             width: 100% !important;
             height: 100% !important;
             z-index: 10000;
-        }
-        .ace-fullscreen + input + div #fullscreenBtn {
-            position: fixed;
-            top: 15px;
-            right: 25px;
-            z-index: 10001;
-            background: var(--glass-bg);
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
         }
     </style>
 
