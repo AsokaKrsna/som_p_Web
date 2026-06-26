@@ -72,19 +72,19 @@
     "funding_sponsors": [
         {
             "name": "SERB",
-            "logo": "https://placehold.co/300x120/transparent/0891b2.png?text=SERB&font=montserrat"
+            "logo": ""
         },
         {
             "name": "DST",
-            "logo": "https://placehold.co/300x120/transparent/0891b2.png?text=DST&font=montserrat"
+            "logo": ""
         },
         {
             "name": "MeitY",
-            "logo": "https://placehold.co/300x120/transparent/0891b2.png?text=MeitY&font=montserrat"
+            "logo": ""
         },
         {
             "name": "Industry Partner",
-            "logo": "https://placehold.co/300x120/transparent/0891b2.png?text=Partner&font=montserrat"
+            "logo": ""
         }
     ],
     "gallery": [
