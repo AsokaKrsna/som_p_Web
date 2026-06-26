@@ -69,31 +69,45 @@ function getInitialsAvatarUrl($name) {
 }
 
 // Helper function to render a premium student card
-function renderStudentCard($member, $index) {
+function renderStudentCard($member, $index, $isPast = false) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
-    $affiliation = $member['affiliation'] ?? '';
-    $researchArea = $member['research_area'] ?? '';
     $email = $member['email'] ?? '';
-    $rawDetails = $member['raw_details'] ?? '';
+    $researchArea = $member['research_area'] ?? '';
+    
+    // For past members
+    $passingYear = $member['passing_year'] ?? '';
+    $currentAffiliation = $member['current_affiliation'] ?? '';
+    $thesis = $member['thesis'] ?? '';
     ?>
     <div class="col-md-6 col-lg-4 mb-4">
         <div class="student-card h-100">
             <div class="card-index-badge"><?= $index ?></div>
             <img src="<?= $imageSrc ?>" class="avatar" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
             <h5><?= htmlspecialchars($name) ?></h5>
-            <?php if ($affiliation): ?>
-                <div class="affiliation"><?= htmlspecialchars($affiliation) ?></div>
+            
+            <?php if ($isPast): ?>
+                <?php if ($passingYear): ?>
+                    <div class="affiliation" style="font-weight: 500;">Batch of <?= htmlspecialchars($passingYear) ?></div>
+                <?php endif; ?>
+                <?php if ($currentAffiliation): ?>
+                    <div class="affiliation mt-1"><i class="fa fa-building-o"></i> <?= htmlspecialchars($currentAffiliation) ?></div>
+                <?php endif; ?>
+                <?php if ($thesis): ?>
+                    <div class="research-badge mt-2" style="white-space: normal; height: auto;">Thesis: <?= htmlspecialchars($thesis) ?></div>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php if ($email): ?>
+                    <div class="affiliation"><i class="fa fa-envelope-o"></i> <?= htmlspecialchars($email) ?></div>
+                <?php endif; ?>
+                <?php if ($researchArea): ?>
+                    <div class="research-badge mt-2" style="white-space: normal; height: auto;"><?= htmlspecialchars($researchArea) ?></div>
+                <?php endif; ?>
             <?php endif; ?>
-            <?php if ($researchArea): ?>
-                <div class="research-badge"><?= htmlspecialchars($researchArea) ?></div>
-            <?php endif; ?>
-            <?php if ($email): ?>
+            
+            <?php if ($isPast && $email): ?>
                 <div class="email mt-2"><i class="fa fa-envelope-o"></i> <?= htmlspecialchars($email) ?></div>
-            <?php endif; ?>
-            <?php if ($rawDetails && !$researchArea && !$email): ?>
-                <p class="mt-2 text-muted" style="font-size: 0.9rem;"><?= htmlspecialchars($rawDetails) ?></p>
             <?php endif; ?>
         </div>
     </div>
@@ -105,9 +119,9 @@ function renderSleekAlumniCard($member, $index) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
-    $affiliation = $member['affiliation'] ?? '';
-    $researchArea = $member['research_area'] ?? '';
-    $rawDetails = $member['raw_details'] ?? '';
+    
+    $passingYear = $member['passing_year'] ?? '';
+    $thesis = $member['thesis'] ?? '';
     ?>
     <div class="col-md-6 mb-3">
         <div class="alumni-card-sleek h-100">
@@ -115,14 +129,11 @@ function renderSleekAlumniCard($member, $index) {
             <img src="<?= $imageSrc ?>" class="sleek-avatar" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
             <div class="sleek-info">
                 <h6><?= htmlspecialchars($name) ?></h6>
-                <?php if ($affiliation): ?>
-                    <div class="text-muted"><?= htmlspecialchars($affiliation) ?></div>
+                <?php if ($passingYear): ?>
+                    <div class="text-muted" style="font-size: 0.85rem;">Batch of <?= htmlspecialchars($passingYear) ?></div>
                 <?php endif; ?>
-                <?php if ($researchArea): ?>
-                    <span class="badge mt-1" style="background: rgba(8, 145, 178, 0.1); color: var(--accent-blue);"><?= htmlspecialchars($researchArea) ?></span>
-                <?php endif; ?>
-                <?php if ($rawDetails && !$researchArea): ?>
-                    <span class="badge mt-1" style="background: rgba(8, 145, 178, 0.1); color: var(--accent-blue);"><?= htmlspecialchars($rawDetails) ?></span>
+                <?php if ($thesis): ?>
+                    <span class="badge mt-1" style="background: rgba(8, 145, 178, 0.1); color: var(--accent-blue); white-space: normal; text-align: left; line-height: 1.4;"><?= htmlspecialchars($thesis) ?></span>
                 <?php endif; ?>
             </div>
         </div>
@@ -425,12 +436,12 @@ if (is_array($projects)) {
             <div class="tab-pane fade show active" id="past-phd-tab-pane" role="tabpanel">
                 <div class="row">
                     <?php 
-                    if (!empty($members['past_phd'])) {
+                    if (!empty($members['past_phd'])): 
                         $idx = count($members['past_phd']);
-                        foreach($members['past_phd'] as $member) renderStudentCard($member, $idx--);
-                    } else {
+                        foreach($members['past_phd'] as $member) renderStudentCard($member, $idx--, true);
+                    else:
                         echo "<p class='text-center text-muted m-0 py-3 w-100'>No past Ph.D. students listed.</p>";
-                    }
+                    endif;
                     ?>
                 </div>
             </div>
