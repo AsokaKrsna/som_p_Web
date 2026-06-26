@@ -204,7 +204,30 @@ function renderForm() {
                    </div>`;
                 
                 let boolFields = [];
-                for (const [key, value] of Object.entries(item)) {
+                let keys = Object.keys(item);
+                
+                // Preferred sorting order (globally applied, unknown fields go to bottom)
+                const preferredOrder = [
+                    'title',
+                    'author',
+                    'link',
+                    'published_at',
+                    'doi',
+                    'impact_factor'
+                ];
+                
+                keys.sort((a, b) => {
+                    let idxA = preferredOrder.indexOf(a);
+                    let idxB = preferredOrder.indexOf(b);
+                    if (idxA === -1) idxA = 999;
+                    if (idxB === -1) idxB = 999;
+                    
+                    if (idxA !== idxB) return idxA - idxB;
+                    return 0;
+                });
+
+                for (const key of keys) {
+                    const value = item[key];
                     if (typeof value === 'boolean') {
                         boolFields.push({key, value});
                         continue;
