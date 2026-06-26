@@ -64,12 +64,20 @@ $awards = loadJsonData('awards.json');
                     <span>Indian Institute of Technology Patna</span>
                 </div>
                 <div class="hero-contact-item">
+                    <i class="fa fa-building"></i>
+                    <span>Room No - 502, Academic Block 2</span>
+                </div>
+                <div class="hero-contact-item">
                     <i class="fa fa-envelope"></i>
                     <span>som[at]iitp.ac.in</span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-phone"></i>
                     <span>+91-6115-233-036</span>
+                </div>
+                <div class="hero-contact-item">
+                    <i class="fa fa-flask"></i>
+                    <span>Research Interest: Cybersecurity, Malware Detection, Secure Machine Learning, Blockchain</span>
                 </div>
             </div>
 
@@ -212,7 +220,7 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <h2 class="section-title">Seminar / Conference / Workshops Organised</h2>
         
-        <ul class="pub-list list-unstyled ps-0">
+        <ul class="pub-list ps-4">
             <?php foreach ($events as $e): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <?php if (!empty($e['link'])): ?>
@@ -232,7 +240,7 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <h2 class="section-title">Professional Memberships</h2>
         
-        <ul class="pub-list list-unstyled ps-0">
+        <ul class="pub-list ps-4">
             <?php foreach ($memberships as $m): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <span class="entry-text"><?= htmlspecialchars($m['membership'] ?? '') ?></span>
@@ -248,7 +256,7 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <h2 class="section-title">Editorial Activities</h2>
         
-        <ul class="pub-list list-unstyled ps-0">
+        <ul class="pub-list ps-4">
             <?php foreach ($editorships as $e): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <strong><?= htmlspecialchars($e['role'] ?? '') ?>,</strong> 
@@ -269,7 +277,10 @@ $awards = loadJsonData('awards.json');
         
         <ul class="nav nav-tabs" id="pubTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button" role="tab" aria-controls="pub-tab-pane" aria-selected="true">Journals</button>
+                <button class="nav-link active" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane" type="button" role="tab" aria-controls="books-tab-pane" aria-selected="true">Edited Books & Chapters</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button" role="tab" aria-controls="pub-tab-pane" aria-selected="false">Journals</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane" type="button" role="tab" aria-controls="conf-tab-pane" aria-selected="false">Conferences</button>
@@ -277,13 +288,16 @@ $awards = loadJsonData('awards.json');
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="prints-tab" data-bs-toggle="tab" data-bs-target="#prints-tab-pane" type="button" role="tab" aria-controls="prints-tab-pane" aria-selected="false">Pre Prints</button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane" type="button" role="tab" aria-controls="books-tab-pane" aria-selected="false">Edited Books & Chapters</button>
-            </li>
         </ul>
 
         <div class="tab-content" id="pubTabContent">
-            <div class="tab-pane fade show active" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab" tabindex="0">
+                <table class="table pub-list">
+                    <?php renderPublicationTable($publications['books'] ?? []); ?>
+                </table>
+            </div>
+            
+            <div class="tab-pane fade" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['journals'] ?? []); ?>
                 </table>
@@ -300,12 +314,6 @@ $awards = loadJsonData('awards.json');
                     <?php renderPublicationTable($publications['preprints'] ?? []); ?>
                 </table>
             </div>
-            
-            <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab" tabindex="0">
-                <table class="table pub-list">
-                    <?php renderPublicationTable($publications['books'] ?? []); ?>
-                </table>
-            </div>
         </div>
     </div>
 </section>
@@ -316,7 +324,7 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <h2 class="section-title">Awards and Honours</h2>
         
-        <ul class="pub-list list-unstyled ps-0">
+        <ul class="pub-list ps-4">
             <?php foreach ($awards as $a): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <span class="entry-text"><?= htmlspecialchars($a['award'] ?? '') ?></span>

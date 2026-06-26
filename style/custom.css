@@ -579,8 +579,7 @@ body.no-scroll {
 
 /* Global Subpage Wrapper */
 .bio-section {
-  padding-top: 8rem !important; /* Forces content below the fixed glass navbar */
-  min-height: 80vh;
+  padding-top: 2rem; 
 }
 
 .editorial-text {
@@ -589,6 +588,7 @@ body.no-scroll {
   font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.8;
+  text-align: justify;
 }
 
 @media (max-width: 768px) {
@@ -603,15 +603,7 @@ body.no-scroll {
   }
 }
 
-.editorial-text p:first-child::first-letter {
-  font-size: 4rem;
-  font-weight: 800;
-  color: var(--accent-cyan);
-  float: left;
-  line-height: 1;
-  margin-right: 0.5rem;
-  margin-top: -0.2rem;
-}
+
 
 .btn-custom {
   background: rgba(255, 255, 255, 0.4);
@@ -651,7 +643,7 @@ body.no-scroll {
 
 /* Bio Section */
 .bio-section {
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 
 .bio-card {
@@ -715,6 +707,23 @@ hr {
 .impact-factor-badge {
   color: var(--accent-blue);
   font-weight: 500;
+}
+
+/* Courses Taught Section - Two Column Layout */
+#teaching .pub-list {
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+#teaching .pub-list > li {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+@media (max-width: 768px) {
+  #teaching .pub-list {
+    column-count: 1;
+  }
 }
 
 /* Footer */
