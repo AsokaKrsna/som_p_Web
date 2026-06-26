@@ -132,33 +132,53 @@ function renderSleekAlumniCard($member, $index) {
 
 function renderPublicationTable($items) {
     $counter = count($items);
-    foreach ($items as $pub): ?>
+    foreach ($items as $pub): 
+        $parts = [];
+        
+        if(!empty($pub['author'])){
+            $parts[] = $pub['author'];
+        }
+        
+        if(!empty($pub['link'])){
+            $titleText = htmlspecialchars($pub['title'] ?? '');
+            if ($titleText !== '') {
+                $parts[] = '<a href="' . htmlspecialchars($pub['link']) . '" target="_blank" rel="noopener noreferrer"><strong>' . $titleText . '</strong></a>';
+            }
+        } else if(!empty($pub['title'])) {
+            $parts[] = '<strong>' . htmlspecialchars($pub['title']) . '</strong>';
+        }
+        
+        if(!empty($pub['published_at'])){
+            $parts[] = $pub['published_at'];
+        }
+        
+        if(!empty($pub['doi'])){
+            $doiUrl = str_replace('https://doi.org/', 'https://doi.org/', $pub['doi']);
+            $parts[] = '<a href="' . htmlspecialchars($doiUrl) . '" target="_blank" rel="noopener noreferrer">' . htmlspecialchars($pub['doi']) . '</a>';
+        }
+
+        // Clean up each part to remove stray commas/spaces
+        $cleanParts = array_map(function($part) {
+            $part = trim($part);
+            $part = preg_replace('/^,*\s*/', '', $part); // Remove leading commas
+            $part = preg_replace('/\s*,*$/', '', $part); // Remove trailing commas
+            $part = preg_replace('/\s*,\s*,+/', ',', $part); // Replace multiple commas with one
+            $part = preg_replace('/\s+,/', ',', $part); // Remove spaces before commas
+            return $part;
+        }, $parts);
+
+        // Join parts and do one final cleanup for any edge cases
+        $fullText = implode(', ', $cleanParts);
+        $fullText = preg_replace('/,{2,}/', ',', $fullText);
+        $fullText = preg_replace('/\s+,/', ',', $fullText);
+
+        $impactFactorHtml = '';
+        if(!empty($pub['impact_factor'])){
+            $impactFactorHtml = '<br><span class="impact-factor-badge">' . htmlspecialchars($pub['impact_factor']) . '</span>';
+        }
+    ?>
     <tr><td>
-        <p><strong><?= $counter-- ?>.</strong> 
-            <?php if(!empty($pub['author'])): ?>
-                <?= htmlspecialchars($pub['author']) ?>, 
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['link'])): ?>
-                <a href="<?= htmlspecialchars($pub['link']) ?>" target="_blank" rel="noopener noreferrer">
-                    <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
-                </a>
-            <?php else: ?>
-                <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['published_at'])): ?>
-                , <?= htmlspecialchars($pub['published_at']) ?>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['doi'])): ?>
-                , <a href="<?= htmlspecialchars(str_replace('https://doi.org/', 'https://doi.org/', $pub['doi'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($pub['doi']) ?></a>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['impact_factor'])): ?>
-                <br><span class="impact-factor-badge"><?= htmlspecialchars($pub['impact_factor']) ?></span>
-            <?php endif; ?>
-        </p>
+        <p><strong><?= $counter-- ?>.</strong> <?= $fullText ?>.<?= $impactFactorHtml ?></p>
     </td></tr>
     <?php endforeach;
 }
