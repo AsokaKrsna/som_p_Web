@@ -22,15 +22,9 @@
     "mtech": [
         {
             "image": "",
-            "name": "Abhyudaya Yadav",
-            "email": "abhyudaya_2511ai04@iitp.ac.in",
-            "research_area": ""
-        },
-        {
-            "image": "",
-            "name": "Durjoy Majumdar",
-            "email": "durjoy_2511cs25@iitp.ac.in",
-            "research_area": "Blockchain Testbed"
+            "name": "Mock MTech Student",
+            "email": "mock_mtech@iitp.ac.in",
+            "research_area": "Mock Research Area"
         }
     ],
     "past_phd": [

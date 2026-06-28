@@ -573,16 +573,6 @@
     ],
     "conferences": [
         {
-            "link": "",
-            "title": "",
-            "impact_factor": "",
-            "author": "",
-            "published_at": "",
-            "doi": "",
-            "show_personal": true,
-            "show_lab": true
-        },
-        {
             "link": "https://link.springer.com/chapter/10.1007/978-3-032-13714-2_5",
             "title": "NEXUS: Neuron Activation Scores Exploits for Unveiling Sensitive Attributes",
             "impact_factor": "",
