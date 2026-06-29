@@ -21,16 +21,28 @@
     ],
     "mtech": [
         {
-            "image": "",
-            "name": "Abhyudaya Yadav",
-            "email": "abhyudaya_2511ai04@iitp.ac.in",
-            "research_area": ""
+            "image": "pics/vivekanand.jpg",
+            "name": "Vivekanand Pandey",
+            "email": "vivekanand_2511ai54@iitp.ac.in",
+            "research_area": "Automating Red timing for LLM security"
         },
         {
             "image": "",
+            "name": "Ved Prakash",
+            "email": "ved_2511ai58@iitp.ac.in",
+            "research_area": "Data Poissoning in LLMs"
+        },
+        {
+            "image": "pics/abhyudaya.jpg",
+            "name": "Abhyudaya Yadav",
+            "email": "abhyudaya_2511ai04@iitp.ac.in",
+            "research_area": "Self Healing Recommender System against Data Poisoning attacks"
+        },
+        {
+            "image": "pics/durjoy.jpg",
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25@iitp.ac.in",
-            "research_area": "Blockchain Testbed"
+            "research_area": "Security of distributed system"
         }
     ],
     "past_phd": [
