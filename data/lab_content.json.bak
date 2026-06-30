@@ -1,0 +1,104 @@
+{
+    "hero": [
+        {
+            "title": "Cybersecurity Lab",
+            "subtitle": "Indian Institute of Technology Patna",
+            "location": "Room no - 302, Academic Block - 2",
+            "tagline": "Pioneering research in Malware Detection, Secure Machine Learning, Blockchain, and Lightweight Cryptography."
+        }
+    ],
+    "about": [
+        {
+            "description": "Welcome to the Cybersecurity Research Lab at IIT Patna. Our mission is to advance the state-of-the-art in security through rigorous academic research and practical innovation. We explore the intersection of artificial intelligence and cybersecurity, developing robust defenses against next-generation threats."
+        }
+    ],
+    "research_areas": [
+        {
+            "icon": "fa-bug",
+            "title": "Malware Analysis",
+            "description": "Behavioral analysis and AI-driven detection."
+        },
+        {
+            "icon": "fa-link",
+            "title": "Blockchain",
+            "description": "Smart contract security and consensus protocols."
+        },
+        {
+            "icon": "fa-lock",
+            "title": "Cryptography",
+            "description": "Lightweight crypto for IoT and edge devices."
+        },
+        {
+            "icon": "fa-shield",
+            "title": "Network Sec",
+            "description": "Intrusion detection and traffic classification."
+        }
+    ],
+    "join_us": [
+        {
+            "heading": "Join Our Group",
+            "description": "We are always looking for motivated Ph.D., M.Tech, and B.Tech students. If you are passionate about cybersecurity and want to work on cutting-edge research, we'd love to hear from you.",
+            "note": "Note: We usually take interns during summer or winter breaks, but everyone is encouraged to reach out anytime.",
+            "form_link": "https://forms.gle/placeholder",
+            "email": "som@iitp.ac.in"
+        }
+    ],
+    "head_of_research": [
+        {
+            "name": "Dr. Somanath Tripathy",
+            "designation": "Professor",
+            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Cybersecurity for AI, AI for Cybersecurity, Lightweight Cryptography, Blockchain, and Network Security.",
+            "scholar_link": "https://scholar.google.com/citations?user=sYHVfuEAAAAJ&hl=en",
+            "dblp_link": "https://dblp.org/pid/94/1950",
+            "website_link": "index.php"
+        }
+    ],
+    "open_resources": [
+        {
+            "title": "IoT Malware Dataset 2025",
+            "icon": "fa-database",
+            "description": "A comprehensive dataset of zero-day IoT malware samples with static and dynamic feature sets.",
+            "link_text": "Download Dataset",
+            "link_url": "#"
+        },
+        {
+            "title": "LightCrypto Framework",
+            "icon": "fa-code",
+            "description": "Open-source C library for implementing lightweight cryptographic primitives on edge devices.",
+            "link_text": "View on GitHub",
+            "link_url": "#"
+        }
+    ],
+    "funding_sponsors": [
+        {
+            "name": "Google",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+        },
+        {
+            "name": "Microsoft",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+        },
+        {
+            "name": "Amazon",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+        },
+        {
+            "name": "Intel",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg"
+        }
+    ],
+    "gallery": [
+        {
+            "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            "alt": "Lab Team Collaboration"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+            "alt": "International Conference"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+            "alt": "Cybersecurity Research Work"
+        }
+    ]
+}

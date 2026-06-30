@@ -45,11 +45,11 @@
     ],
     "head_of_research": [
         {
-            "name": "Dr. Somnath Tripathy",
-            "designation": "Professor & Lab Director",
-            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Lightweight Cryptography, Network Security, and applied Machine Learning for cyber defense.",
-            "scholar_link": "https://scholar.google.com",
-            "dblp_link": "https://dblp.org",
+            "name": "Dr. Somanath Tripathy",
+            "designation": "Professor",
+            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Cybersecurity, Malware Detection, Secure Machine Learning, and Blockchain.",
+            "scholar_link": "https://scholar.google.com/citations?user=sYHVfuEAAAAJ&hl=en",
+            "dblp_link": "https://dblp.org/pid/94/1950",
             "website_link": "index.php"
         }
     ],

@@ -4,11 +4,14 @@ $page_title = "Dr. Somanath Tripathy | Academic Portfolio";
 include 'components/header.php';
 
 // Safely load JSON data with fallback
-function loadJsonData($file, $visibilityKey = null) {
+function loadJsonData($file, $visibilityKey = null)
+{
     $path = 'data/' . $file;
-    if (!file_exists($path)) return [];
+    if (!file_exists($path))
+        return [];
     $content = @file_get_contents($path);
-    if ($content === false) return [];
+    if ($content === false)
+        return [];
     $data = json_decode($content, true);
     $data = (json_last_error() === JSON_ERROR_NONE && is_array($data)) ? $data : [];
 
@@ -24,14 +27,14 @@ function loadJsonData($file, $visibilityKey = null) {
         if ($isDictOfArrays) {
             foreach ($data as $cat => &$items) {
                 if (is_array($items)) {
-                    $items = array_filter($items, function($item) use ($visibilityKey) {
+                    $items = array_filter($items, function ($item) use ($visibilityKey) {
                         return !isset($item[$visibilityKey]) || $item[$visibilityKey] === true || $item[$visibilityKey] === "true";
                     });
                     $items = array_values($items); // re-index
                 }
             }
         } else {
-            $data = array_filter($data, function($item) use ($visibilityKey) {
+            $data = array_filter($data, function ($item) use ($visibilityKey) {
                 return !isset($item[$visibilityKey]) || $item[$visibilityKey] === true || $item[$visibilityKey] === "true";
             });
             $data = array_values($data); // re-index
@@ -41,36 +44,40 @@ function loadJsonData($file, $visibilityKey = null) {
 }
 
 // Reusable publication table renderer (eliminates 4x duplication)
-function renderPublicationTable($items) {
+function renderPublicationTable($items)
+{
     $counter = count($items);
     foreach ($items as $pub): ?>
-    <tr><td>
-        <p><strong><?= $counter-- ?>.</strong> 
-            <?php if(!empty($pub['author'])): ?>
-                <?= htmlspecialchars($pub['author']) ?>, 
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['link'])): ?>
-                <a href="<?= htmlspecialchars($pub['link']) ?>" target="_blank" rel="noopener noreferrer">
-                    <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
-                </a>
-            <?php else: ?>
-                <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['published_at'])): ?>
-                , <?= htmlspecialchars($pub['published_at']) ?>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['doi'])): ?>
-                , <a href="<?= htmlspecialchars(str_replace('https://doi.org/', 'https://doi.org/', $pub['doi'])) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($pub['doi']) ?></a>
-            <?php endif; ?>
-            
-            <?php if(!empty($pub['impact_factor'])): ?>
-                <br><span class="impact-factor-badge"><?= htmlspecialchars($pub['impact_factor']) ?></span>
-            <?php endif; ?>
-        </p>
-    </td></tr>
+        <tr>
+            <td>
+                <p><strong><?= $counter-- ?>.</strong>
+                    <?php if (!empty($pub['author'])): ?>
+                        <?= htmlspecialchars($pub['author']) ?>,
+                    <?php endif; ?>
+
+                    <?php if (!empty($pub['link'])): ?>
+                        <a href="<?= htmlspecialchars($pub['link']) ?>" target="_blank" rel="noopener noreferrer">
+                            <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
+                        </a>
+                    <?php else: ?>
+                        <strong><?= htmlspecialchars($pub['title'] ?? '') ?></strong>
+                    <?php endif; ?>
+
+                    <?php if (!empty($pub['published_at'])): ?>
+                        , <?= htmlspecialchars($pub['published_at']) ?>
+                    <?php endif; ?>
+
+                    <?php if (!empty($pub['doi'])): ?>
+                        , <a href="<?= htmlspecialchars(str_replace('https://doi.org/', 'https://doi.org/', $pub['doi'])) ?>"
+                            target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($pub['doi']) ?></a>
+                    <?php endif; ?>
+
+                    <?php if (!empty($pub['impact_factor'])): ?>
+                        <br><span class="impact-factor-badge"><?= htmlspecialchars($pub['impact_factor']) ?></span>
+                    <?php endif; ?>
+                </p>
+            </td>
+        </tr>
     <?php endforeach;
 }
 
@@ -93,7 +100,7 @@ $awards = loadJsonData('awards.json');
         <div class="hero-content">
             <h1 class="hero-title">Dr. Somanath Tripathy</h1>
             <h2 class="hero-subtitle">Professor</h2>
-            
+
             <div class="hero-details">
                 <div class="hero-contact-item">
                     <i class="fa fa-university"></i>
@@ -117,18 +124,20 @@ $awards = loadJsonData('awards.json');
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-flask"></i>
-                    <span>Research Interest: Cybersecurity, Malware Detection, Secure Machine Learning, Blockchain</span>
+                    <span>Research Interest: Cybersecurity, Malware Detection, Secure Machine Learning,
+                        Blockchain</span>
                 </div>
             </div>
 
             <div class="mt-4 pt-2">
-                <a href="#publications" class="btn btn-custom">Explore Research <i class="fa fa-arrow-down ms-2"></i></a>
+                <a href="#publications" class="btn btn-custom">Explore Research <i
+                        class="fa fa-arrow-down ms-2"></i></a>
             </div>
         </div>
 
         <div class="hero-visuals">
             <div class="glass-avatar-wrapper">
-                <img src="images/som_n.png" alt="Dr. Somanath Tripathy" class="profile-img-3d">
+                <img src="images/som_2.png" alt="Dr. Somanath Tripathy" class="profile-img-3d">
             </div>
         </div>
     </div>
@@ -139,9 +148,19 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <div class="section-title">About</div>
         <div class="editorial-text">
-            <p>Dr. Somanath Tripathy received his PhD from IIT Guwahati in 2007. Currently, he is a professor in the Department of Computer Science and Engineering at the Indian Institute of Technology, Patna, where he has been a faculty member since December 2008. Prof. Tripathy has held significant administrative positions at IIT Patna, including Associate Dean of Academics (January 2016 - March 2017), Head, Computer Centre (November 2022-November 2023) and Associate Dean of Administration (July 2021 - November 2023).</p>
-            <p>His research interests encompass Cybersecurity, Malware Detection, Secure Machine Learning, Lightweight Cryptography, and Blockchain. Prof. Tripathy holds two patents and has published over 130 research papers in reputed journals and conferences. He has led several projects as Principal Investigator, notably his team developed a malware detection app presented to the Bureau of Police Research and Development (BPRD) and the Ministry of Home Affairs (MHA) as part of a sponsored project.</p>
-            <p>Dr. Tripathy is currently an editor of the IETE Technical Review and an associate editor of the journal Multimedia Tools and Applications.</p>
+            <p>Dr. Somanath Tripathy received his PhD from IIT Guwahati in 2007. Currently, he is a professor in the
+                Department of Computer Science and Engineering at the Indian Institute of Technology, Patna, where he
+                has been a faculty member since December 2008. Prof. Tripathy has held significant administrative
+                positions at IIT Patna, including Associate Dean of Academics (January 2016 - March 2017), Head,
+                Computer Centre (November 2022-November 2023) and Associate Dean of Administration (July 2021 - November
+                2023).</p>
+            <p>His research interests encompass Cybersecurity, Malware Detection, Secure Machine Learning, Lightweight
+                Cryptography, and Blockchain. Prof. Tripathy holds two patents and has published over 140 research
+                papers in reputed journals and conferences. He has led several projects as Principal Investigator,
+                notably his team developed a malware detection app presented to the Bureau of Police Research and
+                Development (BPRD) and the Ministry of Home Affairs (MHA) as part of a sponsored project.</p>
+            <p>Dr. Tripathy is currently an editor of the IETE Technical Review, associate editor of IEEE Transactions
+                on Services Computing, and an associate editor of the journal Multimedia Tools and Applications.</p>
         </div>
     </div>
 </section>
@@ -152,21 +171,23 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Patents</h2>
-        
+
         <table class="table pub-list table-striped">
-            <?php 
+            <?php
             $counter = count($patents);
-            foreach($patents as $patent): 
-            ?>
-            <tr><td>
-                <p><strong><?= $counter-- ?>.</strong> 
-                    <?= htmlspecialchars($patent['authors'] ?? '') ?>,
-                    <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>, 
-                    Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>, 
-                    App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>, 
-                    Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
-                </p>
-            </td></tr>
+            foreach ($patents as $patent):
+                ?>
+                <tr>
+                    <td>
+                        <p><strong><?= $counter-- ?>.</strong>
+                            <?= htmlspecialchars($patent['authors'] ?? '') ?>,
+                            <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>,
+                            Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>,
+                            App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>,
+                            Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
+                        </p>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </table>
     </div>
@@ -180,15 +201,18 @@ $awards = loadJsonData('awards.json');
 
         <ul class="nav nav-tabs" id="projTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing-tab-pane" type="button" role="tab" aria-controls="ongoing-tab-pane" aria-selected="true">Ongoing</button>
+                <button class="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing-tab-pane"
+                    type="button" role="tab" aria-controls="ongoing-tab-pane" aria-selected="true">Ongoing</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-tab-pane" type="button" role="tab" aria-controls="completed-tab-pane" aria-selected="false">Completed</button>
+                <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-tab-pane"
+                    type="button" role="tab" aria-controls="completed-tab-pane" aria-selected="false">Completed</button>
             </li>
         </ul>
-        
+
         <div class="tab-content" id="projTabContent">
-            <div class="tab-pane fade show active" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab"
+                tabindex="0">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <tr>
@@ -198,20 +222,21 @@ $awards = loadJsonData('awards.json');
                             <th>Amount</th>
                             <th>Duration</th>
                         </tr>
-                        <?php foreach(($projects['ongoing'] ?? []) as $proj): ?>
-                        <tr>
-                            <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
-                            <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                            <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
-                            <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
-                            <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
-                        </tr>
+                        <?php foreach (($projects['ongoing'] ?? []) as $proj): ?>
+                            <tr>
+                                <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
+                                <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
+                                <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
+                                <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
+                                <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
+                            </tr>
                         <?php endforeach; ?>
                     </table>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">
+            <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab"
+                tabindex="0">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <tr>
@@ -221,14 +246,14 @@ $awards = loadJsonData('awards.json');
                             <th>Amount</th>
                             <th>Duration</th>
                         </tr>
-                        <?php foreach(($projects['completed'] ?? []) as $proj): ?>
-                        <tr>
-                            <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
-                            <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                            <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
-                            <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
-                            <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
-                        </tr>
+                        <?php foreach (($projects['completed'] ?? []) as $proj): ?>
+                            <tr>
+                                <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
+                                <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
+                                <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
+                                <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
+                                <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
+                            </tr>
                         <?php endforeach; ?>
                     </table>
                 </div>
@@ -242,12 +267,13 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Courses Taught</h2>
-        
+
         <ul class="pub-list">
             <?php foreach ($courses as $c): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <?php if (!empty($c['link'])): ?>
-                        <a href="<?= htmlspecialchars($c['link']) ?>" target="_blank" rel="noopener noreferrer" class="active-entry-link"><?= htmlspecialchars($c['course'] ?? '') ?></a>
+                        <a href="<?= htmlspecialchars($c['link']) ?>" target="_blank" rel="noopener noreferrer"
+                            class="active-entry-link"><?= htmlspecialchars($c['course'] ?? '') ?></a>
                     <?php else: ?>
                         <span class="entry-text"><?= htmlspecialchars($c['course'] ?? '') ?></span>
                     <?php endif; ?>
@@ -262,7 +288,7 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Seminar / Conference / Workshops Organised</h2>
-        
+
         <ul class="pub-list ps-4">
             <?php foreach ($events as $e): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
@@ -273,11 +299,11 @@ $awards = loadJsonData('awards.json');
                     <?php else: ?>
                         <strong class="entry-text"><?= htmlspecialchars($e['title'] ?? '') ?></strong>
                     <?php endif; ?>
-                    
+
                     <?php if (!empty($e['location'])): ?>
                         at <?= htmlspecialchars($e['location']) ?>
                     <?php endif; ?>
-                    
+
                     <?php if (!empty($e['date'])): ?>
                         <span class="text-muted">(<?= htmlspecialchars($e['date']) ?>)</span>
                     <?php endif; ?>
@@ -292,11 +318,12 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Professional Memberships</h2>
-        
+
         <ul class="pub-list ps-4">
             <?php foreach ($memberships as $m): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <span class="entry-text"><strong><?= htmlspecialchars($m['role'] ?? '') ?></strong>, <?= htmlspecialchars($m['organization'] ?? '') ?></span>
+                    <span class="entry-text"><strong><?= htmlspecialchars($m['role'] ?? '') ?></strong>,
+                        <?= htmlspecialchars($m['organization'] ?? '') ?></span>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -307,13 +334,13 @@ $awards = loadJsonData('awards.json');
 <section id="editorship" class="bio-section pt-4">
 
     <div class="container">
-        <h2 class="section-title">Editorial Activities</h2>
-        
+        <h2 class="section-title">Editorship</h2>
+
         <ul class="pub-list ps-4">
             <?php foreach ($editorships as $e): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <strong><?= htmlspecialchars($e['role'] ?? '') ?>,</strong> 
-                    <?= htmlspecialchars($e['journal'] ?? '') ?> 
+                    <strong><?= htmlspecialchars($e['role'] ?? '') ?>,</strong>
+                    <?= htmlspecialchars($e['journal'] ?? '') ?>
                     <span class="text-muted">[<?= htmlspecialchars($e['duration'] ?? '') ?>]</span>
                 </li>
             <?php endforeach; ?>
@@ -327,41 +354,47 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Publications</h2>
-        
+
         <ul class="nav nav-tabs" id="pubTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane" type="button" role="tab" aria-controls="books-tab-pane" aria-selected="true">Edited Books & Chapters</button>
+                <button class="nav-link active" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane"
+                    type="button" role="tab" aria-controls="books-tab-pane" aria-selected="true">Edited Books &
+                    Chapters</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button" role="tab" aria-controls="pub-tab-pane" aria-selected="false">Journals</button>
+                <button class="nav-link" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button"
+                    role="tab" aria-controls="pub-tab-pane" aria-selected="false">Journals</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane" type="button" role="tab" aria-controls="conf-tab-pane" aria-selected="false">Conferences</button>
+                <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane"
+                    type="button" role="tab" aria-controls="conf-tab-pane" aria-selected="false">Conferences</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="prints-tab" data-bs-toggle="tab" data-bs-target="#prints-tab-pane" type="button" role="tab" aria-controls="prints-tab-pane" aria-selected="false">Pre Prints</button>
+                <button class="nav-link" id="prints-tab" data-bs-toggle="tab" data-bs-target="#prints-tab-pane"
+                    type="button" role="tab" aria-controls="prints-tab-pane" aria-selected="false">Pre Prints</button>
             </li>
         </ul>
 
         <div class="tab-content" id="pubTabContent">
-            <div class="tab-pane fade show active" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
+                tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['books'] ?? []); ?>
                 </table>
             </div>
-            
+
             <div class="tab-pane fade" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['journals'] ?? []); ?>
                 </table>
             </div>
-            
+
             <div class="tab-pane fade" id="conf-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['conferences'] ?? []); ?>
                 </table>
             </div>
-            
+
             <div class="tab-pane fade" id="prints-tab-pane" role="tabpanel" aria-labelledby="prints-tab" tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['preprints'] ?? []); ?>
@@ -376,13 +409,13 @@ $awards = loadJsonData('awards.json');
 
     <div class="container">
         <h2 class="section-title">Awards and Honours</h2>
-        
+
         <ul class="pub-list ps-4">
             <?php foreach ($awards as $a): ?>
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <span class="entry-text">
-                        <strong><?= htmlspecialchars($a['title'] ?? '') ?></strong>, 
-                        <?= htmlspecialchars($a['event'] ?? '') ?> 
+                        <strong><?= htmlspecialchars($a['title'] ?? '') ?></strong>,
+                        <?= htmlspecialchars($a['event'] ?? '') ?>
                         <?php if (!empty($a['location'])): ?>
                             <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
                         <?php endif; ?>
