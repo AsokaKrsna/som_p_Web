@@ -80,7 +80,7 @@
         },
         {
             "image": "pics/Vikash.png",
-            "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew ) ",
+            "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew )",
             "passing_year": "2021",
             "current_affiliation": "Current Affiliation: Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
             "thesis": "Design and Analysis of Lightweight Cryptographic Techniques for IoT Devices",
@@ -214,7 +214,7 @@
             "image": "",
             "name": "Ranu Maurya",
             "passing_year": "2021",
-            "thesis": "Development of a chatbot followed by Automated functional  validation and Manual security Validation of chat bot"
+            "thesis": "Development of a chatbot followed by Automated functional validation and Manual security Validation of chat bot"
         },
         {
             "image": "",

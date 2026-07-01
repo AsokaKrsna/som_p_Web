@@ -1,0 +1,10 @@
+{
+    "achievements": [
+        {
+            "title": "Best Paper Award",
+            "date": "December 2025",
+            "description": "Our paper on Adversarial Machine Learning received the Best Paper Award at the prestigious IEEE Security Conference.",
+            "link": "https://example.com"
+        }
+    ]
+}

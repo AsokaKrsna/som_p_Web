@@ -64,7 +64,7 @@
             "link": "https://www.sciencedirect.com/science/article/pii/S0167404824005376",
             "title": "Unveiling the Veiled: An Early Stage Detection of Fileless Malware",
             "impact_factor": "(IF:5.6, H5: 112)",
-            "author": "Narendra Singh  and Somanath Tripathy",
+            "author": "Narendra Singh and Somanath Tripathy",
             "published_at": "Computers & Security, Volume 141,(2024), 103819.",
             "doi": "https://doi.org/10.1016/j.cose.2024.104231",
             "show_personal": true,
@@ -104,7 +104,7 @@
             "link": "https://www.sciencedirect.com/science/article/pii/S0167404824001202",
             "title": "It's too late if exfiltrate: Early stage Android ransomware detection",
             "impact_factor": "(IF:5.6, H5: 112)",
-            "author": "Narendra Singh  and Somanath Tripathy",
+            "author": "Narendra Singh and Somanath Tripathy",
             "published_at": "Computers & Security, Volume 141,(2024), 103819.",
             "doi": "https://doi.org/10.1016/j.cose.2024.103819",
             "show_personal": true,
@@ -232,7 +232,7 @@
         },
         {
             "link": "https://link.springer.com/article/10.1007/s10207-022-00629-z",
-            "title": "Restricting Data-Leakage  using Fine-Grained Access Control on OSN Objects",
+            "title": "Restricting Data-Leakage using Fine-Grained Access Control on OSN Objects",
             "impact_factor": "(IF: 2.427)",
             "author": "Nemi Chandra Rathore, Somanath Tripathy",
             "published_at": "International Journal of Information Security (Springer),(2022).",
@@ -282,9 +282,9 @@
         },
         {
             "link": "https://link.springer.com/article/10.1007/s11227-021-03908-z",
-            "title": "CEMAR: A Fine Grained Access Control with Revocation Mechanism for Centralized    Multi-Authority Cloud Storage",
+            "title": "CEMAR: A Fine Grained Access Control with Revocation Mechanism for Centralized Multi-Authority Cloud Storage",
             "impact_factor": "(IF: 2.474, H5: 45)",
-            "author": "K. Dhal, S. C. Rai, P. K. Pattnaik, Somanath    Tripathy",
+            "author": "K. Dhal, S. C. Rai, P. K. Pattnaik, Somanath Tripathy",
             "published_at": "The Journal of Supercomputing (Springer), Volume 78, pages 987–1009, (2022).",
             "doi": "https://doi.org/10.1007/s11227-021-03908-z",
             "show_personal": true,
@@ -354,7 +354,7 @@
             "link": "https://link.springer.com/article/10.1007/s41635-020-00104-y",
             "title": "'Correlation Power Analysis of KASUMI and Power Resilience Analysis of Some Equivalence Classes of KASUMI S-Boxes'",
             "impact_factor": "",
-            "author": "Devansh Gupta, Somanath Tripathy,    Bodhisatwa Mazumdar",
+            "author": "Devansh Gupta, Somanath Tripathy, Bodhisatwa Mazumdar",
             "published_at": "Journal of Hardware and Systems Security (Springer), Volume 4, pp 297–313,(2020).",
             "doi": "https://doi.org/10.1007/s41635-020-00104-y .",
             "show_personal": true,
@@ -687,7 +687,7 @@
             "title": "FlexiPCN: Flexible Payment Channel Network",
             "impact_factor": "(H5:50, Core Ranking: A)",
             "author": "Susil Kumar Mohanty and Somanath Tripathy",
-            "published_at": "The 27th International Conference on Financial Cryptography and Data Security  FC 2023 International Workshops: Voting, CoDecFin, DeFi, WTSC, May 5, 2023, Bol, Brač, Croatia.",
+            "published_at": "The 27th International Conference on Financial Cryptography and Data Security FC 2023 International Workshops: Voting, CoDecFin, DeFi, WTSC, May 5, 2023, Bol, Brač, Croatia.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -706,7 +706,7 @@
             "link": "#",
             "title": "HDFL: Private and Robust Federated Learning using Hyperdimensional Computing",
             "impact_factor": "(H5:35, Core Ranking: A)",
-            "author": "Harsh Kasyap, Somanath Tripathy, and  Mauro Conti.",
+            "author": "Harsh Kasyap, Somanath Tripathy, and Mauro Conti.",
             "published_at": "22nd IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom-2023), Exeter, UK.",
             "doi": "",
             "show_personal": true,
@@ -1096,7 +1096,7 @@
             "link": "https://link.springer.com/chapter/10.1007/978-3-319-28034-9_19",
             "title": "Collaborative Access Control Mechanism for Online Social Networks",
             "impact_factor": "(Core Ranking: C)",
-            "author": "N.C. Rathore,  Prashant Shaw and Somanath Tripathy",
+            "author": "N.C. Rathore, Prashant Shaw and Somanath Tripathy",
             "published_at": "International Conference on Distributed Computing and Internet Technology(ICDCIT), Bhubaneswar, India, 25 December 2015",
             "doi": "Cham. https://doi.org/10.1007/978-3-319-28034-9_19",
             "show_personal": true,
@@ -1114,7 +1114,7 @@
         },
         {
             "link": "https://link.springer.com/chapter/10.1007/978-3-319-14977-6_28",
-            "title": "S-Gossip:  Security enhanced Gossip Protocol for Unstructured P2P Networks",
+            "title": "S-Gossip: Security enhanced Gossip Protocol for Unstructured P2P Networks",
             "impact_factor": "(Core Ranking: C)",
             "author": "S.K. Teterave, Somanath Tripathy and S. Peri",
             "published_at": "International Conference on Distributed Computing and Internet Technology(ICDCIT), Bhubaneswar, India, 5-8 February 2015.",
@@ -1126,7 +1126,7 @@
             "link": "https://link.springer.com/chapter/10.1007/978-3-319-14977-6_46",
             "title": "Predicting User Visibility in Online Social Network using Local Connectivity Properties",
             "impact_factor": "(Core Ranking: C)",
-            "author": "N. C. Rathor, Somanath Tripathy and J. Chandra, International Conference on Distributed Computing and Internet Technology(ICDCIT),  Bhubaneswar, India,  5-8 February 2015.",
+            "author": "N. C. Rathor, Somanath Tripathy and J. Chandra, International Conference on Distributed Computing and Internet Technology(ICDCIT), Bhubaneswar, India, 5-8 February 2015.",
             "published_at": "",
             "doi": "Springer, Cham. https://doi.org/10.1007/978-3-319-14977-6_46",
             "show_personal": true,
@@ -1263,9 +1263,11 @@
             "show_lab": true
         },
         {
+            "link": "",
+            "title": "SCTP-Sec: Secure Transmission Control Protocol",
             "impact_factor": "",
-            "author": "Rahul Choudhari and Somanath Tripathy :",
-            "published_at": "SCTP-Sec: Secure Transmission Control Protocol, 3rd Hackers' Workshop on Computer and Internet Security, Hackin-2009, pp 44-49, IIT Kanpur, March 17-19, 2009.",
+            "author": "Rahul Choudhari and Somanath Tripathy",
+            "published_at": "3rd Hackers' Workshop on Computer and Internet Security, Hackin-2009, pp 44-49, IIT Kanpur, March 17-19, 2009.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -1285,15 +1287,17 @@
             "title": "OSASMAC: Opportunistic Secure Adaptive Sensor MAC Protocol",
             "impact_factor": "",
             "author": "V.Chennakesavulu, Sukumar Nandi, Somanath Tripathy",
-            "published_at": "International Conference on Information Technology (ICIT), Rourkela, India  17-20 Dec. 2007",
+            "published_at": "International Conference on Information Technology (ICIT), Rourkela, India 17-20 Dec. 2007",
             "doi": "DOI: 10.1109/ICIT.2007.36",
             "show_personal": true,
             "show_lab": true
         },
         {
+            "link": "",
+            "title": "A Secured Response Algorithm with Query Authentication for Wireless Sensor Networks",
             "impact_factor": "",
-            "author": "Somanath Tripathy",
-            "published_at": "Sukumar Nandi and Abhijit Mitra, 'A Secured Response Algorithm with Query Authentication for Wireless Sensor Networks, 5th Asian International Mobile Computing Conference, AMOC-2007, Tata Mcgrawhill Publication, pp.220-225, 2007, India.",
+            "author": "Somanath Tripathy, Sukumar Nandi and Abhijit Mitra",
+            "published_at": "5th Asian International Mobile Computing Conference, AMOC-2007, Tata Mcgrawhill Publication, pp.220-225, 2007, India.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -1329,9 +1333,11 @@
             "show_lab": true
         },
         {
+            "link": "",
+            "title": "Security Enhanced used Identification and Distribution Scheme preserving Anonymity",
             "impact_factor": "",
             "author": "Somanath Tripathy and Sukumar Nandi",
-            "published_at": "Security Enhanced used Identification and Distribution Scheme preserving Anonymity, in Proc. of Intl. Conf. on Emerging Applications of IT (EAIT 2006), Elsevier, pp.201-204, 2006, (India).",
+            "published_at": "in Proc. of Intl. Conf. on Emerging Applications of IT (EAIT 2006), Elsevier, pp.201-204, 2006, (India).",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -1361,7 +1367,7 @@
             "title": "Cryptosystem for Low power devices",
             "impact_factor": "",
             "author": "Somanath Tripathy and Sukumar Nandi:",
-            "published_at": "4th International Symposium on Turbo Codes & Related Topics; 6th International ITG-Conference on Source and Channel Coding, Munich, Germany  3-7 April 2006, ISBN:978-3-8007-2947-0",
+            "published_at": "4th International Symposium on Turbo Codes & Related Topics; 6th International ITG-Conference on Source and Channel Coding, Munich, Germany 3-7 April 2006, ISBN:978-3-8007-2947-0",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -1377,17 +1383,21 @@
             "show_lab": true
         },
         {
+            "link": "",
+            "title": "CASE: Cellular Automata based Symmetric Encryption",
             "impact_factor": "",
             "author": "Somanath Tripathy and Sukumar Nandi",
-            "published_at": "CASE: Cellular Automata based Symmetric Encryption, Third International Conference on Innovative Applications of Information Technology for Developing World, AACC 2005, 2005, (Nepal).",
+            "published_at": "Third International Conference on Innovative Applications of Information Technology for Developing World, AACC 2005, 2005, (Nepal).",
             "doi": "https://doi.org/10.1142/9781860948534_0020",
             "show_personal": true,
             "show_lab": true
         },
         {
+            "link": "",
+            "title": "Broadcast on Demand: A heuristic for real-time multiple data broadcast strategy in mobile environments",
             "impact_factor": "",
             "author": "Somanath Tripathy, Sukumar Nandi",
-            "published_at": "Broadcast on Demand: A heuristic for real-time multiple data broadcast strategy in mobile environments, Asia Pacific Conference on Parallel and Distributed Computing Technologies (ObComAPC-2004), (India)",
+            "published_at": "Asia Pacific Conference on Parallel and Distributed Computing Technologies (ObComAPC-2004), (India)",
             "doi": "",
             "show_personal": true,
             "show_lab": true

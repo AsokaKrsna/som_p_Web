@@ -79,6 +79,7 @@ function getCount($file) {
                         <a href="raw_editor.php?file=memberships.json" class="btn btn-outline-secondary text-start"><i class="fa fa-id-badge"></i> Memberships (<?= getCount('memberships.json') ?>)</a>
                         <a href="raw_editor.php?file=editorships.json" class="btn btn-outline-secondary text-start"><i class="fa fa-pencil-square-o"></i> Editorships (<?= getCount('editorships.json') ?>)</a>
                         <a href="raw_editor.php?file=awards.json" class="btn btn-outline-secondary text-start"><i class="fa fa-trophy"></i> Awards (<?= getCount('awards.json') ?>)</a>
+                        <a href="raw_editor.php?file=achievements.json" class="btn btn-outline-secondary text-start"><i class="fa fa-star"></i> Achievements (<?= getCount('achievements.json') ?>)</a>
                     </div>
                 </div>
             </div>

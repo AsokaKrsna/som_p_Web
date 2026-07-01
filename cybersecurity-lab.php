@@ -45,6 +45,8 @@ $projects = loadJsonData('projects.json', 'show_lab');
 $publications = loadJsonData('publications.json', 'show_lab');
 $announcements = loadJsonData('announcements.json');
 $labContent = loadJsonData('lab_content.json');
+$achievementsData = loadJsonData('achievements.json');
+$achievements = $achievementsData['achievements'] ?? [];
 
 // Extract lab content blocks for easy use
 $heroContent = $labContent['hero'][0] ?? [];
@@ -350,7 +352,7 @@ if (is_array($projects)) {
 <!-- Head of Research Group -->
 <section id="head-of-research" class="bio-section py-4">
     <div class="container">
-        <h2 class="section-title">Head of Research Group</h2>
+        <h2 class="section-title">Research Group</h2>
         <div class="row justify-content-center mt-4">
             <div class="col-md-8 col-lg-6">
                 <div class="student-card" style="flex-direction: row; align-items: center; text-align: left; padding: 2rem;">
@@ -593,9 +595,32 @@ if (is_array($projects)) {
     </div>
 </section>
 
+<!-- Achievements Section -->
+<?php if (!empty($achievements)): ?>
+<section id="achievements" class="bio-section py-4">
+    <div class="container">
+        <h2 class="section-title">Achievements</h2>
+        <div class="row g-4 mt-2">
+            <?php foreach ($achievements as $ach): ?>
+            <div class="col-md-6">
+                <div class="admin-card h-100 shadow-sm p-4" style="border-left: 4px solid var(--accent-blue);">
+                    <h5 class="fw-bold mb-2"><?= htmlspecialchars($ach['title'] ?? '') ?></h5>
+                    <p class="text-muted small mb-3"><i class="fa fa-calendar me-2"></i><?= htmlspecialchars($ach['date'] ?? '') ?></p>
+                    <p class="mb-3"><?= htmlspecialchars($ach['description'] ?? '') ?></p>
+                    <?php if (!empty($ach['link'])): ?>
+                    <a href="<?= htmlspecialchars($ach['link']) ?>" target="_blank" class="btn btn-sm btn-outline-primary">Read More <i class="fa fa-external-link ms-1"></i></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <!-- Resources Section (Mock) -->
+<!-- 
 <section class="bio-section pt-5 pb-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
-    <!-- Decorative background elements -->
     <div style="position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; background: rgba(8,145,178,0.05); filter: blur(100px); border-radius: 50%;"></div>
     <div style="position: absolute; bottom: -150px; right: -100px; width: 400px; height: 400px; background: rgba(59,130,246,0.05); filter: blur(100px); border-radius: 50%;"></div>
     
@@ -618,39 +643,10 @@ if (is_array($projects)) {
             <?php endforeach; ?>
         </div>
     </div>
-</section>
-
-<!-- Funding & Sponsors Section -->
-<section class="bio-section pt-5 pb-5">
-    <div class="container text-center">
-        <h3 class="section-title mb-5">Funding & Collaborators</h3>
-        <div class="sponsor-marquee-container">
-            <!-- Duplicated content for seamless scrolling -->
-            <div class="sponsor-marquee-content">
-                <?php foreach($fundingSponsors as $sponsor): ?>
-                <div class="sponsor-logo-box" title="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
-                    <?php if(!empty($sponsor['logo'])): ?>
-                        <img src="<?= htmlspecialchars($sponsor['logo']) ?>" alt="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
-                    <?php else: ?>
-                        <span class="fw-bold text-muted"><?= htmlspecialchars($sponsor['name'] ?? '') ?></span>
-                    <?php endif; ?>
-                </div>
-                <?php endforeach; ?>
-                
-                <!-- Duplicate array for infinite scroll effect -->
-                <?php foreach($fundingSponsors as $sponsor): ?>
-                <div class="sponsor-logo-box" title="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
-                    <?php if(!empty($sponsor['logo'])): ?>
-                        <img src="<?= htmlspecialchars($sponsor['logo']) ?>" alt="<?= htmlspecialchars($sponsor['name'] ?? '') ?>">
-                    <?php else: ?>
-                        <span class="fw-bold text-muted"><?= htmlspecialchars($sponsor['name'] ?? '') ?></span>
-                    <?php endif; ?>
-                </div>
-                <?php endforeach; ?>
-            </div>
         </div>
     </div>
 </section>
+-->
 
 <!-- Lab Gallery Section (Mock) -->
 <section class="bio-section pt-4 pb-5" style="background: var(--bg-alt);">

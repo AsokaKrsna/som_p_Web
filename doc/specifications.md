@@ -21,6 +21,7 @@ Content is stored as standard JSON in the `/data` directory.
 | `lab_content.json` | Configuration Object | `hero`, `about`, `research_areas`, `join_us`, `open_resources`, `gallery` |
 | `profile_content.json` | Configuration Object | `hero`, `about` (used on index.php) |
 | `announcements.json`| Flat array | Scrolling marquee items |
+| `achievements.json` | Object with array | `achievements` |
 | All others | Flat arrays | `patents`, `teaching`, `seminars`, `memberships`, `editorships`, `awards` |
 
 ### 2. Rendering Layer (PHP 7.4+ Templating)

@@ -32,7 +32,8 @@ $allowed_files = [
     'publications.json', 'projects.json', 'patents.json',
     'teaching.json', 'seminars.json', 'memberships.json',
     'editorships.json', 'awards.json', 'research_group.json',
-    'lab_content.json', 'announcements.json', 'profile_content.json'
+    'lab_content.json', 'announcements.json', 'profile_content.json',
+    'achievements.json'
 ];
 
 if (!in_array($file, $allowed_files)) {

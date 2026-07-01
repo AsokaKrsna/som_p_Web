@@ -14,6 +14,16 @@
     ],
     "research_areas": [
         {
+            "icon": "fa-brain",
+            "title": "Cybersecurity for AI",
+            "description": "Securing AI models against adversarial attacks and data poisoning."
+        },
+        {
+            "icon": "fa-robot",
+            "title": "AI for Cybersecurity",
+            "description": "Leveraging artificial intelligence to detect and mitigate cyber threats."
+        },
+        {
             "icon": "fa-bug",
             "title": "Malware Analysis",
             "description": "Behavioral analysis and AI-driven detection."
@@ -27,11 +37,6 @@
             "icon": "fa-lock",
             "title": "Cryptography",
             "description": "Lightweight crypto for IoT and edge devices."
-        },
-        {
-            "icon": "fa-shield",
-            "title": "Network Sec",
-            "description": "Intrusion detection and traffic classification."
         }
     ],
     "join_us": [
