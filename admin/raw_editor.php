@@ -203,69 +203,82 @@ function renderForm() {
                        </button>` : ''}
                    </div>`;
                 
-                let boolFields = [];
-                let keys = Object.keys(item);
+                const isPrimitive = typeof item !== 'object' || item === null;
                 
-                // Preferred sorting order (globally applied, unknown fields go to bottom)
-                const preferredOrder = [
-                    'title',
-                    'author',
-                    'link',
-                    'published_at',
-                    'doi',
-                    'impact_factor'
-                ];
-                
-                keys.sort((a, b) => {
-                    let idxA = preferredOrder.indexOf(a);
-                    let idxB = preferredOrder.indexOf(b);
-                    if (idxA === -1) idxA = 999;
-                    if (idxB === -1) idxB = 999;
-                    
-                    if (idxA !== idxB) return idxA - idxB;
-                    return 0;
-                });
-
-                for (const key of keys) {
-                    const value = item[key];
-                    if (typeof value === 'boolean') {
-                        boolFields.push({key, value});
-                        continue;
-                    }
-                    
-                    const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                    const isLongText = key === 'details' || key === 'description' || (typeof value === 'string' && value.length > 60);
-                    
-                    cardHtml += `<div class="mb-3"><label class="form-label small fw-bold text-secondary">${label}</label>`;
-                    
+                if (isPrimitive) {
+                    const isLongText = (typeof item === 'string' && item.length > 60);
+                    cardHtml += `<div class="mb-3">`;
                     if (isLongText) {
-                        cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '${key}', this.value)">${escapeHtml(value)}</textarea>`;
+                        cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '__primitive__', this.value)">${escapeHtml(String(item))}</textarea>`;
                     } else {
-                        cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(value)}" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;
+                        cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(String(item))}" onchange="updateItem('${category}', ${index}, '__primitive__', this.value)">`;
                     }
                     cardHtml += `</div>`;
-                }
-
-                if (boolFields.length > 0) {
-                    cardHtml += `<div class="mb-2 p-2 rounded d-flex align-items-center gap-3" style="background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.05);">
-                        <label class="form-label small fw-bold text-secondary mb-0">Show at:</label>
-                        <div class="d-flex gap-3">`;
-                    boolFields.forEach(bf => {
-                        const rawLabel = bf.key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                        const displayLabel = rawLabel.replace(/^Show /i, ''); 
-                        const id = `chk_${category}_${index}_${bf.key}`;
+                } else {
+                    let boolFields = [];
+                    let keys = Object.keys(item);
+                    
+                    // Preferred sorting order (globally applied, unknown fields go to bottom)
+                    const preferredOrder = [
+                        'title',
+                        'author',
+                        'link',
+                        'published_at',
+                        'doi',
+                        'impact_factor'
+                    ];
+                    
+                    keys.sort((a, b) => {
+                        let idxA = preferredOrder.indexOf(a);
+                        let idxB = preferredOrder.indexOf(b);
+                        if (idxA === -1) idxA = 999;
+                        if (idxB === -1) idxB = 999;
                         
-                        cardHtml += `
-                            <div class="form-check mb-0">
-                                <input class="form-check-input" type="checkbox" id="${id}" 
-                                    ${bf.value ? 'checked' : ''} 
-                                    onchange="updateItem('${category}', ${index}, '${bf.key}', this.checked)">
-                                <label class="form-check-label small user-select-none pt-1" for="${id}" style="cursor: pointer;">
-                                    ${displayLabel}
-                                </label>
-                            </div>`;
+                        if (idxA !== idxB) return idxA - idxB;
+                        return 0;
                     });
-                    cardHtml += `</div></div>`;
+
+                    for (const key of keys) {
+                        const value = item[key];
+                        if (typeof value === 'boolean') {
+                            boolFields.push({key, value});
+                            continue;
+                        }
+                        
+                        const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        const isLongText = key === 'details' || key === 'description' || (typeof value === 'string' && value.length > 60);
+                        
+                        cardHtml += `<div class="mb-3"><label class="form-label small fw-bold text-secondary">${label}</label>`;
+                        
+                        if (isLongText) {
+                            cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '${key}', this.value)">${escapeHtml(value)}</textarea>`;
+                        } else {
+                            cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(value)}" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;
+                        }
+                        cardHtml += `</div>`;
+                    }
+
+                    if (boolFields.length > 0) {
+                        cardHtml += `<div class="mb-2 p-2 rounded d-flex align-items-center gap-3" style="background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.05);">
+                            <label class="form-label small fw-bold text-secondary mb-0">Show at:</label>
+                            <div class="d-flex gap-3">`;
+                        boolFields.forEach(bf => {
+                            const rawLabel = bf.key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                            const displayLabel = rawLabel.replace(/^Show /i, ''); 
+                            const id = `chk_${category}_${index}_${bf.key}`;
+                            
+                            cardHtml += `
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="checkbox" id="${id}" 
+                                        ${bf.value ? 'checked' : ''} 
+                                        onchange="updateItem('${category}', ${index}, '${bf.key}', this.checked)">
+                                    <label class="form-check-label small user-select-none pt-1" for="${id}" style="cursor: pointer;">
+                                        ${displayLabel}
+                                    </label>
+                                </div>`;
+                        });
+                        cardHtml += `</div></div>`;
+                    }
                 }
                 card.innerHTML = cardHtml;
                 listContainer.appendChild(card);
@@ -310,12 +323,20 @@ function updateAce() {
 
 window.updateItem = function(category, index, key, newValue) {
     if (isArrayRoot) {
-        currentData[index][key] = newValue;
+        if (key === '__primitive__') {
+            currentData[index] = newValue;
+        } else {
+            currentData[index][key] = newValue;
+        }
     } else {
         if (index === -1) {
             currentData[category][key] = newValue;
         } else {
-            currentData[category][index][key] = newValue;
+            if (key === '__primitive__') {
+                currentData[category][index] = newValue;
+            } else {
+                currentData[category][index][key] = newValue;
+            }
         }
     }
     updateAce();
@@ -346,9 +367,13 @@ window.openPreviewModal = function() {
             data.forEach((item, i) => {
                 previewHtml += `<div class="preview-card">`;
                 previewHtml += `<div class="preview-card-header">Entry #${i + 1}</div>`;
-                for (const [key, val] of Object.entries(item)) {
-                    const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                    previewHtml += `<div class="preview-field"><span class="preview-label">${label}:</span> <span class="preview-value">${escapeHtml(String(val))}</span></div>`;
+                if (typeof item === 'object' && item !== null) {
+                    for (const [key, val] of Object.entries(item)) {
+                        const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        previewHtml += `<div class="preview-field"><span class="preview-label">${label}:</span> <span class="preview-value">${escapeHtml(String(val))}</span></div>`;
+                    }
+                } else {
+                    previewHtml += `<div class="preview-field"><span class="preview-value">${escapeHtml(String(item))}</span></div>`;
                 }
                 previewHtml += `</div>`;
             });
@@ -363,17 +388,21 @@ window.openPreviewModal = function() {
                 items.forEach((item, i) => {
                     previewHtml += `<div class="preview-card">`;
                     previewHtml += `<div class="preview-card-header">${i + 1}</div>`;
-                    for (const [key, val] of Object.entries(item)) {
-                        if (!val) continue;
-                        const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                        const isLink = key === 'link' || key.endsWith('_url');
-                        previewHtml += `<div class="preview-field"><span class="preview-label">${label}:</span> `;
-                        if (isLink && val) {
-                            previewHtml += `<a href="${escapeHtml(String(val))}" target="_blank" class="preview-value preview-link">${escapeHtml(String(val))}</a>`;
-                        } else {
-                            previewHtml += `<span class="preview-value">${escapeHtml(String(val))}</span>`;
+                    if (typeof item === 'object' && item !== null) {
+                        for (const [key, val] of Object.entries(item)) {
+                            if (!val) continue;
+                            const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                            const isLink = key === 'link' || key.endsWith('_url');
+                            previewHtml += `<div class="preview-field"><span class="preview-label">${label}:</span> `;
+                            if (isLink && val) {
+                                previewHtml += `<a href="${escapeHtml(String(val))}" target="_blank" class="preview-value preview-link">${escapeHtml(String(val))}</a>`;
+                            } else {
+                                previewHtml += `<span class="preview-value">${escapeHtml(String(val))}</span>`;
+                            }
+                            previewHtml += `</div>`;
                         }
-                        previewHtml += `</div>`;
+                    } else {
+                        previewHtml += `<div class="preview-field"><span class="preview-value">${escapeHtml(String(item))}</span></div>`;
                     }
                     previewHtml += `</div>`;
                 });
@@ -416,13 +445,17 @@ window.addItem = function(category) {
     let targetArray = isArrayRoot ? currentData : currentData[category];
     
     if (targetArray.length > 0) {
-        Object.entries(targetArray[0]).forEach(([k, v]) => {
-            if (typeof v === 'boolean') {
-                template[k] = true;
-            } else {
-                template[k] = "";
-            }
-        });
+        if (typeof targetArray[0] === 'string' || typeof targetArray[0] === 'number') {
+            template = "";
+        } else {
+            Object.entries(targetArray[0]).forEach(([k, v]) => {
+                if (typeof v === 'boolean') {
+                    template[k] = true;
+                } else {
+                    template[k] = "";
+                }
+            });
+        }
     } else {
         template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
     }
