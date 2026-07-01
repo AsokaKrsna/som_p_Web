@@ -223,9 +223,9 @@ $profile = loadJsonData('profile_content.json');
                             <tr>
                                 <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
                                 <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                                <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
-                                <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
-                                <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
+                                <td><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($proj['amount'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($proj['duration'] ?? '') ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -251,9 +251,9 @@ $profile = loadJsonData('profile_content.json');
                             <tr>
                                 <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
                                 <td><?= htmlspecialchars($proj['role'] ?? '') ?></td>
-                                <td><strong><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></strong></td>
-                                <td><strong><?= htmlspecialchars($proj['amount'] ?? '') ?></strong></td>
-                                <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
+                                <td><?= htmlspecialchars($proj['funding_agency'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($proj['amount'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($proj['duration'] ?? '') ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
