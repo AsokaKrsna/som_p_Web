@@ -12,7 +12,7 @@
         },
         {
             "link": "https://ieeexplore.ieee.org/abstract/document/11471748",
-            "title": "“Just a Patch”: Imperceptible Image Patch Generation for Adversarial Inference",
+            "title": "\u201cJust a Patch\u201d: Imperceptible Image Patch Generation for Adversarial Inference",
             "impact_factor": "(IF:4.2, H5: 288)",
             "author": "Debasmita Manna, Somanath Tripathy, Bruhadeshwar Bezawada, Indrakshi Ray",
             "published_at": "IEEE Access",
@@ -285,7 +285,7 @@
             "title": "CEMAR: A Fine Grained Access Control with Revocation Mechanism for Centralized    Multi-Authority Cloud Storage",
             "impact_factor": "(IF: 2.474, H5: 45)",
             "author": "K. Dhal, S. C. Rai, P. K. Pattnaik, Somanath    Tripathy",
-            "published_at": "The Journal of Supercomputing (Springer), Volume 78, pages 987–1009, (2022).",
+            "published_at": "The Journal of Supercomputing (Springer), Volume 78, pages 987\u20131009, (2022).",
             "doi": "https://doi.org/10.1007/s11227-021-03908-z",
             "show_personal": true,
             "show_lab": true
@@ -335,7 +335,7 @@
             "title": "'Privacy-Preserving Learning Framework for Healthcare System'",
             "impact_factor": "(IF: 2.25, H5: 32)",
             "author": "Harsh Kasyap, Somanath Tripathy",
-            "published_at": "ACM Transactions on Multimedia Computing, Communications, and Applications, Volume 17, Issue 2, pp 1–24,(2020).",
+            "published_at": "ACM Transactions on Multimedia Computing, Communications, and Applications, Volume 17, Issue 2, pp 1\u201324,(2020).",
             "doi": "https://doi.org/10.1145/3426474",
             "show_personal": true,
             "show_lab": true
@@ -345,7 +345,7 @@
             "title": "'PJ-Sec: Secure Node Joining in Mobile P2P Networks'",
             "impact_factor": "",
             "author": "Sumit Kumar Tetarave, Somanath Tripathy",
-            "published_at": "CCF Transactions on Pervasive Computing and Interaction (Springer), Volume 3, pp 13–24, (2021).",
+            "published_at": "CCF Transactions on Pervasive Computing and Interaction (Springer), Volume 3, pp 13\u201324, (2021).",
             "doi": "https://doi.org/10.1007/s42486-020-00047-x .",
             "show_personal": true,
             "show_lab": true
@@ -355,7 +355,7 @@
             "title": "'Correlation Power Analysis of KASUMI and Power Resilience Analysis of Some Equivalence Classes of KASUMI S-Boxes'",
             "impact_factor": "",
             "author": "Devansh Gupta, Somanath Tripathy,    Bodhisatwa Mazumdar",
-            "published_at": "Journal of Hardware and Systems Security (Springer), Volume 4, pp 297–313,(2020).",
+            "published_at": "Journal of Hardware and Systems Security (Springer), Volume 4, pp 297\u2013313,(2020).",
             "doi": "https://doi.org/10.1007/s41635-020-00104-y .",
             "show_personal": true,
             "show_lab": true
@@ -385,7 +385,7 @@
             "title": "HTRNG: High throughput True Random Number Generator using Memristor",
             "impact_factor": "",
             "author": "Vikash Kumar Rai, Somanath Tripathy, Rajat Subhra Chakraborty, Jimson Mathew",
-            "published_at": "IEEE VLSI CIRCUITS AND SYSTEMS LETTER,Volume 6 – Issue 1,(2020).",
+            "published_at": "IEEE VLSI CIRCUITS AND SYSTEMS LETTER,Volume 6 \u2013 Issue 1,(2020).",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -573,6 +573,16 @@
     ],
     "conferences": [
         {
+            "link": "",
+            "title": "",
+            "impact_factor": "",
+            "author": "",
+            "published_at": "",
+            "doi": "",
+            "show_personal": true,
+            "show_lab": true
+        },
+        {
             "link": "https://link.springer.com/chapter/10.1007/978-3-032-13714-2_5",
             "title": "NEXUS: Neuron Activation Scores Exploits for Unveiling Sensitive Attributes",
             "impact_factor": "",
@@ -647,7 +657,7 @@
             "title": "Delivery Service Collaboration Using Blockchain Architecture",
             "impact_factor": "(H5:10, Core Ranking: B)",
             "author": "Ajay Chandra Korlapati, Sanjeet Kumar Nayak, Partha Sarathi Chakraborty and Somanath Tripathy",
-            "published_at": "2023 International Conference on Computational Intelligence, Networks and Security (ICCINS), 22-23 Dec. 2023, DTU Mødecenter, Denmark.",
+            "published_at": "2023 International Conference on Computational Intelligence, Networks and Security (ICCINS), 22-23 Dec. 2023, DTU M\u00f8decenter, Denmark.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -657,7 +667,7 @@
             "title": "Integrating Multi-view Feature Extraction and Fuzzy Rank-Based Ensemble for Accurate HIV-1 Protease Cleavage Site Prediction",
             "impact_factor": "(H5:27, Core Ranking: A)",
             "author": "Susmita Palmal, Sriparna Saha, and Somanath Tripathy",
-            "published_at": "The 30th International Conference, ICONIP 2023, November 20–23, 2023, Changsha, China.",
+            "published_at": "The 30th International Conference, ICONIP 2023, November 20\u201323, 2023, Changsha, China.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -687,7 +697,7 @@
             "title": "FlexiPCN: Flexible Payment Channel Network",
             "impact_factor": "(H5:50, Core Ranking: A)",
             "author": "Susil Kumar Mohanty and Somanath Tripathy",
-            "published_at": "The 27th International Conference on Financial Cryptography and Data Security  FC 2023 International Workshops: Voting, CoDecFin, DeFi, WTSC, May 5, 2023, Bol, Brač, Croatia.",
+            "published_at": "The 27th International Conference on Financial Cryptography and Data Security  FC 2023 International Workshops: Voting, CoDecFin, DeFi, WTSC, May 5, 2023, Bol, Bra\u010d, Croatia.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -737,7 +747,7 @@
             "title": "MILSA: Model Interpretation based Label Sniffing Attack in Federated Learning",
             "impact_factor": "",
             "author": "Debasmita Manna, Harsh Kasyap, Somanath Tripathy",
-            "published_at": "18th International Conference on Information Systems Security (ICISS), 2022, pp 139–154, IIT Tirupati, India.",
+            "published_at": "18th International Conference on Information Systems Security (ICISS), 2022, pp 139\u2013154, IIT Tirupati, India.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -747,7 +757,7 @@
             "title": "SHIELD: A Multimodal Deep Learning Framework For Android Malware Detection",
             "impact_factor": "",
             "author": "Narendra Singh, Somanath Tripathy, Bruhadeshwar Bezawada",
-            "published_at": "18th International Conference on Information Systems Security (ICISS), 2022, pp. 64–83, IIT Tirupati, India.",
+            "published_at": "18th International Conference on Information Systems Security (ICISS), 2022, pp. 64\u201383, IIT Tirupati, India.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -1435,7 +1445,7 @@
             "doi": ""
         }
     ],
-    "books": [
+    "authored_books": [
         {
             "link": "https://books.google.com/books?hl=en&lr=&id=a4iaEQAAQBAJ&oi=fnd&pg=PA8&dq=info:Zy1DuycI9eQJ:scholar.google.com&ots=VRvGNFgxNJ&sig=ltuMavqagW1COYgQRq26umFzVDc",
             "title": "\"Federated Learning: Security and Privacy\"",
@@ -1443,7 +1453,9 @@
             "author": "Somanath Tripathy, Harsh Kasyap, Minghong Fang",
             "published_at": "CRC Press, 2025 .",
             "doi": ""
-        },
+        }
+    ],
+    "books": [
         {
             "link": "https://digital-library.theiet.org/content/books/pc/pbpc027e",
             "title": "\"Task offloading using fog analytics\"",
@@ -1457,7 +1469,7 @@
             "title": "\"17th International Conference on Information Systems Security\"",
             "impact_factor": "",
             "author": "Somanath Tripathy",
-            "published_at": "Rudrapatna K. Shyamasundar, and Rajiv Ranjan, Springer, ICISS 2021, Patna, India, December 16–20, 2021.",
+            "published_at": "Rudrapatna K. Shyamasundar, and Rajiv Ranjan, Springer, ICISS 2021, Patna, India, December 16\u201320, 2021.",
             "doi": ""
         },
         {
