@@ -1,7 +1,15 @@
 [
     {
+        "course": "CS6211: Selected Topics on Cryptography",
+        "link": ""
+    },
+    {
+        "course": "CS6101: Advance Blockchain Technology",
+        "link": ""
+    },
+    {
         "course": "CS689: Quantum Cybersecurity",
-        "link": "https://dummy.com/"
+        "link": ""
     },
     {
         "course": "CS579: Cyber Security with Blockchain",
