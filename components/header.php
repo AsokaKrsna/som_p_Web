@@ -51,51 +51,28 @@ $page_description = isset($page_description) ? $page_description : "Academic por
             </div>
             <!-- Navigation items -->
             <div class="nav-side-items">
-                <a href="index.php#home" class="nav-side-item" data-section="home" data-tip="Top of page">
+                <?php
+                if (!isset($sideNavItems)) {
+                    $sideNavItems = [
+                        ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Home / Bio', 'tip' => 'Top of page'],
+                        ['href' => 'index.php#patents', 'section' => 'patents', 'text' => 'Patents', 'tip' => 'Filed & granted patents'],
+                        ['href' => 'index.php#projects', 'section' => 'projects', 'text' => 'Projects', 'tip' => 'Research & consulting projects'],
+                        ['href' => 'index.php#teaching', 'section' => 'teaching', 'text' => 'Teaching', 'tip' => 'Courses taught'],
+                        ['href' => 'index.php#seminars', 'section' => 'seminars', 'text' => 'Seminars', 'tip' => 'Talks & invited lectures'],
+                        ['href' => 'index.php#memberships', 'section' => 'memberships', 'text' => 'Memberships', 'tip' => 'Professional memberships'],
+                        ['href' => 'index.php#editorship', 'section' => 'editorship', 'text' => 'Editorship', 'tip' => 'Editorial roles'],
+                        ['href' => 'index.php#publications', 'section' => 'publications', 'text' => 'Publications', 'tip' => 'Research papers & articles'],
+                        ['href' => 'index.php#awards', 'section' => 'awards', 'text' => 'Awards', 'tip' => 'Honors & recognitions']
+                    ];
+                }
+                foreach ($sideNavItems as $item):
+                ?>
+                <a href="<?= htmlspecialchars($item['href']) ?>" class="nav-side-item" data-section="<?= htmlspecialchars($item['section']) ?>" data-tip="<?= htmlspecialchars($item['tip']) ?>">
                     <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Home / Bio</span>
-                    <span class="nav-side-tip">Top</span>
+                    <span class="nav-side-text"><?= htmlspecialchars($item['text']) ?></span>
+                    <span class="nav-side-tip"><?= htmlspecialchars($item['tip']) ?></span>
                 </a>
-                <a href="index.php#patents" class="nav-side-item" data-section="patents" data-tip="Filed &amp; granted patents">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Patents</span>
-                    <span class="nav-side-tip">Patents</span>
-                </a>
-                <a href="index.php#projects" class="nav-side-item" data-section="projects" data-tip="Research &amp; consulting projects">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Projects</span>
-                    <span class="nav-side-tip">Projects</span>
-                </a>
-                <a href="index.php#teaching" class="nav-side-item" data-section="teaching" data-tip="Courses taught">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Teaching</span>
-                    <span class="nav-side-tip">Courses</span>
-                </a>
-                <a href="index.php#seminars" class="nav-side-item" data-section="seminars" data-tip="Talks &amp; invited lectures">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Seminars</span>
-                    <span class="nav-side-tip">Talks</span>
-                </a>
-                <a href="index.php#memberships" class="nav-side-item" data-section="memberships" data-tip="Professional memberships">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Memberships</span>
-                    <span class="nav-side-tip">Memberships</span>
-                </a>
-                <a href="index.php#editorship" class="nav-side-item" data-section="editorship" data-tip="Editorial roles">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Editorship</span>
-                    <span class="nav-side-tip">Editorial</span>
-                </a>
-                <a href="index.php#publications" class="nav-side-item" data-section="publications" data-tip="Research papers &amp; articles">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Publications</span>
-                    <span class="nav-side-tip">Papers</span>
-                </a>
-                <a href="index.php#awards" class="nav-side-item" data-section="awards" data-tip="Honors &amp; recognitions">
-                    <span class="nav-side-dot"></span>
-                    <span class="nav-side-text">Awards</span>
-                    <span class="nav-side-tip">Awards</span>
-                </a>
+                <?php endforeach; ?>
             </div>
         </div>
         <?php endif; ?>
