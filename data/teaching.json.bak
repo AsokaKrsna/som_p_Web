@@ -1,0 +1,66 @@
+[
+    {
+        "course": "CS689: Quantum Cybersecurity",
+        "link": "https://dummy.com/"
+    },
+    {
+        "course": "CS579: Cyber Security with Blockchain",
+        "link": ""
+    },
+    {
+        "course": "CS557: Cryptography",
+        "link": ""
+    },
+    {
+        "course": "CS547: Foundation of Computer Security",
+        "link": ""
+    },
+    {
+        "course": "CS549: Computer and Network Security",
+        "link": ""
+    },
+    {
+        "course": "CS742: Cryptography and Network security",
+        "link": ""
+    },
+    {
+        "course": "CS321: Computer Architecture",
+        "link": ""
+    },
+    {
+        "course": "CS322: Computer Architecture Lab",
+        "link": ""
+    },
+    {
+        "course": "CS101: Introduction to Computing",
+        "link": ""
+    },
+    {
+        "course": "CS110: Computing Laboratory",
+        "link": ""
+    },
+    {
+        "course": "CS344: Databases",
+        "link": ""
+    },
+    {
+        "course": "CS222: Computer Organization and Architecture",
+        "link": ""
+    },
+    {
+        "course": "CS223: Hardware Laboratory",
+        "link": ""
+    },
+    {
+        "course": "CS421: Computer Peripherals and Interfacing",
+        "link": ""
+    },
+    {
+        "course": "CS422: Peripheral and Interfacing Laboratory",
+        "link": ""
+    },
+    {
+        "course": "CS221: Digital Design",
+        "link": ""
+    }
+]
