@@ -21,7 +21,7 @@
     ],
     "mtech": [
         {
-            "image": "pics/vivekanand.jpg",
+            "image": "pics/vivekanand.jpeg",
             "name": "Vivekanand Pandey",
             "email": "vivekanand_2511ai54@iitp.ac.in",
             "research_area": "Automating Red timing for LLM security"
@@ -33,13 +33,13 @@
             "research_area": "Data Poissoning in LLMs"
         },
         {
-            "image": "pics/abhyudaya.jpg",
+            "image": "pics/abhyudaya.jpeg",
             "name": "Abhyudaya Yadav",
             "email": "abhyudaya_2511ai04@iitp.ac.in",
             "research_area": "Self Healing Recommender System against Data Poisoning attacks"
         },
         {
-            "image": "pics/durjoy.jpg",
+            "image": "pics/durjoy.jpeg",
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25@iitp.ac.in",
             "research_area": "Security of distributed system"
@@ -80,7 +80,7 @@
         },
         {
             "image": "pics/Vikash.png",
-            "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew ) ",
+            "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew )",
             "passing_year": "2021",
             "current_affiliation": "Current Affiliation: Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
             "thesis": "Design and Analysis of Lightweight Cryptographic Techniques for IoT Devices",
@@ -146,80 +146,80 @@
     "past_mtech": [
         {
             "image": "",
-            "name": "Anubhav Kant",
-            "passing_year": "2026",
-            "thesis": "Eeg-Based Schizophrenia Classification With Post-Hoc Clinical Explainability"
+            "name": "Subho Shankar Basu",
+            "passing_year": "2015",
+            "thesis": "Secure Multicast Data transmission Technique For Internet of Things"
         },
         {
             "image": "",
-            "name": "Satyam Kumar",
-            "passing_year": "2026",
-            "thesis": "Hybrid Quantum-Classical Neural Networks: Adversarial Threats and Countermeasures"
+            "name": "Karunakar Saroj",
+            "passing_year": "2015",
+            "thesis": "Designing of Variable Length Block Cipher"
         },
         {
             "image": "",
-            "name": "Ravi Paswan",
-            "passing_year": "2026",
-            "thesis": "Reentrancy Attack Detection in Ethereum Smart Contracts via Transaction Execution Traces"
+            "name": "Debapriya Chakraborty",
+            "passing_year": "2015",
+            "thesis": "Some Results in Quantum Information Theory"
         },
         {
             "image": "",
-            "name": "Abhishar Anand",
-            "passing_year": "2026",
-            "thesis": "Control Flow semantics Based Smart Contract Vulnerability Detection"
+            "name": "Basant Kumar Jha",
+            "passing_year": "2016",
+            "thesis": "Privacy Preserving Technique for Smart Metering System"
         },
         {
             "image": "",
-            "name": "Megha Kumari",
-            "passing_year": "2025",
-            "thesis": "Trojan Detection"
+            "name": "Praveen Kumar",
+            "passing_year": "2017",
+            "thesis": "Preventing Session Hijacking and Cross Side Request Forgery using client side Proxy"
         },
         {
             "image": "",
-            "name": "Shivam",
-            "passing_year": "2025",
-            "thesis": "Credit Card Fraud Detection"
+            "name": "Aparna.C",
+            "passing_year": "2017",
+            "thesis": "Malware Detection Using Machine Learning"
         },
         {
             "image": "",
-            "name": "Shubham Kumar",
-            "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection system"
+            "name": "A.K. Sinha",
+            "passing_year": "2017",
+            "thesis": "Efficient Client side proxy for preventing session hijacking and cross site request forgery"
         },
         {
             "image": "",
-            "name": "Nemichand Rinwa",
-            "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural networks"
+            "name": "Chanchal Suman",
+            "passing_year": "2018",
+            "thesis": "Effective Unsupervised feature selection algortihm for Intrusion Detection system (Jointly Supervison of Dr. Sriparna Saha)"
         },
         {
             "image": "",
-            "name": "Omkar Santosh Gavhane",
-            "passing_year": "2023",
-            "thesis": "Privacy Preserving of Outsourcing Data in Cloud"
+            "name": "Sunny Yadav",
+            "passing_year": "2019",
+            "thesis": "Study of Zero day attack detection using one class classifiers"
         },
         {
             "image": "",
-            "name": "Ashutosh Abhishek",
-            "passing_year": "2023",
-            "thesis": "Honeypot on Linux based IoT systems"
+            "name": "Sanjay Murmu",
+            "passing_year": "2020",
+            "thesis": "Password Generation, Guessing, Modelling and Strength Estimation"
         },
         {
             "image": "",
-            "name": "Amar Pandey",
-            "passing_year": "2022",
-            "thesis": "Malware Detection using Machine Learning Technique"
+            "name": "Narendra Singh Lodhi",
+            "passing_year": "2020",
+            "thesis": "Collaborative Learning Based Effective Malware Detection System"
         },
         {
             "image": "",
-            "name": "B.Shravan Naik",
-            "passing_year": "2022",
-            "thesis": "Blockchain based Reliable Data Transfer for Intelligent Transport System"
+            "name": "Ranu Maurya",
+            "passing_year": "2021",
+            "thesis": "Development of a chatbot followed by Automated functional validation and Manual security Validation of chat bot"
         },
         {
             "image": "",
-            "name": "Dhamendra Tiwari",
-            "passing_year": "2022",
+            "name": "Arpan Mana",
+            "passing_year": "2021",
             "thesis": "Defending Poisoning Attack In Federated Learning"
         },
         {
@@ -230,81 +230,81 @@
         },
         {
             "image": "",
-            "name": "Arpan Mana",
-            "passing_year": "2021",
+            "name": "Dhamendra Tiwari",
+            "passing_year": "2022",
             "thesis": "Defending Poisoning Attack In Federated Learning"
         },
         {
             "image": "",
-            "name": "Ranu Maurya",
-            "passing_year": "2021",
-            "thesis": "Development of a chatbot followed by Automated functional  validation and Manual security Validation of chat bot"
+            "name": "B.Shravan Naik",
+            "passing_year": "2022",
+            "thesis": "Blockchain based Reliable Data Transfer for Intelligent Transport System"
         },
         {
             "image": "",
-            "name": "Narendra Singh Lodhi",
-            "passing_year": "2020",
-            "thesis": "Collaborative Learning Based Effective Malware Detection System"
+            "name": "Amar Pandey",
+            "passing_year": "2022",
+            "thesis": "Malware Detection using Machine Learning Technique"
         },
         {
             "image": "",
-            "name": "Sanjay Murmu",
-            "passing_year": "2020",
-            "thesis": "Password Generation, Guessing, Modelling and Strength Estimation"
+            "name": "Ashutosh Abhishek",
+            "passing_year": "2023",
+            "thesis": "Honeypot on Linux based IoT systems"
         },
         {
             "image": "",
-            "name": "Sunny Yadav",
-            "passing_year": "2019",
-            "thesis": "Study of Zero day attack detection using one class classifiers"
+            "name": "Omkar Santosh Gavhane",
+            "passing_year": "2023",
+            "thesis": "Privacy Preserving of Outsourcing Data in Cloud"
         },
         {
             "image": "",
-            "name": "Chanchal Suman",
-            "passing_year": "2018",
-            "thesis": "Effective Unsupervised feature selection algortihm for Intrusion Detection system (Jointly Supervison of Dr. Sriparna Saha)"
+            "name": "Nemichand Rinwa",
+            "passing_year": "2024",
+            "thesis": "Adversarial attack against deep neural\u00a0networks"
         },
         {
             "image": "",
-            "name": "A.K. Sinha",
-            "passing_year": "2017",
-            "thesis": "Efficient Client side proxy for preventing session hijacking and cross site request forgery"
+            "name": "Shubham Kumar",
+            "passing_year": "2024",
+            "thesis": "Evasion attack against fraud detection\u00a0system"
         },
         {
             "image": "",
-            "name": "Aparna.C",
-            "passing_year": "2017",
-            "thesis": "Malware Detection Using Machine Learning"
+            "name": "Shivam",
+            "passing_year": "2025",
+            "thesis": "Credit Card Fraud Detection"
         },
         {
             "image": "",
-            "name": "Praveen Kumar",
-            "passing_year": "2017",
-            "thesis": "Preventing Session Hijacking and Cross Side Request Forgery using client side Proxy"
+            "name": "Megha Kumari",
+            "passing_year": "2025",
+            "thesis": "Trojan Detection"
         },
         {
             "image": "",
-            "name": "Basant Kumar Jha",
-            "passing_year": "2016",
-            "thesis": "Privacy Preserving Technique for Smart Metering System"
+            "name": "Abhishar Anand",
+            "passing_year": "2026",
+            "thesis": "Control Flow semantics Based Smart Contract Vulnerability Detection"
         },
         {
             "image": "",
-            "name": "Debapriya Chakraborty",
-            "passing_year": "2015",
-            "thesis": "Some Results in Quantum Information Theory"
+            "name": "Ravi Paswan",
+            "passing_year": "2026",
+            "thesis": "Reentrancy Attack Detection in Ethereum Smart Contracts via Transaction Execution Traces"
         },
         {
             "image": "",
-            "name": "Karunakar Saroj",
-            "passing_year": "2015",
-            "thesis": "Designing of Variable Length Block Cipher"
+            "name": "Satyam Kumar",
+            "passing_year": "2026",
+            "thesis": "Hybrid Quantum-Classical Neural Networks: Adversarial Threats and Countermeasures"
         },
         {
             "image": "",
-            "name": "Subho Shankar Basu",
-            "passing_year": "2015",
-            "thesis": "Secure Multicast Data transmission Technique For Internet of Things"
+            "name": "Anubhav Kant",
+            "passing_year": "2026",
+            "thesis": "Eeg-Based Schizophrenia Classification With Post-Hoc Clinical Explainability"
         }
     ]
 }

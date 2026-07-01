@@ -10,25 +10,25 @@
             "show_lab": true
         },
         {
-            "title": "Development of    an Intelligent Visual Query Response solution for Remote sensing",
-            "role": "Co-PI   with PI (Dr.  Suman Kumar Maji)",
+            "title": "Development of an Intelligent Visual Query Response solution for Remote sensing",
+            "role": "Co-PI\u00a0\u00a0 with PI (Dr.\u00a0 Suman Kumar Maji)",
             "funding_agency": "SERB",
             "amount": "26.67981 Lakh",
-            "duration": "Commenced from 9th Jan 2023    (3Yrs)",
-            "show_personal": true,
-            "show_lab": true
-        },
-        {
-            "title": "Collaborative    learning for Early detection of Fraud in Fintech Application",
-            "role": "PI",
-            "funding_agency": "IIT Bhilai    Innovation Technology Foundation",
-            "amount": "14.94 Lakh",
-            "duration": "3Yrs (commenced from 01-04-2022)",
+            "duration": "Commenced from 9th Jan 2023 (3Yrs)",
             "show_personal": true,
             "show_lab": true
         }
     ],
     "completed": [
+        {
+            "title": "Collaborative learning for Early detection of Fraud in Fintech Application",
+            "role": "PI",
+            "funding_agency": "IIT Bhilai Innovation Technology Foundation",
+            "amount": "14.94 Lakh",
+            "duration": "36 Months",
+            "show_personal": true,
+            "show_lab": true
+        },
         {
             "title": "AI-based Tools for Women and Child Safety",
             "role": "Co-PI",

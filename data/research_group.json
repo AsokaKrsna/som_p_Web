@@ -27,7 +27,7 @@
             "research_area": "Automating Red timing for LLM security"
         },
         {
-            "image": "pics/vedprakash.jpeg",
+            "image": "pics/vedprakash.jpg",
             "name": "Ved Prakash",
             "email": "ved_2511ai58@iitp.ac.in",
             "research_area": "Data Poissoning in LLMs"
@@ -262,13 +262,13 @@
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural\u00a0networks"
+            "thesis": "Adversarial attack against deep neural networks"
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection\u00a0system"
+            "thesis": "Evasion attack against fraud detection system"
         },
         {
             "image": "",
