@@ -15,7 +15,7 @@ Content is stored as standard JSON in the `/data` directory.
 
 | File | Structure | Sections |
 |---|---|---|
-| `publications.json` | Object with arrays | `journals`, `conferences`, `preprints`, `books` |
+| `publications.json` | Object with arrays | `authored_books`, `books`, `journals`, `conferences`, `preprints` |
 | `projects.json` | Object with arrays | `ongoing`, `completed` |
 | `research_group.json` | Object with arrays | `phd`, `mtech`, `interns`, `past_phd`, `past_mtech` |
 | `lab_content.json` | Configuration Object | `hero`, `about`, `research_areas`, `join_us`, `open_resources`, `gallery` |

@@ -347,8 +347,12 @@ $profile = loadJsonData('profile_content.json');
 
         <ul class="nav nav-tabs" id="pubTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane"
-                    type="button" role="tab" aria-controls="books-tab-pane" aria-selected="true">Edited Books &
+                <button class="nav-link active" id="authored-books-tab" data-bs-toggle="tab" data-bs-target="#authored-books-tab-pane"
+                    type="button" role="tab" aria-controls="authored-books-tab-pane" aria-selected="true">Books</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane"
+                    type="button" role="tab" aria-controls="books-tab-pane" aria-selected="false">Edited Books &
                     Chapters</button>
             </li>
             <li class="nav-item" role="presentation">
@@ -366,7 +370,14 @@ $profile = loadJsonData('profile_content.json');
         </ul>
 
         <div class="tab-content" id="pubTabContent">
-            <div class="tab-pane fade show active" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
+            <div class="tab-pane fade show active" id="authored-books-tab-pane" role="tabpanel" aria-labelledby="authored-books-tab"
+                tabindex="0">
+                <table class="table pub-list">
+                    <?php renderPublicationTable($publications['authored_books'] ?? []); ?>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
                 tabindex="0">
                 <table class="table pub-list">
                     <?php renderPublicationTable($publications['books'] ?? []); ?>
