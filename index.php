@@ -162,24 +162,28 @@ $profile = loadJsonData('profile_content.json');
     <div class="container">
         <h2 class="section-title">Patents</h2>
 
-        <table class="table pub-list table-striped">
-            <?php
-            $counter = count($patents);
-            foreach ($patents as $patent):
-                ?>
-                <tr>
-                    <td>
-                        <p><strong><?= $counter-- ?>.</strong>
-                            <?= htmlspecialchars($patent['authors'] ?? '') ?>,
-                            <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>,
-                            Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>,
-                            App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>,
-                            Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
-                        </p>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <tbody>
+                <?php
+                $counter = count($patents);
+                foreach ($patents as $patent):
+                    ?>
+                    <tr>
+                        <td>
+                            <p class="mb-0"><strong><?= $counter-- ?>.</strong>
+                                <?= htmlspecialchars($patent['authors'] ?? '') ?>,
+                                <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>,
+                                Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>,
+                                App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>,
+                                Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
+                            </p>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -204,14 +208,17 @@ $profile = loadJsonData('profile_content.json');
             <div class="tab-pane fade show active" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab"
                 tabindex="0">
                 <div class="table-responsive">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Title</th>
-                            <th>Role</th>
-                            <th>Funding Agency</th>
-                            <th>Amount</th>
-                            <th>Duration</th>
-                        </tr>
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th style="min-width: 150px;">Role</th>
+                                <th>Funding Agency</th>
+                                <th>Amount</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php foreach (($projects['ongoing'] ?? []) as $proj): ?>
                             <tr>
                                 <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
@@ -221,6 +228,7 @@ $profile = loadJsonData('profile_content.json');
                                 <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
                             </tr>
                         <?php endforeach; ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -228,14 +236,17 @@ $profile = loadJsonData('profile_content.json');
             <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab"
                 tabindex="0">
                 <div class="table-responsive">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Title</th>
-                            <th>Role</th>
-                            <th>Funding Agency</th>
-                            <th>Amount</th>
-                            <th>Duration</th>
-                        </tr>
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th style="min-width: 150px;">Role</th>
+                                <th>Funding Agency</th>
+                                <th>Amount</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php foreach (($projects['completed'] ?? []) as $proj): ?>
                             <tr>
                                 <td><strong><?= htmlspecialchars($proj['title'] ?? '') ?></strong></td>
@@ -245,6 +256,7 @@ $profile = loadJsonData('profile_content.json');
                                 <td><strong><?= htmlspecialchars($proj['duration'] ?? '') ?></strong></td>
                             </tr>
                         <?php endforeach; ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -372,34 +384,34 @@ $profile = loadJsonData('profile_content.json');
         <div class="tab-content" id="pubTabContent">
             <div class="tab-pane fade show active" id="authored-books-tab-pane" role="tabpanel" aria-labelledby="authored-books-tab"
                 tabindex="0">
-                <table class="table pub-list">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
                     <?php renderPublicationTable($publications['authored_books'] ?? []); ?>
-                </table>
+                </tbody></table></div>
             </div>
 
             <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
                 tabindex="0">
-                <table class="table pub-list">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
                     <?php renderPublicationTable($publications['books'] ?? []); ?>
-                </table>
+                </tbody></table></div>
             </div>
 
             <div class="tab-pane fade" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
-                <table class="table pub-list">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
                     <?php renderPublicationTable($publications['journals'] ?? []); ?>
-                </table>
+                </tbody></table></div>
             </div>
 
             <div class="tab-pane fade" id="conf-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
-                <table class="table pub-list">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
                     <?php renderPublicationTable($publications['conferences'] ?? []); ?>
-                </table>
+                </tbody></table></div>
             </div>
 
             <div class="tab-pane fade" id="prints-tab-pane" role="tabpanel" aria-labelledby="prints-tab" tabindex="0">
-                <table class="table pub-list">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
                     <?php renderPublicationTable($publications['preprints'] ?? []); ?>
-                </table>
+                </tbody></table></div>
             </div>
         </div>
     </div>

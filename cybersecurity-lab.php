@@ -508,7 +508,7 @@ if (is_array($projects)) {
                             <?php if (!empty($projects['ongoing'])): ?>
                             <div class="tab-pane fade show active" id="ongoing-pane" role="tabpanel">
                                 <div class="table-responsive"><table class="table custom-table">
-                                    <thead><tr><th>Title</th><th>Role</th><th>Funding Agency</th><th>Amount</th><th>Duration</th></tr></thead>
+                                    <thead><tr><th>Title</th><th style="min-width: 150px;">Role</th><th>Funding Agency</th><th>Amount</th><th>Duration</th></tr></thead>
                                     <tbody>
                                     <?php foreach ($projects['ongoing'] as $proj): ?>
                                         <tr>
@@ -527,7 +527,7 @@ if (is_array($projects)) {
                             <?php if (!empty($projects['completed'])): ?>
                             <div class="tab-pane fade <?= empty($projects['ongoing']) ? 'show active' : '' ?>" id="completed-pane" role="tabpanel">
                                 <div class="table-responsive"><table class="table custom-table">
-                                    <thead><tr><th>Title</th><th>Role</th><th>Funding Agency</th><th>Amount</th><th>Duration</th></tr></thead>
+                                    <thead><tr><th>Title</th><th style="min-width: 150px;">Role</th><th>Funding Agency</th><th>Amount</th><th>Duration</th></tr></thead>
                                     <tbody>
                                     <?php foreach ($projects['completed'] as $proj): ?>
                                         <tr>
