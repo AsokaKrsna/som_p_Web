@@ -19,6 +19,7 @@ Content is stored as standard JSON in the `/data` directory.
 | `projects.json` | Object with arrays | `ongoing`, `completed` |
 | `research_group.json` | Object with arrays | `phd`, `mtech`, `interns`, `past_phd`, `past_mtech` |
 | `lab_content.json` | Configuration Object | `hero`, `about`, `research_areas`, `join_us`, `open_resources`, `gallery` |
+| `profile_content.json` | Configuration Object | `hero`, `about` (used on index.php) |
 | `announcements.json`| Flat array | Scrolling marquee items |
 | All others | Flat arrays | `patents`, `teaching`, `seminars`, `memberships`, `editorships`, `awards` |
 

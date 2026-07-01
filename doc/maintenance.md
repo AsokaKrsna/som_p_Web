@@ -35,6 +35,7 @@ Periodically check the `/data` directory. Each `.json` file stores a specific se
 | `memberships.json` | Flat array | Fields: `role`, `organization` |
 | `editorships.json` | Flat array | Fields: `role`, `journal`, `duration` |
 | `awards.json` | Flat array | Fields: `title`, `event`, `location` |
+| `profile_content.json` | Configuration Object | General text/config data for index.php |
 | `lab_content.json` | Configuration Object | General text/config data for cybersecurity-lab.php |
 | `announcements.json` | Flat array | Marquee fields: `text`, `link`, `badge` |
 

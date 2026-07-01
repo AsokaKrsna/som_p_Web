@@ -89,6 +89,7 @@ $events = loadJsonData('seminars.json');
 $memberships = loadJsonData('memberships.json');
 $editorships = loadJsonData('editorships.json');
 $awards = loadJsonData('awards.json');
+$profile = loadJsonData('profile_content.json');
 ?>
 
 <!-- Section 1: Hero Section -->
@@ -98,34 +99,33 @@ $awards = loadJsonData('awards.json');
 
     <div class="container hero-container">
         <div class="hero-content">
-            <h1 class="hero-title">Dr. Somanath Tripathy</h1>
-            <h2 class="hero-subtitle">Professor</h2>
+            <h1 class="hero-title"><?= htmlspecialchars($profile['hero']['title'] ?? 'Dr. Somanath Tripathy') ?></h1>
+            <h2 class="hero-subtitle"><?= htmlspecialchars($profile['hero']['subtitle'] ?? 'Professor') ?></h2>
 
             <div class="hero-details">
                 <div class="hero-contact-item">
                     <i class="fa fa-university"></i>
-                    <span>Department of Computer Science & Engineering</span>
+                    <span><?= htmlspecialchars($profile['hero']['department'] ?? '') ?></span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-map-marker"></i>
-                    <span>Indian Institute of Technology Patna</span>
+                    <span><?= htmlspecialchars($profile['hero']['institute'] ?? '') ?></span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-building"></i>
-                    <span>Room No - 502, Academic Block 2</span>
+                    <span><?= htmlspecialchars($profile['hero']['room'] ?? '') ?></span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-envelope"></i>
-                    <span>som[at]iitp.ac.in</span>
+                    <span><?= htmlspecialchars($profile['hero']['email'] ?? '') ?></span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-phone"></i>
-                    <span>+91-6115-233-036</span>
+                    <span><?= htmlspecialchars($profile['hero']['phone'] ?? '') ?></span>
                 </div>
                 <div class="hero-contact-item">
                     <i class="fa fa-flask"></i>
-                    <span>Research Interest: Cybersecurity, Malware Detection, Secure Machine Learning,
-                        Blockchain</span>
+                    <span>Research Interest: <?= htmlspecialchars($profile['hero']['research_interests'] ?? '') ?></span>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@ $awards = loadJsonData('awards.json');
 
         <div class="hero-visuals">
             <div class="glass-avatar-wrapper">
-                <img src="images/som_2.png" alt="Dr. Somanath Tripathy" class="profile-img-3d">
+                <img src="<?= htmlspecialchars($profile['hero']['image'] ?? 'images/som_2.png') ?>" alt="Profile Picture" class="profile-img-3d">
             </div>
         </div>
     </div>
@@ -148,19 +148,9 @@ $awards = loadJsonData('awards.json');
     <div class="container">
         <div class="section-title">About</div>
         <div class="editorial-text">
-            <p>Dr. Somanath Tripathy received his PhD from IIT Guwahati in 2007. Currently, he is a professor in the
-                Department of Computer Science and Engineering at the Indian Institute of Technology, Patna, where he
-                has been a faculty member since December 2008. Prof. Tripathy has held significant administrative
-                positions at IIT Patna, including Associate Dean of Academics (January 2016 - March 2017), Head,
-                Computer Centre (November 2022-November 2023) and Associate Dean of Administration (July 2021 - November
-                2023).</p>
-            <p>His research interests encompass Cybersecurity, Malware Detection, Secure Machine Learning, Lightweight
-                Cryptography, and Blockchain. Prof. Tripathy holds two patents and has published over 140 research
-                papers in reputed journals and conferences. He has led several projects as Principal Investigator,
-                notably his team developed a malware detection app presented to the Bureau of Police Research and
-                Development (BPRD) and the Ministry of Home Affairs (MHA) as part of a sponsored project.</p>
-            <p>Dr. Tripathy is currently an editor of the IETE Technical Review, associate editor of IEEE Transactions
-                on Services Computing, and an associate editor of the journal Multimedia Tools and Applications.</p>
+            <?php foreach (($profile['about'] ?? []) as $para): ?>
+                <p><?= htmlspecialchars($para) ?></p>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
