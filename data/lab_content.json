@@ -14,12 +14,12 @@
     ],
     "research_areas": [
         {
-            "icon": "fa-brain",
+            "icon": "fa-sitemap",
             "title": "Cybersecurity for AI",
             "description": "Securing AI models against adversarial attacks and data poisoning."
         },
         {
-            "icon": "fa-robot",
+            "icon": "fa-cogs",
             "title": "AI for Cybersecurity",
             "description": "Leveraging artificial intelligence to detect and mitigate cyber threats."
         },
