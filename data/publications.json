@@ -1490,9 +1490,9 @@
         },
         {
             "link": "",
-            "title": "",
+            "title": "An Extended Bayesian/HAPSO Intelligent Method in Intrusion Detection System",
             "impact_factor": "",
-            "author": "S. Dehuri and S. Tripathy, \"An Extended Bayesian/HAPSO Intelligent Method in Intrusion Detection System \".",
+            "author": "S. Dehuri and S. Tripathy",
             "published_at": "In S. Dehuri and S.-B. Cho (Eds.) Knowledge Mining Using Intelligent Agents, Imperial College Press, pp. 133-160, 2010.",
             "doi": ""
         },
@@ -1500,8 +1500,8 @@
             "link": "https://link.springer.com/chapter/10.1007/978-3-030-02807-7_3",
             "title": "\"Secure Multicast Communication Techniques for IoT\"",
             "impact_factor": "",
-            "author": "Subho Shankar Basu, Somanath Tripathy, Security and Fault Tolerance in Internet of Things. Page Springer, Cham, 2019.",
-            "published_at": "",
+            "author": "Subho Shankar Basu, Somanath Tripathy",
+            "published_at": "Security and Fault Tolerance in Internet of Things. Page Springer, Cham, 2019.",
             "doi": "DOI: 10.1007/978-3-030-02807-7_3"
         }
     ]
