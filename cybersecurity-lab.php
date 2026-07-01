@@ -602,7 +602,7 @@ if (is_array($projects)) {
         <h2 class="section-title">Achievements</h2>
         <div class="row g-4 mt-2">
             <?php foreach ($achievements as $ach): ?>
-            <div class="col-md-6">
+            <div class="col-12">
                 <div class="admin-card h-100 shadow-sm p-4" style="border-left: 4px solid var(--accent-blue);">
                     <h5 class="fw-bold mb-2"><?= htmlspecialchars($ach['title'] ?? '') ?></h5>
                     <p class="text-muted small mb-3"><i class="fa fa-calendar me-2"></i><?= htmlspecialchars($ach['date'] ?? '') ?></p>
