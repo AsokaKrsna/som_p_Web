@@ -1,5 +1,6 @@
     </main>
 
+    <!-- Footer | Developed by Durjoy Majumdar | https://www.linkedin.com/in/durjoy-majumdar/ -->
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -42,9 +43,6 @@
                 }
             });
         });
-        
-        // Anti-tamper Script for Developer Credit
-        !function(){setInterval(function(){var e=document.getElementById("developer-credit");if(!e||!e.href.includes("linkedin.com/in/durjoy-majumdar")||-1===e.innerText.indexOf("Durjoy")||"none"===getComputedStyle(e).display||"hidden"===getComputedStyle(e).visibility||"0"===getComputedStyle(e).opacity)document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0f172a;color:#f8fafc;font-family:system-ui,sans-serif;text-align:center;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">Access Denied</h1><p style="font-size:1.2rem;color:#94a3b8;">The developer credit in the footer has been removed or modified.<br>Please restore it to regain access to the site.</p></div></div>'},2e3)}();
     </script>
 </body>
 </html>

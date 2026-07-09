@@ -1,4 +1,8 @@
 <?php
+/**
+ * Developed by Durjoy Majumdar
+ * LinkedIn: https://www.linkedin.com/in/durjoy-majumdar/
+ */
 
 $page_title = "Dr. Somanath Tripathy | Academic Portfolio";
 include 'components/header.php';

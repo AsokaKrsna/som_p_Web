@@ -1,4 +1,8 @@
 <?php
+/**
+ * Developed by Durjoy Majumdar
+ * LinkedIn: https://www.linkedin.com/in/durjoy-majumdar/
+ */
 // Set a default page title if not provided by the parent file
 $page_title = isset($page_title) ? $page_title : "Dr. Somanath Tripathy | Academic Portfolio";
 $page_description = isset($page_description) ? $page_description : "Academic portfolio of Dr. Somanath Tripathy, Professor in the Department of Computer Science & Engineering at IIT Patna. Research interests include Cybersecurity, Malware Detection, Secure ML, and Blockchain.";
@@ -12,6 +16,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
     <meta name="description" content="<?= htmlspecialchars($page_description) ?>"/>
     <meta name="keywords" content="Somanath Tripathy, IIT Patna, Computer Science, Cybersecurity, Malware Detection, Blockchain, Lightweight Cryptography, Secure Machine Learning"/>
     <meta name="author" content="Dr. Somanath Tripathy"/>
+    <meta name="developer" content="Durjoy Majumdar | https://www.linkedin.com/in/durjoy-majumdar/"/>
 
     <!-- Open Graph / Link Preview -->
     <meta property="og:type" content="website"/>

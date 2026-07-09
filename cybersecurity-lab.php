@@ -1,4 +1,8 @@
 <?php
+/**
+ * Developed by Durjoy Majumdar
+ * LinkedIn: https://www.linkedin.com/in/durjoy-majumdar/
+ */
 $page_title = "Cybersecurity Lab | Dr. Somanath Tripathy";
 $sideNavItems = [
     ['href' => '#lab-hero', 'section' => 'lab-hero', 'text' => 'Lab Home', 'tip' => 'Top of page'],
