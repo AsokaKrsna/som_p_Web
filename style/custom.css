@@ -807,14 +807,6 @@ body.dark-mode .lab-hero-watermark {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-  cursor: pointer;
-}
-.hero-lab-logo:hover {
-  transform: scale(2.2);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  z-index: 10;
-  position: relative;
 }
 .lab-logo-img {
   width: 100%;
