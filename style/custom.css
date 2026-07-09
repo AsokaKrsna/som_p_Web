@@ -766,26 +766,31 @@ hr {
   align-items: center;
 }
 
-/* Logo Placeholder */
-.hero-lab-logo {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 1.5rem;
-  background: white;
-  border-radius: 50%;
-  padding: 5px;
-  border: 2px solid rgba(6, 182, 212, 0.3);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+/* Lab Hero Watermark */
+.lab-hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  z-index: 1; /* Below content (2) but above background */
+  opacity: 0.04; /* Very subtle */
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
-.lab-logo-img {
+.lab-hero-watermark img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: contain;
+  /* Darken the image slightly so it blends perfectly as a shadow watermark */
+  filter: grayscale(100%) contrast(120%);
+}
+body.dark-mode .lab-hero-watermark {
+  opacity: 0.08; /* Slightly more visible in dark mode */
+  filter: invert(1);
 }
 
 /* Lab Hero Title */

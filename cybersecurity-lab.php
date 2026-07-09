@@ -234,11 +234,11 @@ if (is_array($projects)) {
     <div class="hero-glow-orb-1"></div>
     <div class="hero-glow-orb-2"></div>
 
+    <div class="lab-hero-watermark">
+        <img src="images/lab_logo.png" alt="Lab Logo Watermark">
+    </div>
+
     <div class="container lab-hero-content">
-        <!-- Logo Placeholder -->
-        <div class="hero-lab-logo">
-            <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img">
-        </div>
 
         <h1 class="lab-hero-title"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
         <h2 class="lab-hero-subtitle"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
