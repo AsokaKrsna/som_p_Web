@@ -5,8 +5,7 @@ $sideNavItems = [
     ['href' => '#head-of-research', 'section' => 'head-of-research', 'text' => 'Research Group', 'tip' => 'Group Head'],
     ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
-    ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
-    ['href' => '#achievements', 'section' => 'achievements', 'text' => 'Achievements', 'tip' => 'Lab Achievements']
+    ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs']
 ];
 include 'components/header.php';
 
@@ -606,7 +605,7 @@ if (is_array($projects)) {
 </section>
 
 <!-- Achievements Section -->
-<?php if (!empty($achievements)): ?>
+<?php if (false && !empty($achievements)): ?>
 <section id="achievements" class="bio-section py-4">
     <div class="container">
         <h2 class="section-title">Achievements</h2>
@@ -659,6 +658,7 @@ if (is_array($projects)) {
 -->
 
 <!-- Lab Gallery Section (Mock) -->
+<!-- 
 <section class="bio-section pt-4 pb-5" style="background: var(--bg-alt);">
     <div class="container">
         <h3 class="section-title text-center mb-4">Life at the Lab</h3>
@@ -671,6 +671,7 @@ if (is_array($projects)) {
         </div>
     </div>
 </section>
+-->
 
 <!-- Particle Network & Stat Counter Scripts -->
 <script>
