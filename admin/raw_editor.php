@@ -459,7 +459,15 @@ window.addItem = function(category) {
     } else {
         template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
     }
-    targetArray.unshift(template);
+    
+    // For research group, we want to append to the end. For everything else, prepend to the beginning.
+    const currentFileName = "<?= addslashes($file) ?>";
+    if (currentFileName === "research_group.json") {
+        targetArray.push(template);
+    } else {
+        targetArray.unshift(template);
+    }
+    
     updateAce();
 };
 

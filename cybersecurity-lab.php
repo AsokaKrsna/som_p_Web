@@ -69,10 +69,10 @@ $fundingSponsors = $labContent['funding_sponsors'] ?? [];
 $gallery = $labContent['gallery'] ?? [];
 
 // Reversing arrays for reverse chronological order
-$members['phd'] = $members['phd'] ?? [];
-$members['mtech'] = $members['mtech'] ?? [];
-$members['past_phd'] = $members['past_phd'] ?? [];
-$members['past_mtech'] = $members['past_mtech'] ?? [];
+$members['phd'] = array_reverse($members['phd'] ?? []);
+$members['mtech'] = array_reverse($members['mtech'] ?? []);
+$members['past_phd'] = array_reverse($members['past_phd'] ?? []);
+$members['past_mtech'] = array_reverse($members['past_mtech'] ?? []);
 
 function getInitialsAvatarUrl($name) {
     // Generate initials avatar with a background color matching the theme
