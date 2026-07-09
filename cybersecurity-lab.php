@@ -239,7 +239,10 @@ if (is_array($projects)) {
     </div>
 
     <div class="container lab-hero-content">
-
+        <!-- Logo Placeholder -->
+        <div class="hero-lab-logo">
+            <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img">
+        </div>
         <h1 class="lab-hero-title"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
         <h2 class="lab-hero-subtitle"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
         <?php if (!empty($heroContent['location'])): ?>

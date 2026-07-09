@@ -775,7 +775,7 @@ hr {
   width: 600px;
   height: 600px;
   z-index: 1; /* Below content (2) but above background */
-  opacity: 0.04; /* Very subtle */
+  opacity: 0.08; /* Increased visibility as requested */
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -789,8 +789,38 @@ hr {
   filter: grayscale(100%) contrast(120%);
 }
 body.dark-mode .lab-hero-watermark {
-  opacity: 0.08; /* Slightly more visible in dark mode */
+  opacity: 0.15; /* Increased visibility for dark mode */
   filter: invert(1);
+}
+
+/* Logo Placeholder */
+.hero-lab-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.hero-lab-logo:hover {
+  transform: scale(2.2);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  z-index: 10;
+  position: relative;
+}
+.lab-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Lab Hero Title */
