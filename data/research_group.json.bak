@@ -17,32 +17,43 @@
             "name": "Sanaya Malik",
             "email": "sanaya_2422cs21 [at] iitp.ac.in",
             "research_area": "Cyber Security"
+        },{
+            "image": "pics/shalini.jpeg",
+            "name": "Shalini Singh",
+            "email": "Shalini_2521cs21 [at] iitp.ac.in",
+            "research_area": "Cyber Security"
+        },
+        {
+            "image": "pics/biswarupa.jpeg",
+            "name": "Biswarupa Murmu",
+            "email": "biswarupa_2522cs12 [at] iitp.ac.in",
+            "research_area": "Cyber Security"
         }
     ],
     "mtech": [
         {
             "image": "pics/vivekanand.jpeg",
             "name": "Vivekanand Pandey",
-            "email": "vivekanand_2511ai54@iitp.ac.in",
-            "research_area": "Automating Red timing for LLM security"
+            "email": "vivekanand_2511ai54 [at] iitp.ac.in",
+            "research_area": "LLM security"
         },
         {
             "image": "pics/vedprakash.jpg",
             "name": "Ved Prakash",
-            "email": "ved_2511ai58@iitp.ac.in",
-            "research_area": "Data Poissoning in LLMs"
+            "email": "ved_2511ai58 [at] iitp.ac.in",
+            "research_area": "LLM security"
         },
         {
             "image": "pics/abhyudaya.jpeg",
             "name": "Abhyudaya Yadav",
-            "email": "abhyudaya_2511ai04@iitp.ac.in",
-            "research_area": "Self Healing Recommender System against Data Poisoning attacks"
+            "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
+            "research_area": "LLM security"
         },
         {
             "image": "pics/durjoy.jpeg",
             "name": "Durjoy Majumdar",
-            "email": "durjoy_2511cs25@iitp.ac.in",
-            "research_area": "Security of distributed system"
+            "email": "durjoy_2511cs25 [at] iitp.ac.in",
+            "research_area": "Blockchain Security"
         }
     ],
     "past_phd": [
@@ -262,13 +273,13 @@
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural networks"
+            "thesis": "Adversarial attack against deep neural\u00a0networks"
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection system"
+            "thesis": "Evasion attack against fraud detection\u00a0system"
         },
         {
             "image": "",

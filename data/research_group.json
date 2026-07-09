@@ -1,18 +1,6 @@
 {
     "phd": [
         {
-            "image": "pics/shalini.jpeg",
-            "name": "Shalini Singh",
-            "email": "Shalini_2521cs21 [at] iitp.ac.in",
-            "research_area": "Cyber Security"
-        },
-        {
-            "image": "pics/biswarupa.jpeg",
-            "name": "Biswarupa Murmu",
-            "email": "biswarupa_2522cs12 [at] iitp.ac.in",
-            "research_area": "Cyber Security"
-        },
-        {
             "image": "pics/debasmita.jpg",
             "name": "Debasmita Manna",
             "email": "debasmita_2121cs18 [at] iitp.ac.in",
@@ -29,9 +17,26 @@
             "name": "Sanaya Malik",
             "email": "sanaya_2422cs21 [at] iitp.ac.in",
             "research_area": "Cyber Security"
+        },{
+            "image": "pics/shalini.jpeg",
+            "name": "Shalini Singh",
+            "email": "Shalini_2521cs21 [at] iitp.ac.in",
+            "research_area": "Cyber Security"
+        },
+        {
+            "image": "pics/biswarupa.jpeg",
+            "name": "Biswarupa Murmu",
+            "email": "biswarupa_2522cs12 [at] iitp.ac.in",
+            "research_area": "Cyber Security"
         }
     ],
     "mtech": [
+        {
+            "image": "pics/abhyudaya.jpeg",
+            "name": "Abhyudaya Yadav",
+            "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
+            "research_area": "LLM security"
+        },
         {
             "image": "pics/vivekanand.jpeg",
             "name": "Vivekanand Pandey",
@@ -42,12 +47,6 @@
             "image": "pics/vedprakash.jpg",
             "name": "Ved Prakash",
             "email": "ved_2511ai58 [at] iitp.ac.in",
-            "research_area": "LLM security"
-        },
-        {
-            "image": "pics/abhyudaya.jpeg",
-            "name": "Abhyudaya Yadav",
-            "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
             "research_area": "LLM security"
         },
         {

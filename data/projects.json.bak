@@ -2,19 +2,19 @@
     "ongoing": [
         {
             "title": "ISEA-III (Security Futuristic technologies)",
-            "role": "PI(Co-Led)",
+            "role": "PI(Co-Lead)",
             "funding_agency": "MeiTy",
             "amount": "200 Lakh (Approx.)",
-            "duration": "5 yrs",
+            "duration": "60 Months",
             "show_personal": true,
             "show_lab": true
         },
         {
             "title": "Development of an Intelligent Visual Query Response solution for Remote sensing",
-            "role": "Co-PI\u00a0\u00a0 with PI (Dr.\u00a0 Suman Kumar Maji)",
+            "role": "Co-PI with PI (Dr. Suman Kumar Maji)",
             "funding_agency": "SERB",
             "amount": "26.67981 Lakh",
-            "duration": "Commenced from 9th Jan 2023 (3Yrs)",
+            "duration": "36 Months (Commenced from 9th Jan 2023)",
             "show_personal": true,
             "show_lab": true
         }
