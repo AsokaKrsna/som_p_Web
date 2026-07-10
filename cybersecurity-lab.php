@@ -10,7 +10,8 @@ $sideNavItems = [
     ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
     ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
-    ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours']
+    ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours'],
+    ['href' => '#life-at-lab', 'section' => 'life-at-lab', 'text' => 'Life at Lab', 'tip' => 'Lab gallery']
 ];
 include 'components/header.php';
 
@@ -638,51 +639,38 @@ if (is_array($projects)) {
 </section>
 <?php endif; ?>
 
-<!-- Resources Section (Mock) -->
-<!-- 
-<section class="bio-section pt-5 pb-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; background: rgba(8,145,178,0.05); filter: blur(100px); border-radius: 50%;"></div>
-    <div style="position: absolute; bottom: -150px; right: -100px; width: 400px; height: 400px; background: rgba(59,130,246,0.05); filter: blur(100px); border-radius: 50%;"></div>
-    
-    <div class="container position-relative z-1">
-        <h3 class="section-title text-center mb-5">Open Resources & Datasets</h3>
-        <div class="row g-5 justify-content-center">
-            <?php foreach($openResources as $res): ?>
-            <div class="col-md-5">
-                <div class="resource-card p-5 h-100 text-center d-flex flex-column align-items-center justify-content-center position-relative">
-                    <div class="resource-icon-wrap mb-4">
-                        <i class="fa <?= htmlspecialchars($res['icon'] ?? 'fa-database') ?> fa-2x"></i>
+<!-- Life at the Lab -->
+<?php if (!empty($gallery)): ?>
+<section id="life-at-lab" class="bio-section py-4" style="background: var(--bg-alt);">
+    <div class="container">
+        <h2 class="section-title">Life at the Lab</h2>
+        <p class="text-center text-muted mb-4" style="max-width: 600px; margin: 0 auto;">A glimpse into our workspace where ideas turn into research breakthroughs.</p>
+        
+        <div class="row g-3 mt-3">
+            <?php foreach($gallery as $i => $img): ?>
+            <div class="<?= $i === 0 ? 'col-12' : 'col-md-6' ?>">
+                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+                    <img 
+                        src="<?= htmlspecialchars($img['image'] ?? '') ?>" 
+                        class="img-fluid w-100" 
+                        alt="<?= htmlspecialchars($img['alt'] ?? 'Lab photo') ?>" 
+                        style="object-fit: cover; height: <?= $i === 0 ? '380px' : '260px' ?>; transition: transform 0.5s ease, filter 0.5s ease; display: block;"
+                        onmouseover="this.style.transform='scale(1.04)'; this.style.filter='brightness(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'"
+                    >
+                    <!-- Caption overlay -->
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); pointer-events: none;">
+                        <span style="color: #fff; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">
+                            <i class="fa fa-camera me-2" style="opacity: 0.8;"></i><?= htmlspecialchars($img['alt'] ?? '') ?>
+                        </span>
                     </div>
-                    <h4 class="fw-bold mb-3" style="color: var(--text-color);"><?= htmlspecialchars($res['title'] ?? '') ?></h4>
-                    <p class="text-muted mb-4 fs-6"><?= htmlspecialchars($res['description'] ?? '') ?></p>
-                    <a href="<?= htmlspecialchars($res['link_url'] ?? '#') ?>" class="btn resource-btn mt-auto rounded-pill px-4 py-2 fw-bold">
-                        <?= htmlspecialchars($res['link_text'] ?? 'Learn More') ?> <i class="fa fa-arrow-right ms-2"></i>
-                    </a>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
-        </div>
-    </div>
 </section>
--->
-
-<!-- Lab Gallery Section (Mock) -->
-<!-- 
-<section class="bio-section pt-4 pb-5" style="background: var(--bg-alt);">
-    <div class="container">
-        <h3 class="section-title text-center mb-4">Life at the Lab</h3>
-        <div class="row g-4">
-            <?php foreach($gallery as $img): ?>
-            <div class="col-md-4">
-                <img src="<?= htmlspecialchars($img['image'] ?? '') ?>" class="img-fluid rounded shadow-sm" alt="<?= htmlspecialchars($img['alt'] ?? '') ?>" style="object-fit: cover; width: 100%; height: 220px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
--->
+<?php endif; ?>
 
 <!-- Particle Network & Stat Counter Scripts -->
 <script>
