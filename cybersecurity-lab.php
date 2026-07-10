@@ -9,7 +9,8 @@ $sideNavItems = [
     ['href' => '#head-of-research', 'section' => 'head-of-research', 'text' => 'Research Group', 'tip' => 'Group Head'],
     ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
-    ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs']
+    ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
+    ['href' => '#achievements', 'section' => 'achievements', 'text' => 'Achievements', 'tip' => 'Lab Achievements']
 ];
 include 'components/header.php';
 
@@ -609,7 +610,7 @@ if (is_array($projects)) {
 </section>
 
 <!-- Achievements Section -->
-<?php if (false && !empty($achievements)): ?>
+<?php if (!empty($achievements)): ?>
 <section id="achievements" class="bio-section py-4">
     <div class="container">
         <h2 class="section-title">Achievements</h2>
