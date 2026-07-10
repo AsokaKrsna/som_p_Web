@@ -468,9 +468,7 @@ $profile = loadJsonData('profile_content.json');
                         <?php if (!empty($a['location'])): ?>
                             <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
                         <?php endif; ?>
-                        <?php if (!empty($a['year'])): ?>
-                            <span class="text-muted">[<?= htmlspecialchars($a['year']) ?>]</span>
-                        <?php endif; ?>
+
                     </span>
                 </li>
             <?php endforeach; ?>

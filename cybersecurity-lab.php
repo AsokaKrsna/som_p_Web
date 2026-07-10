@@ -618,12 +618,9 @@ if (is_array($projects)) {
             <div class="col-12">
                 <div class="admin-card h-100 shadow-sm p-4" style="border-left: 4px solid var(--accent-blue);">
                     <h5 class="fw-bold mb-2"><?= htmlspecialchars($award['title'] ?? '') ?></h5>
-                    <p class="text-muted small mb-2">
-                        <i class="fa fa-calendar me-2"></i><?= htmlspecialchars($award['year'] ?? '') ?>
-                        <?php if (!empty($award['event'])): ?>
-                            &mdash; <?= htmlspecialchars($award['event']) ?>
-                        <?php endif; ?>
-                    </p>
+                    <?php if (!empty($award['event'])): ?>
+                        <p class="text-muted small mb-2"><i class="fa fa-calendar me-2"></i><?= htmlspecialchars($award['event']) ?></p>
+                    <?php endif; ?>
                     <?php if (!empty($award['organization'])): ?>
                         <p class="mb-1"><i class="fa fa-building-o me-2"></i><?= htmlspecialchars($award['organization']) ?></p>
                     <?php endif; ?>
