@@ -66,6 +66,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                         ['href' => 'index.php#seminars', 'section' => 'seminars', 'text' => 'Seminars', 'tip' => 'Talks & invited lectures'],
                         ['href' => 'index.php#memberships', 'section' => 'memberships', 'text' => 'Memberships', 'tip' => 'Professional memberships'],
                         ['href' => 'index.php#editorship', 'section' => 'editorship', 'text' => 'Editorship', 'tip' => 'Editorial roles'],
+                        ['href' => 'index.php#admin-responsibilities', 'section' => 'admin-responsibilities', 'text' => 'Admin Roles', 'tip' => 'Administrative responsibilities'],
                         ['href' => 'index.php#publications', 'section' => 'publications', 'text' => 'Publications', 'tip' => 'Research papers & articles'],
                         ['href' => 'index.php#awards', 'section' => 'awards', 'text' => 'Awards', 'tip' => 'Honors & recognitions']
                     ];
@@ -120,6 +121,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                 <a class="nav-link-large" href="index.php#seminars">Seminars</a>
                 <a class="nav-link-large" href="index.php#memberships">Memberships</a>
                 <a class="nav-link-large" href="index.php#editorship">Editorship</a>
+                <a class="nav-link-large" href="index.php#admin-responsibilities">Admin Roles</a>
                 <a class="nav-link-large" href="index.php#publications">Publications</a>
                 <a class="nav-link-large" href="index.php#awards">Awards</a>
             </div>

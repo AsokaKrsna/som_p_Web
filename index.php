@@ -362,28 +362,23 @@ $profile = loadJsonData('profile_content.json');
     <div class="container">
         <h2 class="section-title">Administrative Responsibilities</h2>
 
-        <div class="table-responsive">
-            <table class="table custom-table">
-                <thead>
-                    <tr>
-                        <th>Role</th>
-                        <th>Organization</th>
-                        <th>Institution</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($adminResponsibilities as $resp): ?>
-                    <tr>
-                        <td><strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong></td>
-                        <td><?= htmlspecialchars($resp['organization'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($resp['institution'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($resp['duration'] ?? '') ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+        <ul class="pub-list ps-4">
+            <?php foreach ($adminResponsibilities as $resp): ?>
+                <li class="mb-3 border-bottom pb-2 section-list-item">
+                    <span class="entry-text">
+                        <strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong><?php
+                            $parts = [];
+                            if (!empty($resp['organization'])) $parts[] = htmlspecialchars($resp['organization']);
+                            if (!empty($resp['institution'])) $parts[] = htmlspecialchars($resp['institution']);
+                            if (!empty($parts)) echo ', ' . implode(', ', $parts);
+                        ?>
+                        <?php if (!empty($resp['duration'])): ?>
+                            <span class="text-muted">[<?= htmlspecialchars($resp['duration']) ?>]</span>
+                        <?php endif; ?>
+                    </span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 </section>
 
