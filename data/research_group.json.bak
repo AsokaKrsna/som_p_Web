@@ -13,11 +13,12 @@
             "research_area": "Blockchain Security"
         },
         {
-            "image": "pics/sanaya.jpg",
+            "image": "pics/sanaya.jpeg",
             "name": "Sanaya Malik",
             "email": "sanaya_2422cs21 [at] iitp.ac.in",
             "research_area": "Cyber Security"
-        },{
+        },
+        {
             "image": "pics/shalini.jpeg",
             "name": "Shalini Singh",
             "email": "Shalini_2521cs21 [at] iitp.ac.in",
@@ -32,6 +33,12 @@
     ],
     "mtech": [
         {
+            "image": "pics/abhyudaya.jpeg",
+            "name": "Abhyudaya Yadav",
+            "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
+            "research_area": "LLM security"
+        },
+        {
             "image": "pics/vivekanand.jpeg",
             "name": "Vivekanand Pandey",
             "email": "vivekanand_2511ai54 [at] iitp.ac.in",
@@ -41,12 +48,6 @@
             "image": "pics/vedprakash.jpg",
             "name": "Ved Prakash",
             "email": "ved_2511ai58 [at] iitp.ac.in",
-            "research_area": "LLM security"
-        },
-        {
-            "image": "pics/abhyudaya.jpeg",
-            "name": "Abhyudaya Yadav",
-            "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
             "research_area": "LLM security"
         },
         {
@@ -273,13 +274,13 @@
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural\u00a0networks"
+            "thesis": "Adversarial attack against deep neural networks"
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection\u00a0system"
+            "thesis": "Evasion attack against fraud detection system"
         },
         {
             "image": "",

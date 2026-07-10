@@ -13,11 +13,12 @@
             "research_area": "Blockchain Security"
         },
         {
-            "image": "pics/sanaya.jpg",
+            "image": "pics/sanaya_bkp.jpg",
             "name": "Sanaya Malik",
             "email": "sanaya_2422cs21 [at] iitp.ac.in",
             "research_area": "Cyber Security"
-        },{
+        },
+        {
             "image": "pics/shalini.jpeg",
             "name": "Shalini Singh",
             "email": "Shalini_2521cs21 [at] iitp.ac.in",
@@ -273,13 +274,13 @@
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural\u00a0networks"
+            "thesis": "Adversarial attack against deep neural networks"
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection\u00a0system"
+            "thesis": "Evasion attack against fraud detection system"
         },
         {
             "image": "",

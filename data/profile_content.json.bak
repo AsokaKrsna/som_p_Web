@@ -8,11 +8,11 @@
         "room": "Room No - 502, Academic Block 2",
         "email": "som[at]iitp.ac.in",
         "phone": "+91-6115-233-036",
-        "research_interests": "Cybersecurity, Malware Detection, Secure Machine Learning, and Blockchain. "
+        "research_interests": "Cybersecurity, Malware Detection, Secure Machine Learning, Blockchain"
     },
     "about": [
         "Dr. Somanath Tripathy received his PhD from IIT Guwahati in 2007. Currently, he is a professor in the Department of Computer Science and Engineering at the Indian Institute of Technology, Patna, where he has been a faculty member since December 2008. Prof. Tripathy has held significant administrative positions at IIT Patna, including Associate Dean of Academics (January 2016 - March 2017), Head, Computer Centre (November 2022-November 2023) and Associate Dean of Administration (July 2021 - November 2023).",
-        "His research interests encompass Cybersecurity, Malware Detection, Secure Machine Learning, and Blockchain. Prof. Tripathy holds two patents and has published over 140 research papers in reputed journals and conferences. He has led several projects as Principal Investigator, notably his team developed a malware detection app presented to the Bureau of Police Research and Development (BPRD) and the Ministry of Home Affairs (MHA) as part of a sponsored project.",
+        "His research interests encompass Cybersecurity, Malware Detection, Secure Machine Learning, Lightweight Cryptography, and Blockchain. Prof. Tripathy holds two patents and has published over 140 research papers in reputed journals and conferences. He has led several projects as Principal Investigator, notably his team developed a malware detection app presented to the Bureau of Police Research and Development (BPRD) and the Ministry of Home Affairs (MHA) as part of a sponsored project.",
         "Dr. Tripathy is currently an editor of the IETE Technical Review, associate editor of IEEE Transactions on Services Computing, and an associate editor of the journal Multimedia Tools and Applications."
     ]
 }
