@@ -459,12 +459,13 @@ $profile = loadJsonData('profile_content.json');
                 <li class="mb-3 border-bottom pb-2 section-list-item">
                     <span class="entry-text">
                         <strong><?= htmlspecialchars($a['title'] ?? '') ?></strong>,
+                        <?php if (!empty($a['awardee'])): ?>
+                            <span class="text-primary"><?= htmlspecialchars($a['awardee']) ?></span>,
+                        <?php endif; ?>
                         <?= htmlspecialchars($a['event'] ?? '') ?>
                         <?php if (!empty($a['location'])): ?>
                             <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
                         <?php endif; ?>
-
-                    </span>
                 </li>
             <?php endforeach; ?>
         </ul>

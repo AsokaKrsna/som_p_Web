@@ -4,6 +4,7 @@
         "event": "National-level VJ Hackathon 2021",
         "organization": "",
         "location": "",
+        "awardee": "",
         "link": ""
     },
     {
@@ -11,6 +12,7 @@
         "event": "ICACCI 2018",
         "organization": "",
         "location": "Bangalore",
+        "awardee": "",
         "link": ""
     },
     {
@@ -18,6 +20,7 @@
         "event": "GCCS 2017",
         "organization": "",
         "location": "New Delhi",
+        "awardee": "",
         "link": ""
     },
     {
@@ -25,6 +28,7 @@
         "event": "INDIN 2006",
         "organization": "IEEE",
         "location": "Singapore",
+        "awardee": "",
         "link": ""
     },
     {
@@ -32,6 +36,7 @@
         "event": "OBCOMAPC 2004, Asia Pacific Conference",
         "organization": "",
         "location": "VIT, Vellore",
+        "awardee": "",
         "link": ""
     }
 ]

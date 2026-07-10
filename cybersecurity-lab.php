@@ -619,6 +619,9 @@ if (is_array($projects)) {
             <div class="col-12">
                 <div class="admin-card h-100 shadow-sm p-4" style="border-left: 4px solid var(--accent-blue);">
                     <h5 class="fw-bold mb-2"><?= htmlspecialchars($award['title'] ?? '') ?></h5>
+                    <?php if (!empty($award['awardee'])): ?>
+                        <p class="text-primary fw-semibold mb-2"><i class="fa fa-user me-2"></i><?= htmlspecialchars($award['awardee']) ?></p>
+                    <?php endif; ?>
                     <?php if (!empty($award['event'])): ?>
                         <p class="text-muted small mb-2"><i class="fa fa-calendar me-2"></i><?= htmlspecialchars($award['event']) ?></p>
                     <?php endif; ?>
