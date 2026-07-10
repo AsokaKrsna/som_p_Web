@@ -346,11 +346,13 @@ if (is_array($projects)) {
                     </p>
                     <?php endif; ?>
                     <div class="d-flex flex-column gap-3 mt-auto">
+                        <!-- Application Form (Temporarily Hidden)
                         <?php if (!empty($joinUsContent['form_link'])): ?>
                         <a href="<?= htmlspecialchars($joinUsContent['form_link']) ?>" target="_blank" class="btn btn-light btn-lg text-primary fw-bold" style="border-radius: 8px; color: #0e7490 !important;">
                             <i class="fa fa-file-text-o me-2"></i> Application Form
                         </a>
                         <?php endif; ?>
+                        -->
                         <?php if (!empty($joinUsContent['email'])): ?>
                         <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 8px;">
                             <i class="fa fa-envelope-o me-2"></i> Email Us
