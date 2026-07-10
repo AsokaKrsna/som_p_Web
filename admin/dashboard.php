@@ -78,8 +78,8 @@ function getCount($file) {
                         <a href="raw_editor.php?file=seminars.json" class="btn btn-outline-secondary text-start"><i class="fa fa-microphone"></i> Seminars/Talks (<?= getCount('seminars.json') ?>)</a>
                         <a href="raw_editor.php?file=memberships.json" class="btn btn-outline-secondary text-start"><i class="fa fa-id-badge"></i> Memberships (<?= getCount('memberships.json') ?>)</a>
                         <a href="raw_editor.php?file=editorships.json" class="btn btn-outline-secondary text-start"><i class="fa fa-pencil-square-o"></i> Editorships (<?= getCount('editorships.json') ?>)</a>
-                        <a href="raw_editor.php?file=awards.json" class="btn btn-outline-secondary text-start"><i class="fa fa-trophy"></i> Awards (<?= getCount('awards.json') ?>)</a>
-                        <a href="raw_editor.php?file=achievements.json" class="btn btn-outline-secondary text-start"><i class="fa fa-star"></i> Achievements (<?= getCount('achievements.json') ?>)</a>
+                        <a href="raw_editor.php?file=awards_honours.json" class="btn btn-outline-secondary text-start"><i class="fa fa-trophy"></i> Awards & Honours (<?= getCount('awards_honours.json') ?>)</a>
+                        <a href="raw_editor.php?file=admin_responsibilities.json" class="btn btn-outline-secondary text-start"><i class="fa fa-briefcase"></i> Administrative Responsibilities (<?= getCount('admin_responsibilities.json') ?>)</a>
                     </div>
                 </div>
             </div>

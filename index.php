@@ -92,7 +92,8 @@ $courses = loadJsonData('teaching.json');
 $events = loadJsonData('seminars.json');
 $memberships = loadJsonData('memberships.json');
 $editorships = loadJsonData('editorships.json');
-$awards = loadJsonData('awards.json');
+$awards = loadJsonData('awards_honours.json');
+$adminResponsibilities = loadJsonData('admin_responsibilities.json');
 $profile = loadJsonData('profile_content.json');
 ?>
 
@@ -355,6 +356,37 @@ $profile = loadJsonData('profile_content.json');
 </section>
 
 
+<!-- Administrative Responsibilities -->
+<section id="admin-responsibilities" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Administrative Responsibilities</h2>
+
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Organization</th>
+                        <th>Institution</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($adminResponsibilities as $resp): ?>
+                    <tr>
+                        <td><strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong></td>
+                        <td><?= htmlspecialchars($resp['organization'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($resp['institution'] ?? '') ?></td>
+                        <td><?= htmlspecialchars($resp['duration'] ?? '') ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
 <!-- Section 3: Publications -->
 <section id="publications" class="bio-section pt-4">
 
@@ -421,7 +453,7 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- Section 10: Awards -->
+<!-- Section 10: Awards and Honours -->
 <section id="awards" class="bio-section pt-4">
 
     <div class="container">
@@ -435,6 +467,9 @@ $profile = loadJsonData('profile_content.json');
                         <?= htmlspecialchars($a['event'] ?? '') ?>
                         <?php if (!empty($a['location'])): ?>
                             <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
+                        <?php endif; ?>
+                        <?php if (!empty($a['year'])): ?>
+                            <span class="text-muted">[<?= htmlspecialchars($a['year']) ?>]</span>
                         <?php endif; ?>
                     </span>
                 </li>

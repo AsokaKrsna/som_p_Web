@@ -10,7 +10,7 @@ $sideNavItems = [
     ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
     ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
-    ['href' => '#achievements', 'section' => 'achievements', 'text' => 'Achievements', 'tip' => 'Lab Achievements']
+    ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours']
 ];
 include 'components/header.php';
 
@@ -56,8 +56,7 @@ $projects = loadJsonData('projects.json', 'show_lab');
 $publications = loadJsonData('publications.json', 'show_lab');
 $announcements = loadJsonData('announcements.json');
 $labContent = loadJsonData('lab_content.json');
-$achievementsData = loadJsonData('achievements.json');
-$achievements = $achievementsData['achievements'] ?? [];
+$awardsHonours = loadJsonData('awards_honours.json');
 
 // Extract lab content blocks for easy use
 $heroContent = $labContent['hero'][0] ?? [];
@@ -609,20 +608,30 @@ if (is_array($projects)) {
     </div>
 </section>
 
-<!-- Achievements Section -->
-<?php if (!empty($achievements)): ?>
-<section id="achievements" class="bio-section py-4">
+<!-- Awards and Honours Section -->
+<?php if (!empty($awardsHonours)): ?>
+<section id="awards-honours" class="bio-section py-4">
     <div class="container">
-        <h2 class="section-title">Achievements</h2>
+        <h2 class="section-title">Awards and Honours</h2>
         <div class="row g-4 mt-2">
-            <?php foreach ($achievements as $ach): ?>
+            <?php foreach ($awardsHonours as $award): ?>
             <div class="col-12">
                 <div class="admin-card h-100 shadow-sm p-4" style="border-left: 4px solid var(--accent-blue);">
-                    <h5 class="fw-bold mb-2"><?= htmlspecialchars($ach['title'] ?? '') ?></h5>
-                    <p class="text-muted small mb-3"><i class="fa fa-calendar me-2"></i><?= htmlspecialchars($ach['date'] ?? '') ?></p>
-                    <p class="mb-3"><?= htmlspecialchars($ach['description'] ?? '') ?></p>
-                    <?php if (!empty($ach['link'])): ?>
-                    <a href="<?= htmlspecialchars($ach['link']) ?>" target="_blank" class="btn btn-sm btn-outline-primary">Read More <i class="fa fa-external-link ms-1"></i></a>
+                    <h5 class="fw-bold mb-2"><?= htmlspecialchars($award['title'] ?? '') ?></h5>
+                    <p class="text-muted small mb-2">
+                        <i class="fa fa-calendar me-2"></i><?= htmlspecialchars($award['year'] ?? '') ?>
+                        <?php if (!empty($award['event'])): ?>
+                            &mdash; <?= htmlspecialchars($award['event']) ?>
+                        <?php endif; ?>
+                    </p>
+                    <?php if (!empty($award['organization'])): ?>
+                        <p class="mb-1"><i class="fa fa-building-o me-2"></i><?= htmlspecialchars($award['organization']) ?></p>
+                    <?php endif; ?>
+                    <?php if (!empty($award['location'])): ?>
+                        <p class="text-muted small mb-2"><i class="fa fa-map-marker me-2"></i><?= htmlspecialchars($award['location']) ?></p>
+                    <?php endif; ?>
+                    <?php if (!empty($award['link'])): ?>
+                    <a href="<?= htmlspecialchars($award['link']) ?>" target="_blank" class="btn btn-sm btn-outline-primary">Read More <i class="fa fa-external-link ms-1"></i></a>
                     <?php endif; ?>
                 </div>
             </div>

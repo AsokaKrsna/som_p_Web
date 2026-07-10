@@ -1,0 +1,42 @@
+[
+    {
+        "title": "2nd Position",
+        "event": "National-level VJ Hackathon 2021",
+        "organization": "",
+        "location": "",
+        "year": "2021",
+        "link": ""
+    },
+    {
+        "title": "Best Technical Poster Award",
+        "event": "ICACCI 2018",
+        "organization": "",
+        "location": "Bangalore",
+        "year": "2018",
+        "link": ""
+    },
+    {
+        "title": "Best Technical Poster Award",
+        "event": "GCCS 2017",
+        "organization": "",
+        "location": "New Delhi",
+        "year": "2017",
+        "link": ""
+    },
+    {
+        "title": "IEEE Student Scholarship",
+        "event": "INDIN 2006",
+        "organization": "IEEE",
+        "location": "Singapore",
+        "year": "2006",
+        "link": ""
+    },
+    {
+        "title": "Best Paper Award",
+        "event": "OBCOMAPC 2004, Asia Pacific Conference",
+        "organization": "",
+        "location": "VIT, Vellore",
+        "year": "2004",
+        "link": ""
+    }
+]
