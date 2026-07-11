@@ -1,27 +1,27 @@
 [
     {
         "title": "2nd Position",
-        "event": "National-level VJ Hackathon 2021",
-        "organization": "",
-        "location": "",
-        "awardee": "",
-        "link": ""
+        "event": "National Level VJ Hackathon-Victory Joy in Smart Innovations",
+        "organization": "VNR VJIET in collaboration with Computer Society of India & AICTE under SPICES",
+        "location": "Hyedrabad",
+        "awardee": "Prof. Somanath Tripathy(Mentor), Mr.Harsh Kasyap(Teamlead), Mr.Narendra Singh, Mr.Bablu Kumar, Mr.Mukesh Kumar ",
+        "link": "pdfs/hackathon_2nd.pdf"
     },
     {
         "title": "Best Technical Poster Award",
         "event": "ICACCI 2018",
-        "organization": "",
+        "organization": "IEEE ComSoc",
         "location": "Bangalore",
-        "awardee": "Dr. Nemi Chandra Rathore and Dr. Somanath Tripathy.",
+        "awardee": "Dr. Nemi Chandra Rathore and Prof. Somanath Tripathy.",
         "link": ""
     },
     {
         "title": "Best Technical Poster Award",
         "event": "GCCS 2017",
-        "organization": "",
+        "organization": "Ministry of Electronics and Information Technology",
         "location": "New Delhi",
-        "awardee": "Dr. Sanjeet Nayak and Dr. Somanath Tripathy",
-        "link": ""
+        "awardee": "Dr. Sanjeet Nayak and Prof. Somanath Tripathy",
+        "link": "pdfs/GCCS_Poster_Award.pdf"
     },
     {
         "title": "IEEE Student Scholarship",
@@ -36,7 +36,7 @@
         "event": "OBCOMAPC 2004, Asia Pacific Conference",
         "organization": "",
         "location": "VIT, Vellore",
-        "awardee": "Dr. Somanath Tripathy and Dr. S. Nandi",
+        "awardee": "Prof. Somanath Tripathy and Prof. Sukumar Nandi",
         "link": ""
     }
 ]
