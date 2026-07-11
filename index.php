@@ -466,6 +466,12 @@ $profile = loadJsonData('profile_content.json');
                         <?php if (!empty($a['location'])): ?>
                             <span class="text-muted">(<?= htmlspecialchars($a['location']) ?>)</span>
                         <?php endif; ?>
+                        <?php if (!empty($a['link'])): ?>
+                            <a href="<?= htmlspecialchars($a['link']) ?>" target="_blank" class="ms-2 text-decoration-none" title="View Certificate/Document">
+                                <i class="fa fa-external-link"></i>
+                            </a>
+                        <?php endif; ?>
+                    </span>
                 </li>
             <?php endforeach; ?>
         </ul>
