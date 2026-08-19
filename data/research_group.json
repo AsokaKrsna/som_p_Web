@@ -49,6 +49,30 @@
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25 [at] iitp.ac.in",
             "research_area": "Blockchain Security"
+        },
+        {
+            "image": "pics/ayush.jpeg",
+            "name": "Ayush Kayasth (Mtech by Research)",
+            "email": "ayush_2613cs04 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
+        },
+        {
+            "image": "pics/sakina.jpeg",
+            "name": "Sakina Bohra (Mtech by Research)",
+            "email": "sakina_2613cs01 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
+        },
+        {
+            "image": "pics/ajay.jpeg",
+            "name": "Ajay Mundiyara (Mtech by Research)",
+            "email": "ajay_2613cs02 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
+        },
+        {
+            "image": "pics/kushagra.jpeg",
+            "name": "Kushagra Mathur (Mtech by Research)",
+            "email": "kushagra_2613cs03 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
         }
     ],
     "past_phd": [
@@ -122,7 +146,7 @@
             "passing_year": "2024",
             "current_affiliation": "Associate Professor, Inspiria Knowledge Campus [under MAKAUT], West Bengal",
             "thesis": "Designing Security Techniques for Outsourced Data in Cloud Storage Services",
-            "email": "parthasarathi.iitp[at]gmail.com"
+            "email": "parthasarathi.iitp [at] gmail.com"
         },
         {
             "image": "pics/susmita.jpg",
@@ -146,7 +170,7 @@
             "passing_year": "2025",
             "current_affiliation": "Assistant Professor, Department of Computer Science, Rajiv Gandhi Institute of Petroleum Technology, Jais Campus, Uttar Pradesh",
             "thesis": "AI-Driven Techniques for Early-Stage Malware Detection Using Static and Dynamic Analysis",
-            "email": "narendras@rgipt.ac.in"
+            "email": "narendras [at] rgipt.ac.in"
         },
         {
             "image": "pics/debasmita.jpg",
@@ -154,7 +178,7 @@
             "passing_year": "2026",
             "current_affiliation": " Assistant Professor, S.R.M University Andhra Pradesh",
             "thesis": "Designing Security and Privacy aware  Deep Neural Network: Attacks and Defenses",
-            "email": "debasmita.m@srmap.edu.in"
+            "email": "debasmita.m [at] srmap.edu.in"
         }
     ],
     "past_mtech": [

@@ -49,6 +49,30 @@
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25 [at] iitp.ac.in",
             "research_area": "Blockchain Security"
+        },
+        {
+            "image": "pics/ayush.jpeg",
+            "name": "Ayush Kayasth (Mtech by Research)",
+            "email": "ayush_2613cs04 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
+        },
+        {
+            "image": "pics/sakina.jpeg",
+            "name": "Sakina Bohra (Mtech by Research)",
+            "email": "sakina_2613cs01 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
+        },
+        {
+            "image": "pics/ajay.jpeg",
+            "name": "Ajay Mundiyara (Mtech by Research)",
+            "email": "ajay_2613cs02 [at] iitp.ac.in",
+            "research_area": "Futuristic Security (Mtech by Research)"
+        },
+        {
+            "image": "pics/kushagra.jpeg",
+            "name": "Kushagra Mathur",
+            "email": "kushagra_2613cs03 [at] iitp.ac.in",
+            "research_area": "Futuristic Security"
         }
     ],
     "past_phd": [
