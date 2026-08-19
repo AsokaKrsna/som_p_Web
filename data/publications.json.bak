@@ -5,7 +5,7 @@
             "title": "SVACS: Smart Contract Vulnerability Analysis via Control Flow Semantics",
             "impact_factor": "(IF:4.2, H5: 288)",
             "author": "Ankur Jain, Abhishar Anand, Somanath Tripathy",
-            "published_at": "IEEE Access ( Volume: 14), 123386 - 123397",
+            "published_at": "IEEE Access, Volume: 14, 123386 - 123397, (2026).",
             "doi": "https://doi.org/10.1109/ACCESS.2026.3722527",
             "show_personal": true,
             "show_lab": true
@@ -15,7 +15,7 @@
             "title": "Semantic characterization of android malware through runtime system call analysis",
             "impact_factor": "(IF:4.4, H5: 69)",
             "author": "Sanaya Malik, Narendra Singh, Somanath Tripathy",
-            "published_at": "Journal of Information Security and Applications",
+            "published_at": "Journal of Information Security and Applications, Volume 98, 104406, (2026).",
             "doi": "https://doi.org/10.1016/j.jisa.2026.104406",
             "show_personal": true,
             "show_lab": true
@@ -25,7 +25,7 @@
             "title": "“Just a Patch”: Imperceptible Image Patch Generation for Adversarial Inference",
             "impact_factor": "(IF:4.2, H5: 288)",
             "author": "Debasmita Manna, Somanath Tripathy, Bruhadeshwar Bezawada, Indrakshi Ray",
-            "published_at": "IEEE Access",
+            "published_at": "IEEE Access, Volume: 14, 51294 - 51307, (2026).",
             "doi": "https://doi.org/10.1109/ACCESS.2026.3680319",
             "show_personal": true,
             "show_lab": true
@@ -35,7 +35,7 @@
             "title": "TraceX: Early-stage advanced persistent threat detection framework using semantic network traffic analysis",
             "impact_factor": "(IF:4.7, H5: 99)",
             "author": "Narendra Singh, Somanath Tripathy",
-            "published_at": "Computer Networks",
+            "published_at": "Computer Networks, Volume 282, 112288, (2026).",
             "doi": "https://doi.org/10.1016/j.comnet.2026.112288",
             "show_personal": true,
             "show_lab": true
@@ -45,7 +45,7 @@
             "title": "SESIV: Secure and efficient smart contract based integrity verification of outsourced data",
             "impact_factor": "(IF:4.4, H5: 69)",
             "author": "Partha Sarathi Chakraborty, Somanath Tripathy",
-            "published_at": "Journal of Information Security and Applications",
+            "published_at": "Journal of Information Security and Applications, Volume 93, 104121, (2025).",
             "doi": "https://doi.org/10.1016/j.jisa.2025.104121",
             "show_personal": true,
             "show_lab": true
@@ -585,10 +585,10 @@
         {
             "link": "https://dl.acm.org/doi/full/10.1145/3803628.3807972",
             "title": "Analysis of LLMs Against Prompt Injection and Jailbreak Attacks",
-            "impact_factor": "NA",
+            "impact_factor": "",
             "author": "Piyush Jaiswal, Aaditya Pratap, Shreyansh Saraswati, Harsh Kasyap, Somanath Tripathy",
-            "published_at": "LM-SHIELD '26, Bangalore India, June 1 - 5, 2026, Pages 10 - 21",
-            "doi": "https://doi.org/10.1145/3803628.3807972",
+            "published_at": "LM-SHIELD '26, June 1 - 5, 2026, Bangalore India.",
+            "doi": "",
             "show_personal": true,
             "show_lab": true
         },
@@ -603,11 +603,11 @@
             "show_lab": true
         },
         {
-            "link": "https://doi.org/10.1007/978-3-032-10759-6_14",
+            "link": "https://link.springer.com/chapter/10.1007/978-3-032-10759-6_14",
             "title": "Credit Card Fraud Detection Using Dynamic Attention and Multi-View Graph Learning",
             "impact_factor": "",
             "author": "Shivam Kushwaha, Ankur Jain and Somanath Tripathy",
-            "published_at": "The 9th International Symposium on Cyber Security, Cryptology, and Machine Learning, December 4-5, 2025",
+            "published_at": "The 9th International Symposium on Cyber Security, Cryptology, and Machine Learning, December 4-5, 2025 (Online).",
             "doi": "",
             "show_personal": true,
             "show_lab": true
