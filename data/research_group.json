@@ -1,12 +1,6 @@
 {
     "phd": [
         {
-            "image": "pics/debasmita.jpg",
-            "name": "Debasmita Manna",
-            "email": "debasmita_2121cs18 [at] iitp.ac.in",
-            "research_area": "Secure Machine learning"
-        },
-        {
             "image": "pics/ankur.png",
             "name": "Ankur Jain",
             "email": "ankur_2221cs19 [at] iitp.ac.in",
@@ -94,7 +88,7 @@
             "image": "pics/Vikash.png",
             "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew )",
             "passing_year": "2021",
-            "current_affiliation": "Current Affiliation: Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
+            "current_affiliation": "Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
             "thesis": "Design and Analysis of Lightweight Cryptographic Techniques for IoT Devices",
             "email": "vikash.rai [at] nfsu.ac.in"
         },
@@ -134,7 +128,7 @@
             "image": "pics/susmita.jpg",
             "name": "Dr. Susmita Palmal (Joint supervision of Dr. Sriparna Saha )",
             "passing_year": "2024",
-            "current_affiliation": "Current Affiliation: Assistant Professor, Department of Computer Science, Birla Institute of Technology, Mesra, Ramgarh, Jharkhand.",
+            "current_affiliation": "Assistant Professor, Department of Computer Science, Birla Institute of Technology, Mesra, Ramgarh, Jharkhand.",
             "thesis": "Development of Multi-View Machine Learning Models for Disease Causative Agent and Prognosis Prediction",
             "email": "susmita.palmal [at] bitmesra.ac.in"
         },
@@ -150,9 +144,17 @@
             "image": "pics/Narendra.jpg",
             "name": "Dr. Narendra Singh Lodhi",
             "passing_year": "2025",
-            "current_affiliation": "Assistant Professor, Department of Computer Science, S.R.M University Andhra Pradesh",
+            "current_affiliation": "Assistant Professor, Department of Computer Science, Rajiv Gandhi Institute of Petroleum Technology, Jais Campus, Uttar Pradesh",
             "thesis": "AI-Driven Techniques for Early-Stage Malware Detection Using Static and Dynamic Analysis",
-            "email": "narendra.s [at] srmap.edu.in"
+            "email": "narendras@rgipt.ac.in"
+        },
+        {
+            "image": "pics/debasmita.jpg",
+            "name": "Debasmita Manna",
+            "passing_year": "2026",
+            "current_affiliation": " Assistant Professor, S.R.M University Andhra Pradesh",
+            "thesis": "Designing Security and Privacy aware  Deep Neural Network: Attacks and Defenses",
+            "email": "debasmita.m@srmap.edu.in"
         }
     ],
     "past_mtech": [

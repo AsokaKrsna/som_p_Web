@@ -1,6 +1,16 @@
 {
     "journals": [
         {
+            "link": "https://ieeexplore.ieee.org/abstract/document/11648185",
+            "title": "SVACS: Smart Contract Vulnerability Analysis via Control Flow Semantics",
+            "impact_factor": "(IF:4.2, H5: 288)",
+            "author": "Ankur Jain, Abhishar Anand, Somanath Tripathy",
+            "published_at": "IEEE Access ( Volume: 14), 123386 - 123397",
+            "doi": "https://doi.org/10.1109/ACCESS.2026.3722527",
+            "show_personal": true,
+            "show_lab": true
+        },
+        {
             "link": "https://www.sciencedirect.com/science/article/pii/S2214212626000360",
             "title": "Semantic characterization of android malware through runtime system call analysis",
             "impact_factor": "(IF:4.4, H5: 69)",
@@ -195,7 +205,7 @@
             "title": "BASPED: Blockchain assisted Secure Searchable Public Key Encryption over Outsourced Data",
             "impact_factor": "(IF: 3.2, H5: 31)",
             "author": "Partha Sarathi Chakraborty, Somanath Tripathy, and Sanjeet Kumar Nayak",
-            "published_at": "International Journal of Information Security, Springer, (2023), Volume 23,10.1007/s10207-023-00753-4, 1615-5270",
+            "published_at": "International Journal of Information Security, Springer, (2024), Volume 23, pages 487–503",
             "doi": "",
             "show_personal": true,
             "show_lab": true
@@ -573,11 +583,21 @@
     ],
     "conferences": [
         {
+            "link": "https://dl.acm.org/doi/full/10.1145/3803628.3807972",
+            "title": "Analysis of LLMs Against Prompt Injection and Jailbreak Attacks",
+            "impact_factor": "NA",
+            "author": "Piyush Jaiswal, Aaditya Pratap, Shreyansh Saraswati, Harsh Kasyap, Somanath Tripathy",
+            "published_at": "LM-SHIELD '26, Bangalore India, June 1 - 5, 2026, Pages 10 - 21",
+            "doi": "https://doi.org/10.1145/3803628.3807972",
+            "show_personal": true,
+            "show_lab": true
+        },
+        {
             "link": "https://link.springer.com/chapter/10.1007/978-3-032-13714-2_5",
             "title": "NEXUS: Neuron Activation Scores Exploits for Unveiling Sensitive Attributes",
             "impact_factor": "",
             "author": "Debasmita Manna and Somanath Tripathy",
-            "published_at": "21st International Conference on Information Systems Security (ICISS 2025), 16-20 December, 2025, IIT Indorre, India.",
+            "published_at": "21st International Conference on Information Systems Security (ICISS 2025), 16-20 December, 2025, IIT Indore, India.",
             "doi": "",
             "show_personal": true,
             "show_lab": true
