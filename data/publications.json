@@ -585,7 +585,7 @@
         {
             "link": "https://dl.acm.org/doi/full/10.1145/3803628.3807972",
             "title": "Analysis of LLMs Against Prompt Injection and Jailbreak Attacks",
-            "impact_factor": "NA",
+            "impact_factor": "",
             "author": "Piyush Jaiswal, Aaditya Pratap, Shreyansh Saraswati, Harsh Kasyap, Somanath Tripathy",
             "published_at": "LM-SHIELD '26, Bangalore India, June 1 - 5, 2026, Pages 10 - 21",
             "doi": "https://doi.org/10.1145/3803628.3807972",
