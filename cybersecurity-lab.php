@@ -247,8 +247,8 @@ if (is_array($projects)) {
 
     <div class="container lab-hero-content">
         <div class="row align-items-center">
-            <div class="col-md-auto text-center text-md-start mb-3 mb-md-0">
-                <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img" style="max-width: 120px; border-radius: 50%; box-shadow: 0 0 20px rgba(8, 145, 178, 0.4);">
+            <div class="col-md-auto text-center text-md-start mb-3 mb-md-0 pe-md-4">
+                <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img" style="max-width: 140px; border-radius: 50%; box-shadow: 0 0 20px rgba(8, 145, 178, 0.4); margin-top: 15px; margin-left: -15px;">
             </div>
             <div class="col-md text-center text-md-start">
                 <h1 class="lab-hero-title mb-2" style="font-size: clamp(2rem, 5vw, 3.5rem);"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>

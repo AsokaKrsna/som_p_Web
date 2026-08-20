@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Mark sections above current as "visited"
             if (current) {
-                const order = ['home','bio','patents','projects','teaching','seminars','memberships','editorship','publications','awards'];
+                const order = ['home','bio','patents','publications','projects','teaching','seminars','memberships','editorship','awards'];
                 const currentIdx = order.indexOf(current);
                 const itemIdx = order.indexOf(sectionId);
                 if (itemIdx < currentIdx) {

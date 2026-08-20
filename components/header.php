@@ -59,7 +59,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                 <?php
                 if (!isset($sideNavItems)) {
                     $sideNavItems = [
-                        ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Homepage@som', 'tip' => 'Top of page'],
+                        ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Home', 'tip' => 'Top of page'],
                         ['href' => 'index.php#patents', 'section' => 'patents', 'text' => 'Patents', 'tip' => 'Filed & granted patents'],
                         ['href' => 'index.php#projects', 'section' => 'projects', 'text' => 'Projects', 'tip' => 'Research & consulting projects'],
                         ['href' => 'index.php#teaching', 'section' => 'teaching', 'text' => 'Teaching', 'tip' => 'Courses taught'],

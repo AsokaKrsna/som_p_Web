@@ -301,6 +301,15 @@ $profile = loadJsonData('profile_content.json');
             }
         }
         document.addEventListener('DOMContentLoaded', () => {
+            const initialTabPane = document.querySelector('#pubTabContent .tab-pane.active');
+            if (initialTabPane) {
+                const hiddenRows = initialTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+                if (hiddenRows.length === 0) {
+                    const btn = document.getElementById('seeMorePubsBtn');
+                    if(btn) btn.style.display = 'none';
+                }
+            }
+
             const pubTabs = document.querySelectorAll('#pubTab [data-bs-toggle="tab"]');
             pubTabs.forEach(tab => {
                 tab.addEventListener('shown.bs.tab', function (event) {
