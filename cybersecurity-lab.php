@@ -12,7 +12,7 @@ $sideNavItems = [
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
     ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
     ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours'],
-    ['href' => '#life-at-lab', 'section' => 'life-at-lab', 'text' => 'Life at Lab', 'tip' => 'Lab gallery'],
+    ['href' => '#glimpses', 'section' => 'glimpses', 'text' => 'Glimpses', 'tip' => 'Moments & Milestones'],
     ['href' => '#join-us', 'section' => 'join-us', 'text' => 'Join Us', 'tip' => 'Contact & Openings']
 ];
 include 'components/header.php';
@@ -725,37 +725,265 @@ if (is_array($projects)) {
 </section>
 <?php endif; ?>
 
-<!-- Life at the Lab -->
+<!-- Glimpses Section (Expanding Interactive Gallery) -->
 <?php if (!empty($gallery)): ?>
-<section id="life-at-lab" class="bio-section py-4" style="background: var(--bg-alt);">
+<section id="glimpses" class="bio-section py-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
     <div class="container">
-        <h2 class="section-title">Life at the Lab</h2>
-        <p class="text-center text-muted mb-4" style="max-width: 600px; margin: 0 auto;">A glimpse into our workspace where ideas turn into research breakthroughs.</p>
-        
-        <div class="row g-3 mt-3">
-            <?php foreach($gallery as $i => $img): ?>
-            <div class="<?= $i === 0 ? 'col-12' : 'col-md-6' ?>">
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
-                    <img 
-                        src="<?= htmlspecialchars($img['image'] ?? '') ?>" 
-                        class="img-fluid w-100" 
-                        alt="<?= htmlspecialchars($img['alt'] ?? 'Lab photo') ?>" 
-                        style="object-fit: cover; height: <?= $i === 0 ? '380px' : '260px' ?>; transition: transform 0.5s ease, filter 0.5s ease; display: block;"
-                        onmouseover="this.style.transform='scale(1.04)'; this.style.filter='brightness(1.05)'"
-                        onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'"
-                    >
-                    <!-- Caption overlay -->
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); pointer-events: none;">
-                        <span style="color: #fff; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">
-                            <i class="fa fa-camera me-2" style="opacity: 0.8;"></i><?= htmlspecialchars($img['alt'] ?? '') ?>
-                        </span>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+            <div>
+                <h2 class="section-title text-start mb-2">Glimpses</h2>
+                <p class="text-muted mb-0" style="font-size: 1.05rem;">Moments, research milestones, and life in the Cybersecurity Lab.</p>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-2 mt-3 mt-md-0">
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle" id="glimpsesPrevBtn" aria-label="Previous" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle" id="glimpsesNextBtn" aria-label="Next" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Expanding Cards Carousel Track -->
+        <div class="glimpses-wrapper" id="glimpsesWrapper">
+            <div class="glimpses-track" id="glimpsesTrack">
+                <?php foreach ($gallery as $index => $img): 
+                    $tag = !empty($img['tag']) ? $img['tag'] : 'MOMENT';
+                    $title = !empty($img['alt']) ? $img['alt'] : 'Lab Moment';
+                    $date = !empty($img['date']) ? $img['date'] : '';
+                    $desc = !empty($img['description']) ? $img['description'] : '';
+                    $isActive = ($index === 0) ? 'active' : '';
+                ?>
+                <div class="glimpse-card <?= $isActive ?>" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-tag="<?= htmlspecialchars($tag) ?>" data-date="<?= htmlspecialchars($date) ?>" data-desc="<?= htmlspecialchars($desc) ?>" style="background-image: url('<?= htmlspecialchars($img['image'] ?? '') ?>');">
+                    <div class="glimpse-overlay"></div>
+                    <div class="glimpse-badge"><?= htmlspecialchars($tag) ?></div>
+                    
+                    <div class="glimpse-content">
+                        <?php if ($date): ?>
+                            <span class="glimpse-date"><i class="fa fa-calendar-o me-1"></i><?= htmlspecialchars($date) ?></span>
+                        <?php endif; ?>
+                        <h4 class="glimpse-title"><?= htmlspecialchars($title) ?></h4>
+                        <?php if ($desc): ?>
+                            <p class="glimpse-desc"><?= htmlspecialchars($desc) ?></p>
+                        <?php endif; ?>
+                        <div class="glimpse-action">
+                            <span class="glimpse-btn"><i class="fa fa-expand me-1"></i> View High-Res</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Vertical title shown when collapsed -->
+                    <div class="glimpse-collapsed-title">
+                        <span><?= htmlspecialchars($title) ?></span>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </section>
+
+<!-- Fullscreen Glass Lightbox -->
+<div class="glimpse-lightbox" id="glimpseLightbox" aria-hidden="true">
+    <button class="glimpse-lightbox-close" id="glimpseLightboxClose" aria-label="Close Lightbox"><i class="fa fa-times"></i></button>
+    <button class="glimpse-lightbox-nav glimpse-lightbox-prev" id="glimpseLightboxPrev" aria-label="Previous image"><i class="fa fa-chevron-left"></i></button>
+    <button class="glimpse-lightbox-nav glimpse-lightbox-next" id="glimpseLightboxNext" aria-label="Next image"><i class="fa fa-chevron-right"></i></button>
+    
+    <div class="glimpse-lightbox-content">
+        <img src="" alt="" class="glimpse-lightbox-img" id="glimpseLightboxImg">
+        <div class="glimpse-lightbox-caption" id="glimpseLightboxCaption"></div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.getElementById('glimpsesWrapper');
+    const track = document.getElementById('glimpsesTrack');
+    const cards = Array.from(document.querySelectorAll('.glimpse-card'));
+    const prevBtn = document.getElementById('glimpsesPrevBtn');
+    const nextBtn = document.getElementById('glimpsesNextBtn');
+
+    if (!track || cards.length === 0) return;
+
+    let currentIndex = 0;
+    let autoGlideTimer = null;
+    let isHovered = false;
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeftStart = 0;
+    let hasDragged = false;
+
+    function setActiveCard(index, scrollIntoView = true) {
+        if (index < 0) index = cards.length - 1;
+        if (index >= cards.length) index = 0;
+        currentIndex = index;
+
+        cards.forEach((card, idx) => {
+            if (idx === currentIndex) {
+                card.classList.add('active');
+                if (scrollIntoView && wrapper) {
+                    const cardRect = card.getBoundingClientRect();
+                    const wrapRect = wrapper.getBoundingClientRect();
+                    if (cardRect.left < wrapRect.left || cardRect.right > wrapRect.right) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
+            } else {
+                card.classList.remove('active');
+            }
+        });
+    }
+
+    // Auto-Glide Controller
+    function startAutoGlide() {
+        stopAutoGlide();
+        autoGlideTimer = setInterval(() => {
+            if (!isHovered && !isDragging) {
+                setActiveCard((currentIndex + 1) % cards.length);
+            }
+        }, 4000);
+    }
+
+    function stopAutoGlide() {
+        if (autoGlideTimer) {
+            clearInterval(autoGlideTimer);
+            autoGlideTimer = null;
+        }
+    }
+
+    // Card Hover and Click Handlers
+    cards.forEach((card, index) => {
+        card.addEventListener('mouseenter', () => {
+            isHovered = true;
+            setActiveCard(index, false);
+            stopAutoGlide();
+        });
+
+        card.addEventListener('click', (e) => {
+            if (hasDragged) return; // Prevent click if dragged
+            if (!card.classList.contains('active')) {
+                setActiveCard(index);
+            } else {
+                // Open Lightbox
+                openLightbox(index);
+            }
+        });
+    });
+
+    wrapper.addEventListener('mouseenter', () => {
+        isHovered = true;
+        stopAutoGlide();
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        isHovered = false;
+        startAutoGlide();
+    });
+
+    // Arrow Controls
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            setActiveCard(currentIndex - 1);
+            startAutoGlide();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            setActiveCard(currentIndex + 1);
+            startAutoGlide();
+        });
+    }
+
+    // Draggable Scroll Implementation
+    wrapper.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        hasDragged = false;
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeftStart = wrapper.scrollLeft;
+        stopAutoGlide();
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            setTimeout(() => { hasDragged = false; }, 50);
+            if (!isHovered) startAutoGlide();
+        }
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        if (Math.abs(walk) > 5) {
+            hasDragged = true;
+        }
+        wrapper.scrollLeft = scrollLeftStart - walk;
+    });
+
+    // Start auto glide on load
+    startAutoGlide();
+
+    // ==========================================
+    // Lightbox Controller
+    // ==========================================
+    const lightbox = document.getElementById('glimpseLightbox');
+    const lightboxImg = document.getElementById('glimpseLightboxImg');
+    const lightboxCaption = document.getElementById('glimpseLightboxCaption');
+    const lightboxClose = document.getElementById('glimpseLightboxClose');
+    const lightboxPrev = document.getElementById('glimpseLightboxPrev');
+    const lightboxNext = document.getElementById('glimpseLightboxNext');
+    let lightboxIndex = 0;
+
+    function openLightbox(idx) {
+        lightboxIndex = idx;
+        const card = cards[lightboxIndex];
+        if (!card) return;
+
+        const src = card.getAttribute('data-src');
+        const title = card.getAttribute('data-title');
+        const tag = card.getAttribute('data-tag');
+        const date = card.getAttribute('data-date');
+
+        lightboxImg.src = src;
+        lightboxCaption.innerHTML = `<span>${title}</span>${date ? ` <span class="text-white-50 small">&bull; ${date}</span>` : ''}`;
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        stopAutoGlide();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+        if (!isHovered) startAutoGlide();
+    }
+
+    function nextLightbox() {
+        lightboxIndex = (lightboxIndex + 1) % cards.length;
+        openLightbox(lightboxIndex);
+    }
+
+    function prevLightbox() {
+        lightboxIndex = (lightboxIndex - 1 + cards.length) % cards.length;
+        openLightbox(lightboxIndex);
+    }
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('show')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextLightbox();
+        if (e.key === 'ArrowLeft') prevLightbox();
+    });
+});
+</script>
 <?php endif; ?>
 
 

@@ -2652,6 +2652,295 @@ body.dark-mode .announcement-bar-marquee {
   background: linear-gradient(90deg, #0e7490, #0891b2);
 }
 
+/* ==========================================================================
+   Glimpses Expanding Cards Carousel & Lightbox
+   ========================================================================== */
+.glimpses-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 0 20px;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
+}
+.glimpses-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.glimpses-wrapper:active {
+  cursor: grabbing;
+}
+
+.glimpses-track {
+  display: flex;
+  gap: 1.25rem;
+  min-height: 440px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.glimpse-card {
+  position: relative;
+  flex: 1;
+  min-width: 110px;
+  max-width: 100%;
+  height: 440px;
+  border-radius: 22px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.glimpse-card.active,
+.glimpse-card:hover {
+  flex: 4.5;
+  min-width: 320px;
+  border-color: rgba(8, 145, 178, 0.5);
+  box-shadow: 0 18px 45px rgba(8, 145, 178, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transform: translateY(-4px);
+}
+
+.glimpse-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.85) 100%);
+  transition: opacity 0.4s ease;
+}
+
+.glimpse-card.active .glimpse-overlay,
+.glimpse-card:hover .glimpse-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.92) 100%);
+}
+
+.glimpse-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(8, 145, 178, 0.9);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.glimpse-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+  pointer-events: none;
+}
+
+.glimpse-card.active .glimpse-content,
+.glimpse-card:hover .glimpse-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.glimpse-date {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.glimpse-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.glimpse-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+}
+
+.glimpse-action {
+  margin-top: 10px;
+}
+
+.glimpse-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glimpse-card:hover .glimpse-btn {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.glimpse-collapsed-title {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glimpse-card.active .glimpse-collapsed-title,
+.glimpse-card:hover .glimpse-collapsed-title {
+  opacity: 0;
+}
+
+/* Lightbox Modal */
+.glimpse-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.88);
+  backdrop-filter: blur(20px);
+  z-index: 10500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 20px;
+}
+.glimpse-lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+.glimpse-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.glimpse-lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.glimpse-lightbox-caption {
+  margin-top: 14px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.glimpse-lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10501;
+}
+.glimpse-lightbox-close:hover {
+  background: rgba(239, 68, 68, 0.8);
+}
+.glimpse-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 10501;
+}
+.glimpse-lightbox-nav:hover {
+  background: var(--accent-blue);
+  transform: translateY(-50%) scale(1.1);
+}
+.glimpse-lightbox-prev { left: 30px; }
+.glimpse-lightbox-next { right: 30px; }
+
+@media (max-width: 768px) {
+  .glimpses-track {
+    min-height: 380px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .glimpse-card {
+    flex: 0 0 84%;
+    min-width: 84%;
+    height: 380px;
+    scroll-snap-align: center;
+  }
+  .glimpse-card.active,
+  .glimpse-card:hover {
+    flex: 0 0 84%;
+    min-width: 84%;
+  }
+  .glimpse-content {
+    opacity: 1;
+    transform: translateY(0);
+    padding: 18px;
+  }
+  .glimpse-collapsed-title {
+    display: none;
+  }
+}
+
 /* Sponsor Marquee */
 .sponsor-marquee-container { overflow: hidden; white-space: nowrap; position: relative; padding: 2rem 0; width: 100%; }
 .sponsor-marquee-content { display: inline-flex; align-items: center; gap: 6rem; animation: marquee-scroll 25s linear infinite; padding-left: 6rem; }
