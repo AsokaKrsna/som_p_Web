@@ -246,19 +246,27 @@ if (is_array($projects)) {
     </div>
 
     <div class="container lab-hero-content">
-        <div class="row align-items-center">
-            <div class="col-md-auto text-center text-md-start mb-3 mb-md-0 pe-md-4">
-                <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img" style="max-width: 140px; border-radius: 50%; box-shadow: 0 0 20px rgba(8, 145, 178, 0.4); margin-top: 15px; margin-left: -15px;">
+        <div class="row align-items-center justify-content-center justify-content-md-start">
+            <div class="col-12 col-md-auto text-center mb-4 mb-md-0 pe-md-5">
+                <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img" style="max-width: 160px; border-radius: 50%; box-shadow: 0 0 30px rgba(8, 145, 178, 0.3);">
             </div>
-            <div class="col-md text-center text-md-start">
-                <h1 class="lab-hero-title mb-2" style="font-size: clamp(2rem, 5vw, 3.5rem);"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
+            <div class="col-12 col-md text-center text-md-start">
+                <h1 class="lab-hero-title mb-1" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -1px;"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
+                <h2 class="lab-hero-subtitle mb-4" style="font-weight: 600; font-size: 1.4rem; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase;"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
+                
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start gap-3">
+                    <?php if (!empty($heroContent['location'])): ?>
+                        <span class="lab-hero-location d-inline-flex align-items-center" style="background: rgba(8, 145, 178, 0.1); padding: 8px 20px; border-radius: 30px; color: var(--accent-blue); font-weight: 600; font-size: 0.95rem;">
+                            <i class="fa fa-map-marker me-2"></i><?= htmlspecialchars($heroContent['location']) ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+                
+                <?php if (!empty($heroContent['tagline'])): ?>
+                <p class="lab-hero-tagline mt-3 mb-0 text-muted" style="font-size: 1.1rem; max-width: 600px;"><?= htmlspecialchars($heroContent['tagline']) ?></p>
+                <?php endif; ?>
             </div>
         </div>
-        <h2 class="lab-hero-subtitle"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
-        <?php if (!empty($heroContent['location'])): ?>
-            <p class="lab-hero-location"><i class="fa fa-map-marker" style="margin-right: 6px;"></i><?= htmlspecialchars($heroContent['location']) ?></p>
-        <?php endif; ?>
-        <p class="lab-hero-tagline"><?= htmlspecialchars($heroContent['tagline'] ?? '') ?></p>
 
         <!-- Stats Row -->
         <div class="lab-stats-row">
