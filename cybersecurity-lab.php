@@ -398,22 +398,26 @@ if (is_array($projects)) {
 <section id="head-of-research" class="bio-section py-4">
     <div class="container">
         <h2 class="section-title">Research Group</h2>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-8 col-lg-6">
-                <div class="student-card" style="flex-direction: row; align-items: center; text-align: left; padding: 2rem;">
-                    <img class="avatar mb-0 me-4" src="pics/som-pic.png" alt="<?= htmlspecialchars($headContent['name'] ?? '') ?>" style="width: 120px; height: 120px;">
-                    <div>
-                        <h4 class="mb-1" style="font-weight: 800; color: var(--text-main);"><?= htmlspecialchars($headContent['name'] ?? '') ?></h4>
-                        <p class="mb-2" style="color: var(--text-muted);"><?= htmlspecialchars($headContent['designation'] ?? '') ?></p>
-                        <p class="mb-2 small" style="color: var(--text-muted);"><?= htmlspecialchars($headContent['bio'] ?? '') ?></p>
-                        <p class="email m-0">
-                            <?php if (!empty($headContent['scholar_link'])): ?>
-                            <a href="<?= htmlspecialchars($headContent['scholar_link']) ?>" target="_blank" class="me-3" style="text-decoration: none;"><i class="fa fa-graduation-cap"></i> Scholar</a>
-                            <?php endif; ?>
-                            <?php if (!empty($headContent['website_link'])): ?>
-                            <a href="<?= htmlspecialchars($headContent['website_link']) ?>" class="me-3" style="text-decoration: none;"><i class="fa fa-globe"></i> Website</a>
-                            <?php endif; ?>
-                        </p>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="student-card professor-card p-4 p-md-5 d-flex flex-column flex-md-row align-items-center align-items-md-start text-center text-md-start gap-4">
+                    <img class="avatar mb-0" src="pics/som-pic.png" alt="<?= htmlspecialchars($headContent['name'] ?? '') ?>" style="width: 140px; height: 140px; flex-shrink: 0; border: 4px solid rgba(8, 145, 178, 0.25); box-shadow: 0 10px 25px rgba(8, 145, 178, 0.25);">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-start mb-2">
+                            <div>
+                                <h3 class="mb-1" style="font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;"><?= htmlspecialchars($headContent['name'] ?? '') ?></h3>
+                                <span class="badge px-3 py-1 mb-2" style="font-size: 0.95rem; font-weight: 600; background: rgba(8, 145, 178, 0.12); color: var(--accent-blue) !important; border-radius: 20px;"><?= htmlspecialchars($headContent['designation'] ?? 'Professor') ?></span>
+                            </div>
+                            <div class="d-flex gap-2 mt-2 mt-md-0">
+                                <?php if (!empty($headContent['scholar_link'])): ?>
+                                <a href="<?= htmlspecialchars($headContent['scholar_link']) ?>" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3"><i class="fa fa-graduation-cap me-1"></i> Google Scholar</a>
+                                <?php endif; ?>
+                                <?php if (!empty($headContent['website_link'])): ?>
+                                <a href="<?= htmlspecialchars($headContent['website_link']) ?>" class="btn btn-sm btn-primary rounded-pill px-3" style="background: var(--accent-blue); border-color: var(--accent-blue);"><i class="fa fa-globe me-1"></i> Personal Website</a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <p class="mb-0 mt-3" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;"><?= htmlspecialchars($headContent['bio'] ?? '') ?></p>
                     </div>
                 </div>
             </div>
@@ -757,35 +761,143 @@ if (is_array($projects)) {
 
 <!-- Join Our Group -->
 <section id="join-us" class="bio-section py-5 mt-4" style="background: var(--bg-alt); position: relative; overflow: hidden;">
-    <!-- Background glowing orbs -->
-    <div style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
-    
     <div class="container" style="position: relative; z-index: 1;">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4 p-md-5" style="background: var(--glass-bg); border-radius: 20px; box-shadow: var(--glass-shadow); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);">
-                    <div class="join-text text-center text-md-start mb-4 mb-md-0 pe-md-5">
-                        <h3 class="mb-3" style="font-weight: 700; color: var(--text-main); letter-spacing: -0.5px;"><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
+            <div class="col-lg-9">
+                <div class="student-card join-us-card p-4 p-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 text-center text-md-start">
+                    <div class="pe-md-4">
+                        <h3 class="mb-2" style="font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;"><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
                         <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted);">
-                            <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
-                            <?php if (!empty($joinUsContent['note'])): ?>
-                                <br><span class="mt-3 d-inline-block ps-3" style="border-left: 3px solid var(--accent-blue); font-size: 0.9rem; color: var(--text-muted); opacity: 0.8;"><em><?= htmlspecialchars($joinUsContent['note']) ?></em></span>
-                            <?php endif; ?>
+                            <?= htmlspecialchars($joinUsContent['description'] ?? 'We are always looking for motivated Ph.D., M.Tech, and B.Tech students passionate about cybersecurity research.') ?>
                         </p>
-                    </div>
-                    <div class="join-action flex-shrink-0">
-                        <?php if (!empty($joinUsContent['email'])): ?>
-                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn d-flex align-items-center justify-content-center" style="background: var(--accent-blue); color: white; border-radius: 12px; padding: 12px 30px; font-weight: 600; box-shadow: 0 4px 15px rgba(8, 145, 178, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(8, 145, 178, 0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(8, 145, 178, 0.2)';">
-                            <i class="fa fa-envelope fs-6 me-2"></i> Get in Touch
-                        </a>
+                        <?php if (!empty($joinUsContent['note'])): ?>
+                            <div class="mt-2 text-muted small" style="font-style: italic; opacity: 0.85;">
+                                <i class="fa fa-info-circle me-1" style="color: var(--accent-blue);"></i> <?= htmlspecialchars($joinUsContent['note']) ?>
+                            </div>
                         <?php endif; ?>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <button type="button" class="btn btn-primary rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center shadow-sm" style="background: var(--accent-blue); border-color: var(--accent-blue); font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;" data-bs-toggle="modal" data-bs-target="#getInTouchModal" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                            <i class="fa fa-paper-plane me-2"></i> Get in Touch
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Get in Touch Modal -->
+<div class="modal fade" id="getInTouchModal" tabindex="-1" aria-labelledby="getInTouchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background: var(--bg-main); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--glass-shadow); backdrop-filter: blur(20px);">
+            <div class="modal-header border-0 pb-0 px-4 pt-4">
+                <div>
+                    <h4 class="modal-title fw-bold" id="getInTouchModalLabel" style="color: var(--text-main);"><i class="fa fa-envelope-open-o me-2" style="color: var(--accent-blue);"></i> Get in Touch</h4>
+                    <p class="text-muted small mb-0 mt-1">Interested in research, projects, or joining our lab? Send us a message.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 py-3">
+                <div id="contactFormAlert" class="alert d-none" role="alert"></div>
+                
+                <form id="labContactForm" onsubmit="submitLabContactForm(event)">
+                    <!-- Honeypot anti-spam -->
+                    <input type="text" name="bot_field" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Email Address <span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control" placeholder="e.g. rahul@example.com" required style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Current / Last Completed Degree</label>
+                            <input type="text" name="degree" class="form-control" placeholder="e.g. B.Tech CSE, M.Tech, M.Sc" style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Position of Interest</label>
+                            <select name="position" class="form-select" style="border-radius: 10px;">
+                                <option value="Ph.D. Scholar">Ph.D. Scholar</option>
+                                <option value="M.Tech by Research">M.Tech by Research</option>
+                                <option value="B.Tech Project / Internship">B.Tech Project / Internship</option>
+                                <option value="Postdoctoral Fellow / Researcher">Postdoctoral Fellow / Researcher</option>
+                                <option value="Academic Collaboration">Academic Collaboration</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Express Yourself / Message <span class="text-danger">*</span></label>
+                            <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe your research interests, background, or include links to your CV / Google Drive / LinkedIn / GitHub profile..." required style="border-radius: 10px;"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" id="contactSubmitBtn" class="btn btn-primary rounded-pill px-4 fw-bold" style="background: var(--accent-blue); border-color: var(--accent-blue);">
+                            <span class="btn-text"><i class="fa fa-paper-plane me-1"></i> Send Message</span>
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function submitLabContactForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('labContactForm');
+    const alertBox = document.getElementById('contactFormAlert');
+    const submitBtn = document.getElementById('contactSubmitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const spinner = submitBtn.querySelector('.spinner-border');
+
+    const formData = new FormData(form);
+
+    submitBtn.disabled = true;
+    btnText.classList.add('d-none');
+    spinner.classList.remove('d-none');
+    alertBox.className = 'alert d-none';
+
+    fetch('send_message.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        submitBtn.disabled = false;
+        btnText.classList.remove('d-none');
+        spinner.classList.add('d-none');
+
+        if (data.success) {
+            alertBox.className = 'alert alert-success';
+            alertBox.innerHTML = '<i class="fa fa-check-circle me-2"></i>' + data.message;
+            form.reset();
+            setTimeout(() => {
+                const modalEl = document.getElementById('getInTouchModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+                alertBox.className = 'alert d-none';
+            }, 3000);
+        } else {
+            alertBox.className = 'alert alert-danger';
+            alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-2"></i>' + (data.message || 'An error occurred.');
+        }
+    })
+    .catch(err => {
+        submitBtn.disabled = false;
+        btnText.classList.remove('d-none');
+        spinner.classList.add('d-none');
+        alertBox.className = 'alert alert-danger';
+        alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-2"></i> Failed to submit form. Please check your connection and try again.';
+    });
+}
+</script>
 
 <!-- Particle Network & Stat Counter Scripts -->
 <script>
