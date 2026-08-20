@@ -260,7 +260,23 @@ function renderForm() {
                         
                         cardHtml += `<div class="mb-3"><label class="form-label small fw-bold text-secondary">${label}</label>`;
                         
-                        if (isLongText) {
+                        if (key === 'badge_color') {
+                            const colors = {
+                                "bg-primary": "Blue",
+                                "bg-secondary": "Gray",
+                                "bg-success": "Green",
+                                "bg-danger": "Red",
+                                "bg-warning text-dark": "Yellow",
+                                "bg-info text-dark": "Cyan",
+                                "bg-dark": "Black"
+                            };
+                            cardHtml += `<select class="form-select form-select-sm" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;
+                            for (const [cls, name] of Object.entries(colors)) {
+                                const selected = value === cls ? "selected" : "";
+                                cardHtml += `<option value="${cls}" ${selected}>${name}</option>`;
+                            }
+                            cardHtml += `</select>`;
+                        } else if (isLongText) {
                             cardHtml += `<textarea class="form-control form-control-sm" rows="3" onchange="updateItem('${category}', ${index}, '${key}', this.value)">${escapeHtml(value)}</textarea>`;
                         } else {
                             cardHtml += `<input type="text" class="form-control form-control-sm" value="${escapeHtml(value)}" onchange="updateItem('${category}', ${index}, '${key}', this.value)">`;
