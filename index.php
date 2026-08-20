@@ -166,37 +166,6 @@ $profile = loadJsonData('profile_content.json');
 </section>
 
 
-<!-- Section 4: Patents -->
-<section id="patents" class="bio-section pt-4">
-
-    <div class="container">
-        <h2 class="section-title">Patents</h2>
-
-        <div class="table-responsive">
-            <table class="table custom-table">
-                <tbody>
-                <?php
-                $counter = count($patents);
-                foreach ($patents as $patent):
-                    ?>
-                    <tr>
-                        <td>
-                            <p class="mb-0"><strong><?= $counter-- ?>.</strong>
-                                <?= htmlspecialchars($patent['authors'] ?? '') ?>,
-                                <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>,
-                                Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>,
-                                App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>,
-                                Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
-                            </p>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
 <!-- Section 3: Publications -->
 <section id="publications" class="bio-section pt-4">
 
@@ -300,6 +269,37 @@ $profile = loadJsonData('profile_content.json');
             });
         });
         </script>
+    </div>
+</section>
+
+<!-- Section 4: Patents -->
+<section id="patents" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Patents</h2>
+
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <tbody>
+                <?php
+                $counter = count($patents);
+                foreach ($patents as $patent):
+                    ?>
+                    <tr>
+                        <td>
+                            <p class="mb-0"><strong><?= $counter-- ?>.</strong>
+                                <?= htmlspecialchars($patent['authors'] ?? '') ?>,
+                                <strong>'<?= htmlspecialchars($patent['title'] ?? '') ?>'</strong>,
+                                Indian Patent Filed <?= htmlspecialchars($patent['filed_year'] ?? '') ?>,
+                                App No: <?= htmlspecialchars($patent['application_no'] ?? '') ?>,
+                                Patent No.: <?= htmlspecialchars($patent['patent_no'] ?? '') ?>
+                            </p>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -493,11 +493,11 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- Section: Other Responsibilities -->
+<!-- Section: Recognition -->
 <section id="other-responsibilities" class="bio-section pt-4">
 
     <div class="container">
-        <h2 class="section-title">Other Responsibilities</h2>
+        <h2 class="section-title">Recognition</h2>
 
         <ul class="pub-list ps-4">
             <?php foreach ($otherResponsibilities as $resp): ?>

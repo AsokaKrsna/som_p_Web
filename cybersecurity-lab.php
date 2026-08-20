@@ -161,7 +161,10 @@ function renderSleekAlumniCard($member, $index) {
 
 function renderPublicationTable($items) {
     $counter = count($items);
+    $idx = 0;
     foreach ($items as $pub): 
+        $display = ($idx < 5) ? '' : 'style="display: none;"';
+        $idx++;
         $parts = [];
         
         if(!empty($pub['author'])){
@@ -206,7 +209,7 @@ function renderPublicationTable($items) {
             $impactFactorHtml = '<br><span class="impact-factor-badge">' . htmlspecialchars($pub['impact_factor']) . '</span>';
         }
     ?>
-    <tr><td>
+    <tr class="pub-row" <?= $display ?>><td>
         <p><strong><?= $counter-- ?>.</strong> <?= $fullText ?>.<?= $impactFactorHtml ?></p>
     </td></tr>
     <?php endforeach;
@@ -630,6 +633,54 @@ if (is_array($projects)) {
                             </div>
                             <?php endif; ?>
                         </div>
+
+                        <div class="text-center mt-4">
+                            <button id="seeMoreLabPubsBtn" class="btn btn-outline-primary rounded-pill px-4" onclick="showMoreLabPubs()">See More <i class="fa fa-chevron-down ms-1"></i></button>
+                        </div>
+                        <script>
+                        function showMoreLabPubs() {
+                            const activeTabPane = document.querySelector('#pubs-tab-pane .tab-content .tab-pane.active');
+                            if (!activeTabPane) return;
+                            const hiddenRows = activeTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+                            for (let i = 0; i < 10 && i < hiddenRows.length; i++) {
+                                hiddenRows[i].style.display = '';
+                            }
+                            const remaining = activeTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+                            if (remaining.length === 0) {
+                                document.getElementById('seeMoreLabPubsBtn').style.display = 'none';
+                            }
+                        }
+                        function updateLabSeeMoreBtn() {
+                            const activeTabPane = document.querySelector('#pubs-tab-pane .tab-content .tab-pane.active');
+                            const btn = document.getElementById('seeMoreLabPubsBtn');
+                            if (!btn) return;
+                            if (activeTabPane) {
+                                const hiddenRows = activeTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+                                btn.style.display = (hiddenRows.length === 0) ? 'none' : 'inline-block';
+                            } else {
+                                btn.style.display = 'none';
+                            }
+                        }
+                        document.addEventListener('DOMContentLoaded', () => {
+                            updateLabSeeMoreBtn();
+
+                            const pubSubTabs = document.querySelectorAll('#pubSubTabs [data-bs-toggle="tab"]');
+                            pubSubTabs.forEach(tab => {
+                                tab.addEventListener('shown.bs.tab', function () {
+                                    updateLabSeeMoreBtn();
+                                });
+                            });
+
+                            const mainResearchTabs = document.querySelectorAll('#researchOutcomeTab [data-bs-toggle="tab"]');
+                            mainResearchTabs.forEach(tab => {
+                                tab.addEventListener('shown.bs.tab', function (e) {
+                                    if (e.target.getAttribute('data-bs-target') === '#pubs-tab-pane') {
+                                        updateLabSeeMoreBtn();
+                                    }
+                                });
+                            });
+                        });
+                        </script>
                     <?php endif; ?>
                 </div>
             </div>

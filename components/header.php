@@ -65,15 +65,15 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                     $sideNavItems = [
                         ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Home', 'tip' => 'Top of page'],
                         ['href' => 'index.php#bio', 'section' => 'bio', 'text' => 'About', 'tip' => 'Editorial bio'],
-                        ['href' => 'index.php#patents', 'section' => 'patents', 'text' => 'Patents', 'tip' => 'Filed & granted patents'],
                         ['href' => 'index.php#publications', 'section' => 'publications', 'text' => 'Publications', 'tip' => 'Research papers & articles'],
+                        ['href' => 'index.php#patents', 'section' => 'patents', 'text' => 'Patents', 'tip' => 'Filed & granted patents'],
                         ['href' => 'index.php#projects', 'section' => 'projects', 'text' => 'Projects', 'tip' => 'Research & consulting projects'],
                         ['href' => 'index.php#teaching', 'section' => 'teaching', 'text' => 'Teaching', 'tip' => 'Courses taught'],
                         ['href' => 'index.php#seminars', 'section' => 'seminars', 'text' => 'Seminars', 'tip' => 'Talks & invited lectures'],
                         ['href' => 'index.php#memberships', 'section' => 'memberships', 'text' => 'Memberships', 'tip' => 'Professional memberships'],
                         ['href' => 'index.php#editorship', 'section' => 'editorship', 'text' => 'Editorship', 'tip' => 'Editorial roles'],
                         ['href' => 'index.php#admin-responsibilities', 'section' => 'admin-responsibilities', 'text' => 'Admin Roles', 'tip' => 'Administrative responsibilities'],
-                        ['href' => 'index.php#other-responsibilities', 'section' => 'other-responsibilities', 'text' => 'Other Roles', 'tip' => 'Other responsibilities'],
+                        ['href' => 'index.php#other-responsibilities', 'section' => 'other-responsibilities', 'text' => 'Recognition', 'tip' => 'Recognition & other roles'],
                         ['href' => 'index.php#awards', 'section' => 'awards', 'text' => 'Awards', 'tip' => 'Honors & recognitions']
                     ];
                 }
@@ -122,15 +122,15 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                 <span class="nav-label">Sections</span>
                 <a class="nav-link-large" href="index.php#home">Homepage@som</a>
                 <a class="nav-link-large" href="index.php#bio">About</a>
-                <a class="nav-link-large" href="index.php#patents">Patents</a>
                 <a class="nav-link-large" href="index.php#publications">Publications</a>
+                <a class="nav-link-large" href="index.php#patents">Patents</a>
                 <a class="nav-link-large" href="index.php#projects">Projects</a>
                 <a class="nav-link-large" href="index.php#teaching">Teaching</a>
                 <a class="nav-link-large" href="index.php#seminars">Seminars</a>
                 <a class="nav-link-large" href="index.php#memberships">Memberships</a>
                 <a class="nav-link-large" href="index.php#editorship">Editorship</a>
                 <a class="nav-link-large" href="index.php#admin-responsibilities">Admin Roles</a>
-                <a class="nav-link-large" href="index.php#other-responsibilities">Other Roles</a>
+                <a class="nav-link-large" href="index.php#other-responsibilities">Recognition</a>
                 <a class="nav-link-large" href="index.php#awards">Awards</a>
             </div>
             <div class="nav-column">
