@@ -25,7 +25,11 @@ $page_description = isset($page_description) ? $page_description : "Academic por
     <meta property="og:site_name" content="Dr. Somanath Tripathy — IIT Patna"/>
 
     <!-- Favicon -->
+    <?php if (basename($_SERVER['PHP_SELF']) === 'cybersecurity-lab.php'): ?>
     <link rel="icon" href="images/lab_logo.png" type="image/png"/>
+    <?php else: ?>
+    <link rel="icon" href="data:," />
+    <?php endif; ?>
 
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
