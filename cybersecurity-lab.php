@@ -298,14 +298,18 @@ if (is_array($projects)) {
         <?php 
         $texts = [];
         foreach($announcements as $a) {
-            $text = htmlspecialchars($a['text']);
+            if (empty($a['show_in_snackbar'])) continue; // Only show if checkbox is checked
+            $full_text = (!empty($a['title']) ? "<strong>".htmlspecialchars($a['title'])."</strong>: " : "") . htmlspecialchars($a['text']);
             if (!empty($a['link'])) {
-                $text = "<a href='".htmlspecialchars($a['link'])."' target='_blank'>{$text}</a>";
+                $full_text = "<a href='".htmlspecialchars($a['link'])."' target='_blank'>{$full_text}</a>";
             }
             if (!empty($a['badge'])) {
-                $text = "<span class='announcement-badge'>".htmlspecialchars($a['badge'])."</span> " . $text;
+                $full_text = "<span class='announcement-badge'>".htmlspecialchars($a['badge'])."</span> " . $full_text;
             }
-            $texts[] = $text;
+            $texts[] = $full_text;
+        }
+        if (empty($texts)) {
+            $texts[] = "Welcome to the Cybersecurity Lab";
         }
         echo implode(" &nbsp;&nbsp;|&nbsp;&nbsp; ", $texts);
         ?>
@@ -344,18 +348,26 @@ if (is_array($projects)) {
                     <h3 class="section-title text-start mb-4">News & Highlights</h3>
                     <div class="news-ticker-container" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); height: 100%; max-height: 400px; overflow-y: auto;">
                         <ul class="list-unstyled mb-0">
+                            <?php foreach($announcements as $a): ?>
                             <li class="mb-3 border-bottom pb-2">
-                                <span class="badge bg-primary me-2">New</span> <strong>Lab Update:</strong> The Cybersecurity Lab welcomes a new batch of M.Tech researchers. <span class="text-muted small">August 2026</span>
+                                <?php if (!empty($a['badge'])): ?>
+                                    <span class="badge <?= htmlspecialchars($a['badge_color'] ?? 'bg-primary') ?> me-2"><?= htmlspecialchars($a['badge']) ?></span> 
+                                <?php endif; ?>
+                                <?php if (!empty($a['title'])): ?>
+                                    <strong><?= htmlspecialchars($a['title']) ?>:</strong> 
+                                <?php endif; ?>
+                                <?= htmlspecialchars($a['text']) ?> 
+                                <?php if (!empty($a['link'])): ?>
+                                    <a href="<?= htmlspecialchars($a['link']) ?>" target="_blank" class="ms-1"><i class="fa fa-external-link" style="font-size: 0.8rem;"></i></a>
+                                <?php endif; ?>
+                                <?php if (!empty($a['date'])): ?>
+                                    <span class="text-muted small ms-2"><?= htmlspecialchars($a['date']) ?></span>
+                                <?php endif; ?>
                             </li>
-                            <li class="mb-3 border-bottom pb-2">
-                                <span class="badge bg-info text-dark me-2">Paper</span> <strong>Accepted:</strong> Our paper on LLM Security was accepted at IEEE TIFS. <span class="text-muted small">July 2026</span>
-                            </li>
-                            <li class="mb-3 border-bottom pb-2">
-                                <span class="badge bg-secondary me-2">Award</span> <strong>Achievement:</strong> Secured 2nd runner-up position at the National Hackathon. <span class="text-muted small">June 2026</span>
-                            </li>
-                            <li class="mb-2">
-                                <span class="badge bg-success me-2">Grant</span> <strong>Funding:</strong> Received a new grant from MHA for Blockchain Security research. <span class="text-muted small">May 2026</span>
-                            </li>
+                            <?php endforeach; ?>
+                            <?php if(empty($announcements)): ?>
+                                <li class="text-muted text-center py-3">No recent news.</li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>

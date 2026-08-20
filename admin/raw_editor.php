@@ -220,14 +220,19 @@ function renderForm() {
                     
                     // Preferred sorting order (globally applied, unknown fields go to bottom)
                     const preferredOrder = [
+                        'show_in_snackbar',
+                        'title',
+                        'text',
+                        'badge',
+                        'badge_color',
+                        'date',
+                        'link',
                         'name',
                         'subtitle',
                         'email',
                         'passing_year',
                         'thesis',
-                        'title',
                         'author',
-                        'link',
                         'published_at',
                         'doi',
                         'impact_factor'

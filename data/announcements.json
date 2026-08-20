@@ -1,7 +1,38 @@
 [
     {
-        "text": "Stay Tuned :)",
+        "title": "Lab Update",
+        "text": "The Cybersecurity Lab welcomes a new batch of M.Tech researchers.",
         "link": "",
-        "badge": ""
+        "badge": "New",
+        "badge_color": "bg-primary",
+        "date": "August 2026",
+        "show_in_snackbar": true
+    },
+    {
+        "title": "Paper Accepted",
+        "text": "Our paper on LLM Security was accepted at IEEE TIFS.",
+        "link": "",
+        "badge": "Paper",
+        "badge_color": "bg-info text-dark",
+        "date": "July 2026",
+        "show_in_snackbar": false
+    },
+    {
+        "title": "Achievement",
+        "text": "Secured 2nd runner-up position at the National Hackathon.",
+        "link": "",
+        "badge": "Award",
+        "badge_color": "bg-secondary",
+        "date": "June 2026",
+        "show_in_snackbar": true
+    },
+    {
+        "title": "Funding",
+        "text": "Received a new grant from MHA for Blockchain Security research.",
+        "link": "",
+        "badge": "Grant",
+        "badge_color": "bg-success",
+        "date": "May 2026",
+        "show_in_snackbar": false
     }
 ]
