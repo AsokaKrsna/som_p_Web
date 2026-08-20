@@ -6,12 +6,14 @@
 $page_title = "Cybersecurity Lab | Dr. Somanath Tripathy";
 $sideNavItems = [
     ['href' => '#lab-hero', 'section' => 'lab-hero', 'text' => 'Lab Home', 'tip' => 'Top of page'],
+    ['href' => '#about-lab', 'section' => 'about-lab', 'text' => 'About the Lab', 'tip' => 'Mission & Vision'],
     ['href' => '#head-of-research', 'section' => 'head-of-research', 'text' => 'Research Group', 'tip' => 'Group Head'],
     ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
     ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
     ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
     ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours'],
-    ['href' => '#life-at-lab', 'section' => 'life-at-lab', 'text' => 'Life at Lab', 'tip' => 'Lab gallery']
+    ['href' => '#life-at-lab', 'section' => 'life-at-lab', 'text' => 'Life at Lab', 'tip' => 'Lab gallery'],
+    ['href' => '#join-us', 'section' => 'join-us', 'text' => 'Join Us', 'tip' => 'Contact & Openings']
 ];
 include 'components/header.php';
 
