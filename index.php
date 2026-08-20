@@ -51,8 +51,12 @@ function loadJsonData($file, $visibilityKey = null)
 function renderPublicationTable($items)
 {
     $counter = count($items);
-    foreach ($items as $pub): ?>
-        <tr>
+    $idx = 0;
+    foreach ($items as $pub): 
+        $display = ($idx < 5) ? '' : 'style="display: none;"';
+        $idx++;
+    ?>
+        <tr class="pub-row" <?= $display ?>>
             <td>
                 <p><strong><?= $counter-- ?>.</strong>
                     <?php if (!empty($pub['author'])): ?>
@@ -94,6 +98,7 @@ $memberships = loadJsonData('memberships.json');
 $editorships = loadJsonData('editorships.json');
 $awards = loadJsonData('awards_honours.json');
 $adminResponsibilities = loadJsonData('admin_responsibilities.json');
+$otherResponsibilities = loadJsonData('other_responsibilities.json');
 $profile = loadJsonData('profile_content.json');
 ?>
 
@@ -148,6 +153,30 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
+<!-- News & Highlights -->
+<section id="news" class="bio-section pt-4">
+    <div class="container">
+        <h2 class="section-title">News & Highlights</h2>
+        <div class="news-ticker-container" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); max-height: 250px; overflow-y: auto;">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-3 border-bottom pb-2">
+                    <span class="badge bg-primary me-2">New</span> <strong>Lab Update:</strong> The Cybersecurity Lab welcomes a new batch of M.Tech researchers. <span class="text-muted small">August 2026</span>
+                </li>
+                <li class="mb-3 border-bottom pb-2">
+                    <span class="badge bg-info text-dark me-2">Paper</span> <strong>Accepted:</strong> Our paper on LLM Security was accepted at IEEE TIFS. <span class="text-muted small">July 2026</span>
+                </li>
+                <li class="mb-3 border-bottom pb-2">
+                    <span class="badge bg-secondary me-2">Award</span> <strong>Achievement:</strong> Secured 2nd runner-up position at the National Hackathon. <span class="text-muted small">June 2026</span>
+                </li>
+                <li class="mb-2">
+                    <span class="badge bg-success me-2">Grant</span> <strong>Funding:</strong> Received a new grant from MHA for Blockchain Security research. <span class="text-muted small">May 2026</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
 <!-- Section 2: Editorial Bio -->
 <section id="bio" class="editorial-bio">
     <div class="container">
@@ -189,6 +218,103 @@ $profile = loadJsonData('profile_content.json');
                 </tbody>
             </table>
         </div>
+    </div>
+</section>
+
+<!-- Section 3: Publications -->
+<section id="publications" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Publications</h2>
+
+        <ul class="nav nav-tabs" id="pubTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="authored-books-tab" data-bs-toggle="tab" data-bs-target="#authored-books-tab-pane"
+                    type="button" role="tab" aria-controls="authored-books-tab-pane" aria-selected="true">Books</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane"
+                    type="button" role="tab" aria-controls="books-tab-pane" aria-selected="false">Edited Books &
+                    Chapters</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button"
+                    role="tab" aria-controls="pub-tab-pane" aria-selected="false">Journals</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane"
+                    type="button" role="tab" aria-controls="conf-tab-pane" aria-selected="false">Conferences</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="prints-tab" data-bs-toggle="tab" data-bs-target="#prints-tab-pane"
+                    type="button" role="tab" aria-controls="prints-tab-pane" aria-selected="false">Pre Prints</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pubTabContent">
+            <div class="tab-pane fade show active" id="authored-books-tab-pane" role="tabpanel" aria-labelledby="authored-books-tab"
+                tabindex="0">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
+                    <?php renderPublicationTable($publications['authored_books'] ?? []); ?>
+                </tbody></table></div>
+            </div>
+
+            <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
+                tabindex="0">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
+                    <?php renderPublicationTable($publications['books'] ?? []); ?>
+                </tbody></table></div>
+            </div>
+
+            <div class="tab-pane fade" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
+                    <?php renderPublicationTable($publications['journals'] ?? []); ?>
+                </tbody></table></div>
+            </div>
+
+            <div class="tab-pane fade" id="conf-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
+                    <?php renderPublicationTable($publications['conferences'] ?? []); ?>
+                </tbody></table></div>
+            </div>
+
+            <div class="tab-pane fade" id="prints-tab-pane" role="tabpanel" aria-labelledby="prints-tab" tabindex="0">
+                <div class="table-responsive"><table class="table custom-table"><tbody>
+                    <?php renderPublicationTable($publications['preprints'] ?? []); ?>
+                </tbody></table></div>
+            </div>
+        
+        <div class="text-center mt-4">
+            <button id="seeMorePubsBtn" class="btn btn-outline-primary rounded-pill px-4" onclick="showMorePubs()">See More <i class="fa fa-chevron-down ms-1"></i></button>
+        </div>
+        <script>
+        function showMorePubs() {
+            const activeTabPane = document.querySelector('#pubTabContent .tab-pane.active');
+            if (!activeTabPane) return;
+            const hiddenRows = activeTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+            for (let i = 0; i < 10 && i < hiddenRows.length; i++) {
+                hiddenRows[i].style.display = '';
+            }
+            const remaining = activeTabPane.querySelectorAll('.pub-row[style*="display: none"]');
+            if (remaining.length === 0) {
+                document.getElementById('seeMorePubsBtn').style.display = 'none';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const pubTabs = document.querySelectorAll('#pubTab [data-bs-toggle="tab"]');
+            pubTabs.forEach(tab => {
+                tab.addEventListener('shown.bs.tab', function (event) {
+                    const targetPane = document.querySelector(event.target.getAttribute('data-bs-target'));
+                    const hiddenRows = targetPane.querySelectorAll('.pub-row[style*="display: none"]');
+                    if (hiddenRows.length === 0) {
+                        document.getElementById('seeMorePubsBtn').style.display = 'none';
+                    } else {
+                        document.getElementById('seeMorePubsBtn').style.display = 'inline-block';
+                    }
+                });
+            });
+        });
+        </script>
     </div>
 </section>
 
@@ -382,71 +508,34 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- Section 3: Publications -->
-<section id="publications" class="bio-section pt-4">
+<!-- Section: Other Responsibilities -->
+<section id="other-responsibilities" class="bio-section pt-4">
 
     <div class="container">
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title">Other Responsibilities</h2>
 
-        <ul class="nav nav-tabs" id="pubTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="authored-books-tab" data-bs-toggle="tab" data-bs-target="#authored-books-tab-pane"
-                    type="button" role="tab" aria-controls="authored-books-tab-pane" aria-selected="true">Books</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane"
-                    type="button" role="tab" aria-controls="books-tab-pane" aria-selected="false">Edited Books &
-                    Chapters</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pub-tab" data-bs-toggle="tab" data-bs-target="#pub-tab-pane" type="button"
-                    role="tab" aria-controls="pub-tab-pane" aria-selected="false">Journals</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane"
-                    type="button" role="tab" aria-controls="conf-tab-pane" aria-selected="false">Conferences</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="prints-tab" data-bs-toggle="tab" data-bs-target="#prints-tab-pane"
-                    type="button" role="tab" aria-controls="prints-tab-pane" aria-selected="false">Pre Prints</button>
-            </li>
+        <ul class="pub-list ps-4">
+            <?php foreach ($otherResponsibilities as $resp): ?>
+                <li class="mb-3 border-bottom pb-2 section-list-item">
+                    <span class="entry-text">
+                        <strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong><?php
+                            $parts = [];
+                            if (!empty($resp['organization'])) $parts[] = htmlspecialchars($resp['organization']);
+                            if (!empty($resp['institution'])) $parts[] = htmlspecialchars($resp['institution']);
+                            if (!empty($parts)) echo ', ' . implode(', ', $parts);
+                        ?>
+                        <?php if (!empty($resp['duration'])): ?>
+                            <span class="text-muted">[<?= htmlspecialchars($resp['duration']) ?>]</span>
+                        <?php endif; ?>
+                    </span>
+                </li>
+            <?php endforeach; ?>
         </ul>
-
-        <div class="tab-content" id="pubTabContent">
-            <div class="tab-pane fade show active" id="authored-books-tab-pane" role="tabpanel" aria-labelledby="authored-books-tab"
-                tabindex="0">
-                <div class="table-responsive"><table class="table custom-table"><tbody>
-                    <?php renderPublicationTable($publications['authored_books'] ?? []); ?>
-                </tbody></table></div>
-            </div>
-
-            <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab"
-                tabindex="0">
-                <div class="table-responsive"><table class="table custom-table"><tbody>
-                    <?php renderPublicationTable($publications['books'] ?? []); ?>
-                </tbody></table></div>
-            </div>
-
-            <div class="tab-pane fade" id="pub-tab-pane" role="tabpanel" aria-labelledby="pub-tab" tabindex="0">
-                <div class="table-responsive"><table class="table custom-table"><tbody>
-                    <?php renderPublicationTable($publications['journals'] ?? []); ?>
-                </tbody></table></div>
-            </div>
-
-            <div class="tab-pane fade" id="conf-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
-                <div class="table-responsive"><table class="table custom-table"><tbody>
-                    <?php renderPublicationTable($publications['conferences'] ?? []); ?>
-                </tbody></table></div>
-            </div>
-
-            <div class="tab-pane fade" id="prints-tab-pane" role="tabpanel" aria-labelledby="prints-tab" tabindex="0">
-                <div class="table-responsive"><table class="table custom-table"><tbody>
-                    <?php renderPublicationTable($publications['preprints'] ?? []); ?>
-                </tbody></table></div>
-            </div>
-        </div>
     </div>
 </section>
+
+
+
 
 <!-- Section 10: Awards and Honours -->
 <section id="awards" class="bio-section pt-4">

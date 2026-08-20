@@ -80,6 +80,7 @@ function getCount($file) {
                         <a href="raw_editor.php?file=editorships.json" class="btn btn-outline-secondary text-start"><i class="fa fa-pencil-square-o"></i> Editorships (<?= getCount('editorships.json') ?>)</a>
                         <a href="raw_editor.php?file=awards_honours.json" class="btn btn-outline-secondary text-start"><i class="fa fa-trophy"></i> Awards & Honours (<?= getCount('awards_honours.json') ?>)</a>
                         <a href="raw_editor.php?file=admin_responsibilities.json" class="btn btn-outline-secondary text-start"><i class="fa fa-briefcase"></i> Administrative Responsibilities (<?= getCount('admin_responsibilities.json') ?>)</a>
+                        <a href="raw_editor.php?file=other_responsibilities.json" class="btn btn-outline-secondary text-start"><i class="fa fa-tasks"></i> Other Responsibilities (<?= getCount('other_responsibilities.json') ?>)</a>
                     </div>
                 </div>
             </div>

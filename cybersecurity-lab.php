@@ -99,6 +99,9 @@ function renderStudentCard($member, $index, $isPast = false) {
             <div class="card-index-badge"><?= $index ?></div>
             <img src="<?= $imageSrc ?>" class="avatar" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
             <h5><?= htmlspecialchars($name) ?></h5>
+            <?php if (!empty($member['subtitle'])): ?>
+                <div class="text-muted small mb-2" style="font-size: 0.85rem; font-weight: 500;"><?= htmlspecialchars($member['subtitle']) ?></div>
+            <?php endif; ?>
             
             <?php if ($isPast): ?>
                 <?php if ($passingYear): ?>
@@ -243,11 +246,14 @@ if (is_array($projects)) {
     </div>
 
     <div class="container lab-hero-content">
-        <!-- Logo Placeholder -->
-        <div class="hero-lab-logo">
-            <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img">
+        <div class="row align-items-center">
+            <div class="col-md-auto text-center text-md-start mb-3 mb-md-0">
+                <img src="images/lab_logo.png" alt="Lab Logo" class="lab-logo-img" style="max-width: 120px; border-radius: 50%; box-shadow: 0 0 20px rgba(8, 145, 178, 0.4);">
+            </div>
+            <div class="col-md text-center text-md-start">
+                <h1 class="lab-hero-title mb-2" style="font-size: clamp(2rem, 5vw, 3.5rem);"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
+            </div>
         </div>
-        <h1 class="lab-hero-title"><?= htmlspecialchars($heroContent['title'] ?? 'Cybersecurity Lab') ?></h1>
         <h2 class="lab-hero-subtitle"><?= htmlspecialchars($heroContent['subtitle'] ?? '') ?></h2>
         <?php if (!empty($heroContent['location'])): ?>
             <p class="lab-hero-location"><i class="fa fa-map-marker" style="margin-right: 6px;"></i><?= htmlspecialchars($heroContent['location']) ?></p>

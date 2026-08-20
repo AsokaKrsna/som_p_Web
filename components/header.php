@@ -59,7 +59,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
                 <?php
                 if (!isset($sideNavItems)) {
                     $sideNavItems = [
-                        ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Home / Bio', 'tip' => 'Top of page'],
+                        ['href' => 'index.php#home', 'section' => 'home', 'text' => 'Homepage@som', 'tip' => 'Top of page'],
                         ['href' => 'index.php#patents', 'section' => 'patents', 'text' => 'Patents', 'tip' => 'Filed & granted patents'],
                         ['href' => 'index.php#projects', 'section' => 'projects', 'text' => 'Projects', 'tip' => 'Research & consulting projects'],
                         ['href' => 'index.php#teaching', 'section' => 'teaching', 'text' => 'Teaching', 'tip' => 'Courses taught'],
@@ -88,7 +88,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
     <div class="floating-action-bar" id="mainNav">
         <?php if (basename($_SERVER['PHP_SELF']) === 'cybersecurity-lab.php'): ?>
         <a href="index.php" class="floating-btn d-none d-lg-flex">
-            <i class="fa fa-home"></i> <span>Home / Bio</span>
+            <i class="fa fa-home"></i> <span>Homepage@som</span>
         </a>
         <?php else: ?>
         <a href="cybersecurity-lab.php" class="floating-btn d-none d-lg-flex">
@@ -114,7 +114,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
         <div class="overlay-content-wrapper">
             <div class="nav-column">
                 <span class="nav-label">Sections</span>
-                <a class="nav-link-large" href="index.php#home">Home / Bio</a>
+                <a class="nav-link-large" href="index.php#home">Homepage@som</a>
                 <a class="nav-link-large" href="index.php#patents">Patents</a>
                 <a class="nav-link-large" href="index.php#projects">Projects</a>
                 <a class="nav-link-large" href="index.php#teaching">Teaching</a>
@@ -128,7 +128,7 @@ $page_description = isset($page_description) ? $page_description : "Academic por
             <div class="nav-column">
                 <span class="nav-label">Links</span>
                 <?php if (basename($_SERVER['PHP_SELF']) === 'cybersecurity-lab.php'): ?>
-                <a class="nav-link-large" href="index.php">Home / Bio</a>
+                <a class="nav-link-large" href="index.php">Homepage@som</a>
                 <?php else: ?>
                 <a class="nav-link-large" href="cybersecurity-lab.php">Cybersecurity Lab</a>
                 <?php endif; ?>
