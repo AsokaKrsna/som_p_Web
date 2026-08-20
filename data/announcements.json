@@ -13,7 +13,7 @@
         "text": "The Cybersecurity Lab welcomes a new batch of M.Tech researchers.",
         "link": "",
         "badge": "New",
-        "badge_color": "bg-primary",
+        "badge_color": "bg-warning text-dark",
         "date": "August 2026",
         "show_in_snackbar": true
     },
