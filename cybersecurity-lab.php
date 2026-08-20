@@ -373,29 +373,6 @@ if (is_array($projects)) {
                 </div>
             </div>
         </div>
-
-        <!-- Row 2: Join Our Group (Sleek Bar) -->
-        <div class="row" id="join-us">
-            <div class="col-12">
-                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); border-radius: 15px; box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);">
-                    <div class="join-text text-center text-md-start mb-3 mb-md-0 pe-md-4">
-                        <h4 class="text-white mb-2" style="font-weight: 700;"><i class="fa fa-users me-2"></i><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h4>
-                        <p class="text-white-50 mb-0" style="font-size: 0.95rem; color: rgba(255,255,255,0.9) !important;">
-                            <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
-                            <?php if (!empty($joinUsContent['note'])): ?>
-                                <br><small><em><?= htmlspecialchars($joinUsContent['note']) ?></em></small>
-                            <?php endif; ?>
-                        </p>
-                    </div>
-                    <div class="join-action flex-shrink-0">
-                        <?php if (!empty($joinUsContent['email'])): ?>
-                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-light btn-lg fw-bold" style="border-radius: 50px; color: #0e7490 !important; padding-left: 30px; padding-right: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                            <i class="fa fa-envelope-o me-2"></i> Email Us
-                        </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -711,6 +688,39 @@ if (is_array($projects)) {
     </div>
 </section>
 <?php endif; ?>
+
+
+<!-- Join Our Group -->
+<section id="join-us" class="bio-section py-5 mt-4" style="background: var(--bg-alt); position: relative; overflow: hidden;">
+    <!-- Background glowing orbs -->
+    <div style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4 p-md-5" style="background: linear-gradient(135deg, rgba(8,145,178,0.95), rgba(14,116,144,0.95)); border-radius: 20px; box-shadow: 0 15px 35px rgba(8, 145, 178, 0.25), inset 0 1px 1px rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="join-text text-center text-md-start mb-4 mb-md-0 pe-md-5">
+                        <h3 class="text-white mb-3" style="font-weight: 800; letter-spacing: -0.5px;"><i class="fa fa-rocket me-3"></i><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
+                        <p class="text-white-50 mb-0" style="font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.9) !important;">
+                            <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
+                            <?php if (!empty($joinUsContent['note'])): ?>
+                                <br><span class="mt-2 d-inline-block p-2 rounded" style="background: rgba(0,0,0,0.15); font-size: 0.9rem;"><em><i class="fa fa-info-circle me-1"></i><?= htmlspecialchars($joinUsContent['note']) ?></em></span>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <div class="join-action flex-shrink-0">
+                        <?php if (!empty($joinUsContent['email'])): ?>
+                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-light btn-lg fw-bold d-flex align-items-center justify-content-center" style="border-radius: 50px; color: #0891b2 !important; padding: 15px 35px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);" onmouseover="this.style.transform='translateY(-4px) scale(1.05)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';">
+                            <i class="fa fa-envelope fs-5 me-2"></i> Get in Touch
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Particle Network & Stat Counter Scripts -->
 <script>
