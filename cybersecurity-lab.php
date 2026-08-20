@@ -725,26 +725,32 @@ if (is_array($projects)) {
 </section>
 <?php endif; ?>
 
-<!-- Glimpses: Scroll-Driven Horizontal Takeover Gallery -->
+<!-- Glimpses: Scroll-Driven Horizontal Showcase Gallery -->
 <?php if (!empty($gallery)): ?>
 <?php $slideCount = count($gallery); ?>
-<section id="glimpses" class="glimpses-section" style="height: <?= ($slideCount * 100) ?>vh;">
+<section id="glimpses" class="glimpses-section" style="height: <?= ($slideCount * 75) ?>vh;">
     <div class="glimpses-sticky">
-        <!-- Left Info Panel -->
-        <div class="glimpses-info-panel">
-            <h2 class="glimpses-heading">Glimpses</h2>
-            <p class="glimpses-subtext">Moments &amp; milestones from the Cybersecurity Lab.</p>
-            <div class="glimpses-counter">
-                <span class="glimpses-counter-current" id="glimpsesCounterCurrent">01</span>
-                <span class="glimpses-counter-sep">/</span>
-                <span class="glimpses-counter-total"><?= str_pad($slideCount, 2, '0', STR_PAD_LEFT) ?></span>
-            </div>
-            <div class="glimpses-progress-track">
-                <div class="glimpses-progress-fill" id="glimpsesProgressFill"></div>
+        <!-- Top Header inside Container (Respects left side navigation & top bar) -->
+        <div class="container mb-3 glimpses-header-container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3">
+                <div>
+                    <h2 class="section-title text-start mb-1">Glimpses</h2>
+                    <p class="text-muted mb-0" style="font-size: 1rem;">Moments &amp; milestones from the Cybersecurity Lab.</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="glimpses-counter">
+                        <span class="glimpses-counter-current" id="glimpsesCounterCurrent">01</span>
+                        <span class="glimpses-counter-sep">/</span>
+                        <span class="glimpses-counter-total"><?= str_pad($slideCount, 2, '0', STR_PAD_LEFT) ?></span>
+                    </div>
+                    <div class="glimpses-progress-track">
+                        <div class="glimpses-progress-fill" id="glimpsesProgressFill"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Horizontal Photo Track -->
+        <!-- Horizontal Photo Viewport -->
         <div class="glimpses-viewport">
             <div class="glimpses-track" id="glimpsesTrack">
                 <?php foreach ($gallery as $index => $img):
@@ -757,7 +763,7 @@ if (is_array($projects)) {
                     <div class="glimpse-slide-overlay"></div>
                     <div class="glimpse-slide-caption">
                         <?php if ($date): ?>
-                            <span class="glimpse-slide-date"><?= htmlspecialchars($date) ?></span>
+                            <span class="glimpse-slide-date"><i class="fa fa-calendar-o me-1"></i><?= htmlspecialchars($date) ?></span>
                         <?php endif; ?>
                         <h4 class="glimpse-slide-title"><?= htmlspecialchars($title) ?></h4>
                         <?php if ($desc): ?>
@@ -769,9 +775,9 @@ if (is_array($projects)) {
             </div>
         </div>
 
-        <!-- Scroll Hint -->
+        <!-- Compact Scroll Hint -->
         <div class="glimpses-scroll-hint" id="glimpsesScrollHint">
-            <i class="fa fa-long-arrow-down"></i> Scroll to explore
+            <i class="fa fa-arrows-h me-1"></i> Scroll down to explore gallery
         </div>
     </div>
 </section>
@@ -804,14 +810,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(() => {
+            if (window.innerWidth <= 768) {
+                track.style.transform = 'none';
+                ticking = false;
+                return;
+            }
+
             const rect = section.getBoundingClientRect();
             const scrollableH = section.offsetHeight - window.innerHeight;
             const scrolled = -rect.top;
             const progress = Math.max(0, Math.min(1, scrolled / scrollableH));
 
             const trackW = track.scrollWidth;
-            const viewportW = track.parentElement.offsetWidth;
-            const maxTranslate = trackW - viewportW;
+            const maxTranslate = Math.max(0, trackW - window.innerWidth + 80);
             track.style.transform = `translate3d(${-progress * maxTranslate}px, 0, 0)`;
 
             if (progressEl) progressEl.style.width = `${progress * 100}%`;
@@ -819,13 +830,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeIdx = Math.min(Math.floor(progress * slides.length), slides.length - 1);
             if (counterEl) counterEl.textContent = String(activeIdx + 1).padStart(2, '0');
 
-            if (scrollHint) scrollHint.style.opacity = progress > 0.02 ? '0' : '1';
+            if (scrollHint) scrollHint.style.opacity = progress > 0.05 ? '0' : '0.85';
 
             ticking = false;
         });
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
 
     // Lightbox
