@@ -700,20 +700,20 @@ if (is_array($projects)) {
     <div class="container" style="position: relative; z-index: 1;">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4 p-md-5" style="background: linear-gradient(135deg, rgba(8,145,178,0.95), rgba(14,116,144,0.95)); border-radius: 20px; box-shadow: 0 15px 35px rgba(8, 145, 178, 0.25), inset 0 1px 1px rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4 p-md-5" style="background: var(--glass-bg); border-radius: 20px; box-shadow: var(--glass-shadow); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);">
                     <div class="join-text text-center text-md-start mb-4 mb-md-0 pe-md-5">
-                        <h3 class="text-white mb-3" style="font-weight: 800; letter-spacing: -0.5px;"><i class="fa fa-rocket me-3"></i><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
-                        <p class="text-white-50 mb-0" style="font-size: 1.05rem; line-height: 1.6; color: rgba(255,255,255,0.9) !important;">
+                        <h3 class="mb-3" style="font-weight: 700; color: var(--text-main); letter-spacing: -0.5px;"><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
+                        <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted);">
                             <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
                             <?php if (!empty($joinUsContent['note'])): ?>
-                                <br><span class="mt-2 d-inline-block p-2 rounded" style="background: rgba(0,0,0,0.15); font-size: 0.9rem;"><em><i class="fa fa-info-circle me-1"></i><?= htmlspecialchars($joinUsContent['note']) ?></em></span>
+                                <br><span class="mt-3 d-inline-block ps-3" style="border-left: 3px solid var(--accent-blue); font-size: 0.9rem; color: var(--text-muted); opacity: 0.8;"><em><?= htmlspecialchars($joinUsContent['note']) ?></em></span>
                             <?php endif; ?>
                         </p>
                     </div>
                     <div class="join-action flex-shrink-0">
                         <?php if (!empty($joinUsContent['email'])): ?>
-                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-light btn-lg fw-bold d-flex align-items-center justify-content-center" style="border-radius: 50px; color: #0891b2 !important; padding: 15px 35px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);" onmouseover="this.style.transform='translateY(-4px) scale(1.05)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';">
-                            <i class="fa fa-envelope fs-5 me-2"></i> Get in Touch
+                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn d-flex align-items-center justify-content-center" style="background: var(--accent-blue); color: white; border-radius: 12px; padding: 12px 30px; font-weight: 600; box-shadow: 0 4px 15px rgba(8, 145, 178, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(8, 145, 178, 0.3)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(8, 145, 178, 0.2)';">
+                            <i class="fa fa-envelope fs-6 me-2"></i> Get in Touch
                         </a>
                         <?php endif; ?>
                     </div>
