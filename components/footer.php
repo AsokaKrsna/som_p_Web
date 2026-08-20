@@ -5,7 +5,11 @@
     <footer class="footer">
         <div class="container">
             <p>Copyright <i aria-hidden="true" class="fa fa-copyright"></i> Dr. Somanath Tripathy | IIT Patna</p>
-            <div class="credit">Made with <i class="fa fa-heart" style="color:red;"></i> by <a href="https://www.linkedin.com/in/durjoy-majumdar/" target="_blank" id="developer-credit" style="color: inherit; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-blue)'" onmouseout="this.style.color='inherit'">Durjoy Majumdar</a></div>
+            <div class="credit">
+                <span style="opacity: 0.9;">Designed & Developed by</span> <a href="https://www.linkedin.com/in/durjoy-majumdar/" target="_blank" style="color: inherit; text-decoration: none; font-weight: bold; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-blue)'" onmouseout="this.style.color='inherit'">Durjoy Majumdar</a> 
+                <span style="opacity: 0.5; margin: 0 10px;">|</span>
+                <span style="opacity: 0.9;">Data & Support by</span> <a href="https://www.linkedin.com/in/ankur-jain-99821157/" target="_blank" style="color: inherit; text-decoration: none; font-weight: 500; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-blue)'" onmouseout="this.style.color='inherit'">Ankur Jain</a>
+            </div>
         </div>
     </footer>
 
