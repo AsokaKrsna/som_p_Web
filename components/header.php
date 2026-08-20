@@ -24,8 +24,8 @@ $page_description = isset($page_description) ? $page_description : "Academic por
     <meta property="og:description" content="<?= htmlspecialchars($page_description) ?>"/>
     <meta property="og:site_name" content="Dr. Somanath Tripathy — IIT Patna"/>
 
-    <!-- Favicon (inline SVG data URI — no external file needed) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>"/>
+    <!-- Favicon -->
+    <link rel="icon" href="images/lab_logo.png" type="image/png"/>
 
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
