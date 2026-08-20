@@ -153,30 +153,6 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- News & Highlights -->
-<section id="news" class="bio-section pt-4">
-    <div class="container">
-        <h2 class="section-title">News & Highlights</h2>
-        <div class="news-ticker-container" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); max-height: 250px; overflow-y: auto;">
-            <ul class="list-unstyled mb-0">
-                <li class="mb-3 border-bottom pb-2">
-                    <span class="badge bg-primary me-2">New</span> <strong>Lab Update:</strong> The Cybersecurity Lab welcomes a new batch of M.Tech researchers. <span class="text-muted small">August 2026</span>
-                </li>
-                <li class="mb-3 border-bottom pb-2">
-                    <span class="badge bg-info text-dark me-2">Paper</span> <strong>Accepted:</strong> Our paper on LLM Security was accepted at IEEE TIFS. <span class="text-muted small">July 2026</span>
-                </li>
-                <li class="mb-3 border-bottom pb-2">
-                    <span class="badge bg-secondary me-2">Award</span> <strong>Achievement:</strong> Secured 2nd runner-up position at the National Hackathon. <span class="text-muted small">June 2026</span>
-                </li>
-                <li class="mb-2">
-                    <span class="badge bg-success me-2">Grant</span> <strong>Funding:</strong> Received a new grant from MHA for Blockchain Security research. <span class="text-muted small">May 2026</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
 <!-- Section 2: Editorial Bio -->
 <section id="bio" class="editorial-bio">
     <div class="container">

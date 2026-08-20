@@ -34,7 +34,7 @@
             "image": "pics/abhyudaya.jpeg",
             "name": "Abhyudaya Yadav",
             "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
-            "subtitle": "M.Tech by Research",
+            "subtitle": "",
             "research_area": "LLM security"
         },
         {
@@ -60,31 +60,31 @@
         },
         {
             "image": "pics/ayush.jpeg",
-            "name": "Ayush Kayasth (Mtech by Research)",
+            "name": "Ayush Kayasth",
             "email": "ayush_2613cs04 [at] iitp.ac.in",
             "research_area": "Futuristic Security",
-            "subtitle": ""
+            "subtitle": "M.Tech by Research"
         },
         {
             "image": "pics/sakina.jpeg",
-            "name": "Sakina Bohra (Mtech by Research)",
+            "name": "Sakina Bohra",
             "email": "sakina_2613cs01 [at] iitp.ac.in",
             "research_area": "Futuristic Security",
-            "subtitle": ""
+            "subtitle": "M.Tech by Research"
         },
         {
             "image": "pics/ajay.jpeg",
-            "name": "Ajay Mundiyara (Mtech by Research)",
+            "name": "Ajay Mundiyara",
             "email": "ajay_2613cs02 [at] iitp.ac.in",
             "research_area": "Futuristic Security",
-            "subtitle": ""
+            "subtitle": "M.Tech by Research"
         },
         {
             "image": "pics/kushagra.jpeg",
-            "name": "Kushagra Mathur (Mtech by Research)",
+            "name": "Kushagra Mathur",
             "email": "kushagra_2613cs03 [at] iitp.ac.in",
             "research_area": "Futuristic Security",
-            "subtitle": ""
+            "subtitle": "M.Tech by Research"
         }
     ],
     "past_phd": [
@@ -126,12 +126,12 @@
         },
         {
             "image": "pics/Vikash.png",
-            "name": "Dr. Vikash Kumar Rai ( Joint supervision of Prof. Jimson Mathew )",
+            "name": "Dr. Vikash Kumar Rai",
             "passing_year": "2021",
             "current_affiliation": "Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
             "thesis": "Design and Analysis of Lightweight Cryptographic Techniques for IoT Devices",
             "email": "vikash.rai [at] nfsu.ac.in",
-            "subtitle": ""
+            "subtitle": " ( Joint supervision of Prof. Jimson Mathew )"
         },
         {
             "image": "pics/harsh.jpg",
@@ -171,12 +171,12 @@
         },
         {
             "image": "pics/susmita.jpg",
-            "name": "Dr. Susmita Palmal (Joint supervision of Dr. Sriparna Saha )",
+            "name": "Dr. Susmita Palmal ",
             "passing_year": "2024",
             "current_affiliation": "Assistant Professor, Department of Computer Science, Birla Institute of Technology, Mesra, Ramgarh, Jharkhand.",
             "thesis": "Development of Multi-View Machine Learning Models for Disease Causative Agent and Prognosis Prediction",
             "email": "susmita.palmal [at] bitmesra.ac.in",
-            "subtitle": ""
+            "subtitle": "(Joint supervision of Dr. Sriparna Saha )"
         },
         {
             "image": "pics/vivek.png",
@@ -344,14 +344,14 @@
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural\u00a0networks",
+            "thesis": "Adversarial attack against deep neural networks",
             "subtitle": ""
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection\u00a0system",
+            "thesis": "Evasion attack against fraud detection system",
             "subtitle": ""
         },
         {

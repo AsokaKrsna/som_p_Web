@@ -220,6 +220,11 @@ function renderForm() {
                     
                     // Preferred sorting order (globally applied, unknown fields go to bottom)
                     const preferredOrder = [
+                        'name',
+                        'subtitle',
+                        'email',
+                        'passing_year',
+                        'thesis',
                         'title',
                         'author',
                         'link',

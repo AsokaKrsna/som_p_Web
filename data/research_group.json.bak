@@ -4,25 +4,29 @@
             "image": "pics/ankur.png",
             "name": "Ankur Jain",
             "email": "ankur_2221cs19 [at] iitp.ac.in",
-            "research_area": "Blockchain Security"
+            "research_area": "Blockchain Security",
+            "subtitle": ""
         },
         {
             "image": "pics/sanaya.jpeg",
             "name": "Sanaya Malik",
             "email": "sanaya_2422cs21 [at] iitp.ac.in",
-            "research_area": "Cyber Security"
+            "research_area": "Cyber Security",
+            "subtitle": ""
         },
         {
             "image": "pics/shalini.jpeg",
             "name": "Shalini Singh",
             "email": "Shalini_2521cs21 [at] iitp.ac.in",
-            "research_area": "Cyber Security"
+            "research_area": "Cyber Security",
+            "subtitle": ""
         },
         {
             "image": "pics/biswarupa.jpeg",
             "name": "Biswarupa Murmu",
             "email": "biswarupa_2522cs12 [at] iitp.ac.in",
-            "research_area": "Cyber Security"
+            "research_area": "Cyber Security",
+            "subtitle": ""
         }
     ],
     "mtech": [
@@ -30,49 +34,57 @@
             "image": "pics/abhyudaya.jpeg",
             "name": "Abhyudaya Yadav",
             "email": "abhyudaya_2511ai04 [at] iitp.ac.in",
+            "subtitle": "",
             "research_area": "LLM security"
         },
         {
             "image": "pics/vivekanand.jpeg",
             "name": "Vivekanand Pandey",
             "email": "vivekanand_2511ai54 [at] iitp.ac.in",
-            "research_area": "LLM security"
+            "research_area": "LLM security",
+            "subtitle": ""
         },
         {
             "image": "pics/vedprakash.jpg",
             "name": "Ved Prakash",
             "email": "ved_2511ai58 [at] iitp.ac.in",
-            "research_area": "LLM security"
+            "research_area": "LLM security",
+            "subtitle": ""
         },
         {
             "image": "pics/durjoy.jpeg",
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25 [at] iitp.ac.in",
-            "research_area": "Blockchain Security"
+            "research_area": "Blockchain Security",
+            "subtitle": ""
         },
         {
             "image": "pics/ayush.jpeg",
             "name": "Ayush Kayasth (Mtech by Research)",
             "email": "ayush_2613cs04 [at] iitp.ac.in",
-            "research_area": "Futuristic Security"
+            "research_area": "Futuristic Security",
+            "subtitle": ""
         },
         {
             "image": "pics/sakina.jpeg",
             "name": "Sakina Bohra (Mtech by Research)",
             "email": "sakina_2613cs01 [at] iitp.ac.in",
-            "research_area": "Futuristic Security"
+            "research_area": "Futuristic Security",
+            "subtitle": ""
         },
         {
             "image": "pics/ajay.jpeg",
             "name": "Ajay Mundiyara (Mtech by Research)",
             "email": "ajay_2613cs02 [at] iitp.ac.in",
-            "research_area": "Futuristic Security (Mtech by Research)"
+            "research_area": "Futuristic Security",
+            "subtitle": ""
         },
         {
             "image": "pics/kushagra.jpeg",
-            "name": "Kushagra Mathur",
+            "name": "Kushagra Mathur (Mtech by Research)",
             "email": "kushagra_2613cs03 [at] iitp.ac.in",
-            "research_area": "Futuristic Security"
+            "research_area": "Futuristic Security",
+            "subtitle": ""
         }
     ],
     "past_phd": [
@@ -82,7 +94,8 @@
             "passing_year": "2014",
             "current_affiliation": "Associate Professor, IIIT Guwahati.",
             "thesis": "Secure Routing Techniques For Wireless Mesh Networks",
-            "email": "rakesh [at] iiitg.ac.in"
+            "email": "rakesh [at] iiitg.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/Sanjeet.png",
@@ -90,7 +103,8 @@
             "passing_year": "2019",
             "current_affiliation": "Assistant Professor, IIITDM Kancheepuram.",
             "thesis": "Design and Analysis of Techniques for Secure Cloud Storage Services",
-            "email": "sanjeetn [at] iiitdm.ac.in"
+            "email": "sanjeetn [at] iiitdm.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/Sumit.png",
@@ -98,7 +112,8 @@
             "passing_year": "2020",
             "current_affiliation": "Assistant Professor II, Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar.",
             "thesis": "Techniques for Efficeint and Secure File-Sharing in Peer to Peer Mobile Networks",
-            "email": "sumitkumar.fca [at] kiit.ac.in"
+            "email": "sumitkumar.fca [at] kiit.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/nemi.jpg",
@@ -106,7 +121,8 @@
             "passing_year": "2021",
             "current_affiliation": "Associate Professor, Central University of South Bihar (Gaya).",
             "thesis": "Some Techniques To Restrict Sensitive Data Leakage From Online Social Network",
-            "email": "nemichandra [at] cub.ac.in"
+            "email": "nemichandra [at] cub.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/Vikash.png",
@@ -114,7 +130,8 @@
             "passing_year": "2021",
             "current_affiliation": "Assistant Professor, National Forensic Sciences University (NFSU), Delhi.",
             "thesis": "Design and Analysis of Lightweight Cryptographic Techniques for IoT Devices",
-            "email": "vikash.rai [at] nfsu.ac.in"
+            "email": "vikash.rai [at] nfsu.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/harsh.jpg",
@@ -122,7 +139,8 @@
             "passing_year": "2023",
             "current_affiliation": "Assistant Professor, Indian Institute of Technology (BHU), Varanasi, Uttar Pradesh, India.",
             "thesis": "Security and Privacy Preserving Techniques For Federated Learning",
-            "email": "hkasyap.cse [at] iitbhu.ac.in"
+            "email": "hkasyap.cse [at] iitbhu.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/sushil.jpg",
@@ -130,7 +148,8 @@
             "passing_year": "2023",
             "current_affiliation": "Assistant Professor, Indian Institute of Technology Jodhpur, Jodhpur, Rajasthan, India.",
             "thesis": "Design and Analysis of Secure Off-Chain Transactions for Blockchain-based Payment Channel Networks",
-            "email": "susilmohanty [at] iitj.ac.in"
+            "email": "susilmohanty [at] iitj.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/srikant.png",
@@ -138,7 +157,8 @@
             "passing_year": "2024",
             "current_affiliation": "Assistant Professor, Department of Computer Science, S.R.M University Andhra Pradesh",
             "thesis": "Optimal Task Offloading and Secure Data Dissemination in Vehicular Cloud Computing",
-            "email": ""
+            "email": "",
+            "subtitle": ""
         },
         {
             "image": "pics/partha.jpg",
@@ -146,7 +166,8 @@
             "passing_year": "2024",
             "current_affiliation": "Associate Professor, Inspiria Knowledge Campus [under MAKAUT], West Bengal",
             "thesis": "Designing Security Techniques for Outsourced Data in Cloud Storage Services",
-            "email": "parthasarathi.iitp[at]gmail.com"
+            "email": "parthasarathi.iitp [at] gmail.com",
+            "subtitle": ""
         },
         {
             "image": "pics/susmita.jpg",
@@ -154,7 +175,8 @@
             "passing_year": "2024",
             "current_affiliation": "Assistant Professor, Department of Computer Science, Birla Institute of Technology, Mesra, Ramgarh, Jharkhand.",
             "thesis": "Development of Multi-View Machine Learning Models for Disease Causative Agent and Prognosis Prediction",
-            "email": "susmita.palmal [at] bitmesra.ac.in"
+            "email": "susmita.palmal [at] bitmesra.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/vivek.png",
@@ -162,7 +184,8 @@
             "passing_year": "2024",
             "current_affiliation": "",
             "thesis": "Development of an efficient signal processing method and embedded system for audio-based forest event monitoring",
-            "email": ""
+            "email": "",
+            "subtitle": ""
         },
         {
             "image": "pics/Narendra.jpg",
@@ -170,7 +193,8 @@
             "passing_year": "2025",
             "current_affiliation": "Assistant Professor, Department of Computer Science, Rajiv Gandhi Institute of Petroleum Technology, Jais Campus, Uttar Pradesh",
             "thesis": "AI-Driven Techniques for Early-Stage Malware Detection Using Static and Dynamic Analysis",
-            "email": "narendras@rgipt.ac.in"
+            "email": "narendras [at] rgipt.ac.in",
+            "subtitle": ""
         },
         {
             "image": "pics/debasmita.jpg",
@@ -178,7 +202,8 @@
             "passing_year": "2026",
             "current_affiliation": " Assistant Professor, S.R.M University Andhra Pradesh",
             "thesis": "Designing Security and Privacy aware  Deep Neural Network: Attacks and Defenses",
-            "email": "debasmita.m@srmap.edu.in"
+            "email": "debasmita.m [at] srmap.edu.in",
+            "subtitle": ""
         }
     ],
     "past_mtech": [
@@ -186,163 +211,190 @@
             "image": "",
             "name": "Subho Shankar Basu",
             "passing_year": "2015",
-            "thesis": "Secure Multicast Data transmission Technique For Internet of Things"
+            "thesis": "Secure Multicast Data transmission Technique For Internet of Things",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Karunakar Saroj",
             "passing_year": "2015",
-            "thesis": "Designing of Variable Length Block Cipher"
+            "thesis": "Designing of Variable Length Block Cipher",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Debapriya Chakraborty",
             "passing_year": "2015",
-            "thesis": "Some Results in Quantum Information Theory"
+            "thesis": "Some Results in Quantum Information Theory",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Basant Kumar Jha",
             "passing_year": "2016",
-            "thesis": "Privacy Preserving Technique for Smart Metering System"
+            "thesis": "Privacy Preserving Technique for Smart Metering System",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Praveen Kumar",
             "passing_year": "2017",
-            "thesis": "Preventing Session Hijacking and Cross Side Request Forgery using client side Proxy"
+            "thesis": "Preventing Session Hijacking and Cross Side Request Forgery using client side Proxy",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Aparna.C",
             "passing_year": "2017",
-            "thesis": "Malware Detection Using Machine Learning"
+            "thesis": "Malware Detection Using Machine Learning",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "A.K. Sinha",
             "passing_year": "2017",
-            "thesis": "Efficient Client side proxy for preventing session hijacking and cross site request forgery"
+            "thesis": "Efficient Client side proxy for preventing session hijacking and cross site request forgery",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Chanchal Suman",
             "passing_year": "2018",
-            "thesis": "Effective Unsupervised feature selection algortihm for Intrusion Detection system (Jointly Supervison of Dr. Sriparna Saha)"
+            "thesis": "Effective Unsupervised feature selection algortihm for Intrusion Detection system (Jointly Supervison of Dr. Sriparna Saha)",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Sunny Yadav",
             "passing_year": "2019",
-            "thesis": "Study of Zero day attack detection using one class classifiers"
+            "thesis": "Study of Zero day attack detection using one class classifiers",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Sanjay Murmu",
             "passing_year": "2020",
-            "thesis": "Password Generation, Guessing, Modelling and Strength Estimation"
+            "thesis": "Password Generation, Guessing, Modelling and Strength Estimation",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Narendra Singh Lodhi",
             "passing_year": "2020",
-            "thesis": "Collaborative Learning Based Effective Malware Detection System"
+            "thesis": "Collaborative Learning Based Effective Malware Detection System",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Ranu Maurya",
             "passing_year": "2021",
-            "thesis": "Development of a chatbot followed by Automated functional validation and Manual security Validation of chat bot"
+            "thesis": "Development of a chatbot followed by Automated functional validation and Manual security Validation of chat bot",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Arpan Mana",
             "passing_year": "2021",
-            "thesis": "Defending Poisoning Attack In Federated Learning"
+            "thesis": "Defending Poisoning Attack In Federated Learning",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Tama Ray Chowdhury",
             "passing_year": "2022",
-            "thesis": "Reverse Dialouge Generator for Chatbots"
+            "thesis": "Reverse Dialouge Generator for Chatbots",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Dhamendra Tiwari",
             "passing_year": "2022",
-            "thesis": "Defending Poisoning Attack In Federated Learning"
+            "thesis": "Defending Poisoning Attack In Federated Learning",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "B.Shravan Naik",
             "passing_year": "2022",
-            "thesis": "Blockchain based Reliable Data Transfer for Intelligent Transport System"
+            "thesis": "Blockchain based Reliable Data Transfer for Intelligent Transport System",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Amar Pandey",
             "passing_year": "2022",
-            "thesis": "Malware Detection using Machine Learning Technique"
+            "thesis": "Malware Detection using Machine Learning Technique",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Ashutosh Abhishek",
             "passing_year": "2023",
-            "thesis": "Honeypot on Linux based IoT systems"
+            "thesis": "Honeypot on Linux based IoT systems",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Omkar Santosh Gavhane",
             "passing_year": "2023",
-            "thesis": "Privacy Preserving of Outsourcing Data in Cloud"
+            "thesis": "Privacy Preserving of Outsourcing Data in Cloud",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Nemichand Rinwa",
             "passing_year": "2024",
-            "thesis": "Adversarial attack against deep neural networks"
+            "thesis": "Adversarial attack against deep neural networks",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Shubham Kumar",
             "passing_year": "2024",
-            "thesis": "Evasion attack against fraud detection system"
+            "thesis": "Evasion attack against fraud detection system",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Shivam",
             "passing_year": "2025",
-            "thesis": "Credit Card Fraud Detection"
+            "thesis": "Credit Card Fraud Detection",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Megha Kumari",
             "passing_year": "2025",
-            "thesis": "Trojan Detection"
+            "thesis": "Trojan Detection",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Abhishar Anand",
             "passing_year": "2026",
-            "thesis": "Control Flow semantics Based Smart Contract Vulnerability Detection"
+            "thesis": "Control Flow semantics Based Smart Contract Vulnerability Detection",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Ravi Paswan",
             "passing_year": "2026",
-            "thesis": "Reentrancy Attack Detection in Ethereum Smart Contracts via Transaction Execution Traces"
+            "thesis": "Reentrancy Attack Detection in Ethereum Smart Contracts via Transaction Execution Traces",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Satyam Kumar",
             "passing_year": "2026",
-            "thesis": "Hybrid Quantum-Classical Neural Networks: Adversarial Threats and Countermeasures"
+            "thesis": "Hybrid Quantum-Classical Neural Networks: Adversarial Threats and Countermeasures",
+            "subtitle": ""
         },
         {
             "image": "",
             "name": "Anubhav Kant",
             "passing_year": "2026",
-            "thesis": "Eeg-Based Schizophrenia Classification With Post-Hoc Clinical Explainability"
+            "thesis": "Eeg-Based Schizophrenia Classification With Post-Hoc Clinical Explainability",
+            "subtitle": ""
         }
     ]
 }

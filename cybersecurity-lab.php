@@ -316,7 +316,8 @@ if (is_array($projects)) {
 <!-- About the Lab & Join Us -->
 <section id="about-lab" class="bio-section pt-5 pb-5">
     <div class="container">
-        <div class="row g-5 align-items-stretch">
+        <!-- Row 1: About and News -->
+        <div class="row g-5 align-items-stretch mb-5">
             <div class="col-lg-7">
                 <div class="about-lab-content h-100 pe-lg-4">
                     <h3 class="section-title text-start mb-4">About the Lab</h3>
@@ -337,30 +338,46 @@ if (is_array($projects)) {
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5" id="join-us">
-                <div class="join-us-premium-card h-100">
-                    <div class="join-us-icon-wrapper mb-3">
-                        <i class="fa fa-users"></i>
+            <div class="col-lg-5">
+                <!-- News & Highlights -->
+                <div class="h-100">
+                    <h3 class="section-title text-start mb-4">News & Highlights</h3>
+                    <div class="news-ticker-container" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); height: 100%; max-height: 400px; overflow-y: auto;">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3 border-bottom pb-2">
+                                <span class="badge bg-primary me-2">New</span> <strong>Lab Update:</strong> The Cybersecurity Lab welcomes a new batch of M.Tech researchers. <span class="text-muted small">August 2026</span>
+                            </li>
+                            <li class="mb-3 border-bottom pb-2">
+                                <span class="badge bg-info text-dark me-2">Paper</span> <strong>Accepted:</strong> Our paper on LLM Security was accepted at IEEE TIFS. <span class="text-muted small">July 2026</span>
+                            </li>
+                            <li class="mb-3 border-bottom pb-2">
+                                <span class="badge bg-secondary me-2">Award</span> <strong>Achievement:</strong> Secured 2nd runner-up position at the National Hackathon. <span class="text-muted small">June 2026</span>
+                            </li>
+                            <li class="mb-2">
+                                <span class="badge bg-success me-2">Grant</span> <strong>Funding:</strong> Received a new grant from MHA for Blockchain Security research. <span class="text-muted small">May 2026</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="mb-3 text-white" style="font-weight: 700;"><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h3>
-                    <p class="text-white-50 mb-3" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85) !important;">
-                        <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
-                    </p>
-                    <?php if (!empty($joinUsContent['note'])): ?>
-                    <p class="text-white-50 mb-4" style="font-size: 0.90rem; line-height: 1.5; color: rgba(255,255,255,0.7) !important;">
-                        <em><?= htmlspecialchars($joinUsContent['note']) ?></em>
-                    </p>
-                    <?php endif; ?>
-                    <div class="d-flex flex-column gap-3 mt-auto">
-                        <!-- Application Form (Temporarily Hidden)
-                        <?php if (!empty($joinUsContent['form_link'])): ?>
-                        <a href="<?= htmlspecialchars($joinUsContent['form_link']) ?>" target="_blank" class="btn btn-light btn-lg text-primary fw-bold" style="border-radius: 8px; color: #0e7490 !important;">
-                            <i class="fa fa-file-text-o me-2"></i> Application Form
-                        </a>
-                        <?php endif; ?>
-                        -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Join Our Group (Sleek Bar) -->
+        <div class="row" id="join-us">
+            <div class="col-12">
+                <div class="join-us-bar d-flex flex-column flex-md-row align-items-center justify-content-between p-4" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); border-radius: 15px; box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);">
+                    <div class="join-text text-center text-md-start mb-3 mb-md-0 pe-md-4">
+                        <h4 class="text-white mb-2" style="font-weight: 700;"><i class="fa fa-users me-2"></i><?= htmlspecialchars($joinUsContent['heading'] ?? 'Join Our Group') ?></h4>
+                        <p class="text-white-50 mb-0" style="font-size: 0.95rem; color: rgba(255,255,255,0.9) !important;">
+                            <?= htmlspecialchars($joinUsContent['description'] ?? '') ?>
+                            <?php if (!empty($joinUsContent['note'])): ?>
+                                <br><small><em><?= htmlspecialchars($joinUsContent['note']) ?></em></small>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <div class="join-action flex-shrink-0">
                         <?php if (!empty($joinUsContent['email'])): ?>
-                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 8px;">
+                        <a href="mailto:<?= htmlspecialchars($joinUsContent['email']) ?>" class="btn btn-light btn-lg fw-bold" style="border-radius: 50px; color: #0e7490 !important; padding-left: 30px; padding-right: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
                             <i class="fa fa-envelope-o me-2"></i> Email Us
                         </a>
                         <?php endif; ?>
