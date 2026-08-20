@@ -729,34 +729,28 @@ if (is_array($projects)) {
 <?php if (!empty($gallery)): ?>
 <section id="glimpses" class="bio-section py-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
     <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
-            <div>
-                <h2 class="section-title text-start mb-2">Glimpses</h2>
-                <p class="text-muted mb-0" style="font-size: 1.05rem;">Moments, research milestones, and life in the Cybersecurity Lab.</p>
-            </div>
-            <div class="d-none d-md-flex align-items-center gap-2 mt-3 mt-md-0">
-                <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle" id="glimpsesPrevBtn" aria-label="Previous" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fa fa-chevron-left"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle" id="glimpsesNextBtn" aria-label="Next" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fa fa-chevron-right"></i>
-                </button>
-            </div>
+        <!-- Centered Header -->
+        <div class="text-center mb-4">
+            <h2 class="section-title">Glimpses</h2>
+            <p class="text-muted mb-0" style="font-size: 1.05rem; max-width: 650px; margin: 0 auto;">Moments, research milestones, and life in the Cybersecurity Lab.</p>
         </div>
 
         <!-- Expanding Cards Carousel Track -->
         <div class="glimpses-wrapper" id="glimpsesWrapper">
             <div class="glimpses-track" id="glimpsesTrack">
                 <?php foreach ($gallery as $index => $img): 
-                    $tag = !empty($img['tag']) ? $img['tag'] : 'MOMENT';
                     $title = !empty($img['alt']) ? $img['alt'] : 'Lab Moment';
                     $date = !empty($img['date']) ? $img['date'] : '';
                     $desc = !empty($img['description']) ? $img['description'] : '';
                     $isActive = ($index === 0) ? 'active' : '';
                 ?>
-                <div class="glimpse-card <?= $isActive ?>" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-tag="<?= htmlspecialchars($tag) ?>" data-date="<?= htmlspecialchars($date) ?>" data-desc="<?= htmlspecialchars($desc) ?>" style="background-image: url('<?= htmlspecialchars($img['image'] ?? '') ?>');">
+                <div class="glimpse-card <?= $isActive ?>" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-date="<?= htmlspecialchars($date) ?>" data-desc="<?= htmlspecialchars($desc) ?>" style="background-image: url('<?= htmlspecialchars($img['image'] ?? '') ?>');">
                     <div class="glimpse-overlay"></div>
-                    <div class="glimpse-badge"><?= htmlspecialchars($tag) ?></div>
+                    
+                    <!-- Top-Right Expand Icon Button -->
+                    <button type="button" class="glimpse-expand-circle" aria-label="Expand image" title="Expand Fullscreen">
+                        <i class="fa fa-arrows-alt"></i>
+                    </button>
                     
                     <div class="glimpse-content">
                         <?php if ($date): ?>
@@ -766,9 +760,6 @@ if (is_array($projects)) {
                         <?php if ($desc): ?>
                             <p class="glimpse-desc"><?= htmlspecialchars($desc) ?></p>
                         <?php endif; ?>
-                        <div class="glimpse-action">
-                            <span class="glimpse-btn"><i class="fa fa-expand me-1"></i> View High-Res</span>
-                        </div>
                     </div>
                     
                     <!-- Vertical title shown when collapsed -->
@@ -778,6 +769,17 @@ if (is_array($projects)) {
                 </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+
+        <!-- Centered Navigation Controls & Indicators -->
+        <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
+            <button type="button" class="btn btn-outline-primary glimpses-nav-btn" id="glimpsesPrevBtn" aria-label="Previous Image">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <div class="glimpses-dots d-flex align-items-center gap-2" id="glimpsesDots"></div>
+            <button type="button" class="btn btn-outline-primary glimpses-nav-btn" id="glimpsesNextBtn" aria-label="Next Image">
+                <i class="fa fa-chevron-right"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -801,6 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = Array.from(document.querySelectorAll('.glimpse-card'));
     const prevBtn = document.getElementById('glimpsesPrevBtn');
     const nextBtn = document.getElementById('glimpsesNextBtn');
+    const dotsContainer = document.getElementById('glimpsesDots');
 
     if (!track || cards.length === 0) return;
 
@@ -811,6 +814,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX = 0;
     let scrollLeftStart = 0;
     let hasDragged = false;
+    let hoverTimeout = null;
+
+    // Render interactive pagination dots
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, idx) => {
+            const dot = document.createElement('span');
+            dot.className = 'glimpse-dot' + (idx === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+            dot.addEventListener('click', () => {
+                setActiveCard(idx);
+                startAutoGlide();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function updateDots(activeIdx) {
+        if (!dotsContainer) return;
+        const dots = dotsContainer.querySelectorAll('.glimpse-dot');
+        dots.forEach((dot, i) => {
+            if (i === activeIdx) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
 
     function setActiveCard(index, scrollIntoView = true) {
         if (index < 0) index = cards.length - 1;
@@ -831,6 +862,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.remove('active');
             }
         });
+        updateDots(currentIndex);
     }
 
     // Auto-Glide Controller
@@ -840,7 +872,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isHovered && !isDragging) {
                 setActiveCard((currentIndex + 1) % cards.length);
             }
-        }, 4000);
+        }, 4500);
     }
 
     function stopAutoGlide() {
@@ -850,23 +882,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Card Hover and Click Handlers
+    // Card Hover and Click Handlers with subtle debounce
     cards.forEach((card, index) => {
         card.addEventListener('mouseenter', () => {
             isHovered = true;
-            setActiveCard(index, false);
             stopAutoGlide();
+            clearTimeout(hoverTimeout);
+            hoverTimeout = setTimeout(() => {
+                setActiveCard(index, false);
+            }, 60);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimeout);
         });
 
         card.addEventListener('click', (e) => {
-            if (hasDragged) return; // Prevent click if dragged
+            if (hasDragged) return;
             if (!card.classList.contains('active')) {
                 setActiveCard(index);
             } else {
-                // Open Lightbox
                 openLightbox(index);
             }
         });
+
+        // Expand Circle click trigger
+        const expandBtn = card.querySelector('.glimpse-expand-circle');
+        if (expandBtn) {
+            expandBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(index);
+            });
+        }
     });
 
     wrapper.addEventListener('mouseenter', () => {
@@ -935,14 +982,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxNext = document.getElementById('glimpseLightboxNext');
     let lightboxIndex = 0;
 
-    function openLightbox(idx) {
+    window.openLightbox = function(idx) {
         lightboxIndex = idx;
         const card = cards[lightboxIndex];
         if (!card) return;
 
         const src = card.getAttribute('data-src');
         const title = card.getAttribute('data-title');
-        const tag = card.getAttribute('data-tag');
         const date = card.getAttribute('data-date');
 
         lightboxImg.src = src;
@@ -950,7 +996,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.add('show');
         document.body.style.overflow = 'hidden';
         stopAutoGlide();
-    }
+    };
 
     function closeLightbox() {
         lightbox.classList.remove('show');
@@ -960,12 +1006,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function nextLightbox() {
         lightboxIndex = (lightboxIndex + 1) % cards.length;
-        openLightbox(lightboxIndex);
+        window.openLightbox(lightboxIndex);
     }
 
     function prevLightbox() {
         lightboxIndex = (lightboxIndex - 1 + cards.length) % cards.length;
-        openLightbox(lightboxIndex);
+        window.openLightbox(lightboxIndex);
     }
 
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
