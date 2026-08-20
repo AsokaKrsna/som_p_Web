@@ -1,5 +1,23 @@
 [
     {
+        "text": "Our PhD scholar Debasmita Manna have successfully completed her defense on 12th Aug 2026",
+        "link": "",
+        "badge": "Success Story",
+        "title": "",
+        "badge_color": "bg-primary",
+        "date": "",
+        "show_in_snackbar": true
+    },
+    {
+        "text": "Stay Tuned :)",
+        "link": "",
+        "badge": "",
+        "title": "",
+        "badge_color": "bg-primary",
+        "date": "",
+        "show_in_snackbar": true
+    },
+    {
         "title": "Lab Update",
         "text": "The Cybersecurity Lab welcomes a new batch of M.Tech researchers.",
         "link": "",
@@ -15,24 +33,6 @@
         "badge": "Paper",
         "badge_color": "bg-info text-dark",
         "date": "July 2026",
-        "show_in_snackbar": false
-    },
-    {
-        "title": "Achievement",
-        "text": "Secured 2nd runner-up position at the National Hackathon.",
-        "link": "",
-        "badge": "Award",
-        "badge_color": "bg-secondary",
-        "date": "June 2026",
-        "show_in_snackbar": true
-    },
-    {
-        "title": "Funding",
-        "text": "Received a new grant from MHA for Blockchain Security research.",
-        "link": "",
-        "badge": "Grant",
-        "badge_color": "bg-success",
-        "date": "May 2026",
         "show_in_snackbar": false
     }
 ]

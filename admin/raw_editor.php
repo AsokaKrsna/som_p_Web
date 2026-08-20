@@ -458,16 +458,44 @@ window.addItem = function(category) {
         if (typeof targetArray[0] === 'string' || typeof targetArray[0] === 'number') {
             template = "";
         } else {
+            // Get base template based on file to ensure we don't miss keys if targetArray[0] is incomplete
+            const currentFileName = "<?= addslashes($file) ?>";
+            if (currentFileName === 'announcements.json') {
+                template = {"show_in_snackbar": false, "title": "", "text": "", "link": "", "badge": "", "badge_color": "bg-primary", "date": ""};
+            } else if (currentFileName === 'research_group.json') {
+                template = {"image": "", "name": "", "subtitle": "", "email": "", "research_area": "", "passing_year": "", "thesis": ""};
+            } else if (currentFileName === 'other_responsibilities.json' || currentFileName === 'admin_responsibilities.json') {
+                template = {"role": "", "organization": "", "duration": ""};
+            } else if (currentFileName === 'awards_honours.json') {
+                template = {"title": "", "awardee": "", "event": "", "organization": "", "location": "", "link": ""};
+            } else {
+                template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
+            }
+            
+            // Also merge any extra keys that might exist in targetArray[0]
             Object.entries(targetArray[0]).forEach(([k, v]) => {
-                if (typeof v === 'boolean') {
-                    template[k] = true;
-                } else {
-                    template[k] = "";
+                if (!(k in template)) {
+                    if (typeof v === 'boolean') {
+                        template[k] = true;
+                    } else {
+                        template[k] = "";
+                    }
                 }
             });
         }
     } else {
-        template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
+        const currentFileName = "<?= addslashes($file) ?>";
+        if (currentFileName === 'announcements.json') {
+            template = {"show_in_snackbar": false, "title": "", "text": "", "link": "", "badge": "", "badge_color": "bg-primary", "date": ""};
+        } else if (currentFileName === 'research_group.json') {
+            template = {"image": "", "name": "", "subtitle": "", "email": "", "research_area": "", "passing_year": "", "thesis": ""};
+        } else if (currentFileName === 'other_responsibilities.json' || currentFileName === 'admin_responsibilities.json') {
+            template = {"role": "", "organization": "", "duration": ""};
+        } else if (currentFileName === 'awards_honours.json') {
+            template = {"title": "", "awardee": "", "event": "", "organization": "", "location": "", "link": ""};
+        } else {
+            template = {"title": "", "author": "", "published_at": "", "doi": "", "show_personal": true, "show_lab": true};
+        }
     }
     
     // For research group, we want to append to the end. For everything else, prepend to the beginning.
