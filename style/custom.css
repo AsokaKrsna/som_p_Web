@@ -2680,6 +2680,14 @@ body.dark-mode .announcement-bar-marquee {
   max-width: 1320px;
 }
 
+.glimpses-indicator-pill {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 6px 18px;
+}
+
 .glimpses-counter {
   font-family: 'Outfit', 'Inter', sans-serif;
   display: flex;
@@ -2688,27 +2696,27 @@ body.dark-mode .announcement-bar-marquee {
 }
 
 .glimpses-counter-current {
-  font-size: 2.2rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--accent-blue);
   line-height: 1;
 }
 
 .glimpses-counter-sep {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   opacity: 0.5;
   margin: 0 2px;
 }
 
 .glimpses-counter-total {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-muted);
 }
 
 .glimpses-progress-track {
-  width: 130px;
+  width: 100px;
   height: 5px;
   background: rgba(8, 145, 178, 0.15);
   border-radius: 6px;

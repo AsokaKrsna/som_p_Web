@@ -730,22 +730,19 @@ if (is_array($projects)) {
 <?php $slideCount = count($gallery); ?>
 <section id="glimpses" class="glimpses-section" style="height: <?= ($slideCount * 75) ?>vh;">
     <div class="glimpses-sticky">
-        <!-- Top Header inside Container (Respects left side navigation & top bar) -->
-        <div class="container mb-3 glimpses-header-container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3">
-                <div>
-                    <h2 class="section-title text-start mb-1">Glimpses</h2>
-                    <p class="text-muted mb-0" style="font-size: 1rem;">Moments &amp; milestones from the Cybersecurity Lab.</p>
+        <!-- Top Centered Header inside Container -->
+        <div class="container mb-3 text-center glimpses-header-container">
+            <h2 class="section-title mb-1">Glimpses</h2>
+            <p class="text-muted mb-2" style="font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Moments &amp; milestones from the Cybersecurity Lab.</p>
+            
+            <div class="d-inline-flex align-items-center gap-3 px-3 py-1 mt-1 rounded-pill glimpses-indicator-pill">
+                <div class="glimpses-counter">
+                    <span class="glimpses-counter-current" id="glimpsesCounterCurrent">01</span>
+                    <span class="glimpses-counter-sep">/</span>
+                    <span class="glimpses-counter-total"><?= str_pad($slideCount, 2, '0', STR_PAD_LEFT) ?></span>
                 </div>
-                <div class="d-flex align-items-center gap-3">
-                    <div class="glimpses-counter">
-                        <span class="glimpses-counter-current" id="glimpsesCounterCurrent">01</span>
-                        <span class="glimpses-counter-sep">/</span>
-                        <span class="glimpses-counter-total"><?= str_pad($slideCount, 2, '0', STR_PAD_LEFT) ?></span>
-                    </div>
-                    <div class="glimpses-progress-track">
-                        <div class="glimpses-progress-fill" id="glimpsesProgressFill"></div>
-                    </div>
+                <div class="glimpses-progress-track">
+                    <div class="glimpses-progress-fill" id="glimpsesProgressFill"></div>
                 </div>
             </div>
         </div>
