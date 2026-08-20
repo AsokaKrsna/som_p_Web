@@ -777,127 +777,21 @@ if (is_array($projects)) {
                         <?php endif; ?>
                     </div>
                     <div class="flex-shrink-0">
-                        <button type="button" class="btn btn-primary rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center shadow-sm" style="background: var(--accent-blue); border-color: var(--accent-blue); font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;" data-bs-toggle="modal" data-bs-target="#getInTouchModal" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-                            <i class="fa fa-paper-plane me-2"></i> Get in Touch
-                        </button>
+                        <?php 
+                            $contactEmail = !empty($joinUsContent['email']) ? $joinUsContent['email'] : 'somanath@iitp.ac.in';
+                            $mailSubject = rawurlencode("Inquiry Regarding Research / Joining Cybersecurity Lab");
+                            $mailBody = rawurlencode("Dear Dr. Tripathy,\n\nI am writing to express my interest in joining the Cybersecurity Lab at IIT Patna.\n\nName: \nCurrent / Last Completed Degree: \nPosition of Interest (Ph.D. / M.Tech / B.Tech / Intern / Postdoc): \nResearch Area / Background: \nLinks to CV / Portfolio / Profile: \n\nLooking forward to hearing from you.\n\nSincerely,\n");
+                            $mailtoLink = "mailto:{$contactEmail}?subject={$mailSubject}&body={$mailBody}";
+                        ?>
+                        <a href="<?= $mailtoLink ?>" class="btn btn-primary rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center shadow-sm" style="background: var(--accent-blue); border-color: var(--accent-blue); font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                            <i class="fa fa-envelope me-2"></i> Get in Touch
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- Get in Touch Modal -->
-<div class="modal fade" id="getInTouchModal" tabindex="-1" aria-labelledby="getInTouchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content" style="background: var(--bg-main); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--glass-shadow); backdrop-filter: blur(20px);">
-            <div class="modal-header border-0 pb-0 px-4 pt-4">
-                <div>
-                    <h4 class="modal-title fw-bold" id="getInTouchModalLabel" style="color: var(--text-main);"><i class="fa fa-envelope-open-o me-2" style="color: var(--accent-blue);"></i> Get in Touch</h4>
-                    <p class="text-muted small mb-0 mt-1">Interested in research, projects, or joining our lab? Send us a message.</p>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body px-4 py-3">
-                <div id="contactFormAlert" class="alert d-none" role="alert"></div>
-                
-                <form id="labContactForm" onsubmit="submitLabContactForm(event)">
-                    <!-- Honeypot anti-spam -->
-                    <input type="text" name="bot_field" style="display:none !important;" tabindex="-1" autocomplete="off">
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Full Name <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required style="border-radius: 10px;">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Email Address <span class="text-danger">*</span></label>
-                            <input type="email" name="email" class="form-control" placeholder="e.g. rahul@example.com" required style="border-radius: 10px;">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Current / Last Completed Degree</label>
-                            <input type="text" name="degree" class="form-control" placeholder="e.g. B.Tech CSE, M.Tech, M.Sc" style="border-radius: 10px;">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Position of Interest</label>
-                            <select name="position" class="form-select" style="border-radius: 10px;">
-                                <option value="Ph.D. Scholar">Ph.D. Scholar</option>
-                                <option value="M.Tech by Research">M.Tech by Research</option>
-                                <option value="B.Tech Project / Internship">B.Tech Project / Internship</option>
-                                <option value="Postdoctoral Fellow / Researcher">Postdoctoral Fellow / Researcher</option>
-                                <option value="Academic Collaboration">Academic Collaboration</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-bold" style="color: var(--text-muted);">Express Yourself / Message <span class="text-danger">*</span></label>
-                            <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe your research interests, background, or include links to your CV / Google Drive / LinkedIn / GitHub profile..." required style="border-radius: 10px;"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex justify-content-end gap-2 mt-4">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" id="contactSubmitBtn" class="btn btn-primary rounded-pill px-4 fw-bold" style="background: var(--accent-blue); border-color: var(--accent-blue);">
-                            <span class="btn-text"><i class="fa fa-paper-plane me-1"></i> Send Message</span>
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-function submitLabContactForm(e) {
-    e.preventDefault();
-    const form = document.getElementById('labContactForm');
-    const alertBox = document.getElementById('contactFormAlert');
-    const submitBtn = document.getElementById('contactSubmitBtn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const spinner = submitBtn.querySelector('.spinner-border');
-
-    const formData = new FormData(form);
-
-    submitBtn.disabled = true;
-    btnText.classList.add('d-none');
-    spinner.classList.remove('d-none');
-    alertBox.className = 'alert d-none';
-
-    fetch('send_message.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-        submitBtn.disabled = false;
-        btnText.classList.remove('d-none');
-        spinner.classList.add('d-none');
-
-        if (data.success) {
-            alertBox.className = 'alert alert-success';
-            alertBox.innerHTML = '<i class="fa fa-check-circle me-2"></i>' + data.message;
-            form.reset();
-            setTimeout(() => {
-                const modalEl = document.getElementById('getInTouchModal');
-                const modal = bootstrap.Modal.getInstance(modalEl);
-                if (modal) modal.hide();
-                alertBox.className = 'alert d-none';
-            }, 3000);
-        } else {
-            alertBox.className = 'alert alert-danger';
-            alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-2"></i>' + (data.message || 'An error occurred.');
-        }
-    })
-    .catch(err => {
-        submitBtn.disabled = false;
-        btnText.classList.remove('d-none');
-        spinner.classList.add('d-none');
-        alertBox.className = 'alert alert-danger';
-        alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-2"></i> Failed to submit form. Please check your connection and try again.';
-    });
-}
-</script>
 
 <!-- Particle Network & Stat Counter Scripts -->
 <script>
