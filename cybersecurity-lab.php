@@ -725,71 +725,62 @@ if (is_array($projects)) {
 </section>
 <?php endif; ?>
 
-<!-- Glimpses Section (Expanding Interactive Gallery) -->
+<!-- Glimpses: Scroll-Driven Horizontal Takeover Gallery -->
 <?php if (!empty($gallery)): ?>
-<section id="glimpses" class="bio-section py-5" style="background: var(--bg-alt); position: relative; overflow: hidden;">
-    <div class="container">
-        <!-- Centered Header -->
-        <div class="text-center mb-4">
-            <h2 class="section-title">Glimpses</h2>
-            <p class="text-muted mb-0" style="font-size: 1.05rem; max-width: 650px; margin: 0 auto;">Moments, research milestones, and life in the Cybersecurity Lab.</p>
+<?php $slideCount = count($gallery); ?>
+<section id="glimpses" class="glimpses-section" style="height: <?= ($slideCount * 100) ?>vh;">
+    <div class="glimpses-sticky">
+        <!-- Left Info Panel -->
+        <div class="glimpses-info-panel">
+            <h2 class="glimpses-heading">Glimpses</h2>
+            <p class="glimpses-subtext">Moments &amp; milestones from the Cybersecurity Lab.</p>
+            <div class="glimpses-counter">
+                <span class="glimpses-counter-current" id="glimpsesCounterCurrent">01</span>
+                <span class="glimpses-counter-sep">/</span>
+                <span class="glimpses-counter-total"><?= str_pad($slideCount, 2, '0', STR_PAD_LEFT) ?></span>
+            </div>
+            <div class="glimpses-progress-track">
+                <div class="glimpses-progress-fill" id="glimpsesProgressFill"></div>
+            </div>
         </div>
 
-        <!-- Expanding Cards Carousel Track -->
-        <div class="glimpses-wrapper" id="glimpsesWrapper">
+        <!-- Horizontal Photo Track -->
+        <div class="glimpses-viewport">
             <div class="glimpses-track" id="glimpsesTrack">
-                <?php foreach ($gallery as $index => $img): 
+                <?php foreach ($gallery as $index => $img):
                     $title = !empty($img['alt']) ? $img['alt'] : 'Lab Moment';
-                    $date = !empty($img['date']) ? $img['date'] : '';
-                    $desc = !empty($img['description']) ? $img['description'] : '';
-                    $isActive = ($index === 0) ? 'active' : '';
+                    $date  = !empty($img['date']) ? $img['date'] : '';
+                    $desc  = !empty($img['description']) ? $img['description'] : '';
                 ?>
-                <div class="glimpse-card <?= $isActive ?>" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-date="<?= htmlspecialchars($date) ?>" data-desc="<?= htmlspecialchars($desc) ?>" style="background-image: url('<?= htmlspecialchars($img['image'] ?? '') ?>');">
-                    <div class="glimpse-overlay"></div>
-                    
-                    <!-- Top-Right Expand Icon Button -->
-                    <button type="button" class="glimpse-expand-circle" aria-label="Expand image" title="Expand Fullscreen">
-                        <i class="fa fa-arrows-alt"></i>
-                    </button>
-                    
-                    <div class="glimpse-content">
+                <div class="glimpse-slide" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-date="<?= htmlspecialchars($date) ?>">
+                    <img src="<?= htmlspecialchars($img['image'] ?? '') ?>" alt="<?= htmlspecialchars($title) ?>" class="glimpse-slide-img" loading="lazy">
+                    <div class="glimpse-slide-overlay"></div>
+                    <div class="glimpse-slide-caption">
                         <?php if ($date): ?>
-                            <span class="glimpse-date"><i class="fa fa-calendar-o me-1"></i><?= htmlspecialchars($date) ?></span>
+                            <span class="glimpse-slide-date"><?= htmlspecialchars($date) ?></span>
                         <?php endif; ?>
-                        <h4 class="glimpse-title"><?= htmlspecialchars($title) ?></h4>
+                        <h4 class="glimpse-slide-title"><?= htmlspecialchars($title) ?></h4>
                         <?php if ($desc): ?>
-                            <p class="glimpse-desc"><?= htmlspecialchars($desc) ?></p>
+                            <p class="glimpse-slide-desc"><?= htmlspecialchars($desc) ?></p>
                         <?php endif; ?>
-                    </div>
-                    
-                    <!-- Vertical title shown when collapsed -->
-                    <div class="glimpse-collapsed-title">
-                        <span><?= htmlspecialchars($title) ?></span>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </div>
 
-        <!-- Centered Navigation Controls & Indicators -->
-        <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
-            <button type="button" class="btn btn-outline-primary glimpses-nav-btn" id="glimpsesPrevBtn" aria-label="Previous Image">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            <div class="glimpses-dots d-flex align-items-center gap-2" id="glimpsesDots"></div>
-            <button type="button" class="btn btn-outline-primary glimpses-nav-btn" id="glimpsesNextBtn" aria-label="Next Image">
-                <i class="fa fa-chevron-right"></i>
-            </button>
+        <!-- Scroll Hint -->
+        <div class="glimpses-scroll-hint" id="glimpsesScrollHint">
+            <i class="fa fa-long-arrow-down"></i> Scroll to explore
         </div>
     </div>
 </section>
 
-<!-- Fullscreen Glass Lightbox -->
+<!-- Fullscreen Lightbox -->
 <div class="glimpse-lightbox" id="glimpseLightbox" aria-hidden="true">
-    <button class="glimpse-lightbox-close" id="glimpseLightboxClose" aria-label="Close Lightbox"><i class="fa fa-times"></i></button>
-    <button class="glimpse-lightbox-nav glimpse-lightbox-prev" id="glimpseLightboxPrev" aria-label="Previous image"><i class="fa fa-chevron-left"></i></button>
-    <button class="glimpse-lightbox-nav glimpse-lightbox-next" id="glimpseLightboxNext" aria-label="Next image"><i class="fa fa-chevron-right"></i></button>
-    
+    <button class="glimpse-lightbox-close" id="glimpseLightboxClose" aria-label="Close"><i class="fa fa-times"></i></button>
+    <button class="glimpse-lightbox-nav glimpse-lightbox-prev" id="glimpseLightboxPrev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>
+    <button class="glimpse-lightbox-nav glimpse-lightbox-next" id="glimpseLightboxNext" aria-label="Next"><i class="fa fa-chevron-right"></i></button>
     <div class="glimpse-lightbox-content">
         <img src="" alt="" class="glimpse-lightbox-img" id="glimpseLightboxImg">
         <div class="glimpse-lightbox-caption" id="glimpseLightboxCaption"></div>
@@ -798,240 +789,88 @@ if (is_array($projects)) {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const wrapper = document.getElementById('glimpsesWrapper');
-    const track = document.getElementById('glimpsesTrack');
-    const cards = Array.from(document.querySelectorAll('.glimpse-card'));
-    const prevBtn = document.getElementById('glimpsesPrevBtn');
-    const nextBtn = document.getElementById('glimpsesNextBtn');
-    const dotsContainer = document.getElementById('glimpsesDots');
+    const section    = document.querySelector('.glimpses-section');
+    const track      = document.getElementById('glimpsesTrack');
+    const slides     = Array.from(document.querySelectorAll('.glimpse-slide'));
+    const counterEl  = document.getElementById('glimpsesCounterCurrent');
+    const progressEl = document.getElementById('glimpsesProgressFill');
+    const scrollHint = document.getElementById('glimpsesScrollHint');
 
-    if (!track || cards.length === 0) return;
+    if (!section || !track || slides.length === 0) return;
 
-    let currentIndex = 0;
-    let autoGlideTimer = null;
-    let isHovered = false;
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeftStart = 0;
-    let hasDragged = false;
-    let hoverTimeout = null;
+    let ticking = false;
 
-    // Render interactive pagination dots
-    if (dotsContainer) {
-        dotsContainer.innerHTML = '';
-        cards.forEach((_, idx) => {
-            const dot = document.createElement('span');
-            dot.className = 'glimpse-dot' + (idx === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-            dot.addEventListener('click', () => {
-                setActiveCard(idx);
-                startAutoGlide();
-            });
-            dotsContainer.appendChild(dot);
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const rect = section.getBoundingClientRect();
+            const scrollableH = section.offsetHeight - window.innerHeight;
+            const scrolled = -rect.top;
+            const progress = Math.max(0, Math.min(1, scrolled / scrollableH));
+
+            const trackW = track.scrollWidth;
+            const viewportW = track.parentElement.offsetWidth;
+            const maxTranslate = trackW - viewportW;
+            track.style.transform = `translate3d(${-progress * maxTranslate}px, 0, 0)`;
+
+            if (progressEl) progressEl.style.width = `${progress * 100}%`;
+
+            const activeIdx = Math.min(Math.floor(progress * slides.length), slides.length - 1);
+            if (counterEl) counterEl.textContent = String(activeIdx + 1).padStart(2, '0');
+
+            if (scrollHint) scrollHint.style.opacity = progress > 0.02 ? '0' : '1';
+
+            ticking = false;
         });
     }
 
-    function updateDots(activeIdx) {
-        if (!dotsContainer) return;
-        const dots = dotsContainer.querySelectorAll('.glimpse-dot');
-        dots.forEach((dot, i) => {
-            if (i === activeIdx) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-    function setActiveCard(index, scrollIntoView = true) {
-        if (index < 0) index = cards.length - 1;
-        if (index >= cards.length) index = 0;
-        currentIndex = index;
+    // Lightbox
+    const lightbox  = document.getElementById('glimpseLightbox');
+    const lbImg     = document.getElementById('glimpseLightboxImg');
+    const lbCaption = document.getElementById('glimpseLightboxCaption');
+    const lbClose   = document.getElementById('glimpseLightboxClose');
+    const lbPrev    = document.getElementById('glimpseLightboxPrev');
+    const lbNext    = document.getElementById('glimpseLightboxNext');
+    let lbIdx = 0;
 
-        cards.forEach((card, idx) => {
-            if (idx === currentIndex) {
-                card.classList.add('active');
-                if (scrollIntoView && wrapper) {
-                    const cardRect = card.getBoundingClientRect();
-                    const wrapRect = wrapper.getBoundingClientRect();
-                    if (cardRect.left < wrapRect.left || cardRect.right > wrapRect.right) {
-                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    }
-                }
-            } else {
-                card.classList.remove('active');
-            }
-        });
-        updateDots(currentIndex);
-    }
-
-    // Auto-Glide Controller
-    function startAutoGlide() {
-        stopAutoGlide();
-        autoGlideTimer = setInterval(() => {
-            if (!isHovered && !isDragging) {
-                setActiveCard((currentIndex + 1) % cards.length);
-            }
-        }, 4500);
-    }
-
-    function stopAutoGlide() {
-        if (autoGlideTimer) {
-            clearInterval(autoGlideTimer);
-            autoGlideTimer = null;
-        }
-    }
-
-    // Card Hover and Click Handlers with subtle debounce
-    cards.forEach((card, index) => {
-        card.addEventListener('mouseenter', () => {
-            isHovered = true;
-            stopAutoGlide();
-            clearTimeout(hoverTimeout);
-            hoverTimeout = setTimeout(() => {
-                setActiveCard(index, false);
-            }, 60);
-        });
-
-        card.addEventListener('mouseleave', () => {
-            clearTimeout(hoverTimeout);
-        });
-
-        card.addEventListener('click', (e) => {
-            if (hasDragged) return;
-            if (!card.classList.contains('active')) {
-                setActiveCard(index);
-            } else {
-                openLightbox(index);
-            }
-        });
-
-        // Expand Circle click trigger
-        const expandBtn = card.querySelector('.glimpse-expand-circle');
-        if (expandBtn) {
-            expandBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openLightbox(index);
-            });
-        }
+    slides.forEach((slide, idx) => {
+        slide.addEventListener('click', () => openLb(idx));
     });
 
-    wrapper.addEventListener('mouseenter', () => {
-        isHovered = true;
-        stopAutoGlide();
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-        isHovered = false;
-        startAutoGlide();
-    });
-
-    // Arrow Controls
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            setActiveCard(currentIndex - 1);
-            startAutoGlide();
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            setActiveCard(currentIndex + 1);
-            startAutoGlide();
-        });
-    }
-
-    // Draggable Scroll Implementation
-    wrapper.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        hasDragged = false;
-        startX = e.pageX - wrapper.offsetLeft;
-        scrollLeftStart = wrapper.scrollLeft;
-        stopAutoGlide();
-    });
-
-    window.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            setTimeout(() => { hasDragged = false; }, 50);
-            if (!isHovered) startAutoGlide();
-        }
-    });
-
-    wrapper.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - wrapper.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        if (Math.abs(walk) > 5) {
-            hasDragged = true;
-        }
-        wrapper.scrollLeft = scrollLeftStart - walk;
-    });
-
-    // Start auto glide on load
-    startAutoGlide();
-
-    // ==========================================
-    // Lightbox Controller
-    // ==========================================
-    const lightbox = document.getElementById('glimpseLightbox');
-    const lightboxImg = document.getElementById('glimpseLightboxImg');
-    const lightboxCaption = document.getElementById('glimpseLightboxCaption');
-    const lightboxClose = document.getElementById('glimpseLightboxClose');
-    const lightboxPrev = document.getElementById('glimpseLightboxPrev');
-    const lightboxNext = document.getElementById('glimpseLightboxNext');
-    let lightboxIndex = 0;
-
-    window.openLightbox = function(idx) {
-        lightboxIndex = idx;
-        const card = cards[lightboxIndex];
-        if (!card) return;
-
-        const src = card.getAttribute('data-src');
-        const title = card.getAttribute('data-title');
-        const date = card.getAttribute('data-date');
-
-        lightboxImg.src = src;
-        lightboxCaption.innerHTML = `<span>${title}</span>${date ? ` <span class="text-white-50 small">&bull; ${date}</span>` : ''}`;
+    function openLb(idx) {
+        lbIdx = idx;
+        const s = slides[lbIdx];
+        if (!s) return;
+        lbImg.src = s.getAttribute('data-src');
+        const t = s.getAttribute('data-title');
+        const d = s.getAttribute('data-date');
+        lbCaption.innerHTML = `<span>${t}</span>${d ? ` <span class="text-white-50 small">&bull; ${d}</span>` : ''}`;
         lightbox.classList.add('show');
         document.body.style.overflow = 'hidden';
-        stopAutoGlide();
-    };
+    }
 
-    function closeLightbox() {
+    function closeLb() {
         lightbox.classList.remove('show');
         document.body.style.overflow = '';
-        if (!isHovered) startAutoGlide();
     }
 
-    function nextLightbox() {
-        lightboxIndex = (lightboxIndex + 1) % cards.length;
-        window.openLightbox(lightboxIndex);
-    }
-
-    function prevLightbox() {
-        lightboxIndex = (lightboxIndex - 1 + cards.length) % cards.length;
-        window.openLightbox(lightboxIndex);
-    }
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
-    if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
-
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+    if (lbNext) lbNext.addEventListener('click', () => { lbIdx = (lbIdx + 1) % slides.length; openLb(lbIdx); });
+    if (lbPrev) lbPrev.addEventListener('click', () => { lbIdx = (lbIdx - 1 + slides.length) % slides.length; openLb(lbIdx); });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('show')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextLightbox();
-        if (e.key === 'ArrowLeft') prevLightbox();
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % slides.length; openLb(lbIdx); }
+        if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + slides.length) % slides.length; openLb(lbIdx); }
     });
 });
 </script>
 <?php endif; ?>
-
 
 <!-- Join Our Group -->
 <section id="join-us" class="bio-section py-5 mt-4" style="background: var(--bg-alt); position: relative; overflow: hidden;">

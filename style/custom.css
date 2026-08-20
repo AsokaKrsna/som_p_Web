@@ -2653,207 +2653,219 @@ body.dark-mode .announcement-bar-marquee {
 }
 
 /* ==========================================================================
-   Glimpses Expanding Cards Carousel & Lightbox
+   Glimpses: Scroll-Driven Horizontal Takeover Gallery
    ========================================================================== */
-.glimpses-wrapper {
+.glimpses-section {
   position: relative;
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 10px 0 20px;
-  cursor: grab;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  user-select: none;
-  scroll-behavior: smooth;
 }
-.glimpses-wrapper::-webkit-scrollbar {
-  display: none;
+
+.glimpses-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-main);
+  overflow: hidden;
 }
-.glimpses-wrapper:active {
-  cursor: grabbing;
+
+/* Left Info Panel */
+.glimpses-info-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px;
+  z-index: 10;
+  background: linear-gradient(90deg, var(--bg-main) 65%, transparent);
+}
+
+.glimpses-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.glimpses-subtext {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.glimpses-counter {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.glimpses-counter-current {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  line-height: 1;
+}
+
+.glimpses-counter-sep {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  opacity: 0.5;
+  margin: 0 4px;
+}
+
+.glimpses-counter-total {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.glimpses-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(8, 145, 178, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.glimpses-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-blue), #06b6d4);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+/* Photo Viewport & Track */
+.glimpses-viewport {
+  position: absolute;
+  left: 280px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .glimpses-track {
   display: flex;
-  gap: 1.25rem;
-  min-height: 440px;
-  width: max-content;
-  align-items: stretch;
-  padding: 0 4px;
+  gap: 2rem;
+  padding: 0 4rem 0 2rem;
+  will-change: transform;
+  align-items: center;
 }
 
-.glimpse-card {
+.glimpse-slide {
   position: relative;
-  width: 150px;
-  min-width: 150px;
-  height: 440px;
-  border-radius: 22px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  flex: 0 0 65vw;
+  width: 65vw;
+  height: 78vh;
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  will-change: width, transform;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
-.glimpse-card.active,
-.glimpse-card:hover {
-  width: 520px;
-  min-width: 520px;
-  border-color: rgba(8, 145, 178, 0.5);
-  box-shadow: 0 18px 45px rgba(8, 145, 178, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transform: translateY(-4px);
+.glimpse-slide:hover {
+  transform: scale(1.015);
+  box-shadow: 0 20px 55px rgba(8, 145, 178, 0.2);
 }
 
-.glimpse-overlay {
+.glimpse-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glimpse-slide:hover .glimpse-slide-img {
+  transform: scale(1.04);
+}
+
+.glimpse-slide-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.88) 100%);
-  transition: opacity 0.4s ease;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
 }
 
-.glimpse-card.active .glimpse-overlay,
-.glimpse-card:hover .glimpse-overlay {
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.92) 100%);
-}
-
-.glimpse-expand-circle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  cursor: pointer;
-  z-index: 5;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.glimpse-card.active .glimpse-expand-circle,
-.glimpse-card:hover .glimpse-expand-circle {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.glimpse-expand-circle:hover {
-  background: #ffffff !important;
-  color: var(--accent-blue) !important;
-  transform: scale(1.12) !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4) !important;
-}
-
-.glimpse-content {
+.glimpse-slide-caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 460px;
-  max-width: calc(100% - 30px);
-  padding: 24px;
-  z-index: 2;
+  padding: 28px 32px;
   color: #ffffff;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
-  pointer-events: none;
+  z-index: 2;
 }
 
-.glimpse-card.active .glimpse-content,
-.glimpse-card:hover .glimpse-content {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.glimpse-date {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+.glimpse-slide-date {
   display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
-.glimpse-title {
-  font-size: 1.45rem;
+.glimpse-slide-title {
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1.3;
   margin-bottom: 6px;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-.glimpse-desc {
+.glimpse-slide-desc {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 0;
+  max-width: 480px;
 }
 
-.glimpse-collapsed-title {
+/* Scroll Hint */
+.glimpses-scroll-hint {
   position: absolute;
-  bottom: 30px;
+  bottom: 28px;
   left: 50%;
-  transform: translateX(-50%) rotate(-90deg);
-  transform-origin: center center;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
-
-.glimpse-card.active .glimpse-collapsed-title,
-.glimpse-card:hover .glimpse-collapsed-title {
-  opacity: 0;
-}
-
-/* Nav Controls & Dots */
-.glimpses-nav-btn {
-  width: 42px;
-  height: 42px;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.25s ease;
-}
-.glimpse-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background: rgba(8, 145, 178, 0.25);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.glimpse-dot.active {
-  width: 28px;
-  background: var(--accent-blue);
+  gap: 8px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+  animation: glimpse-hint-bob 2s ease-in-out infinite;
 }
 
-/* Lightbox Modal */
+@keyframes glimpse-hint-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* Lightbox (reused) */
 .glimpse-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(5, 10, 20, 0.9);
+  background: rgba(5, 10, 20, 0.92);
   backdrop-filter: blur(20px);
   z-index: 10500;
   display: flex;
@@ -2878,14 +2890,14 @@ body.dark-mode .announcement-bar-marquee {
 }
 .glimpse-lightbox-img {
   max-width: 100%;
-  max-height: 75vh;
+  max-height: 78vh;
   object-fit: contain;
   border-radius: 14px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 .glimpse-lightbox-caption {
-  margin-top: 14px;
+  margin-top: 16px;
   color: #ffffff;
   text-align: center;
   font-weight: 600;
@@ -2895,11 +2907,11 @@ body.dark-mode .announcement-bar-marquee {
   position: absolute;
   top: 25px;
   right: 25px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   border: none;
   color: white;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2916,11 +2928,11 @@ body.dark-mode .announcement-bar-marquee {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   border: none;
   color: white;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2937,29 +2949,62 @@ body.dark-mode .announcement-bar-marquee {
 .glimpse-lightbox-prev { left: 30px; }
 .glimpse-lightbox-next { right: 30px; }
 
+/* Mobile: Stack vertically instead of horizontal scroll */
 @media (max-width: 768px) {
-  .glimpses-track {
-    min-height: 380px;
-    scroll-snap-type: x mandatory;
+  .glimpses-section {
+    height: auto !important;
   }
-  .glimpse-card {
-    width: 82vw;
-    min-width: 82vw;
-    height: 380px;
+  .glimpses-sticky {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    padding: 40px 0;
+  }
+  .glimpses-info-panel {
+    position: relative;
+    width: 100%;
+    padding: 0 20px 24px;
+    background: none;
+    text-align: center;
+    align-items: center;
+  }
+  .glimpses-heading {
+    font-size: 1.8rem;
+  }
+  .glimpses-subtext {
+    margin-bottom: 16px;
+  }
+  .glimpses-counter {
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .glimpses-counter-current {
+    font-size: 2rem;
+  }
+  .glimpses-progress-track {
+    max-width: 200px;
+  }
+  .glimpses-viewport {
+    position: relative;
+    left: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .glimpses-track {
+    padding: 0 20px;
+    gap: 16px;
+    transform: none !important;
+  }
+  .glimpse-slide {
+    flex: 0 0 85vw;
+    width: 85vw;
+    height: 55vh;
     scroll-snap-align: center;
   }
-  .glimpse-card.active,
-  .glimpse-card:hover {
-    width: 82vw;
-    min-width: 82vw;
-  }
-  .glimpse-content {
-    opacity: 1;
-    transform: translateY(0);
-    padding: 18px;
-    width: 100%;
-  }
-  .glimpse-collapsed-title {
+  .glimpses-scroll-hint {
     display: none;
   }
 }
