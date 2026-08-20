@@ -262,11 +262,14 @@ if (is_array($projects)) {
                     <?php endif; ?>
                 </div>
                 
-                <?php if (!empty($heroContent['tagline'])): ?>
-                <p class="lab-hero-tagline mt-3 mb-0 text-muted" style="font-size: 1.1rem; max-width: 600px;"><?= htmlspecialchars($heroContent['tagline']) ?></p>
-                <?php endif; ?>
             </div>
         </div>
+        
+        <?php if (!empty($heroContent['tagline'])): ?>
+        <div class="text-center mt-2 mb-4">
+            <p class="lab-hero-tagline text-muted mx-auto mb-0" style="font-size: 1.15rem; max-width: 800px;"><?= htmlspecialchars($heroContent['tagline']) ?></p>
+        </div>
+        <?php endif; ?>
 
         <!-- Stats Row -->
         <div class="lab-stats-row">
