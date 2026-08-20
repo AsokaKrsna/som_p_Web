@@ -304,7 +304,8 @@ if (is_array($projects)) {
                 $full_text = "<a href='".htmlspecialchars($a['link'])."' target='_blank'>{$full_text}</a>";
             }
             if (!empty($a['badge'])) {
-                $full_text = "<span class='announcement-badge'>".htmlspecialchars($a['badge'])."</span> " . $full_text;
+                $badge_class = !empty($a['badge_color']) ? htmlspecialchars($a['badge_color']) : 'bg-primary';
+                $full_text = "<span class='badge {$badge_class}'>".htmlspecialchars($a['badge'])."</span> " . $full_text;
             }
             $texts[] = $full_text;
         }
