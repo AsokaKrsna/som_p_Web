@@ -345,9 +345,9 @@ if (is_array($projects)) {
             </div>
             <div class="col-lg-5">
                 <!-- News & Highlights -->
-                <div class="h-100">
+                <div class="h-100 d-flex flex-column">
                     <h3 class="section-title text-start mb-4">News & Highlights</h3>
-                    <div class="news-ticker-container" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); height: 100%; max-height: 400px; overflow-y: auto;">
+                    <div class="news-ticker-container flex-grow-1" style="background: var(--glass-bg); border: var(--glass-border); border-radius: 15px; padding: 20px; box-shadow: var(--glass-shadow); overflow-y: auto; overflow-x: hidden;">
                         <ul class="list-unstyled mb-0">
                             <?php foreach($announcements as $a): ?>
                             <li class="mb-3 border-bottom pb-2">
