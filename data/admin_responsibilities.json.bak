@@ -1,58 +1,51 @@
 [
     {
+        "role": "Head",
+        "organization": "Department of Information Technology",
+        "duration": "August 2006 to April 2008",
+        "institution": "NEHU, Shillong",
+        "link": ""
+    },
+    {
+        "role": "Nodal officer",
+        "organization": "AISHE",
+        "duration": "2013 to 2017",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Coordinator",
+        "organization": "Department of Computer Science and Engineering",
+        "duration": "January 2013 to December 2013",
+        "institution": " IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Associate Dean",
+        "organization": "Academic",
+        "duration": "January 2016 to March 2017",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Associate Dean",
+        "organization": "Administration",
+        "duration": "10th July 2021 to Nov 2023",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Head",
+        "organization": "Computer Centre",
+        "duration": "25th Nov 2022 to Nov 2023",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
         "role": "Coordinator / Nodal Contact",
         "organization": "Aryabhatta Supercomputing Centre",
         "institution": "IIT Patna",
-        "duration": "From 23 Sept. 2022",
-        "link": ""
-    },
-    {
-        "role": "Visiting Professor",
-        "organization": "",
-        "institution": "SVNIT Surat",
-        "duration": "2025 to 2026",
-        "link": ""
-    },
-    {
-        "role": "Advisory Board Member",
-        "organization": "STPI Patna, Bhagalpur, and Darbhanga",
-        "institution": "",
-        "duration": "",
-        "link": ""
-    },
-    {
-        "role": "Chairman, Working Group on MFA",
-        "organization": "e-Governance Standards and Guidelines",
-        "institution": "MeitY, Govt. of India",
-        "duration": "",
-        "link": ""
-    },
-    {
-        "role": "Senate Member",
-        "organization": "",
-        "institution": "IIIT Pune",
-        "duration": "",
-        "link": ""
-    },
-    {
-        "role": "Senate Member",
-        "organization": "",
-        "institution": "IIIT Raichur",
-        "duration": "",
-        "link": ""
-    },
-    {
-        "role": "Panel Member",
-        "organization": "VAIBHAV Summit 2020, Session on Data Privacy and Security",
-        "institution": "",
-        "duration": "2020",
-        "link": ""
-    },
-    {
-        "role": "Member Standing Committee",
-        "organization": "BPRD",
-        "institution": "MHA",
-        "duration": "2022-23",
+        "duration": "From 23 September 2022 - Present",
         "link": ""
     }
 ]
