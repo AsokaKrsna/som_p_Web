@@ -2812,6 +2812,43 @@ body.dark-mode .announcement-bar-marquee {
   pointer-events: none;
 }
 
+/* Light-colored Fullscreen Hover Icon */
+.glimpse-fullscreen-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease;
+  z-index: 5;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.glimpse-slide:hover .glimpse-fullscreen-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.glimpse-fullscreen-icon:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0891b2;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
 .glimpse-slide-caption {
   position: absolute;
   bottom: 0;
@@ -3524,34 +3561,44 @@ body.dark-mode .academic-topic-pill {
   color: #38bdf8;
 }
 
-.academic-action-row {
+/* Top-Right Small LinkedIn Icon Button */
+.academic-card-linkedin-top {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(8, 145, 178, 0.08);
+  border: 1px solid rgba(8, 145, 178, 0.2);
+  color: var(--accent-blue) !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 6px;
-}
-
-.academic-linkedin-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 16px;
-  border-radius: 20px;
-  background: #0077b5;
-  color: #ffffff !important;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.84rem;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
 }
 
-.academic-linkedin-pill:hover {
-  background: #006097;
-  box-shadow: 0 6px 16px rgba(0, 119, 181, 0.5);
-  transform: translateY(-2px);
+.academic-card-linkedin-top:hover {
+  background: #0077b5 !important;
+  border-color: #0077b5 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.15);
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.45);
+}
+
+body.dark-mode .academic-card-linkedin-top {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .academic-card-linkedin-top:hover {
+  background: #0077b5 !important;
+  border-color: #0077b5 !important;
+  color: #ffffff !important;
 }
 
 /* Elevated Past Ph.D. Alumni Card (Claymorphic Realistic Styling) */

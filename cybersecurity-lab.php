@@ -82,7 +82,7 @@ function getInitialsAvatarUrl($name) {
 }
 
 // Helper function to render an elevated academic student card (Ph.D. & M.Tech)
-function renderStudentCard($member, $index, $roleTitle = 'Scholar') {
+function renderStudentCard($member, $index, $displayedOrder = 1) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
@@ -90,11 +90,17 @@ function renderStudentCard($member, $index, $roleTitle = 'Scholar') {
     $linkedin = $member['linkedin'] ?? '';
     $researchArea = $member['research_area'] ?? '';
     $subtitle = !empty($member['subtitle']) ? $member['subtitle'] : '';
-    $isHidden = ($index > 6);
+    $isHidden = ($displayedOrder > 6);
     ?>
     <div class="col-md-6 col-lg-4 mb-4 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
         <div class="academic-student-card h-100">
             <span class="academic-card-idx">#<?= sprintf('%02d', $index) ?></span>
+            
+            <?php if (!empty($linkedin)): ?>
+                <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-card-linkedin-top" title="LinkedIn Profile">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            <?php endif; ?>
             
             <div class="academic-avatar-wrap">
                 <img src="<?= $imageSrc ?>" class="academic-avatar-img" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
@@ -119,21 +125,13 @@ function renderStudentCard($member, $index, $roleTitle = 'Scholar') {
                     <i class="fa fa-shield"></i> <?= htmlspecialchars($researchArea) ?>
                 </div>
             <?php endif; ?>
-
-            <?php if (!empty($linkedin)): ?>
-                <div class="academic-action-row mt-auto pt-2">
-                    <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-linkedin-pill" title="LinkedIn Profile">
-                        <i class="fa fa-linkedin me-1"></i> LinkedIn
-                    </a>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
     <?php
 }
 
 // Helper function to render an elevated Past Ph.D. Alumni card
-function renderPastPhdCard($member, $index) {
+function renderPastPhdCard($member, $index, $displayedOrder = 1) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
@@ -143,11 +141,19 @@ function renderPastPhdCard($member, $index) {
     $currentAffiliation = $member['current_affiliation'] ?? '';
     $thesis = $member['thesis'] ?? '';
     $subtitle = $member['subtitle'] ?? '';
-    $isHidden = ($index > 6);
+    $isHidden = ($displayedOrder > 6);
     ?>
     <div class="col-md-6 col-lg-4 mb-4 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
-        <div class="academic-phd-alumni-card h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
+        <div class="academic-phd-alumni-card h-100 position-relative">
+            <span class="academic-card-idx">#<?= sprintf('%02d', $index) ?></span>
+
+            <?php if (!empty($linkedin)): ?>
+                <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-card-linkedin-top" title="LinkedIn Profile">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            <?php endif; ?>
+
+            <div class="d-flex align-items-center gap-3 mb-3 pt-3">
                 <img src="<?= $imageSrc ?>" class="academic-avatar-img" style="width: 72px; height: 72px; flex-shrink: 0;" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
                 <div>
                     <h5 class="academic-scholar-name mb-1" style="font-size: 1.1rem;"><?= htmlspecialchars($name) ?></h5>
@@ -177,28 +183,20 @@ function renderPastPhdCard($member, $index) {
                     <strong><i class="fa fa-book me-1"></i> Thesis:</strong> <?= htmlspecialchars($thesis) ?>
                 </div>
             <?php endif; ?>
-
-            <?php if (!empty($linkedin)): ?>
-                <div class="academic-action-row mt-auto pt-2 justify-content-start">
-                    <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-linkedin-pill" title="LinkedIn Profile">
-                        <i class="fa fa-linkedin me-1"></i> LinkedIn
-                    </a>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
     <?php
 }
 
 // Helper function to render a slim, sleek Past M.Tech Alumni row
-function renderPastMtechCard($member, $index) {
+function renderPastMtechCard($member, $index, $displayedOrder = 1) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
     $passingYear = $member['passing_year'] ?? '';
     $thesis = $member['thesis'] ?? '';
     $currentAffiliation = $member['current_affiliation'] ?? '';
-    $isHidden = ($index > 6);
+    $isHidden = ($displayedOrder > 6);
     ?>
     <div class="col-md-6 mb-3 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
         <div class="academic-mtech-alumni-row h-100">
@@ -597,9 +595,11 @@ $totalCount = count($combinedTeam);
             <div class="tab-pane fade show active" id="phd-pane" role="tabpanel" aria-labelledby="phd-tab">
                 <div class="row">
                     <?php 
-                    $idx = 1;
+                    $total = count($members['phd'] ?? []);
+                    $num = $total;
+                    $order = 1;
                     foreach ($members['phd'] as $m) {
-                        renderStudentCard($m, $idx++, 'Ph.D. Scholar');
+                        renderStudentCard($m, $num--, $order++);
                     }
                     ?>
                 </div>
@@ -617,10 +617,11 @@ $totalCount = count($combinedTeam);
             <div class="tab-pane fade" id="mtech-pane" role="tabpanel" aria-labelledby="mtech-tab">
                 <div class="row">
                     <?php 
-                    $idx = 1;
+                    $total = count($members['mtech'] ?? []);
+                    $num = $total;
+                    $order = 1;
                     foreach ($members['mtech'] as $m) {
-                        $role = !empty($m['subtitle']) ? $m['subtitle'] : 'M.Tech Scholar';
-                        renderStudentCard($m, $idx++, $role);
+                        renderStudentCard($m, $num--, $order++);
                     }
                     ?>
                 </div>
@@ -638,9 +639,11 @@ $totalCount = count($combinedTeam);
             <div class="tab-pane fade" id="past-phd-pane" role="tabpanel" aria-labelledby="past-phd-tab">
                 <div class="row">
                     <?php 
-                    $idx = 1;
+                    $total = count($members['past_phd'] ?? []);
+                    $num = $total;
+                    $order = 1;
                     foreach ($members['past_phd'] as $m) {
-                        renderPastPhdCard($m, $idx++);
+                        renderPastPhdCard($m, $num--, $order++);
                     }
                     ?>
                 </div>
@@ -658,9 +661,11 @@ $totalCount = count($combinedTeam);
             <div class="tab-pane fade" id="past-mtech-pane" role="tabpanel" aria-labelledby="past-mtech-tab">
                 <div class="row">
                     <?php 
-                    $idx = 1;
+                    $total = count($members['past_mtech'] ?? []);
+                    $num = $total;
+                    $order = 1;
                     foreach ($members['past_mtech'] as $m) {
-                        renderPastMtechCard($m, $idx++);
+                        renderPastMtechCard($m, $num--, $order++);
                     }
                     ?>
                 </div>
@@ -922,6 +927,9 @@ $totalCount = count($combinedTeam);
                 <div class="glimpse-slide" data-index="<?= $index ?>" data-src="<?= htmlspecialchars($img['image'] ?? '') ?>" data-title="<?= htmlspecialchars($title) ?>" data-date="<?= htmlspecialchars($date) ?>">
                     <img src="<?= htmlspecialchars($img['image'] ?? '') ?>" alt="<?= htmlspecialchars($title) ?>" class="glimpse-slide-img" loading="lazy">
                     <div class="glimpse-slide-overlay"></div>
+                    <div class="glimpse-fullscreen-icon" title="View Fullscreen">
+                        <i class="fa fa-expand"></i>
+                    </div>
                     <div class="glimpse-slide-caption">
                         <?php if ($date): ?>
                             <span class="glimpse-slide-date"><i class="fa fa-calendar-o me-1"></i><?= htmlspecialchars($date) ?></span>

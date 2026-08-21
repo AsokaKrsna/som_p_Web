@@ -14,6 +14,16 @@
     ],
     "research_areas": [
         {
+            "icon": "fa-sitemap",
+            "title": "Cybersecurity for AI",
+            "description": "Securing AI models against adversarial attacks and data poisoning."
+        },
+        {
+            "icon": "fa-cogs",
+            "title": "AI for Cybersecurity",
+            "description": "Leveraging artificial intelligence to detect and mitigate cyber threats."
+        },
+        {
             "icon": "fa-bug",
             "title": "Malware Analysis",
             "description": "Behavioral analysis and AI-driven detection."
@@ -27,11 +37,6 @@
             "icon": "fa-lock",
             "title": "Cryptography",
             "description": "Lightweight crypto for IoT and edge devices."
-        },
-        {
-            "icon": "fa-shield",
-            "title": "Network Sec",
-            "description": "Intrusion detection and traffic classification."
         }
     ],
     "join_us": [
@@ -47,7 +52,7 @@
         {
             "name": "Dr. Somanath Tripathy",
             "designation": "Professor",
-            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Cybersecurity for AI, AI for Cybersecurity, Lightweight Cryptography, Blockchain, and Network Security.",
+            "bio": "Dr. Tripathy leads the Cybersecurity Lab at IIT Patna. His research interests include Cybersecurity, Malware Detection, Secure Machine Learning, and Blockchain.",
             "scholar_link": "https://scholar.google.com/citations?user=sYHVfuEAAAAJ&hl=en",
             "dblp_link": "https://dblp.org/pid/94/1950",
             "website_link": "index.php"
@@ -89,16 +94,25 @@
     ],
     "gallery": [
         {
-            "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-            "alt": "Lab Team Collaboration"
+            "image": "pics/lab3.jpeg",
+            "alt": "Panoramic View of the Lab",
+            "tag": "LAB FACILITY",
+            "date": "Cybersecurity Lab, IIT Patna",
+            "description": ""
         },
         {
-            "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
-            "alt": "International Conference"
+            "image": "pics/lab4.jpeg",
+            "alt": "Current Research Team",
+            "tag": "RESEARCH TEAM",
+            "date": "Scholars & Researchers",
+            "description": "The dedicated research team of Ph.D. and M.Tech scholars collaborating on cutting-edge cybersecurity, cryptography, and secure systems research."
         },
         {
-            "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
-            "alt": "Cybersecurity Research Work"
+            "image": "pics/lab2.jpeg",
+            "alt": "Dedicated Nodes",
+            "tag": "WORKSTATIONS",
+            "date": "Workstations",
+            "description": "High-performance computational workstations dedicated to the researchers interest."
         }
     ]
 }

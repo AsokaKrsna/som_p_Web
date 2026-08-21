@@ -95,38 +95,24 @@
     "gallery": [
         {
             "image": "pics/lab3.jpeg",
-            "alt": "Cybersecurity Research Facility",
+            "alt": "Panoramic View of the Lab",
             "tag": "LAB FACILITY",
-            "date": "Room 302, Block 2",
-            "description": "High-performance workstations dedicated to malware emulation and secure AI training."
+            "date": "",
+            "description": ""
         },
         {
-            "image": "pics/lab1.jpeg",
-            "alt": "Scholars & Collaborative Brainstorming",
-            "tag": "COLLABORATION",
-            "date": "Research Discussions",
-            "description": "Lab members discussing zero-day detection architectures and blockchain consensus protocols."
+            "image": "pics/lab4.jpeg",
+            "alt": "Current Research Team",
+            "tag": "RESEARCH TEAM",
+            "date": "",
+            "description": "The dedicated group of scholars collaborating on cutting-edge cybersecurity, cryptography, and secure systems research."
         },
         {
             "image": "pics/lab2.jpeg",
-            "alt": "Deep Work & Experimentation",
-            "tag": "WORKSPACE",
-            "date": "IIT Patna",
-            "description": "Continuous experimentation on lightweight cryptography and adversarial defense models."
-        },
-        {
-            "image": "pics/lab1.jpeg",
-            "alt": "Milestones & Lab Achievements",
-            "tag": "MILESTONES",
-            "date": "Research Seminar",
-            "description": "Celebrating paper acceptances and research milestones across top cybersecurity venues."
-        },
-        {
-            "image": "pics/lab3.jpeg",
-            "alt": "Hardware & IoT Testbed",
-            "tag": "INFRASTRUCTURE",
-            "date": "Lab Setup",
-            "description": "Edge and IoT hardware testbed for testing real-world firmware security."
+            "alt": "Workstations",
+            "tag": "WORKSTATIONS",
+            "date": "",
+            "description": ""
         }
     ]
 }
