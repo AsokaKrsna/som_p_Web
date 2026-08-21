@@ -7,9 +7,7 @@ $page_title = "Cybersecurity Lab | Dr. Somanath Tripathy";
 $sideNavItems = [
     ['href' => '#lab-hero', 'section' => 'lab-hero', 'text' => 'Lab Home', 'tip' => 'Top of page'],
     ['href' => '#about-lab', 'section' => 'about-lab', 'text' => 'About the Lab', 'tip' => 'Mission & Vision'],
-    ['href' => '#head-of-research', 'section' => 'head-of-research', 'text' => 'Research Group', 'tip' => 'Group Head'],
-    ['href' => '#current-students', 'section' => 'current-students', 'text' => 'Current Students', 'tip' => 'Ph.D. & M.Tech'],
-    ['href' => '#alumni', 'section' => 'alumni', 'text' => 'Alumni', 'tip' => 'Past Members'],
+    ['href' => '#research-group', 'section' => 'research-group', 'text' => 'Research Group', 'tip' => 'Team & Scholars'],
     ['href' => '#research-outcome', 'section' => 'research-outcome', 'text' => 'Outcome', 'tip' => 'Projects & Pubs'],
     ['href' => '#awards-honours', 'section' => 'awards-honours', 'text' => 'Awards & Honours', 'tip' => 'Awards and Honours'],
     ['href' => '#glimpses', 'section' => 'glimpses', 'text' => 'Glimpses', 'tip' => 'Moments & Milestones'],
@@ -78,9 +76,9 @@ $members['past_phd'] = array_reverse($members['past_phd'] ?? []);
 $members['past_mtech'] = array_reverse($members['past_mtech'] ?? []);
 
 function getInitialsAvatarUrl($name) {
-    // Generate initials avatar with a background color matching the theme
+    // Generate high-resolution dark styled initials avatar
     $nameEncoded = urlencode($name);
-    return "https://ui-avatars.com/api/?name={$nameEncoded}&background=0891b2&color=fff&size=150";
+    return "https://ui-avatars.com/api/?name={$nameEncoded}&background=0f172a&color=22d3ee&size=500&font-size=0.35&bold=true";
 }
 
 // Helper function to render a premium student card
@@ -394,14 +392,94 @@ if (is_array($projects)) {
     </div>
 </section>
 
-<!-- Head of Research Group -->
-<section id="head-of-research" class="bio-section py-4">
+<!-- Research Group (Unified Editorial Portrait Wall) -->
+<?php
+$combinedTeam = [];
+
+// PhD Scholars
+if (!empty($members['phd'])) {
+    foreach ($members['phd'] as $m) {
+        $combinedTeam[] = [
+            'name' => $m['name'] ?? '',
+            'image' => $m['image'] ?? '',
+            'category' => 'phd',
+            'role_display' => 'Ph.D. Scholar',
+            'desc_display' => !empty($m['research_area']) ? $m['research_area'] : 'Cyber Security',
+            'email' => $m['email'] ?? '',
+            'linkedin' => $m['linkedin'] ?? '',
+            'subtitle' => $m['subtitle'] ?? ''
+        ];
+    }
+}
+
+// M.Tech Scholars
+if (!empty($members['mtech'])) {
+    foreach ($members['mtech'] as $m) {
+        $role = !empty($m['subtitle']) ? $m['subtitle'] : 'M.Tech Scholar';
+        $combinedTeam[] = [
+            'name' => $m['name'] ?? '',
+            'image' => $m['image'] ?? '',
+            'category' => 'mtech',
+            'role_display' => $role,
+            'desc_display' => !empty($m['research_area']) ? $m['research_area'] : 'Cyber Security',
+            'email' => $m['email'] ?? '',
+            'linkedin' => $m['linkedin'] ?? '',
+            'subtitle' => $m['subtitle'] ?? ''
+        ];
+    }
+}
+
+// Past PhD (Alumni)
+if (!empty($members['past_phd'])) {
+    foreach ($members['past_phd'] as $m) {
+        $yearTag = !empty($m['passing_year']) ? 'Ph.D. Alumni · ' . $m['passing_year'] : 'Ph.D. Alumni';
+        $desc = !empty($m['current_affiliation']) ? $m['current_affiliation'] : (!empty($m['thesis']) ? 'Thesis: ' . $m['thesis'] : 'IIT Patna Alumnus');
+        $combinedTeam[] = [
+            'name' => $m['name'] ?? '',
+            'image' => $m['image'] ?? '',
+            'category' => 'alumni',
+            'role_display' => $yearTag,
+            'desc_display' => $desc,
+            'email' => $m['email'] ?? '',
+            'linkedin' => $m['linkedin'] ?? '',
+            'subtitle' => $m['thesis'] ?? ''
+        ];
+    }
+}
+
+// Past M.Tech (Alumni)
+if (!empty($members['past_mtech'])) {
+    foreach ($members['past_mtech'] as $m) {
+        $yearTag = !empty($m['passing_year']) ? 'M.Tech Alumni · ' . $m['passing_year'] : 'M.Tech Alumni';
+        $desc = !empty($m['thesis']) ? 'Thesis: ' . $m['thesis'] : (!empty($m['current_affiliation']) ? $m['current_affiliation'] : 'IIT Patna Alumnus');
+        $combinedTeam[] = [
+            'name' => $m['name'] ?? '',
+            'image' => $m['image'] ?? '',
+            'category' => 'alumni',
+            'role_display' => $yearTag,
+            'desc_display' => $desc,
+            'email' => $m['email'] ?? '',
+            'linkedin' => $m['linkedin'] ?? '',
+            'subtitle' => $m['thesis'] ?? ''
+        ];
+    }
+}
+
+$phdCount = count($members['phd'] ?? []);
+$mtechCount = count($members['mtech'] ?? []);
+$alumniCount = count($members['past_phd'] ?? []) + count($members['past_mtech'] ?? []);
+$totalCount = count($combinedTeam);
+?>
+
+<section id="research-group" class="bio-section py-4">
     <div class="container">
         <h2 class="section-title">Research Group</h2>
-        <div class="row mt-4">
+        
+        <!-- Professor / Head of Group -->
+        <div class="row mt-4 mb-4">
             <div class="col-12">
                 <div class="student-card professor-card p-4 p-md-5 d-flex flex-column flex-md-row align-items-center align-items-md-start text-center text-md-start gap-4">
-                    <img class="avatar mb-0" src="pics/som-pic.png" alt="<?= htmlspecialchars($headContent['name'] ?? '') ?>" style="width: 140px; height: 140px; flex-shrink: 0; border: 4px solid rgba(8, 145, 178, 0.25); box-shadow: 0 10px 25px rgba(8, 145, 178, 0.25);">
+                    <img class="professor-avatar-rect mb-0" src="pics/som-pic.png" alt="<?= htmlspecialchars($headContent['name'] ?? '') ?>" style="width: 140px; height: 160px; min-width: 140px; max-width: 140px; object-fit: cover; object-position: center 15%; border-radius: 20px; border: 4px solid rgba(8, 145, 178, 0.3); box-shadow: 0 10px 25px rgba(8, 145, 178, 0.25); flex-shrink: 0;">
                     <div class="flex-grow-1">
                         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-start mb-2">
                             <div>
@@ -422,93 +500,66 @@ if (is_array($projects)) {
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Current Students -->
-<section id="current-students" class="bio-section py-4">
-    <div class="container">
-        <h2 class="section-title">Current Students</h2>
-        
-        <ul class="nav nav-tabs custom-tabs justify-content-center mb-4" id="currentStudentsTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="phd-tab" data-bs-toggle="tab" data-bs-target="#phd-tab-pane" type="button" role="tab" aria-controls="phd-tab-pane" aria-selected="true">Ph.D. Scholars</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="mtech-tab" data-bs-toggle="tab" data-bs-target="#mtech-tab-pane" type="button" role="tab" aria-controls="mtech-tab-pane" aria-selected="false">M.Tech Scholars</button>
-            </li>
-        </ul>
+        <!-- Filter Pills -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4 team-filter-bar">
+            <button class="team-filter-pill active" data-filter="all">All Members <span class="pill-count"><?= $totalCount ?></span></button>
+            <button class="team-filter-pill" data-filter="phd">Ph.D. Scholars <span class="pill-count"><?= $phdCount ?></span></button>
+            <button class="team-filter-pill" data-filter="mtech">M.Tech Scholars <span class="pill-count"><?= $mtechCount ?></span></button>
+            <button class="team-filter-pill" data-filter="alumni">Alumni <span class="pill-count"><?= $alumniCount ?></span></button>
+        </div>
 
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="phd-tab-pane" role="tabpanel">
-                <div class="row">
-                    <?php 
-                    if (!empty($members['phd'])) {
-                        $idx = count($members['phd']);
-                        foreach($members['phd'] as $member) renderStudentCard($member, $idx--);
-                    } else {
-                        echo "<p class='text-center text-muted m-0 py-3 w-100'>Currently no Ph.D. students listed.</p>";
-                    }
-                    ?>
+        <!-- Editorial Mosaic Wall Wrapper -->
+        <div class="editorial-team-wrapper">
+            <div class="editorial-team-grid" id="editorialTeamGrid">
+                <?php 
+                $alumniIdx = 0;
+                foreach ($combinedTeam as $member): 
+                    $img = !empty($member['image']) ? $member['image'] : getInitialsAvatarUrl($member['name']);
+                    $isAlumni = ($member['category'] === 'alumni');
+                    $isInitiallyHidden = $isAlumni && ($alumniIdx >= 6);
+                    if ($isAlumni) $alumniIdx++;
+                ?>
+                <div class="editorial-team-card <?= $isInitiallyHidden ? 'team-card-hidden' : '' ?>" data-category="<?= $member['category'] ?>">
+                    <div class="editorial-img-wrap">
+                        <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($member['name']) ?>" class="editorial-portrait-img" loading="lazy" onerror="this.onerror=null; this.src='<?= getInitialsAvatarUrl($member['name']) ?>';">
+                        <div class="editorial-gradient-overlay"></div>
+                    </div>
+
+                    <!-- Sleek Inner Outline Frame -->
+                    <div class="editorial-inner-frame">
+                        <!-- Top Action Icons (LinkedIn & Email) -->
+                        <div class="editorial-actions-bar">
+                            <?php if (!empty($member['linkedin'])): ?>
+                            <a href="<?= htmlspecialchars($member['linkedin']) ?>" target="_blank" rel="noopener noreferrer" class="editorial-action-btn editorial-linkedin-btn" title="LinkedIn Profile" onclick="event.stopPropagation();">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <?php endif; ?>
+                            <?php if (!empty($member['email'])): ?>
+                            <a href="mailto:<?= htmlspecialchars($member['email']) ?>" class="editorial-action-btn editorial-email-btn" title="<?= htmlspecialchars($member['email']) ?>" onclick="event.stopPropagation();">
+                                <i class="fa fa-envelope-o"></i>
+                            </a>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Floating Text Content -->
+                        <div class="editorial-text-content">
+                            <span class="editorial-role-tag"><?= htmlspecialchars($member['role_display']) ?></span>
+                            <h4 class="editorial-name"><?= htmlspecialchars($member['name']) ?></h4>
+                            <p class="editorial-desc"><?= htmlspecialchars($member['desc_display']) ?></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="tab-pane fade" id="mtech-tab-pane" role="tabpanel">
-                <div class="row">
-                    <?php 
-                    if (!empty($members['mtech'])) {
-                        $idx = count($members['mtech']);
-                        foreach($members['mtech'] as $member) renderStudentCard($member, $idx--);
-                    } else {
-                        echo "<p class='text-center text-muted m-0 py-3 w-100'>Currently no M.Tech students listed.</p>";
-                    }
-                    ?>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Alumni -->
-<section id="alumni" class="bio-section py-4">
-    <div class="container">
-        <h2 class="section-title">Alumni</h2>
-        
-        <ul class="nav nav-tabs custom-tabs justify-content-center mb-4" id="alumniTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="past-phd-tab" data-bs-toggle="tab" data-bs-target="#past-phd-tab-pane" type="button" role="tab" aria-controls="past-phd-tab-pane" aria-selected="true">Past Ph.D.</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="past-mtech-tab" data-bs-toggle="tab" data-bs-target="#past-mtech-tab-pane" type="button" role="tab" aria-controls="past-mtech-tab-pane" aria-selected="false">Past M.Tech</button>
-            </li>
-        </ul>
-
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="past-phd-tab-pane" role="tabpanel">
-                <div class="row">
-                    <?php 
-                    if (!empty($members['past_phd'])): 
-                        $idx = count($members['past_phd']);
-                        foreach($members['past_phd'] as $member) renderStudentCard($member, $idx--, true);
-                    else:
-                        echo "<p class='text-center text-muted m-0 py-3 w-100'>No past Ph.D. students listed.</p>";
-                    endif;
-                    ?>
-                </div>
-            </div>
-            
-            <div class="tab-pane fade" id="past-mtech-tab-pane" role="tabpanel">
-                <div class="row">
-                    <?php 
-                    if (!empty($members['past_mtech'])) {
-                        $idx = count($members['past_mtech']);
-                        foreach($members['past_mtech'] as $member) renderSleekAlumniCard($member, $idx--);
-                    } else {
-                        echo "<p class='text-center text-muted m-0 py-3 w-100'>No past M.Tech students listed.</p>";
-                    }
-                    ?>
-                </div>
-            </div>
+        <!-- See More Button -->
+        <div class="text-center mt-4 pt-2" id="teamSeeMoreWrap">
+            <button class="btn team-see-more-btn" id="teamSeeMoreBtn">
+                <span>See More</span>
+                <i class="fa fa-angle-down ms-2"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -1054,6 +1105,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statsRow = document.querySelector('.lab-stats-row');
     if (statsRow) observer.observe(statsRow);
+})();
+
+// Editorial Team Wall Filtering & Progressive Reveal
+(function() {
+    const filterPills = document.querySelectorAll('.team-filter-pill');
+    const memberCards = Array.from(document.querySelectorAll('.editorial-team-card'));
+    const seeMoreWrap = document.getElementById('teamSeeMoreWrap');
+    const seeMoreBtn = document.getElementById('teamSeeMoreBtn');
+    if (!filterPills.length || !memberCards.length) return;
+
+    let activeFilter = 'all';
+    let visibleAlumniRows = 2; // Initially 2 rows (6 alumni)
+    const CARDS_PER_ROW = 3;
+
+    function updateVisibility(animateNew = false) {
+        let hiddenMatchingCount = 0;
+        let alumniShownCount = 0;
+        let newlyRevealed = [];
+
+        memberCards.forEach((card) => {
+            const cat = card.dataset.category;
+            const isAlumni = (cat === 'alumni');
+            let shouldShow = false;
+
+            if (activeFilter === 'all') {
+                if (!isAlumni) {
+                    shouldShow = true; // Show all PhD & MTech
+                } else {
+                    alumniShownCount++;
+                    shouldShow = (alumniShownCount <= visibleAlumniRows * CARDS_PER_ROW);
+                }
+            } else if (activeFilter === 'alumni') {
+                if (isAlumni) {
+                    alumniShownCount++;
+                    shouldShow = (alumniShownCount <= visibleAlumniRows * CARDS_PER_ROW);
+                } else {
+                    shouldShow = false;
+                }
+            } else {
+                shouldShow = (cat === activeFilter);
+            }
+
+            const wasHidden = card.classList.contains('team-card-hidden');
+
+            if (shouldShow) {
+                card.classList.remove('team-card-hidden');
+                if (animateNew) {
+                    newlyRevealed.push(card);
+                } else {
+                    card.style.opacity = '1';
+                    card.style.transform = 'none';
+                }
+            } else {
+                card.classList.add('team-card-hidden');
+                if (isAlumni && (activeFilter === 'all' || activeFilter === 'alumni')) {
+                    hiddenMatchingCount++;
+                }
+            }
+        });
+
+        // Sleek staggered reveal animation for newly revealed cards
+        if (newlyRevealed.length > 0) {
+            newlyRevealed.forEach((card, idx) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(24px) scale(0.96)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, idx * 50);
+            });
+        }
+
+        // Toggle See More button
+        if (seeMoreWrap) {
+            if ((activeFilter === 'all' || activeFilter === 'alumni') && hiddenMatchingCount > 0) {
+                seeMoreWrap.style.display = 'block';
+            } else {
+                seeMoreWrap.style.display = 'none';
+            }
+        }
+    }
+
+    // See More Click Handler (reveals 2 rows per click)
+    if (seeMoreBtn) {
+        seeMoreBtn.addEventListener('click', function() {
+            visibleAlumniRows += 2;
+            updateVisibility(true);
+        });
+    }
+
+    // Filter Pills Click Handler
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', function() {
+            filterPills.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            activeFilter = this.dataset.filter;
+            visibleAlumniRows = 2; // reset on filter switch
+            updateVisibility(true);
+        });
+    });
+
+    // Initial check
+    updateVisibility(false);
 })();
 </script>
 

@@ -55,6 +55,7 @@
             "image": "pics/durjoy.jpeg",
             "name": "Durjoy Majumdar",
             "email": "durjoy_2511cs25 [at] iitp.ac.in",
+            "linkedin": "https://www.linkedin.com/in/durjoy-majumdar/",
             "research_area": "Blockchain Security",
             "subtitle": ""
         },
@@ -180,12 +181,12 @@
         },
         {
             "image": "pics/vivek.png",
-            "name": "Dr. Vivek Singh (Joint supervision of Dr. Kailash Chandra Ray)",
+            "name": "Dr. Vivek Singh ",
             "passing_year": "2024",
             "current_affiliation": "",
             "thesis": "Development of an efficient signal processing method and embedded system for audio-based forest event monitoring",
             "email": "",
-            "subtitle": ""
+            "subtitle": "(Joint supervision of Dr. Kailash Chandra Ray)"
         },
         {
             "image": "pics/Narendra.jpg",
