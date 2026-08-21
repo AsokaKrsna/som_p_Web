@@ -81,75 +81,138 @@ function getInitialsAvatarUrl($name) {
     return "https://ui-avatars.com/api/?name={$nameEncoded}&background=0f172a&color=22d3ee&size=500&font-size=0.35&bold=true";
 }
 
-// Helper function to render a premium student card
-function renderStudentCard($member, $index, $isPast = false) {
+// Helper function to render an elevated academic student card (Ph.D. & M.Tech)
+function renderStudentCard($member, $index, $roleTitle = 'Scholar') {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
     $email = $member['email'] ?? '';
+    $linkedin = $member['linkedin'] ?? '';
     $researchArea = $member['research_area'] ?? '';
-    
-    // For past members
-    $passingYear = $member['passing_year'] ?? '';
-    $currentAffiliation = $member['current_affiliation'] ?? '';
-    $thesis = $member['thesis'] ?? '';
+    $subtitle = !empty($member['subtitle']) ? $member['subtitle'] : '';
     ?>
     <div class="col-md-6 col-lg-4 mb-4">
-        <div class="student-card h-100">
-            <div class="card-index-badge"><?= $index ?></div>
-            <img src="<?= $imageSrc ?>" class="avatar" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
-            <h5><?= htmlspecialchars($name) ?></h5>
-            <?php if (!empty($member['subtitle'])): ?>
-                <div class="text-muted small mb-2" style="font-size: 0.85rem; font-weight: 500;"><?= htmlspecialchars($member['subtitle']) ?></div>
-            <?php endif; ?>
+        <div class="academic-student-card h-100">
+            <span class="academic-card-idx">#<?= sprintf('%02d', $index) ?></span>
             
-            <?php if ($isPast): ?>
-                <?php if ($passingYear): ?>
-                    <div class="affiliation" style="font-weight: 500;">Batch of <?= htmlspecialchars($passingYear) ?></div>
-                <?php endif; ?>
-                <?php if ($currentAffiliation): ?>
-                    <div class="affiliation mt-1"><i class="fa fa-building-o"></i> <?= htmlspecialchars($currentAffiliation) ?></div>
-                <?php endif; ?>
-                <?php if ($thesis): ?>
-                    <div class="research-badge mt-2" style="white-space: normal; height: auto;">Thesis: <?= htmlspecialchars($thesis) ?></div>
-                <?php endif; ?>
+            <div class="academic-avatar-wrap">
+                <img src="<?= $imageSrc ?>" class="academic-avatar-img" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
+            </div>
+
+            <h5 class="academic-scholar-name"><?= htmlspecialchars($name) ?></h5>
+            
+            <?php if (!empty($subtitle)): ?>
+                <span class="academic-subtitle-note"><?= htmlspecialchars($subtitle) ?></span>
+            <?php endif; ?>
+
+            <?php if (!empty($email)): ?>
+                <a href="mailto:<?= htmlspecialchars($email) ?>" class="academic-email-text" title="Send Email">
+                    <i class="fa fa-envelope-o me-1"></i> <?= htmlspecialchars($email) ?>
+                </a>
             <?php else: ?>
-                <?php if ($email): ?>
-                    <div class="affiliation"><i class="fa fa-envelope-o"></i> <?= htmlspecialchars($email) ?></div>
-                <?php endif; ?>
-                <?php if ($researchArea): ?>
-                    <div class="research-badge mt-2" style="white-space: normal; height: auto;"><?= htmlspecialchars($researchArea) ?></div>
-                <?php endif; ?>
+                <div class="mb-2"></div>
             <?php endif; ?>
-            
-            <?php if ($isPast && $email): ?>
-                <div class="email mt-2"><i class="fa fa-envelope-o"></i> <?= htmlspecialchars($email) ?></div>
+
+            <?php if (!empty($researchArea)): ?>
+                <div class="academic-topic-pill">
+                    <i class="fa fa-shield"></i> <?= htmlspecialchars($researchArea) ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($linkedin)): ?>
+                <div class="academic-action-row mt-auto pt-2">
+                    <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-linkedin-pill" title="LinkedIn Profile">
+                        <i class="fa fa-linkedin me-1"></i> LinkedIn
+                    </a>
+                </div>
             <?php endif; ?>
         </div>
     </div>
     <?php
 }
 
-// Helper function to render a slim, sleek member row for past M.Tech
-function renderSleekAlumniCard($member, $index) {
+// Helper function to render an elevated Past Ph.D. Alumni card
+function renderPastPhdCard($member, $index) {
     $name = $member['name'] ?? '';
     $fallbackImage = getInitialsAvatarUrl($name);
     $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
-    
+    $email = $member['email'] ?? '';
+    $linkedin = $member['linkedin'] ?? '';
+    $passingYear = $member['passing_year'] ?? '';
+    $currentAffiliation = $member['current_affiliation'] ?? '';
+    $thesis = $member['thesis'] ?? '';
+    $subtitle = $member['subtitle'] ?? '';
+    ?>
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="academic-phd-alumni-card h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="<?= $imageSrc ?>" class="academic-avatar-img" style="width: 72px; height: 72px; flex-shrink: 0;" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
+                <div>
+                    <h5 class="academic-scholar-name mb-1" style="font-size: 1.1rem;"><?= htmlspecialchars($name) ?></h5>
+                    <?php if ($passingYear): ?>
+                        <span class="badge" style="background: rgba(8, 145, 178, 0.12); color: var(--accent-blue); font-size: 0.78rem; font-weight: 600; border-radius: 12px;"><i class="fa fa-graduation-cap me-1"></i> Class of <?= htmlspecialchars($passingYear) ?></span>
+                    <?php endif; ?>
+                    <?php if ($subtitle): ?>
+                        <div class="text-muted small mt-1" style="font-size: 0.78rem;"><?= htmlspecialchars($subtitle) ?></div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <?php if (!empty($email)): ?>
+                <a href="mailto:<?= htmlspecialchars($email) ?>" class="academic-email-text text-start mb-2" title="Send Email">
+                    <i class="fa fa-envelope-o me-1"></i> <?= htmlspecialchars($email) ?>
+                </a>
+            <?php endif; ?>
+
+            <?php if ($currentAffiliation): ?>
+                <div class="mb-2" style="font-size: 0.88rem; color: var(--text-main); font-weight: 500;">
+                    <i class="fa fa-university me-1 text-cyan"></i> <?= htmlspecialchars($currentAffiliation) ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($thesis): ?>
+                <div class="alumni-thesis-quote">
+                    <strong><i class="fa fa-book me-1"></i> Thesis:</strong> <?= htmlspecialchars($thesis) ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($linkedin)): ?>
+                <div class="academic-action-row mt-auto pt-2 justify-content-start">
+                    <a href="<?= htmlspecialchars($linkedin) ?>" target="_blank" rel="noopener noreferrer" class="academic-linkedin-pill" title="LinkedIn Profile">
+                        <i class="fa fa-linkedin me-1"></i> LinkedIn
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Helper function to render a slim, sleek Past M.Tech Alumni row
+function renderPastMtechCard($member, $index) {
+    $name = $member['name'] ?? '';
+    $fallbackImage = getInitialsAvatarUrl($name);
+    $imageSrc = !empty($member['image']) ? htmlspecialchars($member['image']) : $fallbackImage;
     $passingYear = $member['passing_year'] ?? '';
     $thesis = $member['thesis'] ?? '';
+    $currentAffiliation = $member['current_affiliation'] ?? '';
     ?>
     <div class="col-md-6 mb-3">
-        <div class="alumni-card-sleek h-100">
-            <div class="index-num"><?= $index ?>.</div>
-            <img src="<?= $imageSrc ?>" class="sleek-avatar" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
-            <div class="sleek-info">
-                <h6><?= htmlspecialchars($name) ?></h6>
-                <?php if ($passingYear): ?>
-                    <div class="text-muted" style="font-size: 0.85rem;">Batch of <?= htmlspecialchars($passingYear) ?></div>
+        <div class="academic-mtech-alumni-row h-100">
+            <span style="font-weight: 800; color: var(--accent-blue); font-size: 0.95rem; min-width: 28px;">#<?= sprintf('%02d', $index) ?></span>
+            <img src="<?= $imageSrc ?>" class="academic-avatar-img" style="width: 52px; height: 52px; flex-shrink: 0;" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-1">
+                    <h6 class="mb-0" style="font-weight: 700; color: var(--text-main); font-size: 0.98rem;"><?= htmlspecialchars($name) ?></h6>
+                    <?php if ($passingYear): ?>
+                        <span class="badge" style="background: rgba(8, 145, 178, 0.1); color: var(--accent-blue); font-size: 0.75rem;"><i class="fa fa-calendar-check-o me-1"></i> <?= htmlspecialchars($passingYear) ?></span>
+                    <?php endif; ?>
+                </div>
+                <?php if ($currentAffiliation): ?>
+                    <div class="text-muted small mt-1" style="font-size: 0.82rem;"><i class="fa fa-building-o me-1"></i> <?= htmlspecialchars($currentAffiliation) ?></div>
                 <?php endif; ?>
                 <?php if ($thesis): ?>
-                    <span class="badge mt-1" style="background: rgba(8, 145, 178, 0.1); color: var(--accent-blue); white-space: normal; text-align: left; line-height: 1.4;"><?= htmlspecialchars($thesis) ?></span>
+                    <div class="text-muted small mt-1" style="font-size: 0.82rem; line-height: 1.35;"><strong class="text-cyan">Thesis:</strong> <?= htmlspecialchars($thesis) ?></div>
                 <?php endif; ?>
             </div>
         </div>
@@ -501,65 +564,80 @@ $totalCount = count($combinedTeam);
             </div>
         </div>
 
-        <!-- Filter Pills -->
-        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4 team-filter-bar">
-            <button class="team-filter-pill active" data-filter="all">All Members <span class="pill-count"><?= $totalCount ?></span></button>
-            <button class="team-filter-pill" data-filter="phd">Ph.D. Scholars <span class="pill-count"><?= $phdCount ?></span></button>
-            <button class="team-filter-pill" data-filter="mtech">M.Tech Scholars <span class="pill-count"><?= $mtechCount ?></span></button>
-            <button class="team-filter-pill" data-filter="alumni">Alumni <span class="pill-count"><?= $alumniCount ?></span></button>
-        </div>
+        <!-- Academic Group Navigation Tabs -->
+        <ul class="nav nav-pills custom-academic-tabs justify-content-center gap-2 mb-4" id="researchGroupTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="phd-tab" data-bs-toggle="pill" data-bs-target="#phd-pane" type="button" role="tab" aria-controls="phd-pane" aria-selected="true">
+                    <i class="fa fa-mortar-board me-1"></i> Ph.D. Scholars <span class="tab-count"><?= count($members['phd'] ?? []) ?></span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mtech-tab" data-bs-toggle="pill" data-bs-target="#mtech-pane" type="button" role="tab" aria-controls="mtech-pane" aria-selected="false">
+                    <i class="fa fa-users me-1"></i> M.Tech Scholars <span class="tab-count"><?= count($members['mtech'] ?? []) ?></span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="past-phd-tab" data-bs-toggle="pill" data-bs-target="#past-phd-pane" type="button" role="tab" aria-controls="past-phd-pane" aria-selected="false">
+                    <i class="fa fa-certificate me-1"></i> Ph.D. Alumni <span class="tab-count"><?= count($members['past_phd'] ?? []) ?></span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="past-mtech-tab" data-bs-toggle="pill" data-bs-target="#past-mtech-pane" type="button" role="tab" aria-controls="past-mtech-pane" aria-selected="false">
+                    <i class="fa fa-history me-1"></i> M.Tech Alumni <span class="tab-count"><?= count($members['past_mtech'] ?? []) ?></span>
+                </button>
+            </li>
+        </ul>
 
-        <!-- Editorial Mosaic Wall Wrapper -->
-        <div class="editorial-team-wrapper">
-            <div class="editorial-team-grid" id="editorialTeamGrid">
-                <?php 
-                $alumniIdx = 0;
-                foreach ($combinedTeam as $member): 
-                    $img = !empty($member['image']) ? $member['image'] : getInitialsAvatarUrl($member['name']);
-                    $isAlumni = ($member['category'] === 'alumni');
-                    $isInitiallyHidden = $isAlumni && ($alumniIdx >= 6);
-                    if ($isAlumni) $alumniIdx++;
-                ?>
-                <div class="editorial-team-card <?= $isInitiallyHidden ? 'team-card-hidden' : '' ?>" data-category="<?= $member['category'] ?>">
-                    <div class="editorial-img-wrap">
-                        <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($member['name']) ?>" class="editorial-portrait-img" loading="lazy" onerror="this.onerror=null; this.src='<?= getInitialsAvatarUrl($member['name']) ?>';">
-                        <div class="editorial-gradient-overlay"></div>
-                    </div>
-
-                    <!-- Sleek Inner Outline Frame -->
-                    <div class="editorial-inner-frame">
-                        <!-- Top Action Icons (LinkedIn & Email) -->
-                        <div class="editorial-actions-bar">
-                            <?php if (!empty($member['linkedin'])): ?>
-                            <a href="<?= htmlspecialchars($member['linkedin']) ?>" target="_blank" rel="noopener noreferrer" class="editorial-action-btn editorial-linkedin-btn" title="LinkedIn Profile" onclick="event.stopPropagation();">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <?php endif; ?>
-                            <?php if (!empty($member['email'])): ?>
-                            <a href="mailto:<?= htmlspecialchars($member['email']) ?>" class="editorial-action-btn editorial-email-btn" title="<?= htmlspecialchars($member['email']) ?>" onclick="event.stopPropagation();">
-                                <i class="fa fa-envelope-o"></i>
-                            </a>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Floating Text Content -->
-                        <div class="editorial-text-content">
-                            <span class="editorial-role-tag"><?= htmlspecialchars($member['role_display']) ?></span>
-                            <h4 class="editorial-name"><?= htmlspecialchars($member['name']) ?></h4>
-                            <p class="editorial-desc"><?= htmlspecialchars($member['desc_display']) ?></p>
-                        </div>
-                    </div>
+        <!-- Tab Contents -->
+        <div class="tab-content" id="researchGroupTabContent">
+            <!-- Ph.D. Scholars -->
+            <div class="tab-pane fade show active" id="phd-pane" role="tabpanel" aria-labelledby="phd-tab">
+                <div class="row">
+                    <?php 
+                    $idx = 1;
+                    foreach ($members['phd'] as $m) {
+                        renderStudentCard($m, $idx++, 'Ph.D. Scholar');
+                    }
+                    ?>
                 </div>
-                <?php endforeach; ?>
             </div>
-        </div>
 
-        <!-- See More Button -->
-        <div class="text-center mt-4 pt-2" id="teamSeeMoreWrap">
-            <button class="btn team-see-more-btn" id="teamSeeMoreBtn">
-                <span>See More</span>
-                <i class="fa fa-angle-down ms-2"></i>
-            </button>
+            <!-- M.Tech Scholars -->
+            <div class="tab-pane fade" id="mtech-pane" role="tabpanel" aria-labelledby="mtech-tab">
+                <div class="row">
+                    <?php 
+                    $idx = 1;
+                    foreach ($members['mtech'] as $m) {
+                        $role = !empty($m['subtitle']) ? $m['subtitle'] : 'M.Tech Scholar';
+                        renderStudentCard($m, $idx++, $role);
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- Ph.D. Alumni -->
+            <div class="tab-pane fade" id="past-phd-pane" role="tabpanel" aria-labelledby="past-phd-tab">
+                <div class="row">
+                    <?php 
+                    $idx = 1;
+                    foreach ($members['past_phd'] as $m) {
+                        renderPastPhdCard($m, $idx++);
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- M.Tech Alumni -->
+            <div class="tab-pane fade" id="past-mtech-pane" role="tabpanel" aria-labelledby="past-mtech-tab">
+                <div class="row">
+                    <?php 
+                    $idx = 1;
+                    foreach ($members['past_mtech'] as $m) {
+                        renderPastMtechCard($m, $idx++);
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1105,110 +1183,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statsRow = document.querySelector('.lab-stats-row');
     if (statsRow) observer.observe(statsRow);
-})();
-
-// Editorial Team Wall Filtering & Progressive Reveal
-(function() {
-    const filterPills = document.querySelectorAll('.team-filter-pill');
-    const memberCards = Array.from(document.querySelectorAll('.editorial-team-card'));
-    const seeMoreWrap = document.getElementById('teamSeeMoreWrap');
-    const seeMoreBtn = document.getElementById('teamSeeMoreBtn');
-    if (!filterPills.length || !memberCards.length) return;
-
-    let activeFilter = 'all';
-    let visibleAlumniRows = 2; // Initially 2 rows (6 alumni)
-    const CARDS_PER_ROW = 3;
-
-    function updateVisibility(animateNew = false) {
-        let hiddenMatchingCount = 0;
-        let alumniShownCount = 0;
-        let newlyRevealed = [];
-
-        memberCards.forEach((card) => {
-            const cat = card.dataset.category;
-            const isAlumni = (cat === 'alumni');
-            let shouldShow = false;
-
-            if (activeFilter === 'all') {
-                if (!isAlumni) {
-                    shouldShow = true; // Show all PhD & MTech
-                } else {
-                    alumniShownCount++;
-                    shouldShow = (alumniShownCount <= visibleAlumniRows * CARDS_PER_ROW);
-                }
-            } else if (activeFilter === 'alumni') {
-                if (isAlumni) {
-                    alumniShownCount++;
-                    shouldShow = (alumniShownCount <= visibleAlumniRows * CARDS_PER_ROW);
-                } else {
-                    shouldShow = false;
-                }
-            } else {
-                shouldShow = (cat === activeFilter);
-            }
-
-            const wasHidden = card.classList.contains('team-card-hidden');
-
-            if (shouldShow) {
-                card.classList.remove('team-card-hidden');
-                if (animateNew) {
-                    newlyRevealed.push(card);
-                } else {
-                    card.style.opacity = '1';
-                    card.style.transform = 'none';
-                }
-            } else {
-                card.classList.add('team-card-hidden');
-                if (isAlumni && (activeFilter === 'all' || activeFilter === 'alumni')) {
-                    hiddenMatchingCount++;
-                }
-            }
-        });
-
-        // Sleek staggered reveal animation for newly revealed cards
-        if (newlyRevealed.length > 0) {
-            newlyRevealed.forEach((card, idx) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(24px) scale(0.96)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0) scale(1)';
-                }, idx * 50);
-            });
-        }
-
-        // Toggle See More button
-        if (seeMoreWrap) {
-            if ((activeFilter === 'all' || activeFilter === 'alumni') && hiddenMatchingCount > 0) {
-                seeMoreWrap.style.display = 'block';
-            } else {
-                seeMoreWrap.style.display = 'none';
-            }
-        }
-    }
-
-    // See More Click Handler (reveals 2 rows per click)
-    if (seeMoreBtn) {
-        seeMoreBtn.addEventListener('click', function() {
-            visibleAlumniRows += 2;
-            updateVisibility(true);
-        });
-    }
-
-    // Filter Pills Click Handler
-    filterPills.forEach(pill => {
-        pill.addEventListener('click', function() {
-            filterPills.forEach(p => p.classList.remove('active'));
-            this.classList.add('active');
-            activeFilter = this.dataset.filter;
-            visibleAlumniRows = 2; // reset on filter switch
-            updateVisibility(true);
-        });
-    });
-
-    // Initial check
-    updateVisibility(false);
 })();
 </script>
 
