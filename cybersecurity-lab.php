@@ -90,8 +90,9 @@ function renderStudentCard($member, $index, $roleTitle = 'Scholar') {
     $linkedin = $member['linkedin'] ?? '';
     $researchArea = $member['research_area'] ?? '';
     $subtitle = !empty($member['subtitle']) ? $member['subtitle'] : '';
+    $isHidden = ($index > 6);
     ?>
-    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-4 mb-4 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
         <div class="academic-student-card h-100">
             <span class="academic-card-idx">#<?= sprintf('%02d', $index) ?></span>
             
@@ -142,8 +143,9 @@ function renderPastPhdCard($member, $index) {
     $currentAffiliation = $member['current_affiliation'] ?? '';
     $thesis = $member['thesis'] ?? '';
     $subtitle = $member['subtitle'] ?? '';
+    $isHidden = ($index > 6);
     ?>
-    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-4 mb-4 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
         <div class="academic-phd-alumni-card h-100">
             <div class="d-flex align-items-center gap-3 mb-3">
                 <img src="<?= $imageSrc ?>" class="academic-avatar-img" style="width: 72px; height: 72px; flex-shrink: 0;" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
@@ -196,8 +198,9 @@ function renderPastMtechCard($member, $index) {
     $passingYear = $member['passing_year'] ?? '';
     $thesis = $member['thesis'] ?? '';
     $currentAffiliation = $member['current_affiliation'] ?? '';
+    $isHidden = ($index > 6);
     ?>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-6 mb-3 academic-card-col <?= $isHidden ? 'd-none' : '' ?>">
         <div class="academic-mtech-alumni-row h-100">
             <span style="font-weight: 800; color: var(--accent-blue); font-size: 0.95rem; min-width: 28px;">#<?= sprintf('%02d', $index) ?></span>
             <img src="<?= $imageSrc ?>" class="academic-avatar-img" style="width: 52px; height: 52px; flex-shrink: 0;" alt="<?= htmlspecialchars($name) ?>" onerror="this.onerror=null; this.src='<?= $fallbackImage ?>';">
@@ -600,6 +603,14 @@ $totalCount = count($combinedTeam);
                     }
                     ?>
                 </div>
+                <?php if (count($members['phd'] ?? []) > 6): ?>
+                <div class="text-center mt-3 mb-2 see-more-wrap">
+                    <button class="btn academic-see-more-btn" onclick="revealNextBatch(this)">
+                        <span>See More</span>
+                        <i class="fa fa-angle-down ms-2"></i>
+                    </button>
+                </div>
+                <?php endif; ?>
             </div>
 
             <!-- M.Tech Scholars -->
@@ -613,6 +624,14 @@ $totalCount = count($combinedTeam);
                     }
                     ?>
                 </div>
+                <?php if (count($members['mtech'] ?? []) > 6): ?>
+                <div class="text-center mt-3 mb-2 see-more-wrap">
+                    <button class="btn academic-see-more-btn" onclick="revealNextBatch(this)">
+                        <span>See More</span>
+                        <i class="fa fa-angle-down ms-2"></i>
+                    </button>
+                </div>
+                <?php endif; ?>
             </div>
 
             <!-- Ph.D. Alumni -->
@@ -625,6 +644,14 @@ $totalCount = count($combinedTeam);
                     }
                     ?>
                 </div>
+                <?php if (count($members['past_phd'] ?? []) > 6): ?>
+                <div class="text-center mt-3 mb-2 see-more-wrap">
+                    <button class="btn academic-see-more-btn" onclick="revealNextBatch(this)">
+                        <span>See More</span>
+                        <i class="fa fa-angle-down ms-2"></i>
+                    </button>
+                </div>
+                <?php endif; ?>
             </div>
 
             <!-- M.Tech Alumni -->
@@ -637,6 +664,14 @@ $totalCount = count($combinedTeam);
                     }
                     ?>
                 </div>
+                <?php if (count($members['past_mtech'] ?? []) > 6): ?>
+                <div class="text-center mt-3 mb-2 see-more-wrap">
+                    <button class="btn academic-see-more-btn" onclick="revealNextBatch(this)">
+                        <span>See More</span>
+                        <i class="fa fa-angle-down ms-2"></i>
+                    </button>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -1184,6 +1219,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsRow = document.querySelector('.lab-stats-row');
     if (statsRow) observer.observe(statsRow);
 })();
+
+// Progressive Reveal for Academic Cards (6 items per click)
+function revealNextBatch(btn) {
+    const pane = btn.closest('.tab-pane');
+    if (!pane) return;
+    const hiddenItems = pane.querySelectorAll('.academic-card-col.d-none');
+    const toReveal = Array.from(hiddenItems).slice(0, 6);
+    
+    toReveal.forEach((item, idx) => {
+        item.classList.remove('d-none');
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(24px) scale(0.96)';
+        setTimeout(() => {
+            item.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0) scale(1)';
+        }, idx * 50);
+    });
+
+    if (hiddenItems.length <= 6) {
+        const wrap = btn.closest('.see-more-wrap');
+        if (wrap) wrap.style.display = 'none';
+    }
+}
 </script>
 
 <?php include 'components/footer.php'; ?>
