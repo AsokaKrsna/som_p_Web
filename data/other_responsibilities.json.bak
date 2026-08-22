@@ -7,10 +7,10 @@
         "link": ""
     },
     {
-        "role": "Advisory Board Member",
-        "organization": "STPI Patna, Bhagalpur, and Darbhanga",
-        "institution": "",
-        "duration": "2024",
+        "role": "Senate Member",
+        "organization": "",
+        "institution": "IIIT Raichur",
+        "duration": "2025",
         "link": ""
     },
     {
@@ -28,10 +28,17 @@
         "link": ""
     },
     {
-        "role": "Senate Member",
-        "organization": "",
-        "institution": "IIIT Raichur",
-        "duration": "2025",
+        "role": "Advisory Board Member",
+        "organization": "STPI Patna, Bhagalpur, and Darbhanga",
+        "institution": "",
+        "duration": "2024",
+        "link": ""
+    },
+    {
+        "role": "Member, Standing Committee",
+        "organization": "BPRD",
+        "institution": "MHA",
+        "duration": "2022 - 2023",
         "link": ""
     },
     {
@@ -39,13 +46,6 @@
         "organization": "VAIBHAV Summit 2020, Session on Data Privacy and Security",
         "institution": "",
         "duration": "2020",
-        "link": ""
-    },
-    {
-        "role": "Member Standing Committee",
-        "organization": "BPRD",
-        "institution": "MHA",
-        "duration": "2022-23",
         "link": ""
     }
 ]
