@@ -141,6 +141,39 @@ const mainForm = document.getElementById('mainForm');
 let currentData = {};
 let isArrayRoot = false;
 
+const CURRENT_FILE = "<?= addslashes($file) ?>";
+
+// Sections where the WEBSITE displays entries in reversed array order
+// (cybersecurity-lab.php calls array_reverse() on these categories).
+const REVERSED_ORDER = {
+    'research_group.json': ['phd', 'mtech', 'past_phd', 'past_mtech']
+};
+
+// Sections where the website keeps array order but NUMBERS entries in reverse
+// (renderPublicationTable() and the patents loop use a descending counter,
+// so the first row on the site is labelled with the highest number).
+const REVERSED_NUMBERING = {
+    'publications.json': ['authored_books', 'books', 'journals', 'conferences', 'preprints'],
+    'patents.json': ['items'] // patents.json is a flat array -> synthetic category key 'items'
+};
+
+function isReversedOrder(category) {
+    const cats = REVERSED_ORDER[CURRENT_FILE];
+    return Array.isArray(cats) && cats.includes(category);
+}
+
+function isReversedNumbering(category) {
+    const cats = REVERSED_NUMBERING[CURRENT_FILE];
+    return cats === '*' || (Array.isArray(cats) && cats.includes(category));
+}
+
+// Sections listed in the order the WEBSITE presents them (tab/page order).
+// Display-only: the stored JSON key order is never changed.
+const SECTION_ORDER = {
+    'publications.json': ['authored_books', 'books', 'journals', 'conferences', 'preprints'],
+    'research_group.json': ['phd', 'mtech', 'past_phd', 'past_mtech']
+};
+
 // Sync Ace to Hidden Input on form submit
 mainForm.addEventListener('submit', () => {
     jsonTarget.value = editor.getValue();
@@ -154,16 +187,31 @@ function renderForm() {
         
         let iterableData = isArrayRoot ? { "items": currentData } : currentData;
         
+        // Order sections like the website does (unknown keys keep natural order, appended last)
+        let categories = Object.keys(iterableData);
+        const orderCfg = SECTION_ORDER[CURRENT_FILE];
+        if (orderCfg) {
+            categories.sort((a, b) => {
+                const ia = orderCfg.indexOf(a);
+                const ib = orderCfg.indexOf(b);
+                if (ia === -1 && ib === -1) return 0;
+                if (ia === -1) return 1;
+                if (ib === -1) return -1;
+                return ia - ib;
+            });
+        }
+        
         // Build Section Navigation
         let navHtml = '<div class="d-flex gap-2 mb-3 py-2 overflow-auto" style="white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 10; background: var(--glass-bg); backdrop-filter: blur(10px);">';
-        for (const category of Object.keys(iterableData)) {
+        for (const category of categories) {
             const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
             navHtml += `<a href="#section-${category}" class="badge bg-secondary text-decoration-none p-2 fs-6 text-light opacity-75 hover-opacity-100">${categoryTitle}</a>`;
         }
         navHtml += '</div>';
         visualEditor.innerHTML = navHtml;
         
-        for (const [category, items] of Object.entries(iterableData)) {
+        for (const category of categories) {
+            const items = iterableData[category];
             const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
             
             const isArray = Array.isArray(items);
@@ -186,7 +234,7 @@ function renderForm() {
             
             const listContainer = section.querySelector('.sortable-list');
             
-            const renderCard = (item, index, canDelete) => {
+            const renderCard = (item, index, canDelete, displayNum) => {
                 const card = document.createElement('div');
                 card.className = 'form-card';
                 card.setAttribute('data-index', index);
@@ -195,7 +243,7 @@ function renderForm() {
                    <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
                        <div class="d-flex align-items-center">
                            ${isArray ? '<span class="drag-handle mr-2"><i class="fas fa-grip-vertical"></i></span>' : ''}
-                           <strong>${isArray ? `Entry #${index + 1}` : 'Configuration'}</strong>
+                           <strong>${isArray ? `Entry #${displayNum}` : 'Configuration'}</strong>
                        </div>
                        ${canDelete ? `
                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteItem('${category}', ${index})">
@@ -311,7 +359,22 @@ function renderForm() {
             };
 
             if (isArray) {
-                items.forEach((item, index) => renderCard(item, index, true));
+                // Build the display order: reversed for categories the website
+                // shows in reverse; otherwise natural array order.
+                const displayIndices = items.map((_, i) => i);
+                if (isReversedOrder(category)) displayIndices.reverse();
+
+                displayIndices.forEach((arrayIndex, displayPos) => {
+                    let num;
+                    if (isReversedOrder(category)) {
+                        num = displayPos + 1;               // website order: top card = #1
+                    } else if (isReversedNumbering(category)) {
+                        num = items.length - displayPos;    // site numbers the first row highest
+                    } else {
+                        num = displayPos + 1;
+                    }
+                    renderCard(items[arrayIndex], arrayIndex, true, num);
+                });
                 
                 // Initialize Sortable for this array category
                 new Sortable(listContainer, {
@@ -324,8 +387,18 @@ function renderForm() {
                         const newIndex = evt.newIndex;
                         
                         const targetArray = isArrayRoot ? currentData : currentData[cat];
-                        const item = targetArray.splice(oldIndex, 1)[0];
-                        targetArray.splice(newIndex, 0, item);
+                        if (isReversedOrder(cat)) {
+                            // Display order is reversed relative to the stored array:
+                            // map display positions back to true array indices.
+                            const n = targetArray.length;
+                            const arrOld = n - 1 - oldIndex;
+                            const arrNew = n - 1 - newIndex;
+                            const moved = targetArray.splice(arrOld, 1)[0];
+                            targetArray.splice(arrNew, 0, moved);
+                        } else {
+                            const item = targetArray.splice(oldIndex, 1)[0];
+                            targetArray.splice(newIndex, 0, item);
+                        }
                         
                         editor.setValue(JSON.stringify(currentData, null, 4), -1);
                         renderForm();
@@ -388,11 +461,14 @@ window.openPreviewModal = function() {
         let previewHtml = '';
         
         if (Array.isArray(data)) {
-            // Simple array: render as a list
+            // Simple array: render as a list (mirror website numbering)
+            const revNum = isReversedNumbering('items');
+            const total = data.length;
             previewHtml = '<div class="preview-list">';
             data.forEach((item, i) => {
+                const num = revNum ? (total - i) : (i + 1);
                 previewHtml += `<div class="preview-card">`;
-                previewHtml += `<div class="preview-card-header">Entry #${i + 1}</div>`;
+                previewHtml += `<div class="preview-card-header">Entry #${num}</div>`;
                 if (typeof item === 'object' && item !== null) {
                     for (const [key, val] of Object.entries(item)) {
                         const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -411,9 +487,13 @@ window.openPreviewModal = function() {
                 const catLabel = category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
                 previewHtml += `<h6 style="color: var(--accent-cyan); margin: 1.5rem 0 0.75rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(34,211,238,0.15);">${catLabel}</h6>`;
                 previewHtml += '<div class="preview-list">';
-                items.forEach((item, i) => {
+                // Mirror website order/numbering
+                const revOrder = isReversedOrder(category);
+                const list = revOrder ? [...items].reverse() : items;
+                list.forEach((item, i) => {
+                    const num = revOrder ? (i + 1) : (isReversedNumbering(category) ? (items.length - i) : (i + 1));
                     previewHtml += `<div class="preview-card">`;
-                    previewHtml += `<div class="preview-card-header">${i + 1}</div>`;
+                    previewHtml += `<div class="preview-card-header">${num}</div>`;
                     if (typeof item === 'object' && item !== null) {
                         for (const [key, val] of Object.entries(item)) {
                             if (!val) continue;
