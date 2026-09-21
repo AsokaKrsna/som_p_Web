@@ -118,6 +118,14 @@ function getCount($file) {
             </form>
         </div>
 
+        <!-- Publish to GitHub -->
+        <div class="admin-card">
+            <h5><i class="fa fa-cloud-upload" style="color: var(--accent-cyan);"></i> Publish to GitHub</h5>
+            <p class="text-muted small">Push CMS content changes (and any other edits) to the GitHub repository without SSH.</p>
+            <a href="publish.php" class="btn btn-custom">Open Publish Center <i class="fa fa-arrow-right ms-1"></i></a>
+            <p class="small text-muted mt-2 mb-0"><i class="fa fa-info-circle"></i> Stage, commit &amp; push every change in the repo as one commit.</p>
+        </div>
+
         <!-- System Settings -->
         <div class="row">
             <div class="col-md-12">
