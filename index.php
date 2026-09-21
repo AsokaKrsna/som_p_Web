@@ -380,7 +380,68 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- Section 6: Teaching -->
+<!-- Section 6: Memberships -->
+<section id="memberships" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Professional Memberships</h2>
+
+        <ul class="pub-list ps-4">
+            <?php foreach ($memberships as $m): ?>
+                <li class="mb-3 border-bottom pb-2 section-list-item">
+                    <span class="entry-text"><strong><?= htmlspecialchars($m['role'] ?? '') ?></strong>,
+                        <?= htmlspecialchars($m['organization'] ?? '') ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+
+<!-- Section 7: Editorship -->
+<section id="editorship" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Editorship</h2>
+
+        <ul class="pub-list ps-4">
+            <?php foreach ($editorships as $e): ?>
+                <li class="mb-3 border-bottom pb-2 section-list-item">
+                    <strong><?= htmlspecialchars($e['role'] ?? '') ?>,</strong>
+                    <?= htmlspecialchars($e['journal'] ?? '') ?>
+                    <span class="text-muted">[<?= htmlspecialchars($e['duration'] ?? '') ?>]</span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+
+<!-- Section 8: Administrative Responsibilities -->
+<section id="admin-responsibilities" class="bio-section pt-4">
+
+    <div class="container">
+        <h2 class="section-title">Administrative Responsibilities</h2>
+
+        <ul class="pub-list ps-4">
+            <?php foreach ($adminResponsibilities as $resp): ?>
+                <li class="mb-3 border-bottom pb-2 section-list-item">
+                    <span class="entry-text">
+                        <strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong><?php
+                            $parts = [];
+                            if (!empty($resp['organization'])) $parts[] = htmlspecialchars($resp['organization']);
+                            if (!empty($resp['institution'])) $parts[] = htmlspecialchars($resp['institution']);
+                            if (!empty($parts)) echo ', ' . implode(', ', $parts);
+                        ?>
+                        <?php if (!empty($resp['duration'])): ?>
+                            <span class="text-muted">[<?= htmlspecialchars($resp['duration']) ?>]</span>
+                        <?php endif; ?>
+                    </span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+
+<!-- Section 9: Teaching -->
 <section id="teaching" class="bio-section pt-4">
 
     <div class="container">
@@ -401,7 +462,7 @@ $profile = loadJsonData('profile_content.json');
     </div>
 </section>
 
-<!-- Section 7: Seminars -->
+<!-- Section 10: Seminars -->
 <section id="seminars" class="bio-section pt-4">
 
     <div class="container">
@@ -425,68 +486,6 @@ $profile = loadJsonData('profile_content.json');
                     <?php if (!empty($e['date'])): ?>
                         <span class="text-muted">(<?= htmlspecialchars($e['date']) ?>)</span>
                     <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</section>
-
-<!-- Section 8: Memberships -->
-<section id="memberships" class="bio-section pt-4">
-
-    <div class="container">
-        <h2 class="section-title">Professional Memberships</h2>
-
-        <ul class="pub-list ps-4">
-            <?php foreach ($memberships as $m): ?>
-                <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <span class="entry-text"><strong><?= htmlspecialchars($m['role'] ?? '') ?></strong>,
-                        <?= htmlspecialchars($m['organization'] ?? '') ?></span>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</section>
-
-<!-- Section 9: Editorship -->
-<section id="editorship" class="bio-section pt-4">
-
-    <div class="container">
-        <h2 class="section-title">Editorship</h2>
-
-        <ul class="pub-list ps-4">
-            <?php foreach ($editorships as $e): ?>
-                <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <strong><?= htmlspecialchars($e['role'] ?? '') ?>,</strong>
-                    <?= htmlspecialchars($e['journal'] ?? '') ?>
-                    <span class="text-muted">[<?= htmlspecialchars($e['duration'] ?? '') ?>]</span>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</section>
-
-
-<!-- Administrative Responsibilities -->
-<section id="admin-responsibilities" class="bio-section pt-4">
-
-    <div class="container">
-        <h2 class="section-title">Administrative Responsibilities</h2>
-
-        <ul class="pub-list ps-4">
-            <?php foreach ($adminResponsibilities as $resp): ?>
-                <li class="mb-3 border-bottom pb-2 section-list-item">
-                    <span class="entry-text">
-                        <strong><?= htmlspecialchars($resp['role'] ?? '') ?></strong><?php
-                            $parts = [];
-                            if (!empty($resp['organization'])) $parts[] = htmlspecialchars($resp['organization']);
-                            if (!empty($resp['institution'])) $parts[] = htmlspecialchars($resp['institution']);
-                            if (!empty($parts)) echo ', ' . implode(', ', $parts);
-                        ?>
-                        <?php if (!empty($resp['duration'])): ?>
-                            <span class="text-muted">[<?= htmlspecialchars($resp['duration']) ?>]</span>
-                        <?php endif; ?>
-                    </span>
                 </li>
             <?php endforeach; ?>
         </ul>

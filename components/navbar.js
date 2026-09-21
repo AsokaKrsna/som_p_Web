@@ -18,10 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
         'publications': 'Publications',
         'patents': 'Patents',
         'projects': 'Projects',
-        'teaching': 'Teaching',
-        'seminars': 'Seminars',
         'memberships': 'Memberships',
         'editorship': 'Editorship',
+        'admin-responsibilities': 'Admin Roles',
+        'teaching': 'Teaching',
+        'seminars': 'Seminars',
+        'other-responsibilities': 'Recognition',
         'awards': 'Awards'
     };
 
@@ -118,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Mark sections above current as "visited"
             if (current) {
-                const order = ['home','bio','patents','publications','projects','teaching','seminars','memberships','editorship','awards'];
+                const order = ['home','bio','publications','patents','projects','memberships','editorship','admin-responsibilities','teaching','seminars','other-responsibilities','awards'];
                 const currentIdx = order.indexOf(current);
                 const itemIdx = order.indexOf(sectionId);
                 if (itemIdx < currentIdx) {

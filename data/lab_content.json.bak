@@ -97,22 +97,15 @@
             "image": "pics/lab3.jpeg",
             "alt": "Panoramic View of the Lab",
             "tag": "LAB FACILITY",
-            "date": "Cybersecurity Lab, IIT Patna",
+            "date": "",
             "description": ""
         },
         {
-            "image": "pics/lab4.jpeg",
-            "alt": "Current Research Team",
-            "tag": "RESEARCH TEAM",
-            "date": "Scholars & Researchers",
-            "description": "The dedicated research team of Ph.D. and M.Tech scholars collaborating on cutting-edge cybersecurity, cryptography, and secure systems research."
-        },
-        {
             "image": "pics/lab2.jpeg",
-            "alt": "Dedicated Nodes",
+            "alt": "Workstations",
             "tag": "WORKSTATIONS",
-            "date": "Workstations",
-            "description": "High-performance computational workstations dedicated to the researchers interest."
+            "date": "",
+            "description": ""
         }
     ]
 }
