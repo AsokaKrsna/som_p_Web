@@ -22,19 +22,19 @@ Content is stored as standard JSON in the `/data` directory.
 | `profile_content.json` | Configuration Object | `hero`, `about` (used on index.php) |
 | `announcements.json`| Flat array | Scrolling marquee items |
 | `achievements.json` | Object with array | `achievements` |
-| All others | Flat arrays | `patents`, `teaching`, `seminars`, `memberships`, `editorships`, `awards` |
+| All others | Flat arrays | `patents`, `teaching`, `seminars`, `memberships`, `editorships`, `awards_honours`, `admin_responsibilities`, `other_responsibilities` |
 
 ### 2. Rendering Layer (PHP 7.4+ Templating)
 
 The system uses a manual "MVC-light" approach:
 - **Model:** The `.json` files in `/data`.
-- **View:** Root `.php` files (`index.php`, `research_group.php`).
+- **View:** Root `.php` files (`index.php`, `cybersecurity-lab.php`).
 - **Controller:** The `admin/` logic (CRUD via `raw_editor.php`, `ajax_save.php`).
 
-Shared PHP helpers:
-- `loadJsonData($file)` — Safe JSON loader with `file_exists()`, `@file_get_contents()`, and `json_last_error()` validation.
-- `renderPublicationTable($items)` — Reusable renderer for publication entries across 4 tabs.
-- `renderMemberRow($member)` — Reusable renderer for research group member cards.
+Shared PHP helpers (currently defined per page in `index.php` and `cybersecurity-lab.php` — duplicated, not a shared include):
+- `loadJsonData($file, $visibilityKey)` — Safe JSON loader with `file_exists()`, `@file_get_contents()`, and `json_last_error()` validation; filters items on a visibility flag (e.g. `show_personal`, `show_lab`).
+- `renderPublicationTable($items)` — Reusable renderer for publication entries across the tabs (the lab-page variant additionally cleans stray commas).
+- `renderStudentCard()`, `renderPastPhdCard()`, `renderPastMtechCard()` — Research group card renderers in `cybersecurity-lab.php`.
 
 ### 3. Component Architecture
 
@@ -62,6 +62,9 @@ Admin files are centralized in `/admin`:
 | `ajax_fetch.php` | AJAX GET endpoint for JSON reads (session gated) |
 | `upload_file.php` | File upload (CSRF, MIME check, size limit) |
 | `update_password.php` | Password change (CSRF, bcrypt) |
+| `publish.php` | Publish Center: repo status panel + one-click commit & push (CSRF, POST-only) |
+| `publish_lib.php` | Git integration library — argument-array `proc_open()` wrapper (no shell), status/log/ahead-behind helpers, publish lock |
+| `publish_config.php` | Publish settings (repo path, remote, branch, timeout, commit identity). **Gitignored** — machine-specific; built-in defaults apply when missing |
 | `logout.php` | Proper session cleanup (clear data, expire cookie, destroy) |
 
 ---
@@ -143,6 +146,21 @@ Handles multi-part form data for file uploads.
 Updates the admin password.
 - **Auth:** Session check + CSRF token + current password verification
 - **Action:** Generates new bcrypt hash, rewrites `config.php`, destroys session (forces re-login)
+
+### `admin/publish.php` (GET / POST)
+Publish Center — commits and pushes repository changes to GitHub from the browser.
+- **Auth:** Session check; publish action additionally requires a valid CSRF token (POST-only)
+- **GET:** Renders the status panel (working-tree changes, branch, remote URL, ahead/behind vs upstream, recent commits) and the publish form
+- **POST** (`action=publish` + `csrf_token` + optional `commit_message`):
+  1. Acquires a publish lock (temp-dir flock) — concurrent publishes are rejected
+  2. Stages all changes — `git add -A --`
+  3. Aborts politely if nothing is staged (`git diff --cached --quiet`)
+  4. Commits with the provided message (or `CMS publish — <timestamp>`)
+  5. Pushes the current branch to `origin`, auto-setting upstream on first push
+- **Git invocation safety:** every command runs via `proc_open()` with an argument array (no shell → no injection), `GIT_TERMINAL_PROMPT=0` (fails fast instead of hanging), per-command timeout with kill, and `HOME` pinned to the web user so credential helpers resolve
+- **Display safety:** remote URLs are echoed with any embedded credentials masked (`https://user:****@…`)
+- **Config:** `admin/publish_config.php` (gitignored) overrides defaults: `repo_path`, `remote`, `branch`, `git_bin`, `command_timeout`, `env`, `commit_user_name/email`, `commit_prefix`
+- **Prerequisite:** the PHP process user must have push access to the remote (stored HTTPS credentials or SSH key)
 
 ---
 

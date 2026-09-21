@@ -156,6 +156,22 @@ sudo certbot --nginx -d your-domain.com
 
 ---
 
+## 📤 Publishing from the CMS (Publish Center)
+
+Optional but convenient on institute-LAN servers: the admin panel can push changes to GitHub from the browser (`/admin/publish.php`), no SSH login required.
+
+One-time setup — give the PHP process user push access:
+
+```bash
+# As the user running PHP (e.g. testbed / www-data with HOME set):
+git config --global credential.helper store
+git -C /path/to/site fetch origin   # prompts once; stores credentials in ~/.git-credentials
+```
+
+Or use an SSH remote with a deploy key instead. The Publish Center shows a warning if `git` is missing, the repo path is wrong, or push credentials are absent. Machine-specific settings (repo path, remote, branch) live in `admin/publish_config.php`, which is gitignored — see `doc/specifications.md` for the full reference.
+
+---
+
 ## 🧪 Verification Commands
 
 Run these after deployment to confirm everything works:
@@ -191,4 +207,5 @@ curl -s -o /dev/null -w "%{http_code}" https://your-domain.com/admin/
 - [ ] Test dark mode toggle persists across page reloads
 - [ ] Set up SSL certificate if on a public domain
 - [ ] (Optional) Set up IP whitelisting for `/admin`
+- [ ] (Optional) Configure git push credentials so the Publish Center can deploy from the browser
 - [ ] (Optional) Set up automated backups of the `/data` directory

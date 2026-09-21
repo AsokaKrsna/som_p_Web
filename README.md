@@ -12,6 +12,7 @@ A premium academic portfolio for **Dr. Somanath Tripathy**, Professor in the Dep
 | **Dark Mode** | Full dark mode with smooth transitions, persisted via `localStorage` |
 | **Side Navigation** | Timeline-style scroll-spy with gradient fill, animated dots, and visited states |
 | **Dual-Pane Editor** | Visual Form Editor + Ace JSON Editor with live sync and drag-to-reorder |
+| **Publish Center** | One-click commit & push of all site changes to GitHub from the admin panel |
 | **File Uploads** | Integrated portal for PDFs, images, and avatars with MIME validation |
 | **SEO Ready** | Meta descriptions, Open Graph tags, semantic HTML5, `<main>` landmark |
 | **Security** | CSRF tokens, bcrypt passwords, rate limiting, session hardening |
@@ -38,6 +39,9 @@ som_p_Web/
 │   ├── ajax_fetch.php         # AJAX endpoint: fetch JSON data
 │   ├── upload_file.php        # File upload handler (10MB limit)
 │   ├── update_password.php    # Password change handler
+│   ├── publish.php            # Publish Center: status + one-click git commit & push
+│   ├── publish_lib.php        # Git integration library (safe exec-based git wrapper)
+│   ├── publish_config.php     # Publish settings (gitignored, machine-specific)
 │   └── logout.php             # Session cleanup
 │
 ├── components/                # Shared UI Components
@@ -110,6 +114,21 @@ Open `http://localhost:8000` in your browser.
 - **Raw Editor**: Direct JSON editing with syntax highlighting (Ace Editor)
 - **File Upload**: Upload PDFs, images, or avatars — select target folder and upload
 
+### Publishing to GitHub (Publish Center)
+For institute-LAN deployments, the CMS can push changes to GitHub **without SSH access**:
+
+1. Open **Dashboard → Publish to GitHub → Open Publish Center** (`/admin/publish.php`).
+2. Review the status panel: pending changes, branch, remote, and sync state (ahead/behind).
+3. Optionally type a commit message (a timestamped `CMS publish — <date>` message is used if empty).
+4. Click **Publish to GitHub**. The CMS stages every change (`git add -A`), creates one commit, and pushes the current branch to `origin`.
+
+Requirements & behavior:
+- The web/PHP process must run as a user that can push to the remote (saved HTTPS credentials or an SSH key), and `git` must be on the PATH.
+- Publishes **everything tracked in the repository** — CMS content, uploaded files, and code edits — as a single commit.
+- The working tree and remote URL are shown with any credentials masked; secrets never appear in the UI.
+- A lock file prevents two publishes from racing; concurrent attempts are rejected politely.
+- `admin/publish_config.php` (repo path, remote, branch, timeout, commit identity) is gitignored and falls back to built-in defaults if missing.
+
 ---
 
 ## 🔒 Security
@@ -121,6 +140,7 @@ Open `http://localhost:8000` in your browser.
 | Login Rate Limiting | 5 attempts max, 15-minute lockout (session-based) |
 | Session Hardening | `session_regenerate_id()`, `HttpOnly`, `SameSite=Strict` cookies |
 | File Upload Validation | Extension whitelist + MIME type check via `finfo` + 10MB size limit |
+| Publish Center | POST-only + CSRF, argument-array git exec (no shell), publish lock, credential masking in UI |
 | Filename Sanitization | `basename()` + `preg_replace()` stripping |
 | Data File Protection | `.htaccess` (Apache) / `deny all` (Nginx) on `/data` |
 | Output Encoding | `htmlspecialchars()` on all user-rendered content |

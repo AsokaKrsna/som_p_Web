@@ -34,12 +34,26 @@ Periodically check the `/data` directory. Each `.json` file stores a specific se
 | `seminars.json` | Flat array | Fields: `title`, `location`, `date`, `link` |
 | `memberships.json` | Flat array | Fields: `role`, `organization` |
 | `editorships.json` | Flat array | Fields: `role`, `journal`, `duration` |
-| `awards.json` | Flat array | Fields: `title`, `event`, `location` |
+| `awards_honours.json` | Flat array | Fields: `title`, `awardee`, `event`, `organization`, `location`, `link` |
+| `admin_responsibilities.json` | Flat array | Fields: `role`, `organization`, `institution`, `duration` |
+| `other_responsibilities.json` | Flat array | Fields: `role`, `organization`, `institution`, `duration` |
 | `profile_content.json` | Configuration Object | General text/config data for index.php |
 | `lab_content.json` | Configuration Object | General text/config data for cybersecurity-lab.php |
 | `announcements.json` | Flat array | Marquee fields: `text`, `link`, `badge` |
 
-### 3. Dark Mode
+### 3. Publishing to GitHub (Publish Center)
+
+After editing content in the CMS, publish the changes from the browser — no SSH needed:
+
+1. Open **Dashboard → Publish to GitHub → Open Publish Center** (`/admin/publish.php`).
+2. Review pending changes, then click **Publish to GitHub** (optionally with a commit message).
+3. One commit is created with all modified files and pushed to `origin`.
+
+Notes:
+- Requires the PHP process user to have push access (saved HTTPS credentials or SSH key).
+- If publishing fails with an auth error, the stored git credentials on the server need updating (see `doc/deployment.md`).
+
+### 4. Dark Mode
 
 Dark mode preference is now persisted via `localStorage`. If you need to reset it:
 - Clear `localStorage.removeItem('darkMode')` in browser console, or
