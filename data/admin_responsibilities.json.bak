@@ -1,23 +1,23 @@
 [
     {
-        "role": "Head",
-        "organization": "Department of Information Technology",
-        "duration": "August 2006 to April 2008",
-        "institution": "NEHU, Shillong",
-        "link": ""
-    },
-    {
-        "role": "Nodal officer",
-        "organization": "AISHE",
-        "duration": "2013 to 2017",
+        "role": "Coordinator / Nodal Contact",
+        "organization": "Aryabhatta Supercomputing Centre",
+        "duration": "23 September 2022 to Present",
         "institution": "IIT Patna",
         "link": ""
     },
     {
-        "role": "Coordinator",
-        "organization": "Department of Computer Science and Engineering",
-        "duration": "January 2013 to December 2013",
-        "institution": " IIT Patna",
+        "role": "Head",
+        "organization": "Computer Centre",
+        "duration": "25 November 2022 to November 2023",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Associate Dean",
+        "organization": "Administration",
+        "duration": "10 July 2021 to November 2023",
+        "institution": "IIT Patna",
         "link": ""
     },
     {
@@ -28,24 +28,24 @@
         "link": ""
     },
     {
-        "role": "Associate Dean",
-        "organization": "Administration",
-        "duration": "10th July 2021 to Nov 2023",
+        "role": "Nodal Officer",
+        "organization": "AISHE",
+        "duration": "2013 to 2017",
+        "institution": "IIT Patna",
+        "link": ""
+    },
+    {
+        "role": "Coordinator",
+        "organization": "Department of Computer Science and Engineering",
+        "duration": "January 2013 to December 2013",
         "institution": "IIT Patna",
         "link": ""
     },
     {
         "role": "Head",
-        "organization": "Computer Centre",
-        "duration": "25th Nov 2022 to Nov 2023",
-        "institution": "IIT Patna",
-        "link": ""
-    },
-    {
-        "role": "Coordinator / Nodal Contact",
-        "organization": "Aryabhatta Supercomputing Centre",
-        "institution": "IIT Patna",
-        "duration": "From 23 September 2022 - Present",
+        "organization": "Department of Information Technology",
+        "duration": "August 2006 to April 2008",
+        "institution": "NEHU, Shillong",
         "link": ""
     }
 ]
