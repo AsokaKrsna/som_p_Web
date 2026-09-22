@@ -6,7 +6,7 @@
         "title": "Defense",
         "badge_color": "bg-success",
         "date": "August 2026",
-        "show_in_snackbar": true
+        "show_in_snackbar": false
     },
     {
         "title": "Lab Update",
