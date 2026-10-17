@@ -277,10 +277,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let darkModeTimeout;
 
-    function setDarkMode(enabled) {
+    function setDarkMode(enabled, animate = true) {
         // Enable smooth transition class during toggle
         clearTimeout(darkModeTimeout);
-        document.body.classList.add('dark-mode-transitioning');
+        if (animate) document.body.classList.add('dark-mode-transitioning');
         
         if (enabled) {
             document.body.classList.add('dark-mode');
@@ -307,12 +307,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         // Remove transition class after animation completes
-        darkModeTimeout = setTimeout(() => {
-            document.body.classList.remove('dark-mode-transitioning');
-        }, 500);
+        if (animate) {
+            darkModeTimeout = setTimeout(() => {
+                document.body.classList.remove('dark-mode-transitioning');
+            }, 500);
+        }
+        document.documentElement.dataset.theme = enabled ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = enabled ? 'dark' : 'light';
 
         // Persist preference
-        localStorage.setItem('darkMode', enabled ? 'true' : 'false');
+        try { localStorage.setItem('darkMode', enabled ? 'true' : 'false'); } catch (error) { /* Storage may be blocked. */ }
     }
 
     function toggleDarkMode() {
@@ -327,11 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
         overlayDarkModeToggle.addEventListener('click', toggleDarkMode);
     }
 
-    // Restore saved dark mode preference
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode === 'true') {
-        setDarkMode(true);
-    }
+    // Synchronize controls without replaying the theme transition on load.
+    setDarkMode(document.body.classList.contains('dark-mode'), false);
 
     // ──────────────────────────────────────────────
     // Unified scroll update

@@ -12,9 +12,8 @@
     </footer>
 
     <!-- Bootstrap & Custom Scripts -->
-    <!-- Using local bootstrap JS or CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <!-- Independent bundle: a slow CDN must not delay local initialization. -->
+    <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Unified Navbar Interaction Logic -->
     <script src="components/navbar.js"></script>

@@ -31,11 +31,25 @@ $page_description = isset($page_description) ? $page_description : "Academic por
     <link rel="icon" href="data:," />
     <?php endif; ?>
 
+    <script>
+        // Resolve the saved theme before any page content can paint.
+        try {
+            document.documentElement.dataset.theme = localStorage.getItem('darkMode') === 'true' ? 'dark' : 'light';
+        } catch (error) {
+            document.documentElement.dataset.theme = 'light';
+        }
+        document.documentElement.style.colorScheme = document.documentElement.dataset.theme;
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="style/custom.css" rel="stylesheet"/>
 </head>
 <body>
+    <script>
+        document.body.classList.toggle('dark-mode', document.documentElement.dataset.theme === 'dark');
+    </script>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
