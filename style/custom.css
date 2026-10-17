@@ -89,6 +89,8 @@ p {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
@@ -437,6 +439,7 @@ body.no-scroll {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 /* Ambient rotating glow orbs behind Hero */
@@ -1283,6 +1286,148 @@ body.dark-mode .lab-hero-location {
 @keyframes marquee-anim {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
+}
+
+/* ========================================================================= */
+/* PROFILE PAGE ANNOUNCEMENT SNACKBAR / PILL                                 */
+/* ========================================================================= */
+
+/* A fixed reading area keeps every slide and its actions in place. */
+.profile-announcement-section {
+  position: relative;
+  z-index: 25;
+  margin: -1rem 0 3rem;
+}
+.profile-announcement-pill,
+.announcement-dialog {
+  --announcement-line: rgba(8, 145, 178, .13);
+  --announcement-tint: rgba(8, 145, 178, .07);
+  --announcement-accent: #0e7490;
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 20px;
+  box-shadow: 0 12px 36px -18px rgba(15, 63, 86, .2), inset 0 1px 0 rgba(255, 255, 255, .6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text-main);
+}
+.profile-announcement-pill { padding: 0 1.5rem; overflow: hidden; }
+.announcement-pill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  min-height: 64px;
+  border-bottom: 1px solid var(--announcement-line);
+}
+.announcement-pill-indicator,
+.announcement-pill-controls,
+.announcement-item-actions { display: flex; align-items: center; gap: .5rem; }
+.announcement-pill-icon {
+  display: grid; place-items: center;
+  width: 30px; height: 30px;
+  border-radius: 10px;
+  background: var(--announcement-tint);
+  color: var(--announcement-accent);
+  font-size: .85rem;
+}
+.announcement-header-label {
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--announcement-accent);
+}
+.announcement-counter {
+  font-size: .72rem; font-variant-numeric: tabular-nums;
+  color: var(--text-muted); margin-right: .35rem; white-space: nowrap;
+}
+.announcement-nav-btn {
+  display: inline-grid; place-items: center;
+  width: 36px; height: 36px; flex: 0 0 auto;
+  border: 1px solid var(--announcement-line);
+  border-radius: 50%; background: transparent;
+  color: var(--announcement-accent); cursor: pointer;
+  font-size: 1.05rem;
+  transition: background .2s, border-color .2s;
+}
+#pauseAnnouncements { font-size: .65rem; }
+.announcement-nav-btn:hover { background: var(--announcement-tint); border-color: var(--announcement-accent); }
+.announcement-pill-content { display: grid; min-width: 0; }
+.announcement-item {
+  grid-area: 1 / 1; min-width: 0;
+  display: grid; grid-template-rows: 112px 60px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .25s ease, visibility .25s;
+}
+.announcement-item.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.announcement-item-body { min-width: 0; padding-top: 1.1rem; }
+.announcement-item-body-header { display: flex; align-items: center; gap: .65rem; min-width: 0; margin-bottom: .6rem; }
+.announcement-pill-badge {
+  flex: 0 0 auto; max-width: 30%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  padding: .25rem .55rem; border-radius: 6px;
+  background: var(--announcement-tint); color: var(--announcement-accent);
+  font-size: .65rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+}
+.announcement-pill-title {
+  min-width: 0; margin: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--text-main); font-size: 1rem; line-height: 1.5; font-weight: 600;
+}
+.announcement-pill-text {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; overflow-wrap: anywhere;
+  margin: 0; color: var(--text-muted); font-size: .9rem; line-height: 1.65;
+}
+.announcement-item-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  border-top: 1px solid var(--announcement-line); min-width: 0;
+}
+.announcement-pill-date {
+  display: flex; align-items: center; gap: .45rem; min-width: 0;
+  color: var(--text-muted); font-size: .75rem; line-height: 1.4;
+}
+.announcement-pill-date span { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow-wrap: anywhere; }
+.announcement-pill-date :is(i, svg) { color: var(--announcement-accent); flex-shrink: 0; }
+.announcement-item-actions { flex-shrink: 0; }
+.announcement-pill-cta,
+.announcement-expand {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 36px; padding: .45rem .8rem; border-radius: 9px;
+  font-size: .75rem; font-weight: 600; white-space: nowrap;
+  text-decoration: none !important; cursor: pointer;
+}
+.announcement-pill-cta { background: var(--announcement-tint); color: var(--announcement-accent); border: 1px solid var(--announcement-line); }
+.announcement-pill-cta:hover { color: var(--announcement-accent); border-color: var(--announcement-accent); }
+.announcement-pill-cta > span:last-child { font-size: 1rem; }
+.announcement-dialog-meta { color: var(--announcement-accent); font-size: .8rem; }
+.announcement-expand { background: transparent; border: 0; color: var(--announcement-accent); padding-inline: .25rem; }
+.announcement-expand:hover { text-decoration: underline; }
+.announcement-expand[hidden] { display: none; }
+.profile-announcement-section :is(button, a):focus-visible { outline: 2px solid var(--announcement-accent); outline-offset: 3px; }
+.announcement-dialog { width: min(560px, calc(100% - 2rem)); padding: 1.5rem; max-height: 80dvh; overflow-y: auto; }
+.announcement-dialog::backdrop { background: rgba(15, 23, 42, .45); backdrop-filter: blur(5px); }
+.announcement-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--announcement-accent); font-size: .75rem; margin-bottom: 1rem; }
+.announcement-dialog h2 { font-size: 1.2rem; line-height: 1.5; overflow-wrap: anywhere; }
+.announcement-dialog-text { color: var(--text-muted); line-height: 1.8; white-space: pre-line; overflow-wrap: anywhere; margin-bottom: 0; }
+@media (max-width: 575px) {
+  .profile-announcement-section { margin: -.5rem 0 2rem; }
+  .profile-announcement-pill { padding-inline: 1rem; border-radius: 16px; }
+  .announcement-pill-top { min-height: 64px; }
+  .announcement-pill-indicator { gap: .4rem; }
+  .announcement-pill-icon { display: none; }
+  .announcement-header-label { font-size: .62rem; letter-spacing: .06em; }
+  .announcement-pill-controls { gap: .2rem; }
+  .announcement-nav-btn { width: 36px; height: 36px; }
+  .announcement-counter { margin-right: .1rem; font-size: .65rem; }
+  .announcement-item { grid-template-rows: 148px 88px; }
+  .announcement-pill-title { font-size: .92rem; }
+  .announcement-pill-text { -webkit-line-clamp: 3; font-size: .85rem; }
+  .announcement-item-footer { flex-direction: column; align-items: stretch; justify-content: center; gap: .35rem; }
+  .announcement-pill-date { min-height: 17px; font-size: .7rem; }
+  .announcement-pill-date span { -webkit-line-clamp: 1; }
+  .announcement-item-actions { justify-content: flex-end; min-height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announcement-item, .announcement-nav-btn { transition: none; }
 }
 
 /* Footer */
@@ -2669,6 +2814,16 @@ body.dark-mode .announcement-bar-marquee {
   background: linear-gradient(90deg, #0e7490, #0891b2);
 }
 
+body.dark-mode .profile-announcement-pill,
+body.dark-mode .announcement-dialog {
+  --announcement-line: rgba(103, 232, 249, .14);
+  --announcement-tint: rgba(34, 211, 238, .08);
+  --announcement-accent: #67e8f9;
+  background: rgba(15, 23, 42, .8);
+  border-color: rgba(148, 163, 184, .16);
+  box-shadow: 0 12px 36px -18px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
 /* ==========================================================================
    Glimpses: Scroll-Driven Horizontal Showcase Gallery
    ========================================================================== */
@@ -3724,4 +3879,4 @@ body.dark-mode .academic-see-more-btn:hover {
   background: linear-gradient(135deg, #0891b2, #0284c7);
   color: #ffffff !important;
   box-shadow: 0 8px 25px rgba(8, 145, 178, 0.5);
-}
+}

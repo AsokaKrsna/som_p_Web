@@ -100,6 +100,10 @@ $awards = loadJsonData('awards_honours.json');
 $adminResponsibilities = loadJsonData('admin_responsibilities.json');
 $otherResponsibilities = loadJsonData('other_responsibilities.json');
 $profile = loadJsonData('profile_content.json');
+$announcements = loadJsonData('announcements.json');
+$snackbarAnnouncements = array_values(array_filter($announcements, function ($a) {
+    return !empty($a['show_in_snackbar']) && ($a['show_in_snackbar'] === true || $a['show_in_snackbar'] === 'true' || $a['show_in_snackbar'] === 1 || $a['show_in_snackbar'] === '1');
+}));
 ?>
 
 <!-- Section 1: Hero Section -->
@@ -152,6 +156,65 @@ $profile = loadJsonData('profile_content.json');
         </div>
     </div>
 </section>
+
+<!-- Section: Announcements / Snackbar -->
+<?php if (!empty($snackbarAnnouncements)): ?>
+<section class="profile-announcement-section" aria-label="Announcements & Updates">
+    <div class="container">
+        <div class="profile-announcement-pill" id="profileAnnouncementPill" role="region" aria-roledescription="carousel" aria-label="Latest announcements">
+            <div class="announcement-pill-top">
+                <div class="announcement-pill-indicator">
+                    <span class="announcement-pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9h4l11-4v14L8 15H4zM8 15l2 5H6l-2-5M8 9v6" stroke-linejoin="round"/></svg></span>
+                    <span class="announcement-header-label">Announcements</span>
+                </div>
+                <?php if (count($snackbarAnnouncements) > 1): ?>
+                <div class="announcement-pill-controls">
+                    <span class="announcement-counter" id="announcementCounter" aria-live="off">01 / <?= str_pad((string) count($snackbarAnnouncements), 2, '0', STR_PAD_LEFT) ?></span>
+                    <button type="button" class="announcement-nav-btn" id="pauseAnnouncements" aria-label="Pause announcements" aria-pressed="false"><span aria-hidden="true">&#8545;</span></button>
+                    <button type="button" class="announcement-nav-btn" id="prevAnnouncement" aria-label="Previous announcement"><span aria-hidden="true">&#8249;</span></button>
+                    <button type="button" class="announcement-nav-btn" id="nextAnnouncement" aria-label="Next announcement"><span aria-hidden="true">&#8250;</span></button>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="announcement-pill-content" id="announcementSlides" aria-live="off">
+                <?php foreach ($snackbarAnnouncements as $idx => $announcement): ?>
+                <article class="announcement-item <?= $idx === 0 ? 'active' : '' ?>" data-index="<?= $idx ?>" role="group" aria-roledescription="slide" aria-label="<?= $idx + 1 ?> of <?= count($snackbarAnnouncements) ?>" <?= $idx === 0 ? '' : 'inert aria-hidden="true"' ?>>
+                    <div class="announcement-item-body">
+                        <div class="announcement-item-body-header">
+                            <?php if (!empty($announcement['badge'])): ?>
+                            <span class="announcement-pill-badge"><?= htmlspecialchars($announcement['badge']) ?></span>
+                            <?php endif; ?>
+                            <h2 class="announcement-pill-title"><?= htmlspecialchars($announcement['title'] ?? 'Latest update') ?></h2>
+                        </div>
+                        <p class="announcement-pill-text"><?= htmlspecialchars($announcement['text'] ?? '') ?></p>
+                    </div>
+                    <div class="announcement-item-footer">
+                        <span class="announcement-pill-date">
+                            <?php if (!empty($announcement['date'])): ?>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v5m8-5v5"/></svg><span><?= htmlspecialchars($announcement['date']) ?></span>
+                            <?php endif; ?>
+                        </span>
+                        <div class="announcement-item-actions">
+                            <button type="button" class="announcement-expand" hidden>Read more</button>
+                            <?php if (!empty($announcement['link'])): ?>
+                            <a href="<?= htmlspecialchars($announcement['link']) ?>" target="_blank" rel="noopener noreferrer" class="announcement-pill-cta"><span>View details</span><span aria-hidden="true">&#8599;</span></a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <dialog class="announcement-dialog" id="announcementDialog" aria-labelledby="announcementDialogTitle">
+        <div class="announcement-dialog-header"><span>Announcement</span><button type="button" class="announcement-nav-btn" aria-label="Close announcement"><span aria-hidden="true">&#215;</span></button></div>
+        <h2 id="announcementDialogTitle"></h2>
+        <p class="announcement-dialog-meta"></p>
+        <p class="announcement-dialog-text"></p>
+    </dialog>
+    <script src="components/announcements.js" defer></script>
+</section>
+<?php endif; ?>
 
 <!-- Section 2: Editorial Bio -->
 <section id="bio" class="editorial-bio">
