@@ -3,9 +3,9 @@
         "show_in_snackbar": true,
         "title": "FUP Alert",
         "text": "Faculty Updation Program On Contemporary Cyberthreats and Mitigation",
-        "link": "events/FUP_Oct_2026.pdf",
+        "link": "",
         "badge": "",
-        "badge_color": "bg-warning text-dark",
+        "badge_color": "bg-success",
         "date": "26th October to 30th October"
     }
 ]
