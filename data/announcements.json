@@ -1,20 +1,11 @@
 [
     {
-        "text": "Our PhD scholar Debasmita Manna have successfully completed her defense on 17th Aug 2026",
-        "link": "",
-        "badge": "Success Story",
-        "title": "Defense",
+        "show_in_snackbar": true,
+        "title": "FUP Alert",
+        "text": "Faculty Updation Program On Contemporary Cyberthreats and Mitigation",
+        "link": "events/FUP_Oct_2026.pdf",
+        "badge": "",
         "badge_color": "bg-success",
-        "date": "August 2026",
-        "show_in_snackbar": false
-    },
-    {
-        "title": "Lab Update",
-        "text": "The Cybersecurity Lab welcomes a new batch of M.Tech by research students 2026.",
-        "link": "",
-        "badge": "New",
-        "badge_color": "bg-warning text-dark",
-        "date": "August 2026",
-        "show_in_snackbar": true
+        "date": "26th October to 30th October"
     }
 ]
